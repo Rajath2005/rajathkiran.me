@@ -1,34 +1,34 @@
-# Contributing 🚀
+# Contributing
 
 Thanks for your interest in improving my portfolio!
 
-## How to Help ✨
+## How to Help
 
-**🐛 Bug Reports**
+**Bug Reports**
 [Open an issue](https://github.com/Rajath2005/rajathkiran.io/issues) with a clear description and steps to reproduce.
 
-**💡 Suggestions** 
+**Suggestions** 
 Share ideas via [issues](https://github.com/Rajath2005/rajathkiran.io/issues).
 
-**🔧 Code Changes**
+**Code Changes**
 1. Fork the repo
 2. Create branch: `git checkout -b feature/name`
 3. Make changes & test
 4. Push & open Pull Request
 
-## Setup 🛠️
+## Setup
 git clone https://github.com/Rajath2005/rajathkiran.io.git
 
 cd rajathkiran.io
 
 
-## Rules 📋
+## Rules
 - Keep it simple and focused
 - Test on mobile & desktop
 - Follow existing code style
 - Be respectful
 
-## Contact 💬
+## Contact
 📧 [rajathajeru@gmail.com](mailto:rajathajeru@gmail.com)
 
-Thanks for contributing! ⭐
+Thanks for contributing!

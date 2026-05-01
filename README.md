@@ -1,4 +1,4 @@
-# Personal Portfolio ⚡️
+# Personal Portfolio
 
 A clean, modern, responsive portfolio website for developers.
 
@@ -10,25 +10,25 @@ A clean, modern, responsive portfolio website for developers.
 
 ![Desktop View](Desktop.jpg)
 
-⭐ Star me on GitHub — it helps!
+Star me on GitHub — it helps!
 
-## Features 📋
+## Features
 
-⚡️ Fully Responsive  
-⚡️ Modern Design  
-⚡️ Smooth Animations  
-⚡️ Mobile-First Approach  
-⚡️ Performance Optimized  
-⚡️ Easy to Customize  
+- Fully Responsive  
+- Modern Design  
+- Smooth Animations  
+- Mobile-First Approach  
+- Performance Optimized  
+- Easy to Customize  
 
-## Installation & Deployment 📦
+## Installation & Deployment
 
 * Clone the repository and modify the content according to your requirement
 * Update personal information in `script.js` and `index.html`
 * Add or remove images from `assets/images/` directory as needed
 * Deploy using **Netlify** or **GitHub Pages** for the easiest setup
 
-## Quick Start 🚀
+## Quick Start
 
 ```bash
 git clone https://github.com/Rajath2005/rajathkiran.io.git
@@ -36,30 +36,30 @@ cd rajathkiran.io
 # Open index.html in your browser or use a local server
 ```
 
-## Sections 📚
+## Sections
 
-✔️ About  
-✔️ Skills  
-✔️ Projects  
-✔️ Experience  
-✔️ Contact  
-✔️ Resume  
+- About  
+- Skills  
+- Projects  
+- Experience  
+- Contact  
+- Resume  
 
-## Built With 🛠️
+## Built With
 
 * **HTML5** - Structure
 * **CSS3** - Styling & Animations  
 * **JavaScript** - Interactivity
 * **Netlify** - Deployment
 
-## Credits 🙏
+## Credits
 
 Original template by [@codewithsadee](https://github.com/codewithsadee) - [vCard Personal Portfolio](https://github.com/codewithsadee/vcard-personal-portfolio)
 
-## License 📄
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-**Built with ❤️ by [Rajath Kiran A](https://github.com/Rajath2005)**
+**Built by [Rajath Kiran A](https://github.com/Rajath2005)**

@@ -26,7 +26,7 @@ export const initCustomCursor = () => {
     });
 
     // Magnetic Buttons & Links
-    const interactiveElements = document.querySelectorAll('button, a, .content-card');
+    const interactiveElements = document.querySelectorAll('button, a, .content-card, .certificate-item, .project-item');
 
     interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {

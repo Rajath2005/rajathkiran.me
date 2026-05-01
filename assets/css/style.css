@@ -97,6 +97,7 @@
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 li {
@@ -105,11 +106,22 @@ li {
 
 img,
 ion-icon,
+.lucide,
 a,
 button,
 time,
 span {
   display: block;
+}
+
+.lucide {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  vertical-align: text-bottom;
+  margin-left: 4px;
+  stroke-width: 2.5;
+  color: var(--cyber-cyan);
 }
 
 button {
@@ -748,6 +760,7 @@ main {
   font-size: var(--fs-7);
   padding: 20px 10px;
   transition: color var(--transition-1), transform 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .navbar-link:hover,
@@ -1140,6 +1153,7 @@ main {
   align-items: center;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .certificate-item:hover {
@@ -1506,6 +1520,7 @@ main {
 
 .project-item {
   display: none;
+  cursor: pointer;
 }
 
 .project-item.active {

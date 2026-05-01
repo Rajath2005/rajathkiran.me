@@ -50,7 +50,7 @@
 
 
   <!-- This CSS file is Detailed CSS file -->
-  <link rel="stylesheet" href="./assets/css/style.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 
   <!--
     - google font link
@@ -58,6 +58,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -588,7 +591,7 @@
               <ion-icon name="book-outline"></ion-icon>
             </div>
 
-            <h3 class="h3"><b>Education 📚 </b></h3>
+            <h3 class="h3"><b>Education <i data-lucide="book-open"></i></b></h3>
           </div>
 
           <div class="timeline-container">
@@ -644,7 +647,7 @@
             <div class="icon-box">
               <ion-icon name="rocket-outline"></ion-icon>
             </div>
-            <h3 class="h3">My Coding Journey🚀</h3>
+            <h3 class="h3">My Coding Journey <i data-lucide="rocket"></i></h3>
           </div>
 
           <div class="timeline-container">
@@ -660,7 +663,7 @@
                 <div class="timeline-dot" data-magnetic></div>
                 <div class="timeline-content">
                   <span class="timeline-year">2021 – 2022 | The Spark Begins</span>
-                  <h4 class="h4 timeline-item-title">Kicking Off with Code 💻</h4>
+                  <h4 class="h4 timeline-item-title">Kicking Off with Code <i data-lucide="code-2"></i></h4>
                   <p class="timeline-text">
                     My first dive into <b>C++</b> helped me understand the fundamentals of programming. <br><br>
                     I also explored <b>Oracle DBMS</b>, which introduced me to the role of databases in powering
@@ -674,7 +677,7 @@
                 <div class="timeline-dot" data-magnetic></div>
                 <div class="timeline-content">
                   <span class="timeline-year">2022 – 2023 | Leveling Up</span>
-                  <h4 class="h4 timeline-item-title">Mastering the Logic Game 🧠</h4>
+                  <h4 class="h4 timeline-item-title">Mastering the Logic Game <i data-lucide="brain"></i></h4>
                   <p class="timeline-text">
                     I developed a stronger foundation in <b>Data Structures, OOP, and Memory Management</b>. <br><br>
                     Practiced coding regularly in <b>C, C++, and Java</b> and solved algorithmic problems on <b>InCode
@@ -688,7 +691,7 @@
                 <div class="timeline-dot" data-magnetic></div>
                 <div class="timeline-content">
                   <span class="timeline-year">2023 | College Life Begins!</span>
-                  <h4 class="h4 timeline-item-title"> First Year - Building the Base 🌱</h4>
+                  <h4 class="h4 timeline-item-title"> First Year - Building the Base <i data-lucide="sprout"></i></h4>
                   <p class="timeline-text">
                     I started working with <b>C, Python, and Java</b> while also learning the basics of <b>HTML, CSS,
                       and JavaScript</b>. <br><br>
@@ -703,7 +706,7 @@
                 <div class="timeline-dot" data-magnetic></div>
                 <div class="timeline-content">
                   <span class="timeline-year">2024 | Getting Serious About Development</span>
-                  <h4 class="h4 timeline-item-title">Second Year - Exploring New Horizons 🌍</h4>
+                  <h4 class="h4 timeline-item-title">Second Year - Exploring New Horizons <i data-lucide="earth"></i></h4>
                   <p class="timeline-text">
                     <b>Skills:</b> Learned <b>React.js & Node.js</b> and began building dynamic applications. <br><br>
                     <b>Experiences:</b> Participated in <b>hackathons</b>, attended webinars, and contributed to
@@ -719,7 +722,7 @@
                 <div class="timeline-dot" data-magnetic></div>
                 <div class="timeline-content">
                   <span class="timeline-year">2025 | Leading AyuDost’s Development</span>
-                  <h4 class="h4 timeline-item-title">Third Year - Innovating & Growing 🔥</h4>
+                  <h4 class="h4 timeline-item-title">Third Year - Innovating & Growing <i data-lucide="flame"></i></h4>
                   <p class="timeline-text">
                     Focused on strengthening my <b>full-stack development</b> skills and practicing <b>DSA</b>
                     consistently on LeetCode and InCode 360. <br><br>
@@ -1422,6 +1425,10 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    lucide.createIcons();
+  </script>
 
 
 </body>
