@@ -1,108 +1,60 @@
-import { gsap } from 'https://cdn.skypack.dev/gsap';
-import { ScrollTrigger } from 'https://cdn.skypack.dev/gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
-// Function to animate page transition
-export const animatePageChange = (activePage) => {
-    // Animate new content in
-    gsap.fromTo(activePage,
-        { opacity: 0, y: 30, scale: 0.98 },
-        { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power2.out" }
-    );
-
-    // Force ScrollTrigger to recalculate positions since layout changed
-    ScrollTrigger.refresh();
-
-    // Re-initialize ScrollTriggers for the new page content
-    initScrollAnimations(activePage);
-};
+/**
+ * Scroll Animations (P7)
+ * Implements native IntersectionObserver for stagger-sequences and state-transitions.
+ */
 
 export const initScrollAnimations = (context = document) => {
-    // Animate Sections on Scroll
-    const sections = context.querySelectorAll('section, article');
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            } else {
+                // Optional: remove to allow re-animating when scrolling back up
+                entry.target.classList.remove('is-visible');
+            }
+        });
+    }, observerOptions);
+
+    // 1. Animate Individual Sections and Articles
+    const sections = context.querySelectorAll('section, article, .timeline-item.premium-card');
     sections.forEach(section => {
-        gsap.fromTo(section.children,
-            { y: 50, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 0.8,
-                stagger: 0.1,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: section,
-                    start: "top 85%", // Start when top of section hits 85% of viewport
-                    toggleActions: "play none none reverse"
-                }
-            }
-        );
+        section.classList.add('animate-on-scroll');
+        observer.observe(section);
     });
 
-    // Animate List Items (Projects, Experience) with staggered reveal
-    const lists = context.querySelectorAll('.service-list, .testimonials-list, .coding-profiles-list, .project-list');
+    // 2. Animate Lists with Stagger Sequence
+    const lists = context.querySelectorAll('.service-list, .testimonials-list, .coding-profiles-list, .project-list, .skills-list, .timeline-list');
     lists.forEach(list => {
-        gsap.fromTo(list.children,
-            { y: 30, opacity: 0, scale: 0.9 },
-            {
-                y: 0,
-                opacity: 1,
-                scale: 1,
-                duration: 0.5,
-                stagger: 0.1,
-                ease: "back.out(1.7)", // Bouncy effect
-                scrollTrigger: {
-                    trigger: list,
-                    start: "top 90%"
-                }
-            }
-        );
+        list.classList.add('stagger-sequence');
+        observer.observe(list);
     });
 
-    initTimelineAnimations(context);
+    // 3. Special handling for Timeline Line drawing if needed
+    initTimelineLineAnimation(context);
 };
 
-export const initTimelineAnimations = (context = document) => {
-    const timelineContainers = context.querySelectorAll('.timeline-container');
-
-    timelineContainers.forEach(container => {
-        // Animate the line drawing for THIS container
-        const lineFill = container.querySelector('.timeline-line-fill');
-        if (lineFill) {
-            gsap.to(lineFill, {
-                height: '100%',
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: container,
-                    start: 'top 70%',
-                    end: 'bottom 70%',
-                    scrub: true
-                }
-            });
-        }
-    });
-
-    // Animate Timeline Items (Applies to all cards globally)
-    const items = context.querySelectorAll('.timeline-item.premium-card');
-    items.forEach((item, index) => {
-        // Content Reveal
-        gsap.fromTo(item,
-            { opacity: 0, x: -30 },
-            {
-                opacity: 1,
-                x: 0,
-                duration: 0.8,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top 85%',
-                    end: 'top 50%',
-                    toggleActions: 'play none none reverse',
-                    onEnter: () => item.classList.add('active'),
-                    onLeaveBack: () => item.classList.remove('active')
-                }
+export const initTimelineLineAnimation = (context = document) => {
+    const timelineLines = context.querySelectorAll('.timeline-line-fill');
+    
+    const lineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.height = '100%';
+            } else {
+                entry.target.style.height = '0%';
             }
-        );
+        });
+    }, { threshold: 0.1 });
+
+    timelineLines.forEach(line => {
+        line.style.transition = 'height 1.5s ease-in-out';
+        lineObserver.observe(line);
     });
 };
 
@@ -110,7 +62,25 @@ export const initTimelineAnimations = (context = document) => {
 document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
 
+    // Sidebar entrance
     const sidebar = document.querySelector('.sidebar');
-    // Sidebar enters from left with bounce
-    gsap.from(sidebar, { x: -100, opacity: 0, duration: 1.2, ease: "elastic.out(1, 0.75)" });
+    if (sidebar) {
+        sidebar.style.opacity = '0';
+        sidebar.style.transform = 'translateX(-50px)';
+        sidebar.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        
+        setTimeout(() => {
+            sidebar.style.opacity = '1';
+            sidebar.style.transform = 'translateX(0)';
+        }, 100);
+    }
 });
+
+// Function to animate page transition (exported for script.js)
+export const animatePageChange = (activePage) => {
+    activePage.classList.remove('is-visible');
+    setTimeout(() => {
+        activePage.classList.add('is-visible');
+        initScrollAnimations(activePage);
+    }, 50);
+};
