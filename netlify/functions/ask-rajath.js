@@ -7,12 +7,27 @@ exports.handler = async (event, context) => {
     const { question } = JSON.parse(event.body);
     const API_KEY = process.env.GEMINI_API_KEY;
 
+    // Check if fetch is available
+    if (typeof fetch === 'undefined') {
+      console.error('Fetch is not defined. Node version:', process.version);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ 
+          error: 'Environment Error', 
+          message: 'The server environment is missing a required feature (fetch). Please ensure Node.js 18+ is used.' 
+        }),
+      };
+    }
+
     if (!API_KEY) {
+      console.error('GEMINI_API_KEY is not set');
       return {
         statusCode: 500,
         body: JSON.stringify({ error: 'Gemini API key not configured' }),
       };
     }
+
+    console.log('Processing request for question length:', question ? question.length : 0);
 
     const systemPrompt = `
       You are an AI assistant for Rajath Kiran A's portfolio website. 
@@ -39,7 +54,7 @@ exports.handler = async (event, context) => {
       - Use "Rajath" or "he" when referring to him.
     `;
 
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -51,11 +66,29 @@ exports.handler = async (event, context) => {
 
     if (!response.ok) {
         const errorData = await response.json();
-        console.error('Gemini API Error:', errorData);
-        throw new Error('Gemini API returned an error');
+        console.error('Gemini API Error:', JSON.stringify(errorData));
+        return {
+          statusCode: response.status,
+          body: JSON.stringify({ 
+            error: 'Gemini API Error', 
+            message: errorData.error?.message || 'The AI service returned an error.',
+            details: errorData 
+          }),
+        };
     }
 
     const data = await response.json();
+    
+    if (!data.candidates || data.candidates.length === 0 || !data.candidates[0].content || !data.candidates[0].content.parts) {
+        console.error('Unexpected Gemini API response structure:', JSON.stringify(data));
+        return {
+          statusCode: 200,
+          body: JSON.stringify({ 
+            answer: "I'm sorry, I'm having trouble processing that right now. It might be due to safety filters or an unexpected response format. Please try rephrasing your question!" 
+          }),
+        };
+    }
+
     const aiResponse = data.candidates[0].content.parts[0].text;
 
     return {
@@ -69,7 +102,10 @@ exports.handler = async (event, context) => {
     console.error('Error in ask-rajath function:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to get response from AI' }),
+      body: JSON.stringify({ 
+        error: 'Server Error', 
+        message: error.message || 'An internal error occurred.' 
+      }),
     };
   }
 };

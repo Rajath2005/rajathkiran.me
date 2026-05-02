@@ -48,12 +48,17 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify({ question }),
       });
 
-      if (!response.ok) throw new Error('Failed to get response');
-
       const data = await response.json();
       
-      // Remove typing indicator and append bot message
+      // Remove typing indicator
       typingIndicator.remove();
+
+      if (!response.ok) {
+        console.error('AI Chat Error:', data);
+        const errorMessage = data.message || data.error || "I'm having trouble connecting right now.";
+        appendMessage(`Sorry, ${errorMessage} Please try again later!`, 'bot');
+        return;
+      }
       
       if (data.error) {
         appendMessage("I'm sorry, I'm having a little trouble right now. Please try again later!", 'bot');
@@ -62,8 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (error) {
       console.error('AI Chat Error:', error);
-      typingIndicator.remove();
-      appendMessage("Sorry, I'm having trouble connecting to my brain right now. Please try again later!", 'bot');
+      if (typeof typingIndicator !== 'undefined' && typingIndicator.parentNode) {
+        typingIndicator.remove();
+      }
+      appendMessage("Sorry, I'm having trouble connecting to my brain right now. Please check your internet connection or try again later!", 'bot');
     }
   });
 
