@@ -157,6 +157,7 @@ body {
   background: var(--smoky-black);
   cursor: none;
   /* Hide default cursor */
+  overflow-x: hidden;
 }
 
 #custom-cursor {
@@ -301,6 +302,57 @@ article.active {
 .article-title {
   position: relative;
   padding-bottom: 7px;
+}
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.playground-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.playground-btn {
+  background: var(--eerie-black-2);
+  color: var(--orange-yellow-crayola);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  border-radius: 12px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+}
+
+.playground-btn:hover {
+  background: var(--onyx);
+}
+
+.playground-btn.active {
+  background: var(--text-gradient-yellow);
+  color: var(--smoky-black);
+}
+
+.playground-btn ion-icon {
+  font-size: 18px;
+}
+
+.playground-btn.hidden {
+  display: none;
+}
+
+@media (max-width: 580px) {
+  .projects-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
 }
 
 .article-title::after {
@@ -1526,6 +1578,23 @@ main {
 .project-item.active {
   display: block;
   animation: scaleUp 0.25s ease forwards;
+}
+
+.project-item.playground-active {
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  z-index: 10;
+  animation: none; /* Disable entrance animation when dragging */
+  transition: none !important; /* Disable all transitions for smooth physics */
+}
+
+.project-item.playground-active:active {
+  cursor: grabbing;
+}
+
+.project-item.playground-active.dragging {
+  z-index: 100;
 }
 
 @keyframes scaleUp {
@@ -3210,5 +3279,327 @@ textarea.form-input::-webkit-resizer {
     width: 55px;
     height: 55px;
     font-size: 26px;
+  }
+}
+
+/*-----------------------------------*\
+  #PROJECT MODAL
+\*-----------------------------------*/
+
+.project-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  z-index: 1000;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.project-modal-container.active {
+  pointer-events: all;
+  visibility: visible;
+}
+
+.project-modal-container .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: hsl(0, 0%, 5%);
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-1);
+  z-index: 1;
+}
+
+.project-modal-container.active .overlay {
+  opacity: 0.8;
+  visibility: visible;
+}
+
+.project-modal {
+  position: relative;
+  background: var(--eerie-black-2);
+  margin: 15px;
+  padding: 15px;
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  box-shadow: var(--shadow-5);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: var(--transition-1);
+  z-index: 2;
+  width: 100%;
+  max-width: 1000px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-modal-container.active .project-modal {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.project-modal .modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--onyx);
+  color: var(--white-2);
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  opacity: 0.7;
+  transition: var(--transition-1);
+  z-index: 10;
+}
+
+.project-modal .modal-close-btn:hover { opacity: 1; }
+
+.demo-frame {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--smoky-black);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--jet);
+  position: relative;
+}
+
+.demo-banner {
+  background: var(--bg-gradient-blue-1);
+  color: var(--white-1);
+  padding: 8px 15px;
+  font-size: var(--fs-8);
+  font-weight: var(--fw-600);
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.demo-iframe {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white; /* Fallback for iframes that take time to load */
+}
+
+.demo-fallback {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+  background: var(--eerie-black-1);
+}
+
+.fallback-icon {
+  font-size: 60px;
+  color: var(--bittersweet-shimmer);
+  margin-bottom: 20px;
+}
+
+.fallback-title {
+  color: var(--white-2);
+  margin-bottom: 15px;
+}
+
+.fallback-text {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  max-width: 400px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.fallback-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-gradient-onyx);
+  color: var(--cyber-cyan);
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  border: 1px solid var(--jet);
+  transition: var(--transition-1);
+}
+
+.fallback-link:hover {
+  background: var(--bg-gradient-blue-1);
+  color: var(--white-1);
+}
+
+@media (min-width: 768px) {
+  .project-modal {
+    padding: 30px;
+    height: 85vh;
+  }
+  
+  .project-modal .modal-close-btn {
+    top: 25px;
+    right: 25px;
+  }
+  
+  .demo-banner { font-size: var(--fs-7); }
+}
+
+/*-----------------------------------*\
+  #HORIZONTAL JOURNEY
+\*-----------------------------------*/
+
+.journey-horizontal-section {
+  padding: 0 !important;
+  margin: 30px 0 !important;
+  max-width: none !important;
+  width: 100% !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* 
+  CRITICAL: article and main-content normally have overflow: hidden, 
+  which breaks position: sticky for the journey.
+*/
+article.has-journey,
+.main-content.is-journey-active {
+  overflow: visible !important;
+}
+
+.journey-horizontal-section .title-wrapper {
+  padding: 0 30px;
+  margin-bottom: 25px;
+}
+
+.journey-wrapper {
+  position: relative;
+  min-height: 200vh; /* Fallback */
+  background: transparent;
+  width: 100%; /* Fill available content space */
+  margin-left: 0;
+  z-index: 2;
+}
+
+.journey-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.journey-track {
+  display: flex;
+  height: 100%;
+  width: max-content; /* Dynamic width based on panels */
+  will-change: transform;
+}
+
+.journey-panel {
+  width: 100%; /* JS will force this to match parent width */
+  height: 80vh; /* Slightly shorter to fit header/padding */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  box-sizing: border-box;
+  background: var(--panel-bg);
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid rgba(0, 216, 255, 0.1);
+  border-radius: 20px;
+}
+
+.panel-year {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 10rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 216, 255, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.15;
+  text-shadow: 0 0 30px rgba(0, 216, 255, 0.1);
+}
+
+.panel-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+}
+
+.panel-content h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 4vw;
+  margin-bottom: 20px;
+  color: var(--cyber-cyan);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.panel-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--white-2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.4rem;
+}
+
+.panel-text span {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: inline-block;
+}
+
+.journey-panel.active .panel-text span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .panel-content h4 {
+    font-size: 8vw;
+  }
+  .panel-text {
+    font-size: 1rem;
+  }
+  .panel-year {
+    font-size: 25vw;
   }
 }

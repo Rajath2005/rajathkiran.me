@@ -75,8 +75,13 @@ document.addEventListener('mousemove', (event) => {
 
 // Animation Loop
 const clock = new THREE.Clock();
+let isPaused = false;
 
 const tick = () => {
+    if (isPaused) {
+        window.requestAnimationFrame(tick);
+        return;
+    }
     const elapsedTime = clock.getElapsedTime();
 
     // Rotate particles
@@ -99,6 +104,10 @@ const tick = () => {
 };
 
 tick();
+
+// Expose pause/resume to window for the hacker mode takeover
+window.pauseThreeBackground = () => { isPaused = true; };
+window.resumeThreeBackground = () => { isPaused = false; };
 
 // Resize
 window.addEventListener('resize', () => {

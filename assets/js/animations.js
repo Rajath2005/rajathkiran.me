@@ -22,14 +22,14 @@ export const initScrollAnimations = (context = document) => {
     }, observerOptions);
 
     // 1. Animate Individual Sections and Articles
-    const sections = context.querySelectorAll('section, article, .timeline-item.premium-card');
+    const sections = context.querySelectorAll('section:not(.journey-horizontal-section), .timeline-item.premium-card');
     sections.forEach(section => {
         section.classList.add('animate-on-scroll');
         observer.observe(section);
     });
 
     // 2. Animate Lists with Stagger Sequence
-    const lists = context.querySelectorAll('.service-list, .testimonials-list, .coding-profiles-list, .project-list, .skills-list, .timeline-list');
+    const lists = context.querySelectorAll('.service-list, .testimonials-list, .coding-profiles-list, .skills-list, .timeline-list');
     lists.forEach(list => {
         list.classList.add('stagger-sequence');
         observer.observe(list);
@@ -37,6 +37,132 @@ export const initScrollAnimations = (context = document) => {
 
     // 3. Special handling for Timeline Line drawing if needed
     initTimelineLineAnimation(context);
+
+    // 4. Horizontal Journey Storytelling
+    initHorizontalJourney(context);
+};
+
+export const initHorizontalJourney = (context = document) => {
+    // Check if the wrapper exists in the provided context or globally
+    const wrapper = document.querySelector('#journey-wrapper');
+    const track = document.querySelector('#journey-track');
+    const panels = document.querySelectorAll('.journey-panel');
+
+    if (!wrapper || !track) return;
+
+    // Add class to parent article for sticky support (fallback for :has)
+    const parentArticle = wrapper.closest('article');
+    if (parentArticle) parentArticle.classList.add('has-journey');
+
+    // Robust Full-Width Breakout Alignment
+    const alignWrapper = () => {
+        const currentWrapper = document.querySelector('#journey-wrapper');
+        const currentTrack = document.querySelector('#journey-track');
+        const currentPanels = document.querySelectorAll('.journey-panel');
+        const mainContent = document.querySelector('.main-content');
+        
+        if (!currentWrapper || !currentTrack) return;
+        
+        // Skip if not visible
+        if (currentWrapper.offsetParent === null) {
+            if (mainContent) mainContent.classList.remove('is-journey-active');
+            return;
+        }
+
+        // Add class for overflow management
+        if (mainContent) mainContent.classList.add('is-journey-active');
+        
+        const parentWidth = currentWrapper.parentElement.offsetWidth;
+        
+        // Force panels to match content width
+        currentPanels.forEach(panel => {
+            panel.style.width = `${parentWidth}px`;
+        });
+
+        currentWrapper.style.width = `${parentWidth}px`;
+        currentWrapper.style.marginLeft = `0`; // Reset any previous breakout
+
+        // Calculate height based on actual track width
+        const horizontalDistance = currentTrack.scrollWidth - parentWidth;
+        currentWrapper.style.height = `${horizontalDistance + window.innerHeight}px`;
+    };
+
+    // Prepare per-word animation
+    const prepareWordAnimation = () => {
+        const textElements = document.querySelectorAll('.panel-text');
+        textElements.forEach(el => {
+            if (el.hasAttribute('data-words-prepared')) return;
+            const words = el.textContent.split(' ');
+            el.innerHTML = words.map((word, i) => 
+                `<span style="transition-delay: ${i * 40}ms">${word}</span>`
+            ).join(' ');
+            el.setAttribute('data-words-prepared', 'true');
+        });
+    };
+
+    // Initial alignment with a small delay to ensure layout is ready
+    setTimeout(alignWrapper, 100);
+    prepareWordAnimation();
+    window.addEventListener('resize', alignWrapper);
+
+    // Ensure first panel is active on load
+    if (panels.length > 0) panels[0].classList.add('active');
+
+    // Use a named function to allow checking/removing if needed
+    if (window._journeyScrollAttached) return;
+    window._journeyScrollAttached = true;
+
+    window.addEventListener('scroll', () => {
+        const currentWrapper = document.querySelector('#journey-wrapper');
+        const currentTrack = document.querySelector('#journey-track');
+        const currentPanels = document.querySelectorAll('.journey-panel');
+
+        if (!currentWrapper || !currentTrack) return;
+
+        alignWrapper(); // Re-align on scroll for dynamic layouts
+
+        const rect = currentWrapper.getBoundingClientRect();
+        const wrapperTop = rect.top;
+        const wrapperHeight = rect.height;
+        const viewportHeight = window.innerHeight;
+
+        // If the section is in view (sticky area)
+        if (wrapperTop <= 0 && wrapperTop >= -(wrapperHeight - viewportHeight)) {
+            let progress = -wrapperTop / (wrapperHeight - viewportHeight);
+            progress = Math.max(0, Math.min(1, progress));
+            
+            // Use the actual container width (rect.width) instead of window.innerWidth
+            const totalWidth = currentTrack.scrollWidth - rect.width;
+            const translateX = progress * totalWidth;
+
+            currentTrack.style.transform = `translateX(-${translateX}px)`;
+
+            // Switch active panel when it's more than 50% in view
+            const activeIndex = Math.round(progress * (currentPanels.length - 1));
+            currentPanels.forEach((panel, index) => {
+                if (index === activeIndex) {
+                    panel.classList.add('active');
+                } else {
+                    panel.classList.remove('active');
+                }
+            });
+        } else if (wrapperTop > 0) {
+            // Before starting
+            currentTrack.style.transform = 'translateX(0px)';
+            currentPanels.forEach((p, i) => {
+                if (i === 0) p.classList.add('active');
+                else p.classList.remove('active');
+            });
+        } else if (wrapperTop < -(wrapperHeight - viewportHeight)) {
+            // After finishing
+            const totalWidth = currentTrack.scrollWidth - rect.width;
+            currentTrack.style.transform = `translateX(-${totalWidth}px)`;
+            currentPanels.forEach((p, i) => {
+                if (i === currentPanels.length - 1) p.classList.add('active');
+                else p.classList.remove('active');
+            });
+        }
+    }, { passive: true });
 };
 
 export const initTimelineLineAnimation = (context = document) => {
