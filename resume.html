@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Resume — Rajath Kiran A</title>
+  <link rel="icon" href="./assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="./assets/css/style.min.css">
+  <link rel="stylesheet" href="./assets/css/resume-viewer.css">
+</head>
+<body class="viewer-root">
+
+  <div class="viewer-toolbar" role="toolbar" aria-hidden="false">
+    <div class="toolbar-left">
+      <a class="btn btn-ghost" href="index.html" id="backBtn" title="Back to portfolio">← Back</a>
+    </div>
+
+    <div class="toolbar-center">
+      <button id="prevPage" class="btn" aria-label="Previous page">◀</button>
+      <span id="pageInfo">Page 1 / 1</span>
+      <button id="nextPage" class="btn" aria-label="Next page">▶</button>
+
+      <div class="spacer"></div>
+
+      <button id="zoomOut" class="btn" aria-label="Zoom out">−</button>
+      <span id="zoomPct">100%</span>
+      <button id="zoomIn" class="btn" aria-label="Zoom in">+</button>
+
+      <button id="fitBtn" class="btn" aria-label="Fit to width" title="Fit to width">⤢</button>
+      <button id="rotateBtn" class="btn" aria-label="Rotate" title="Rotate">⟳</button>
+
+      <button id="downloadBtn" class="btn" title="Download PDF">⬇</button>
+      <button id="shareBtn" class="btn" title="Copy link">🔗</button>
+    </div>
+
+  </div>
+
+  <main class="viewer-main">
+    <div id="canvasContainer" class="canvas-container">
+      <canvas id="pdfCanvas" class="pdf-canvas" role="img" aria-label="Resume PDF canvas"></canvas>
+      <div id="skeleton" class="skeleton" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <div id="progressBar" class="progress-bar" aria-hidden="true"><div class="progress"></div></div>
+
+  <!-- PDF.js from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
+  <script src="./assets/js/resume-viewer.js" defer></script>
+</body>
+</html>
