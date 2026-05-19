@@ -2,7 +2,7 @@
 
 A clean, modern, responsive portfolio website for developers.
 
-**Live Demo:** [rajathkiran.io](https://rajathkiran.netlify.app/)
+**Live Demo:** [rajathkiran.me](https://rajathkiran.me/)
 
 > **Note:** This project is based on [vCard Personal Portfolio](https://github.com/codewithsadee/vcard-personal-portfolio) by [@codewithsadee](https://github.com/codewithsadee) and has been modified to suit personal requirements.
 
@@ -31,8 +31,8 @@ Star me on GitHub — it helps!
 ## Quick Start
 
 ```bash
-git clone https://github.com/Rajath2005/rajathkiran.io.git
-cd rajathkiran.io
+git clone https://github.com/Rajath2005/rajathkiran.me.git
+cd rajathkiran.me
 # Open index.html in your browser or use a local server
 ```
 

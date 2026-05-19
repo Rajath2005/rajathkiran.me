@@ -1,0 +1,10 @@
+[[redirects]]
+  from = "https://rajathkiran.netlify.app/*"
+  to = "https://rajathkiran.me/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -705,7 +705,7 @@ function printOutput(text, type = 'log') {
 
 function bootSequence() {
   const logs = [
-    'initializing rajathkiran.dev...',
+    'initializing rajathkiran.me...',
     'loading personality module...',
     'mounting cloud services...',
     'ACCESS GRANTED',
