@@ -4,6 +4,7 @@
  */
 
 export const initScrollAnimations = (context = document) => {
+    const enableScrollAnimations = window.matchMedia("(min-width: 768px)").matches;
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -25,14 +26,29 @@ export const initScrollAnimations = (context = document) => {
     const sections = context.querySelectorAll('section:not(.journey-horizontal-section), .timeline-item.premium-card');
     sections.forEach(section => {
         section.classList.add('animate-on-scroll');
-        observer.observe(section);
+        const parentArticle = section.closest('article');
+        if (parentArticle && parentArticle.classList.contains('active')) {
+            section.classList.add('is-visible');
+            if (!enableScrollAnimations) {
+                return;
+            }
+        }
+        if (enableScrollAnimations) {
+            observer.observe(section);
+        } else {
+            section.classList.add('is-visible');
+        }
     });
 
     // 2. Animate Lists with Stagger Sequence
     const lists = context.querySelectorAll('.service-list, .testimonials-list, .coding-profiles-list, .skills-list, .timeline-list');
     lists.forEach(list => {
         list.classList.add('stagger-sequence');
-        observer.observe(list);
+        if (enableScrollAnimations) {
+            observer.observe(list);
+        } else {
+            list.classList.add('is-visible');
+        }
     });
 
     // 3. Special handling for Timeline Line drawing if needed

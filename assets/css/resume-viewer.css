@@ -13,6 +13,7 @@
 html,body{height:100%;}
 body.viewer-root{
   margin:0;
+  overflow-x:hidden;
   background:var(--viewer-bg);
   color:var(--viewer-foreground);
   font-family: Poppins, system-ui, -apple-system, sans-serif;
@@ -36,25 +37,27 @@ body.viewer-root{
 
 .viewer-toolbar .btn{background:transparent;color:var(--viewer-foreground);border:1px solid transparent;padding:6px 8px;border-radius:6px;cursor:pointer}
 .viewer-toolbar .btn:hover{border-color:rgba(255,255,255,0.06)}
+.viewer-toolbar .btn-stack{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:52px}
+.viewer-toolbar .btn-icon{line-height:1}
+.viewer-toolbar .btn-text{display:none;font-size:10px;line-height:1}
 
 .toolbar-center{display:flex;align-items:center;gap:8px}
 .toolbar-left{margin-right:8px}
 .spacer{width:12px}
 
-.viewer-main{height:100vh;display:flex;align-items:center;justify-content:center;padding:32px;box-sizing:border-box}
-.canvas-container{max-width:1100px;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:auto}
-.pdf-canvas{box-shadow:0 8px 40px rgba(0,0,0,0.6);background:#fff;border-radius:4px}
+.viewer-main{min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:72px 16px 24px;box-sizing:border-box}
+.canvas-container{max-width:1100px;width:100%;height:100%;display:flex;align-items:flex-start;justify-content:center;overflow:auto;padding-top:52px;box-sizing:border-box}
+.pdf-canvas{max-width:100vw;display:block;box-shadow:0 8px 40px rgba(0,0,0,0.6);background:#fff;border-radius:4px}
 
 .skeleton{position:absolute;width:60%;height:80%;background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:6px}
 
 /* small screens: compact toolbar */
 @media (max-width:640px){
-  /* move toolbar to bottom as a bottom-sheet */
-  .viewer-toolbar{left:12px;right:12px;top:auto;bottom:12px;transform:none;padding:6px;justify-content:space-between}
-  .viewer-toolbar .btn{padding:10px;border-radius:10px}
-  .canvas-container{padding-bottom:120px}
-  .viewer-toolbar .btn > svg, .viewer-toolbar .btn{font-size:18px}
-  /* make page info and zoom percent smaller */
+  .viewer-toolbar{left:8px;right:8px;top:8px;transform:none;padding:8px;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .toolbar-center{flex-wrap:wrap;justify-content:center;gap:6px}
+  .viewer-toolbar .btn{padding:8px 10px;border-radius:10px}
+  .viewer-toolbar .btn-stack .btn-text{display:block}
+  .canvas-container{padding-top:64px}
   #pageInfo{display:none}
   #zoomPct{display:none}
 }

@@ -50,7 +50,7 @@
 
 
   <!-- This CSS file is Detailed CSS file -->
-  <link rel="stylesheet" href="./assets/css/style.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 
   <!--
     - google font link
@@ -78,7 +78,8 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/raj.webp" alt="Rajath Kiran A" width="150" height="150" loading="lazy">
+          <img src="./assets/images/raj.webp" alt="Rajath Kiran A" width="150" height="150" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="avatar-initials" aria-hidden="true">RK</div>
         </figure>
 
         <div class="info-content">
@@ -101,54 +102,53 @@
 
         <ul class="contacts-list">
 
-          <li class="contact-item">
+          <li class="contact-item contact-row">
 
-            <div class="icon-box">
+            <div class="icon-box contact-icon">
               <ion-icon name="mail-outline"></ion-icon>
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Email</p>
+              <p class="contact-title contact-label">Email</p>
 
-              <a href="mailto:rajathajeru@gmail.com" class="contact-link">rajathajeru@gmail.com</a>
+              <a href="mailto:rajathajeru@gmail.com" class="contact-link contact-value">rajathajeru@gmail.com</a>
             </div>
 
           </li>
 
-          <li class="contact-item">
+          <li class="contact-item contact-row">
 
-            <div class="icon-box">
+            <div class="icon-box contact-icon">
               <ion-icon name="location-outline"></ion-icon>
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Location</p>
+              <p class="contact-title contact-label">Location</p>
 
-              <address>Mangalore, Karnataka, India</address>
+              <address class="contact-value">Mangalore, Karnataka, India</address>
             </div>
 
           </li>
 
-          <li class="contact-item">
+          <li class="contact-item contact-row">
 
-            <div class="icon-box">
+            <div class="icon-box contact-icon">
               <ion-icon name="document-outline"></ion-icon>
             </div>
 
             <div class="contact-info">
-              <p class="contact-title">Resume</p>
+              <p class="contact-title contact-label">Resume</p>
 
-              <a href="assets/Resume.pdf" class="contact-link" download>
-                Download Resume
-              </a>
-              <a href="resume.html" class="contact-link contact-link--live" title="View Live Resume">
-                <!-- inline eye icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;margin-right:8px;">
-                  <path d="M12 5c-7 0-11 6-11 7s4 7 11 7 11-6 11-7-4-7-11-7z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                View Live Resume
-              </a>
+              <div class="resume-btns">
+                <a href="assets/Resume.pdf" class="resume-btn" download>
+                  <ion-icon name="download-outline"></ion-icon>
+                  <span>Download Resume</span>
+                </a>
+                <a href="resume.html" class="resume-btn resume-btn-view" title="View Live Resume">
+                  <ion-icon name="eye-outline"></ion-icon>
+                  <span>View Live Resume</span>
+                </a>
+              </div>
             </div>
 
           </li>
@@ -159,16 +159,22 @@
           <li class="social-item">
             <a href="https://www.linkedin.com/in/rajath-kiran/" class="social-link" target="_blank">
               <ion-icon name="logo-linkedin"></ion-icon>
+              <span class="social-label">LinkedIn</span>
+              <span class="social-arrow">→</span>
             </a>
           </li>
           <li class="social-item">
             <a href="https://t.me/Rajath_ajeru" class="social-link" target="_blank">
               <ion-icon name="paper-plane-outline"></ion-icon>
+              <span class="social-label">Telegram</span>
+              <span class="social-arrow">→</span>
             </a>
           </li>
           <li class="social-item">
             <a href="https://github.com/Rajath2005" class="social-link" target="_blank">
               <ion-icon name="logo-github"></ion-icon>
+              <span class="social-label">GitHub</span>
+              <span class="social-arrow">→</span>
             </a>
           </li>
         </ul>
@@ -915,17 +921,6 @@
 
         <header class="projects-header">
           <h2 class="h2 article-title">projects</h2>
-
-          <div class="playground-controls">
-            <button class="playground-btn" id="playground-toggle" title="Toggle Playground Mode">
-              <ion-icon name="game-controller-outline"></ion-icon>
-              <span>Playground</span>
-            </button>
-            <button class="playground-btn hidden" id="playground-reset" title="Reset Layout">
-              <ion-icon name="refresh-outline"></ion-icon>
-              <span>Reset</span>
-            </button>
-          </div>
         </header>
 
         <section class="projects">
@@ -994,7 +989,7 @@
 
           <ul class="project-list">
             <!-- GitHub Profile -->
-            <li class="project-item active" data-filter-item data-category="applications">
+            <li class="project-item active" data-filter-item data-category="web development">
               <a href="https://github.com/Rajath2005" data-project-url="https://github.com/Rajath2005" data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
                   <img src="assets/images/Github-Profile.png" alt="GitHub Profile" loading="lazy">

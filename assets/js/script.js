@@ -6,7 +6,6 @@
 import { animatePageChange } from './animations.js';
 import { initTiltEffect } from './tilt-effect.js';
 import { initCustomCursor } from './cursor.js';
-import { initPlayground } from './playground.js';
 
 // Element toggle function with error handling
 const elementToggleFunc = (elem) => {
@@ -53,7 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (changingText) {
     setTimeout(typeEffect, 500);
   }
-  initPlayground();
 });
 
 /**
@@ -246,6 +244,9 @@ const filterFunc = function (selectedValue) {
     }
   });
 }
+
+filterFunc("all");
+if (selectValue) selectValue.innerText = "All";
 
 let lastClickedBtn = filterBtn.length > 0 ? filterBtn[0] : null;
 
