@@ -70,8 +70,35 @@ if (sidebar && sidebarBtn) {
 const testimonialsItems = document.querySelectorAll("[data-testimonials-item]");
 const modalContainers = document.querySelectorAll("[data-modal-container]");
 
-const testimonialsModalFunc = function (modal) {
-  if (modal) modal.classList.toggle("active");
+const updateBodyModalState = () => {
+  const anyActive = [...modalContainers].some(container => container.classList.contains("active"));
+  document.body.classList.toggle("modal-open", anyActive);
+};
+
+const openTestimonialsModal = (modal) => {
+  if (!modal) return;
+  modalContainers.forEach(container => {
+    if (container !== modal) {
+      container.classList.remove("active");
+      const otherOverlay = container.querySelector("[data-overlay]");
+      if (otherOverlay) otherOverlay.classList.remove("active");
+    }
+  });
+  modal.classList.add("active");
+  const overlay = modal.querySelector("[data-overlay]");
+  if (overlay) overlay.classList.add("active");
+  modal.scrollTop = 0;
+  const modalBody = modal.querySelector(".testimonials-modal");
+  if (modalBody) modalBody.scrollTop = 0;
+  updateBodyModalState();
+};
+
+const closeTestimonialsModal = (modal) => {
+  if (!modal) return;
+  modal.classList.remove("active");
+  const overlay = modal.querySelector("[data-overlay]");
+  if (overlay) overlay.classList.remove("active");
+  updateBodyModalState();
 };
 
 testimonialsItems.forEach((item, index) => {
@@ -94,7 +121,7 @@ testimonialsItems.forEach((item, index) => {
     if (modalTitle && title) modalTitle.innerHTML = title.innerHTML;
     if (modalText && text) modalText.innerHTML = text.innerHTML;
 
-    testimonialsModalFunc(modalContainer);
+    openTestimonialsModal(modalContainer);
   });
 });
 
@@ -102,8 +129,19 @@ modalContainers.forEach((modal) => {
   const closeButton = modal.querySelector("[data-modal-close-btn]");
   const overlay = modal.querySelector("[data-overlay]");
 
-  if (closeButton) closeButton.addEventListener("click", () => testimonialsModalFunc(modal));
-  if (overlay) overlay.addEventListener("click", () => testimonialsModalFunc(modal));
+  if (closeButton) closeButton.addEventListener("click", () => closeTestimonialsModal(modal));
+  if (overlay) overlay.addEventListener("click", () => closeTestimonialsModal(modal));
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) closeTestimonialsModal(modal);
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    modalContainers.forEach((modal) => {
+      if (modal.classList.contains("active")) closeTestimonialsModal(modal);
+    });
+  }
 });
 
 /**

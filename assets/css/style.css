@@ -160,6 +160,10 @@ body {
   overflow-x: hidden;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 #custom-cursor {
   /* Initial styles managed by JS, but can be overridden here */
   box-shadow: 0 0 10px var(--neon-blue);
@@ -1151,7 +1155,8 @@ main {
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 80px 16px 40px;
   overflow-y: auto;
   overscroll-behavior: contain;
   z-index: 20;
@@ -1200,6 +1205,8 @@ main {
   opacity: 0;
   transition: var(--transition-1);
   z-index: 2;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
 }
 
 .modal-container.active .testimonials-modal {
@@ -1208,9 +1215,9 @@ main {
 }
 
 .modal-close-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  position: sticky;
+  top: 10px;
+  margin-left: auto;
   background: var(--onyx);
   border-radius: 8px;
   width: 32px;
