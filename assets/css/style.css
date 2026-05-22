@@ -3208,6 +3208,45 @@ textarea.form-input::-webkit-resizer {
   #SCROLL ANIMATIONS (P7)
 \*-----------------------------------*/
 
+/* Projects section: Always visible, no scroll animation */
+section.projects {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+section.projects.animate-on-scroll {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+section.projects.animate-on-scroll.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* CRITICAL FIX: Force project items to always be visible immediately */
+section.projects .project-list {
+  display: grid !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+section.projects .project-item {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: fadeInScale 0.3s ease forwards !important;
+}
+
+section.projects .project-item.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  animation: fadeInScale 0.3s ease forwards !important;
+}
+
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(30px);

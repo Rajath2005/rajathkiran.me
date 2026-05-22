@@ -22,8 +22,8 @@ export const initScrollAnimations = (context = document) => {
         });
     }, observerOptions);
 
-    // 1. Animate Individual Sections and Articles
-    const sections = context.querySelectorAll('section:not(.journey-horizontal-section), .timeline-item.premium-card');
+    // 1. Animate Individual Sections and Articles (Exclude projects section)
+    const sections = context.querySelectorAll('section:not(.journey-horizontal-section):not(.projects), .timeline-item.premium-card');
     sections.forEach(section => {
         section.classList.add('animate-on-scroll');
         const parentArticle = section.closest('article');
@@ -39,6 +39,12 @@ export const initScrollAnimations = (context = document) => {
             section.classList.add('is-visible');
         }
     });
+
+    // Projects section: Always visible on page load (no scroll animation)
+    const projectsSection = context.querySelector('section.projects');
+    if (projectsSection) {
+        projectsSection.classList.add('is-visible');
+    }
 
     // 2. Animate Lists with Stagger Sequence
     const lists = context.querySelectorAll('.service-list, .testimonials-list, .coding-profiles-list, .skills-list, .timeline-list');
@@ -203,6 +209,15 @@ export const initTimelineLineAnimation = (context = document) => {
 // Initial Load Animation
 document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
+    
+    // CRITICAL FIX: Make sure project items are visible on initial load
+    const projectItems = document.querySelectorAll('.project-item');
+    projectItems.forEach(item => {
+        item.classList.add('is-visible');
+        item.style.display = 'block';
+        item.style.opacity = '1';
+        item.style.visibility = 'visible';
+    });
 
     // Sidebar entrance
     const sidebar = document.querySelector('.sidebar');
@@ -224,5 +239,24 @@ export const animatePageChange = (activePage) => {
     setTimeout(() => {
         activePage.classList.add('is-visible');
         initScrollAnimations(activePage);
+        
+        // CRITICAL FIX: If this is the projects page, immediately show all project items
+        if (activePage.classList.contains('projects')) {
+            const projectItems = activePage.querySelectorAll('.project-item');
+            projectItems.forEach(item => {
+                item.classList.add('is-visible');
+                item.style.display = 'block';
+                item.style.opacity = '1';
+                item.style.visibility = 'visible';
+            });
+            
+            const projectList = activePage.querySelector('.project-list');
+            if (projectList) {
+                projectList.classList.add('is-visible');
+                projectList.style.display = 'grid';
+                projectList.style.opacity = '1';
+                projectList.style.visibility = 'visible';
+            }
+        }
     }, 50);
 };
