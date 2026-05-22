@@ -1709,6 +1709,8 @@ main {
 .project-item.active {
   display: block;
   animation: scaleUp 0.25s ease forwards;
+  opacity: 1;
+  visibility: visible;
 }
 
 .project-item.playground-active {
@@ -2853,6 +2855,17 @@ textarea.form-input::-webkit-resizer {
     opacity: 1 !important;
     visibility: visible !important;
   }
+
+  /* Fix project items visibility on mobile */
+  .project-item {
+    display: none !important;
+  }
+
+  .project-item.active {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 }
 
 /*-----------------------------------*\
@@ -3080,12 +3093,28 @@ textarea.form-input::-webkit-resizer {
 
 .project-item {
   display: none;
-  /* Inherited logic for filtering */
-  animation: fade-in 0.5s ease forwards;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .project-item.active {
   display: block;
+  opacity: 1;
+  visibility: visible;
+  animation: fadeInScale 0.5s ease forwards;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .project-img-wrapper {

@@ -1,3 +1,22 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /.env
+Crawl-delay: 1
+
+# LLM and AI Search Engine Optimization
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# Sitemaps
 Sitemap: https://rajathkiran.me/sitemap.xml
+Sitemap: https://rajathkiran.me/llm.txt

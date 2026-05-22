@@ -1,0 +1,203 @@
+# LLM Optimization File for rajathkiran.me
+
+## Site Information
+**Site Title:** Rajath Kiran A — Full Stack Developer & AI Builder
+**URL:** https://rajathkiran.me
+**Author:** Rajath Kiran A (Rajath2005)
+**Location:** Mangalore, Karnataka, India
+**Profession:** Full Stack Developer, AI Builder, CS Student at VCET
+
+## About
+Rajath Kiran A is a 3rd-year Computer Science student at Vivekananda College of Engineering and Technology (VCET) in Mangalore, specializing in AI/ML, Full Stack Development, and Healthcare Technology. Currently building AyuDost (AI healthcare platform), COPD Detection system using deep learning, and various open-source AI tools.
+
+## Core Expertise
+- **Languages:** Python, JavaScript, Java, C++, C
+- **Frontend:** React.js, Next.js, Tailwind CSS, HTML5, CSS3, Three.js, WebGL
+- **Backend:** Node.js, Express.js, Python Flask, REST APIs
+- **Databases:** Supabase, Firebase, PostgreSQL, MongoDB
+- **Cloud & Deployment:** Google Cloud Platform (GCP), Netlify, Render, Vercel
+- **AI/ML:** TensorFlow, PyTorch, Scikit-learn, NLP, CNN, LSTM, RAG systems
+- **Tools & Platforms:** Git, GitHub, Docker, VS Code, Jupyter Notebooks
+
+## Main Projects
+
+### AyuDost AI Healthcare Platform
+**Category:** Applications, AI Assistant, Healthcare
+**URL:** https://ayudost-chatbot.onrender.com/
+**Description:** Comprehensive AI-powered Ayurvedic healthcare platform with integrated chatbot, disease prediction using Ayurvedic principles, and personalized health recommendations. Built with React, Node.js, and advanced NLP models.
+**Tech Stack:** React, Node.js, Python, NLP, TensorFlow, Supabase
+**Status:** Active Development
+
+### COPD Detection & Severity Classification
+**Category:** Applications, Healthcare AI, Deep Learning
+**URL:** https://github.com/Rajath2005/COPD-Detection
+**Description:** Advanced deep learning system for screening and classifying COPD severity using respiratory sound analysis. Implements CNN and CNN-LSTM architectures for 95%+ accuracy in disease detection from audio samples.
+**Tech Stack:** Python, TensorFlow, PyTorch, CNN, LSTM, Signal Processing
+**Research Focus:** Medical AI, Healthcare Technology
+
+### MediQ Health Platform
+**Category:** Applications, Healthcare, Web Development
+**URL:** https://mediq-health.netlify.app/
+**Description:** Ayurvedic health consultation platform with AI-driven treatment recommendations, symptom analysis, and personalized wellness plans. User-friendly interface for healthcare accessibility.
+**Tech Stack:** React, Node.js, Supabase, TailwindCSS
+**Features:** Real-time consultation, Treatment recommendations, Health tracking
+
+### GitHub Profile
+**Category:** Web Development, Open Source
+**URL:** https://github.com/Rajath2005
+**Description:** Comprehensive collection of repositories featuring full-stack projects, AI/ML implementations, contributions to open-source projects, and educational coding exercises in Python, Java, and C++.
+**Repositories:** 40+ active projects
+
+## Technical Skills by Category
+
+### Full Stack Development
+- Modern React.js applications with hooks and state management
+- Next.js for server-side rendering and static generation
+- RESTful API design and implementation
+- Database design and optimization
+- Real-time applications with WebSockets
+- Progressive Web App (PWA) development
+
+### Artificial Intelligence & Machine Learning
+- Deep Learning models (CNN, LSTM, RNN)
+- Natural Language Processing (NLP)
+- Large Language Model (LLM) integration and prompt engineering
+- Retrieval-Augmented Generation (RAG) systems
+- Healthcare AI and Medical data analysis
+- Computer Vision applications
+- Machine Learning Pipeline optimization
+
+### Frontend Development
+- Interactive 3D visualizations (Three.js, WebGL)
+- Responsive design and mobile optimization
+- CSS animations and custom cursor implementations
+- Accessibility standards (WCAG compliance)
+- Performance optimization and lazy loading
+- Cross-browser compatibility
+
+### Backend Development
+- Node.js/Express server architecture
+- Python backend with Flask/Django
+- RESTful and GraphQL APIs
+- Authentication and authorization systems
+- Database query optimization
+- Real-time data processing
+
+## Coding Profiles & Social Links
+- **GitHub:** https://github.com/Rajath2005 (40+ repositories)
+- **LinkedIn:** https://www.linkedin.com/in/rajath-kiran/ (CS Student, Developer)
+- **LeetCode:** https://leetcode.com/rajath2005 (Active problem solver)
+- **Email:** rajathajeru@gmail.com
+
+## Education
+**Institution:** Vivekananda College of Engineering and Technology (VCET)
+**Program:** Computer Science (3rd Year)
+**Location:** Mangalore, Karnataka, India
+**Focus Areas:** AI/ML, Full Stack Development, Healthcare Technology
+
+## Certifications & Achievements
+- Multiple online certifications in AI/ML and Web Development
+- Active contributor to open-source projects
+- Published research on healthcare AI applications
+- 500+ LeetCode problems solved
+
+## Content Categories
+
+### Projects
+The projects section showcases a diverse portfolio including:
+- **Web Design:** UI/UX focused projects with modern design principles
+- **Applications:** Full-stack applications including healthcare tech, e-commerce
+- **Web Development:** Frontend and backend development projects
+- **Cloud:** GCP integration, cloud deployment, serverless architecture
+
+### About Me
+Personal background, education, professional experience, and passion for technology. Focus on AI innovation for healthcare and social impact through technology.
+
+### Resume
+Comprehensive CV highlighting:
+- Technical skills and proficiencies
+- Professional experience and internships
+- Project highlights and contributions
+- Educational background and achievements
+
+### Blog
+Technical articles and insights on:
+- AI/ML implementation and applications
+- Full-stack development best practices
+- Healthcare technology trends
+- Web development tutorials
+
+### Contact
+Multiple ways to connect:
+- **Email:** rajathajeru@gmail.com
+- **Location:** Mangalore, Karnataka, India
+- **Available:** Open to internships, freelance projects, and collaborations
+
+## SEO Keywords
+Full Stack Developer, AI Developer, Machine Learning Engineer, Healthcare AI, COPD Detection, AyuDost, React Developer, Node.js Developer, Python Developer, TensorFlow, Deep Learning, Web Developer, Karnataka Developer, Mangalore Tech, AI Healthcare, Open Source Contributor, Computer Science Student, AI Builder
+
+## Navigation Structure
+1. **About** - Personal introduction and background
+2. **Resume** - Professional CV and experience
+3. **Projects** - Portfolio of work with filtering options
+4. **Blog** - Technical articles and insights
+5. **Contact** - Get in touch and collaboration opportunities
+
+## Call to Action
+- Check out projects and GitHub repositories
+- Connect via LinkedIn or email
+- Review professional resume
+- Read technical blog articles
+- Explore live project demos
+
+## Important Links
+- **Portfolio:** https://rajathkiran.me
+- **GitHub:** https://github.com/Rajath2005
+- **LinkedIn:** https://www.linkedin.com/in/rajath-kiran/
+- **LeetCode:** https://leetcode.com/rajath2005
+- **AyuDost Platform:** https://ayudost-chatbot.onrender.com/
+- **MediQ Platform:** https://mediq-health.netlify.app/
+- **Email:** rajathajeru@gmail.com
+
+## Technical Stack Overview
+**Frontend:** React, Next.js, Three.js, TailwindCSS, WebGL, CSS3, HTML5
+**Backend:** Node.js, Express, Python, Flask, REST APIs
+**Databases:** Supabase, Firebase, PostgreSQL, MongoDB
+**AI/ML:** TensorFlow, PyTorch, Scikit-learn, NLP, Computer Vision
+**Cloud:** Google Cloud Platform, Netlify, Render, Vercel
+**Tools:** Git, GitHub, Docker, VS Code, Jupyter
+
+## Last Updated
+May 2026
+
+## Accessibility
+- WCAG 2.1 AA compliant
+- Mobile responsive design
+- Dark mode optimization
+- Keyboard navigation support
+- Screen reader friendly
+
+## Page Descriptions
+
+### Home / About Page
+Landing page introducing Rajath Kiran A as a Full Stack Developer and AI Builder. Features profile information, key skills, social links, and navigation to other sections.
+
+### Projects Page
+Interactive portfolio showcasing projects across multiple categories: Web Design, Applications, Web Development, and Cloud. Features project filtering, descriptions, live demos, and source code links.
+
+### Resume Page
+Professional resume/CV detailing education, experience, technical skills, achievements, and certifications. Downloadable PDF format available.
+
+### Blog Section
+Collection of technical articles covering AI/ML, web development, healthcare technology, and programming best practices.
+
+### Contact Page
+Contact form for inquiries, collaboration opportunities, and general communication. Lists email, location, and social media contact options.
+
+## Quick Facts
+- **Experience Level:** 3+ years in full-stack development
+- **Projects Completed:** 40+ active projects on GitHub
+- **Technologies:** 15+ programming languages and frameworks
+- **Focus Areas:** AI/ML, Healthcare Technology, Full-Stack Development
+- **Open Source:** Active contributor and maintainer
+- **Availability:** Open to opportunities and collaborations
