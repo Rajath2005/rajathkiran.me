@@ -1,8 +1,9 @@
 /**
- * AI Chat Logic for Ask Rajath
+ * AI Chat Logic — Ask Rajath AI
+ * Upgraded: quick-prompt chips, animated typing indicator, chip hide on first message
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+export function initAIChat() {
   const chatBtn = document.getElementById('ai-chat-btn');
   const chatPanel = document.getElementById('ai-chat-panel');
   const closeBtn = document.getElementById('ai-chat-close');
@@ -11,34 +12,57 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatMessages = document.getElementById('ai-chat-messages');
 
   if (!chatBtn || !chatPanel || !closeBtn || !chatForm || !chatInput || !chatMessages) {
-    console.error('One or more AI chat elements not found');
+    console.warn('AI Chat: one or more elements not found, skipping init.');
     return;
   }
 
-  // Toggle chat panel
+  // Initial open since it was just loaded via click
+  chatPanel.classList.add('active');
+  chatBtn.classList.add('active');
+  chatInput.focus();
+
+  // Toggle chat panel open/close for future clicks
   chatBtn.addEventListener('click', () => {
-    chatPanel.classList.toggle('active');
-    if (chatPanel.classList.contains('active')) {
+    const isOpen = chatPanel.classList.toggle('active');
+    if (isOpen) {
       chatInput.focus();
+      chatBtn.classList.add('active');
+    } else {
+      chatBtn.classList.remove('active');
     }
   });
 
-  // Close chat panel
   closeBtn.addEventListener('click', () => {
     chatPanel.classList.remove('active');
+    chatBtn.classList.remove('active');
   });
 
-  // Handle form submission
+  // Quick-prompt chips — fill input and submit
+  chatMessages.addEventListener('click', (e) => {
+    const chip = e.target.closest('.ai-chip');
+    if (!chip) return;
+
+    const prompt = chip.getAttribute('data-prompt');
+    if (!prompt) return;
+
+    chatInput.value = prompt;
+    chatForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+  });
+
+  // Main form submission
   chatForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const question = chatInput.value.trim();
     if (!question) return;
 
-    // Append user message
+    // Hide quick-prompt chips after first use
+    const quickPrompts = chatMessages.querySelector('.ai-quick-prompts');
+    if (quickPrompts) quickPrompts.remove();
+
     appendMessage(question, 'user');
     chatInput.value = '';
+    chatInput.disabled = true;
 
-    // Show typing indicator
     const typingIndicator = showTyping();
 
     try {
@@ -49,17 +73,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       const data = await response.json();
-      
-      // Remove typing indicator
       typingIndicator.remove();
+      chatInput.disabled = false;
+      chatInput.focus();
 
       if (!response.ok) {
-        console.error('AI Chat Error:', data);
         const errorMessage = data.message || data.error || "I'm having trouble connecting right now.";
         appendMessage(`Sorry, ${errorMessage} Please try again later!`, 'bot');
         return;
       }
-      
+
       if (data.error) {
         appendMessage("I'm sorry, I'm having a little trouble right now. Please try again later!", 'bot');
       } else {
@@ -67,10 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch (error) {
       console.error('AI Chat Error:', error);
-      if (typeof typingIndicator !== 'undefined' && typingIndicator.parentNode) {
-        typingIndicator.remove();
-      }
-      appendMessage("Sorry, I'm having trouble connecting to my brain right now. Please check your internet connection or try again later!", 'bot');
+      typingIndicator.remove();
+      chatInput.disabled = false;
+      appendMessage(
+        "Sorry, I'm having trouble connecting right now. Please check your connection or try again later!",
+        'bot'
+      );
     }
   });
 
@@ -79,25 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
     messageDiv.className = `ai-message ${sender}`;
     messageDiv.textContent = text;
     chatMessages.appendChild(messageDiv);
-    
-    // Smooth scroll to bottom
-    chatMessages.scrollTo({
-      top: chatMessages.scrollHeight,
-      behavior: 'smooth'
-    });
+    chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
   }
 
   function showTyping() {
     const typingDiv = document.createElement('div');
     typingDiv.className = 'ai-typing';
-    typingDiv.textContent = 'Rajath AI is typing...';
+    typingDiv.innerHTML = '<span></span><span></span><span></span>';
     chatMessages.appendChild(typingDiv);
-    
-    chatMessages.scrollTo({
-      top: chatMessages.scrollHeight,
-      behavior: 'smooth'
-    });
-    
+    chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
     return typingDiv;
   }
-});
+}

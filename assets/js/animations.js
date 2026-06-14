@@ -240,6 +240,14 @@ export const animatePageChange = (activePage) => {
         activePage.classList.add('is-visible');
         initScrollAnimations(activePage);
         
+        // CRITICAL FIX FOR NAVBAR REGRESSION:
+        // Force immediate visibility on all animating elements inside the newly active page
+        // to bypass IntersectionObserver race conditions during display:block transitions.
+        const animatedElements = activePage.querySelectorAll('section, .service-list, .testimonials-list, .coding-profiles-list, .skills-list, .timeline-list, .timeline-item');
+        animatedElements.forEach(el => {
+            el.classList.add('is-visible');
+        });
+
         // CRITICAL FIX: If this is the projects page, immediately show all project items
         if (activePage.classList.contains('projects')) {
             const projectItems = activePage.querySelectorAll('.project-item');

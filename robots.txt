@@ -17,6 +17,12 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 # Sitemaps
 Sitemap: https://rajathkiran.me/sitemap.xml
 Sitemap: https://rajathkiran.me/llm.txt

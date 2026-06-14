@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AyuDost AI — Project Case Study | Rajath Kiran A</title>
+  
+  <meta name="title" content="AyuDost AI — Project Case Study | Rajath Kiran A" />
+  <meta name="description" content="Technical case study of AyuDost AI, an Ayurvedic healthcare platform with an NLP chatbot built using React and Python." />
+  <meta name="keywords" content="AyuDost AI, Healthcare AI, NLP Chatbot, React, Python, Rajath Kiran A" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://rajathkiran.me/ayudost.html" />
+  <meta property="og:title" content="AyuDost AI — Project Case Study" />
+  <meta property="og:description" content="Technical case study of AyuDost AI, an Ayurvedic healthcare platform with an NLP chatbot built using React and Python." />
+  <meta property="og:image" content="https://rajathkiran.me/assets/images/AyuDost-AI.png" />
+
+  <link rel="canonical" href="https://rajathkiran.me/ayudost.html" />
+  <link rel="icon" href="./assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AyuDost AI",
+    "applicationCategory": "HealthcareApplication",
+    "operatingSystem": "Web",
+    "url": "https://ayudost-chatbot.onrender.com/",
+    "author": {
+      "@type": "Person",
+      "name": "Rajath Kiran A"
+    },
+    "description": "AI-powered Ayurvedic healthcare platform with NLP chatbot."
+  }
+  </script>
+</head>
+
+<body>
+  <main>
+    <div class="main-content" style="margin: 0 auto; max-width: 900px; padding: 40px;">
+      
+      <nav class="navbar" style="margin-bottom: 30px;">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link">← Back to Portfolio</a>
+          </li>
+        </ul>
+      </nav>
+
+      <article class="about active">
+        <header>
+          <h2 class="h2 article-title">AyuDost AI</h2>
+        </header>
+
+        <section class="about-text">
+          <img src="assets/images/AyuDost-AI.png" alt="AyuDost AI Platform" style="width: 100%; border-radius: 15px; margin-bottom: 30px;">
+          
+          <h3 class="h3">What is AyuDost AI?</h3>
+          <p>
+            <strong>AyuDost AI is an AI-powered Ayurvedic healthcare platform designed to provide accessible, personalized wellness guidance.</strong> 
+            It integrates a natural language processing (NLP) chatbot to evaluate user symptoms and recommend holistic treatments based on traditional Ayurvedic principles, bridging the gap between ancient medicine and modern AI technology.
+          </p>
+
+          <h3 class="h3" style="margin-top: 30px;">Problem Statement</h3>
+          <p>
+            Traditional Ayurvedic consultations require in-person visits and can be difficult to access for the general public. Additionally, there is a lack of reliable, digitally accessible platforms that can accurately map symptoms to Ayurvedic remedies (like Dosha balancing) using conversational AI.
+          </p>
+
+          <h3 class="h3" style="margin-top: 30px;">Tech Stack</h3>
+          <ul style="list-style-type: disc; margin-left: 20px; color: var(--light-gray); margin-bottom: 20px;">
+            <li><strong>Frontend:</strong> React.js, Tailwind CSS</li>
+            <li><strong>Backend:</strong> Node.js, Express</li>
+            <li><strong>AI/ML:</strong> Python, TensorFlow, NLP (Natural Language Processing)</li>
+            <li><strong>Database:</strong> Supabase</li>
+            <li><strong>Deployment:</strong> Render, Netlify</li>
+          </ul>
+
+          <h3 class="h3" style="margin-top: 30px;">Architecture & Implementation</h3>
+          <p>
+            The system employs a microservices-inspired architecture. The frontend, built in React, communicates with a Node.js API gateway. The core conversational intelligence is handled by an isolated Python microservice running a trained NLP model. When a user inputs their symptoms, the Python service tokenizes the input, processes it through the NLP pipeline to identify the relevant Dosha imbalance, and queries the Supabase database for appropriate Ayurvedic remedies.
+          </p>
+
+          <h3 class="h3" style="margin-top: 30px;">Results & Impact</h3>
+          <p>
+            AyuDost successfully automates initial health consultations with high accuracy in intent recognition. The platform provides sub-second response times for symptom analysis and has been deployed successfully to a live environment, demonstrating full-stack engineering and machine learning deployment capabilities.
+          </p>
+
+          <div style="margin-top: 40px; display: flex; gap: 15px;">
+            <a href="https://ayudost-chatbot.onrender.com/" target="_blank" class="form-btn" style="padding: 15px 30px; text-decoration: none; border-radius: 14px; background: var(--orange-yellow-crayola); color: var(--smoky-black); font-weight: bold;">
+              View Live Demo
+            </a>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+</body>
+</html>

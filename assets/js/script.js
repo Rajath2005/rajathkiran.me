@@ -19,7 +19,13 @@ const elementToggleFunc = (elem) => {
 /**
  * TYPING EFFECT
  */
-const roles = ["Web Developer", "Intern", "Web Designer", "Beginning Coder"];
+const roles = [
+  "Cloud Engineer",
+  "AI/ML Developer",
+  "Full Stack Developer",
+  "Cybersecurity Enthusiast",
+  "Open Source Builder"
+];
 let roleIndex = 0;
 let charIndex = 0;
 const changingText = document.getElementById("changing-text");
@@ -152,6 +158,7 @@ const projectModalContainer = document.querySelector("[data-project-modal-contai
 const projectModalCloseBtn = document.querySelector("[data-project-modal-close]");
 const projectOverlay = projectModalContainer ? projectModalContainer.querySelector(".overlay") : null;
 const demoIframe = document.querySelector("[data-demo-iframe]");
+const demoLoader = document.querySelector("[data-demo-loader]");
 const demoFallback = document.querySelector("[data-demo-fallback]");
 const demoLink = document.querySelector("[data-demo-link]");
 
@@ -173,9 +180,16 @@ projectItems.forEach(item => {
       e.preventDefault();
       
       if (isEmbeddable) {
+        if (demoLoader) {
+          demoLoader.style.display = "flex";
+        }
         if (demoIframe) {
+          demoIframe.style.display = "none"; // Hide until loaded
           demoIframe.src = projectUrl;
-          demoIframe.style.display = "block";
+          demoIframe.onload = () => {
+            if (demoLoader) demoLoader.style.display = "none";
+            demoIframe.style.display = "block";
+          };
         }
         if (demoFallback) demoFallback.style.display = "none";
       } else {
@@ -256,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
  */
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
+const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
@@ -397,13 +411,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    let isScrollingIndicator = false;
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        scrollIndicator.classList.add('hidden');
-      } else {
-        scrollIndicator.classList.remove('hidden');
+      if (!isScrollingIndicator) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 50) {
+            scrollIndicator.classList.add('hidden');
+          } else {
+            scrollIndicator.classList.remove('hidden');
+          }
+          isScrollingIndicator = false;
+        });
+        isScrollingIndicator = true;
       }
-    });
+    }, { passive: true });
   }
 });
 
@@ -772,4 +793,68 @@ function closeHackerMode() {
   if (typeof window.resumeThreeBackground === 'function') {
     window.resumeThreeBackground();
   }
+}
+
+/**
+ * SCROLL PROGRESS & BACK TO TOP
+ */
+const initScrollFeatures = () => {
+  const progressBar = document.getElementById('scroll-progress-bar');
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  let isScrollingFeatures = false;
+  window.addEventListener('scroll', () => {
+    if (!isScrollingFeatures) {
+      window.requestAnimationFrame(() => {
+        // Progress Bar
+        if (progressBar) {
+          const scrollHeight = Math.max(
+            document.body.scrollHeight, document.documentElement.scrollHeight,
+            document.body.offsetHeight, document.documentElement.offsetHeight,
+            document.body.clientHeight, document.documentElement.clientHeight
+          );
+          const scrollTotal = scrollHeight - window.innerHeight;
+          const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+          
+          let progress = 0;
+          if (scrollTotal > 0) {
+            progress = (scrollPosition / scrollTotal) * 100;
+          }
+          progressBar.style.width = `${progress}%`;
+        }
+
+        // Back to Top Button Visibility
+        if (backToTopBtn) {
+          if (window.scrollY > 300) {
+            backToTopBtn.style.opacity = '1';
+            backToTopBtn.style.visibility = 'visible';
+            backToTopBtn.style.transform = 'translateY(0)';
+          } else {
+            backToTopBtn.style.opacity = '0';
+            backToTopBtn.style.visibility = 'hidden';
+            backToTopBtn.style.transform = 'translateY(10px)';
+          }
+        }
+        isScrollingFeatures = false;
+      });
+      isScrollingFeatures = true;
+    }
+  }, { passive: true });
+
+  // Back to Top Click
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+};
+
+// Modules run deferred, so we can just call it immediately or on load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initScrollFeatures);
+} else {
+  initScrollFeatures();
 }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COPD Detection System — Project Case Study | Rajath Kiran A</title>
+  
+  <meta name="title" content="COPD Detection System — Project Case Study | Rajath Kiran A" />
+  <meta name="description" content="Technical case study of a deep learning COPD Detection system using respiratory sound analysis, achieving 95%+ accuracy with CNN and LSTM models." />
+  <meta name="keywords" content="COPD Detection, Deep Learning, CNN, LSTM, PyTorch, TensorFlow, Rajath Kiran A" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://rajathkiran.me/copd-detection.html" />
+  <meta property="og:title" content="COPD Detection System — Project Case Study" />
+  <meta property="og:description" content="Technical case study of a deep learning COPD Detection system using respiratory sound analysis, achieving 95%+ accuracy." />
+  <meta property="og:image" content="https://rajathkiran.me/assets/images/COPD-Project.png" />
+
+  <link rel="canonical" href="https://rajathkiran.me/copd-detection.html" />
+  <link rel="icon" href="./assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "COPD Detection & Severity Classification",
+    "applicationCategory": "HealthcareApplication",
+    "operatingSystem": "Cross-platform",
+    "url": "https://github.com/Rajath2005/COPD-Detection",
+    "author": {
+      "@type": "Person",
+      "name": "Rajath Kiran A"
+    },
+    "description": "Deep learning screening using respiratory sound analysis (CNN + CNN-LSTM) with 95%+ accuracy."
+  }
+  </script>
+</head>
+
+<body>
+  <main>
+    <div class="main-content" style="margin: 0 auto; max-width: 900px; padding: 40px;">
+      
+      <nav class="navbar" style="margin-bottom: 30px;">
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link">← Back to Portfolio</a>
+          </li>
+        </ul>
+      </nav>
+
+      <article class="about active">
+        <header>
+          <h2 class="h2 article-title">COPD Detection & Severity Classification</h2>
+        </header>
+
+        <section class="about-text">
+          <img src="assets/images/COPD-Project.png" alt="COPD Detection System" style="width: 100%; border-radius: 15px; margin-bottom: 30px;">
+          
+          <h3 class="h3">What is the COPD Detection System?</h3>
+          <p>
+            <strong>The COPD Detection System is an advanced deep learning application designed to screen and classify the severity of Chronic Obstructive Pulmonary Disease (COPD).</strong> 
+            By analyzing digital recordings of respiratory sounds (lung auscultations), the system leverages Convolutional Neural Networks (CNNs) and Long Short-Term Memory (LSTM) networks to provide rapid, non-invasive diagnostic insights.
+          </p>
+
+          <h3 class="h3" style="margin-top: 30px;">Problem Statement</h3>
+          <p>
+            COPD is a leading cause of global mortality. Early detection is critical, but traditional spirometry tests require specialized equipment and trained personnel. There is a pressing need for accessible, low-cost, and reliable screening methods that can operate in remote or resource-constrained environments using simple audio inputs.
+          </p>
+
+          <h3 class="h3" style="margin-top: 30px;">Tech Stack</h3>
+          <ul style="list-style-type: disc; margin-left: 20px; color: var(--light-gray); margin-bottom: 20px;">
+            <li><strong>Machine Learning:</strong> Python, TensorFlow, PyTorch, Scikit-learn</li>
+            <li><strong>Audio Processing:</strong> Librosa (for extracting MFCCs and Mel-spectrograms)</li>
+            <li><strong>Model Architectures:</strong> CNN, CNN-LSTM hybrid models</li>
+            <li><strong>Data Visualization:</strong> Matplotlib, Seaborn</li>
+          </ul>
+
+          <h3 class="h3" style="margin-top: 30px;">Architecture & Implementation</h3>
+          <p>
+            The project utilizes the ICBHI Respiratory Sound Database. The implementation pipeline includes:
+            <br><br>
+            1. <strong>Signal Processing:</strong> Raw audio files are preprocessed to remove noise, and Mel-Frequency Cepstral Coefficients (MFCCs) are extracted to convert audio data into visual spectrogram representations.<br>
+            2. <strong>Feature Extraction:</strong> A deep CNN architecture is utilized to extract spatial features from the spectrograms.<br>
+            3. <strong>Sequential Modeling:</strong> The extracted features are fed into an LSTM layer to capture the temporal dynamics and sequential nature of breathing cycles.<br>
+            4. <strong>Classification:</strong> The final dense layers output a probability distribution predicting whether the patient is healthy or has COPD, along with severity classification.
+          </p>
+
+          <h3 class="h3" style="margin-top: 30px;">Results & Metrics</h3>
+          <p>
+            The deployed CNN-LSTM hybrid model achieved exceptional performance on the validation dataset:
+            <ul style="list-style-type: disc; margin-left: 20px; color: var(--light-gray);">
+              <li><strong>Overall Accuracy:</strong> Achieved over 95% accuracy in binary classification (Healthy vs. COPD).</li>
+              <li><strong>Robustness:</strong> The integration of LSTM significantly reduced false positives compared to a standalone CNN baseline.</li>
+            </ul>
+          </p>
+
+          <div style="margin-top: 40px; display: flex; gap: 15px;">
+            <a href="https://github.com/Rajath2005/COPD-Detection" target="_blank" class="form-btn" style="padding: 15px 30px; text-decoration: none; border-radius: 14px; background: var(--orange-yellow-crayola); color: var(--smoky-black); font-weight: bold;">
+              View Repository
+            </a>
+          </div>
+        </section>
+      </article>
+    </div>
+  </main>
+</body>
+</html>

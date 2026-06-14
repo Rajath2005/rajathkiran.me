@@ -1,0 +1,1106 @@
+/**
+ * Adaptive Identity Operating System — Professional UI
+ * Command Dock + 6 Environment Design Systems
+ * Inspired by: Linear, Vercel, Railway, Spotify, Airbnb, Apple
+ */
+
+/* =========================================
+   ENVIRONMENT DESIGN SYSTEMS
+   Each env gets: palette, motion timing, 
+   typography personality, card behavior
+========================================= */
+
+/* --- Mission Control (Cloud/Vercel-grade) --- */
+body[data-environment="mission-control"] {
+    --env-primary: hsl(197, 100%, 50%);
+    --env-secondary: hsl(220, 100%, 65%);
+    --env-glow: hsla(197, 100%, 55%, 0.5);
+    --env-surface: hsl(218, 60%, 10%);
+    --env-border: hsl(220, 50%, 22%);
+    --env-motion: 0.15s cubic-bezier(0.4, 0, 1, 1);
+    --env-motion-out: 0.2s cubic-bezier(0, 0, 0.2, 1);
+    --bg-gradient-onyx: linear-gradient(135deg, hsl(220, 72%, 8%) 0%, hsl(215, 60%, 12%) 100%);
+    --neon-blue: hsl(197, 100%, 55%);
+    --cyber-cyan: hsl(210, 100%, 68%);
+    --hover-glow: hsla(197, 100%, 55%, 0.5);
+    --jet: hsl(220, 50%, 22%);
+    --onyx: hsl(218, 60%, 14%);
+    --eerie-black-1: hsl(218, 60%, 10%);
+}
+
+/* Mission Control — card & element personality */
+body[data-environment="mission-control"] .project-item > a {
+    border-top: 2px solid transparent;
+    transition: border-color var(--env-motion), transform var(--env-motion), box-shadow var(--env-motion);
+}
+body[data-environment="mission-control"] .project-item > a:hover {
+    border-top-color: var(--neon-blue);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px hsla(197, 100%, 50%, 0.2);
+}
+body[data-environment="mission-control"] .navbar-link.active::after {
+    background: var(--neon-blue);
+}
+body[data-environment="mission-control"] .skills-item .title-wrapper h5::before {
+    content: '$ ';
+    color: var(--neon-blue);
+    font-family: monospace;
+    font-size: 11px;
+}
+
+/* --- Neural Nexus (AI/Linear-grade spring) --- */
+body[data-environment="neural-nexus"] {
+    --env-primary: hsl(265, 89%, 65%);
+    --env-secondary: hsl(320, 100%, 62%);
+    --env-glow: hsla(265, 89%, 65%, 0.5);
+    --env-surface: hsl(272, 60%, 8%);
+    --env-border: hsl(272, 40%, 22%);
+    --env-motion: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --env-motion-out: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --bg-gradient-onyx: linear-gradient(135deg, hsl(270, 60%, 7%) 0%, hsl(280, 50%, 11%) 100%);
+    --neon-blue: hsl(265, 89%, 68%);
+    --cyber-cyan: hsl(320, 100%, 65%);
+    --hover-glow: hsla(265, 89%, 65%, 0.55);
+    --jet: hsl(272, 40%, 22%);
+    --onyx: hsl(272, 50%, 14%);
+    --eerie-black-1: hsl(272, 60%, 9%);
+}
+
+body[data-environment="neural-nexus"] .project-item > a {
+    transition: transform var(--env-motion), box-shadow var(--env-motion);
+}
+body[data-environment="neural-nexus"] .project-item > a:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 50px hsla(265, 89%, 65%, 0.25);
+    border-image: linear-gradient(135deg, hsl(265, 89%, 65%), hsl(320, 100%, 62%)) 1;
+}
+body[data-environment="neural-nexus"] .navbar-link.active::after {
+    background: linear-gradient(90deg, var(--neon-blue), var(--cyber-cyan));
+}
+
+/* --- Aurora Studio (Design/Apple-grade glass) --- */
+body[data-environment="aurora-studio"] {
+    --env-primary: hsl(240, 60%, 75%);
+    --env-secondary: hsl(210, 80%, 72%);
+    --env-glow: hsla(240, 60%, 75%, 0.4);
+    --env-surface: hsl(230, 20%, 12%);
+    --env-border: hsl(230, 15%, 25%);
+    --env-motion: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    --env-motion-out: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    --bg-gradient-onyx: linear-gradient(135deg, hsl(235, 25%, 10%) 0%, hsl(240, 20%, 15%) 100%);
+    --neon-blue: hsl(240, 60%, 78%);
+    --cyber-cyan: hsl(210, 80%, 74%);
+    --hover-glow: hsla(240, 60%, 78%, 0.4);
+    --jet: hsl(230, 15%, 25%);
+    --onyx: hsl(230, 20%, 17%);
+    --eerie-black-1: hsl(230, 20%, 12%);
+}
+
+body[data-environment="aurora-studio"] .project-item > a {
+    backdrop-filter: blur(0px);
+    transition: transform var(--env-motion), backdrop-filter var(--env-motion), box-shadow var(--env-motion);
+}
+body[data-environment="aurora-studio"] .project-item > a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 60px hsla(230, 30%, 5%, 0.6), 0 0 0 1px hsla(240, 60%, 75%, 0.2);
+}
+body[data-environment="aurora-studio"] .navbar-link.active::after {
+    background: linear-gradient(90deg, hsl(240, 60%, 78%), hsl(210, 80%, 74%));
+}
+
+/* --- Research Lab (Academic/Railway precision) --- */
+body[data-environment="research-lab"] {
+    --env-primary: hsl(152, 80%, 50%);
+    --env-secondary: hsl(174, 90%, 52%);
+    --env-glow: hsla(152, 80%, 50%, 0.45);
+    --env-surface: hsl(180, 25%, 8%);
+    --env-border: hsl(180, 30%, 20%);
+    --env-motion: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --env-motion-out: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bg-gradient-onyx: linear-gradient(135deg, hsl(180, 30%, 7%) 0%, hsl(185, 25%, 11%) 100%);
+    --neon-blue: hsl(152, 80%, 52%);
+    --cyber-cyan: hsl(174, 90%, 55%);
+    --hover-glow: hsla(152, 80%, 50%, 0.45);
+    --jet: hsl(180, 30%, 20%);
+    --onyx: hsl(180, 25%, 14%);
+    --eerie-black-1: hsl(180, 25%, 9%);
+}
+
+body[data-environment="research-lab"] .project-item > a {
+    border-left: 3px solid transparent;
+    transition: border-color var(--env-motion), transform var(--env-motion), box-shadow var(--env-motion);
+}
+body[data-environment="research-lab"] .project-item > a:hover {
+    border-left-color: var(--neon-blue);
+    transform: translateX(4px) translateY(-2px);
+    box-shadow: 0 10px 35px hsla(152, 80%, 50%, 0.18);
+}
+body[data-environment="research-lab"] .navbar-link.active::after {
+    background: var(--neon-blue);
+}
+
+/* --- Project Foundry (CLI/terminal Vercel deploy) --- */
+body[data-environment="project-foundry"] {
+    --env-primary: hsl(142, 100%, 38%);
+    --env-secondary: hsl(43, 100%, 52%);
+    --env-glow: hsla(142, 100%, 40%, 0.45);
+    --env-surface: hsl(0, 0%, 6%);
+    --env-border: hsl(0, 0%, 16%);
+    --env-motion: 0.1s cubic-bezier(0.4, 0, 1, 1);
+    --env-motion-out: 0.12s cubic-bezier(0, 0, 0.2, 1);
+    --bg-gradient-onyx: linear-gradient(135deg, hsl(0, 0%, 5%) 0%, hsl(0, 0%, 9%) 100%);
+    --neon-blue: hsl(142, 100%, 42%);
+    --cyber-cyan: hsl(43, 100%, 55%);
+    --hover-glow: hsla(142, 100%, 42%, 0.45);
+    --jet: hsl(0, 0%, 18%);
+    --onyx: hsl(0, 0%, 12%);
+    --eerie-black-1: hsl(0, 0%, 7%);
+    --transition-1: 0.1s ease-out;
+}
+
+body[data-environment="project-foundry"] .project-item > a {
+    transition: transform var(--env-motion), border var(--env-motion), box-shadow var(--env-motion);
+    border: 1px solid hsl(0, 0%, 14%);
+}
+body[data-environment="project-foundry"] .project-item > a:hover {
+    transform: translateY(-3px);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 0 1px hsla(142, 100%, 40%, 0.3), 0 8px 30px hsla(142, 100%, 40%, 0.15);
+}
+body[data-environment="project-foundry"] .navbar-link.active::after {
+    background: var(--neon-blue);
+}
+body[data-environment="project-foundry"] .skills-item .title-wrapper h5 {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* --- Innovation Garage (Energetic/Spotify bounce) --- */
+body[data-environment="innovation-garage"] {
+    --env-primary: hsl(22, 100%, 55%);
+    --env-secondary: hsl(48, 100%, 50%);
+    --env-glow: hsla(22, 100%, 55%, 0.5);
+    --env-surface: hsl(0, 0%, 7%);
+    --env-border: hsl(0, 0%, 18%);
+    --env-motion: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --env-motion-out: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --bg-gradient-onyx: linear-gradient(135deg, hsl(0, 0%, 7%) 0%, hsl(15, 10%, 11%) 100%);
+    --neon-blue: hsl(22, 100%, 58%);
+    --cyber-cyan: hsl(48, 100%, 53%);
+    --hover-glow: hsla(22, 100%, 55%, 0.5);
+    --jet: hsl(0, 0%, 20%);
+    --onyx: hsl(0, 0%, 13%);
+    --eerie-black-1: hsl(0, 0%, 8%);
+}
+
+body[data-environment="innovation-garage"] .project-item > a {
+    transition: transform var(--env-motion), box-shadow var(--env-motion);
+}
+body[data-environment="innovation-garage"] .project-item > a:hover {
+    transform: translateY(-8px) rotate(0.3deg);
+    box-shadow: 0 20px 50px hsla(22, 100%, 55%, 0.25);
+}
+body[data-environment="innovation-garage"] .navbar-link.active::after {
+    background: linear-gradient(90deg, var(--neon-blue), var(--cyber-cyan));
+}
+
+/* =========================================
+   COMMAND DOCK — Linear/Railway-inspired
+   Right edge vertical pill, collapses/expands
+========================================= */
+
+.command-dock {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+
+    /* Pill shape — flush to right edge */
+    background: hsla(225, 40%, 10%, 0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid hsla(225, 30%, 30%, 0.4);
+    border-right: none;
+    border-radius: 14px 0 0 14px;
+    
+    /* Collapsed width */
+    width: 48px;
+    box-shadow:
+        -4px 0 30px hsla(220, 50%, 5%, 0.5),
+        inset 1px 0 0 hsla(225, 30%, 40%, 0.15);
+
+    transition: width 0.28s cubic-bezier(0.23, 1, 0.32, 1),
+                background 0.28s ease;
+}
+
+.command-dock:hover,
+.command-dock:focus-within {
+    width: 180px;
+    background: hsla(225, 40%, 12%, 0.95);
+}
+
+/* Dock section container */
+.dock-section {
+    width: 100%;
+    position: relative;
+}
+
+/* Thin divider between sections */
+.dock-divider {
+    width: calc(100% - 16px);
+    height: 1px;
+    background: hsla(225, 30%, 35%, 0.4);
+    margin: 0 8px;
+    flex-shrink: 0;
+}
+
+/* Dock button */
+.dock-btn {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    min-height: 52px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: hsla(0, 0%, 80%, 0.7);
+    transition: color 0.2s ease, background 0.2s ease;
+    overflow: hidden;
+    text-align: left;
+    white-space: nowrap;
+    position: relative;
+}
+
+.dock-btn:hover {
+    color: hsl(0, 0%, 100%);
+    background: hsla(225, 30%, 30%, 0.3);
+}
+
+.dock-btn:hover .dock-btn-icon {
+    color: var(--neon-blue, hsl(197, 100%, 60%));
+}
+
+/* Active/pressed state */
+.dock-btn.active,
+.dock-btn[aria-pressed="true"] {
+    color: var(--neon-blue, hsl(197, 100%, 60%));
+    background: hsla(197, 100%, 50%, 0.08);
+}
+
+.dock-btn.active .dock-btn-icon {
+    color: var(--neon-blue, hsl(197, 100%, 60%));
+}
+
+/* Icon section of dock button (always visible) */
+.dock-btn-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+/* Label section — hidden when collapsed, visible on hover */
+.dock-btn-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    padding-right: 14px;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    pointer-events: none;
+}
+
+.command-dock:hover .dock-btn-label,
+.command-dock:focus-within .dock-btn-label {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.dock-label-text {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.dock-label-hint {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: hsla(0, 0%, 60%, 0.6);
+    background: hsla(225, 30%, 25%, 0.6);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid hsla(225, 30%, 35%, 0.4);
+    font-family: monospace;
+}
+
+/* AI badge on chat icon */
+.ai-chat-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--cyber-cyan, hsl(197, 100%, 60%));
+    color: hsl(0, 0%, 5%);
+    font-size: 8px;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+}
+
+/* =========================================
+   ENVIRONMENT ORBIT PANEL
+   Slides out to the left of the dock
+========================================= */
+
+.environment-orbit {
+    position: fixed;
+    right: 56px;
+    top: 50%;
+    transform: translateY(-50%) translateX(24px);
+    background: hsla(225, 40%, 10%, 0.95);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid hsla(225, 30%, 30%, 0.5);
+    border-radius: 16px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.22s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.22s cubic-bezier(0.23, 1, 0.32, 1),
+                visibility 0s linear 0.22s;
+    box-shadow:
+        -8px 0 40px hsla(220, 50%, 5%, 0.6),
+        0 0 0 1px hsla(225, 30%, 35%, 0.2);
+    width: 220px;
+    z-index: 1200;
+}
+
+.environment-orbit.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+    transition: opacity 0.22s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.22s cubic-bezier(0.23, 1, 0.32, 1),
+                visibility 0s linear 0s;
+}
+
+.orbit-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    color: hsla(0, 0%, 80%, 0.7);
+    border: none;
+    padding: 10px 12px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+}
+
+.orbit-btn:hover {
+    background: hsla(225, 30%, 25%, 0.6);
+    color: hsl(0, 0%, 100%);
+}
+
+.orbit-btn.active-env {
+    background: hsla(197, 100%, 50%, 0.1);
+    color: var(--neon-blue, hsl(197, 100%, 60%));
+}
+
+.orbit-btn ion-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+/* Orbit panel header */
+.orbit-header {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: hsla(0, 0%, 60%, 0.5);
+    padding: 4px 12px 8px;
+    border-bottom: 1px solid hsla(225, 30%, 30%, 0.4);
+    margin-bottom: 4px;
+}
+
+/* =========================================
+   NAVBAR — Sliding Indicator Tab
+========================================= */
+
+.navbar-link {
+    position: relative;
+}
+
+.navbar-link::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--neon-blue);
+    transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1), background 0.4s ease;
+}
+
+.navbar-link.active::after {
+    width: 70%;
+}
+
+.navbar-link:hover::after {
+    width: 40%;
+}
+
+/* =========================================
+   GLASS MORPH TRANSITION OVERLAY
+========================================= */
+
+.glass-morph-overlay {
+    position: fixed;
+    inset: 0;
+    background: hsla(230, 50%, 10%, 0.15);
+    backdrop-filter: blur(0px);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.glass-morph-overlay.active {
+    opacity: 1;
+    backdrop-filter: blur(30px);
+    pointer-events: all;
+}
+
+/* =========================================
+   HERO ELEMENTS
+========================================= */
+
+.os-hero-spotlight { margin-top: 20px; margin-bottom: 20px; }
+
+.spotlight-card {
+    background: var(--bg-gradient-onyx);
+    border: 1px solid var(--jet);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-1);
+    position: relative;
+    overflow: hidden;
+}
+
+.spotlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: linear-gradient(to bottom, var(--neon-blue), var(--cyber-cyan));
+}
+
+.spotlight-badge {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--cyber-cyan);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.spotlight-card h4 { color: var(--white-1); font-size: var(--fs-4); margin-bottom: 5px; }
+.spotlight-card p { color: var(--light-gray-70); font-size: var(--fs-6); margin-bottom: 15px; }
+.spotlight-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--neon-blue);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-500);
+}
+
+.os-hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.metric-item {
+    background: var(--onyx);
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    border: 1px solid var(--jet);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.metric-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px hsla(220, 60%, 10%, 0.4);
+}
+
+.metric-val {
+    display: block;
+    color: var(--white-1);
+    font-size: var(--fs-2);
+    font-weight: var(--fw-600);
+    margin-bottom: 4px;
+}
+
+.metric-label {
+    display: block;
+    color: var(--light-gray-70);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   IDENTITY EXPLORER CARD
+========================================= */
+
+.identity-explorer-card {
+    background: var(--onyx);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 30px;
+    border: 1px solid var(--jet);
+}
+
+.explorer-title { color: var(--white-1); font-size: var(--fs-5); margin-bottom: 15px; }
+
+.explorer-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--light-gray-70);
+    font-size: var(--fs-7);
+    margin-bottom: 10px;
+}
+
+.explorer-list li ion-icon { font-size: 16px; }
+.explorer-list li.visited { color: var(--neon-blue); }
+.explorer-list li.active { color: var(--white-1); font-weight: var(--fw-500); }
+
+/* =========================================
+   SMART RECOMMENDATION TOAST
+========================================= */
+
+.smart-recommendation-toast {
+    position: fixed;
+    top: 30px;
+    right: -420px;
+    width: 340px;
+    background: var(--eerie-black-1);
+    border: 1px solid var(--jet);
+    border-left: 3px solid var(--neon-blue);
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    box-shadow: var(--shadow-3);
+    z-index: 1050;
+    transition: right 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.smart-recommendation-toast.active { right: 30px; }
+.toast-icon { font-size: 22px; color: var(--cyber-cyan); }
+.toast-title { color: var(--white-1); font-size: var(--fs-7); font-weight: var(--fw-600); }
+.toast-message { color: var(--light-gray-70); font-size: var(--fs-8); }
+.toast-close {
+    background: none;
+    border: none;
+    color: var(--light-gray);
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   RECRUITER FAST LANE — Vercel Status Bar
+========================================= */
+
+.recruiter-fast-lane-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 52px;
+    background: hsla(225, 30%, 9%, 0.96);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid hsla(225, 30%, 25%, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 10000;
+    transform: translateY(-100%);
+    transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 24px hsla(220, 50%, 5%, 0.5);
+}
+
+/* Accent line at very top — environment reactive */
+.recruiter-fast-lane-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--cyber-cyan));
+}
+
+body[data-recruiter-mode="true"] .recruiter-fast-lane-banner {
+    transform: translateY(0);
+}
+
+body[data-recruiter-mode="true"] {
+    padding-top: 52px;
+}
+
+.recruiter-banner-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: hsl(145, 80%, 50%);
+    border-radius: 50%;
+    box-shadow: 0 0 8px hsl(145, 80%, 50%);
+    animation: pulse-glow 2s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px hsl(145, 80%, 50%); }
+    50% { opacity: 0.6; box-shadow: 0 0 14px hsl(145, 80%, 55%); }
+}
+
+.recruiter-banner-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: hsl(0, 0%, 95%);
+    letter-spacing: 0.01em;
+}
+
+.recruiter-banner-subtitle {
+    font-size: 11px;
+    color: hsla(0, 0%, 70%, 0.7);
+    display: none;
+}
+
+@media (min-width: 580px) {
+    .recruiter-banner-subtitle { display: inline; }
+}
+
+/* Portfolio Score Ring */
+.recruiter-score {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.score-ring {
+    width: 32px;
+    height: 32px;
+    transform: rotate(-90deg);
+}
+
+.score-ring-bg {
+    fill: none;
+    stroke: hsla(225, 30%, 30%, 0.5);
+    stroke-width: 3;
+}
+
+.score-ring-fill {
+    fill: none;
+    stroke: var(--neon-blue, hsl(197, 100%, 55%));
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray 1s ease;
+}
+
+.score-value {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 9px;
+    font-weight: 700;
+    color: hsl(0, 0%, 95%);
+}
+
+/* Banner Right: CTAs */
+.recruiter-banner-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.recruiter-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.18s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.recruiter-cta--outline {
+    background: transparent;
+    color: hsla(0, 0%, 85%, 0.9);
+    border: 1px solid hsla(225, 30%, 35%, 0.7);
+}
+
+.recruiter-cta--outline:hover {
+    background: hsla(225, 30%, 25%, 0.5);
+    color: hsl(0, 0%, 100%);
+    border-color: hsla(225, 30%, 50%, 0.7);
+}
+
+.recruiter-cta--filled {
+    background: var(--neon-blue, hsl(197, 100%, 50%));
+    color: hsl(0, 0%, 5%);
+    border: none;
+}
+
+.recruiter-cta--filled:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px var(--hover-glow, hsla(197, 100%, 55%, 0.5));
+}
+
+.recruiter-close {
+    background: transparent;
+    color: hsla(0, 0%, 70%, 0.7);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.recruiter-close:hover {
+    background: hsla(0, 0%, 100%, 0.08);
+    color: hsl(0, 0%, 100%);
+}
+
+/* Recruiter Banner Mobile Compression */
+@media (max-width: 650px) {
+    .recruiter-banner-title {
+        display: none;
+    }
+    
+    .recruiter-cta {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+    
+    .recruiter-cta ion-icon {
+        display: none;
+    }
+    
+    .recruiter-fast-lane-banner {
+        padding: 0 10px;
+    }
+    
+    .recruiter-banner-left {
+        gap: 6px;
+    }
+    
+    .recruiter-banner-right {
+        gap: 6px;
+    }
+}
+
+/* =========================================
+   PROJECT TECH TAGS (CHIPS)
+========================================= */
+.project-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tech-tag {
+    background: hsla(0, 0%, 100%, 0.05);
+    color: var(--light-gray);
+    font-size: 11px;
+    font-family: var(--font-mono, monospace);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid hsla(0, 0%, 100%, 0.1);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.project-item:hover .tech-tag {
+    border-color: hsla(0, 0%, 100%, 0.2);
+    background: hsla(0, 0%, 100%, 0.08);
+}
+
+.tech-tag:hover {
+    background: var(--neon-blue) !important;
+    color: hsl(0, 0%, 100%) !important;
+    border-color: var(--neon-blue) !important;
+}
+
+/* =========================================
+   FEATURED PROJECT BADGE
+========================================= */
+.featured-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: linear-gradient(135deg, hsl(39, 100%, 50%), hsl(30, 100%, 50%));
+    color: hsl(0, 0%, 10%);
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 2;
+    box-shadow: 0 4px 10px hsla(39, 100%, 50%, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.featured-badge.featured-ai {
+    background: linear-gradient(135deg, var(--neon-blue), hsl(220, 100%, 50%));
+    color: hsl(0, 0%, 100%);
+    box-shadow: 0 4px 10px hsla(190, 100%, 50%, 0.3);
+}
+
+.featured-badge.featured-web {
+    background: linear-gradient(135deg, hsl(140, 100%, 40%), hsl(160, 100%, 40%));
+    color: hsl(0, 0%, 10%);
+    box-shadow: 0 4px 10px hsla(140, 100%, 40%, 0.3);
+}
+
+.featured-badge.featured-tools {
+    background: linear-gradient(135deg, hsl(280, 100%, 60%), hsl(260, 100%, 50%));
+    color: hsl(0, 0%, 100%);
+    box-shadow: 0 4px 10px hsla(280, 100%, 60%, 0.3);
+}
+
+/* =========================================
+   RECRUITER MODE — LAYOUT REORDERING
+========================================= */
+
+body[data-recruiter-mode="true"] .glass-morph-overlay { display: none !important; }
+
+body[data-recruiter-mode="true"] .certificate-hidden { display: block !important; }
+body[data-recruiter-mode="true"] #view-more-certificates { display: none !important; }
+
+body[data-recruiter-mode="true"] .resume.active {
+    display: flex;
+    flex-direction: column;
+}
+
+body[data-recruiter-mode="true"] .resume.active > header      { order: 1; margin-bottom: 20px; }
+body[data-recruiter-mode="true"] .resume.active > .skill      { order: 2; margin-bottom: 40px; }
+body[data-recruiter-mode="true"] .resume.active > .certificate { order: 3; margin-bottom: 40px; }
+body[data-recruiter-mode="true"] .resume.active > .timeline:not(.journey-horizontal-section) { order: 4; }
+body[data-recruiter-mode="true"] .resume.active > .journey-horizontal-section { display: none; }
+
+body[data-recruiter-mode="true"] .skills-item { margin-bottom: 8px; }
+body[data-recruiter-mode="true"] .skills-item .title-wrapper { margin-bottom: 5px; }
+body[data-recruiter-mode="true"] .timeline-item { margin-bottom: 15px; }
+body[data-recruiter-mode="true"] .timeline-text { font-size: 13px; line-height: 1.4; }
+
+/* =========================================
+   MOBILE — Dock moves to bottom
+========================================= */
+
+@media (max-width: 768px) {
+    .command-dock {
+        right: auto;
+        bottom: 85px;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+        border-radius: 26px;
+        border: 1px solid hsla(225, 30%, 40%, 0.5);
+        width: auto;
+        height: 52px;
+        padding: 0 8px;
+        box-shadow: 0 10px 40px hsla(220, 60%, 5%, 0.8), 0 0 0 1px hsla(225, 30%, 35%, 0.2);
+    }
+
+    .command-dock:hover,
+    .command-dock:focus-within {
+        width: auto;
+        background: hsla(225, 40%, 10%, 0.85);
+    }
+
+    .dock-btn {
+        min-height: 52px;
+        min-width: 52px;
+        width: auto;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .dock-btn-label { display: none; }
+
+    .dock-divider {
+        width: 1px;
+        height: 24px;
+        margin: auto 4px;
+    }
+
+    .environment-orbit {
+        bottom: 150px;
+        top: auto;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        width: calc(100vw - 40px);
+        max-width: 320px;
+    }
+
+    .environment-orbit.active {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ===================================================
+   NEXT-LEVEL FAQ ACCORDION UI
+=================================================== */
+.faq-next-level {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: var(--bg-gradient-jet, linear-gradient(135deg, rgba(33, 33, 33, 0.8), rgba(20, 20, 20, 0.8)));
+    border: 1px solid var(--jet, #333);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: var(--shadow-1, 0 5px 15px rgba(0,0,0,0.1));
+}
+
+.faq-item:hover {
+    border-color: var(--neon-blue, #00d8ff);
+    box-shadow: 0 5px 15px rgba(0, 216, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.faq-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    color: var(--white-1, #fff);
+    font-size: var(--fs-5, 1.1rem);
+    font-weight: 500;
+    transition: var(--transition-1, 0.3s ease);
+}
+
+.faq-toggle:hover {
+    color: var(--neon-blue, #00d8ff);
+}
+
+.faq-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--onyx, #2b2b2c);
+    border: 1px solid var(--jet, #333);
+    color: var(--neon-blue, #00d8ff);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.faq-toggle[aria-expanded="true"] .faq-icon-wrapper {
+    transform: rotate(180deg);
+    background: var(--neon-blue, #00d8ff);
+    color: var(--eerie-black-1, #111);
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.4s ease;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.faq-content p {
+    color: var(--light-gray, #d6d6d6);
+    font-size: var(--fs-6, 0.95rem);
+    line-height: 1.6;
+    padding: 0 25px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.faq-content p strong {
+    color: var(--white-2, #fafafa);
+    font-weight: 600;
+}
+
+.faq-toggle[aria-expanded="true"] + .faq-content {
+    padding-bottom: 20px;
+}
+
+.faq-toggle[aria-expanded="true"] + .faq-content p {
+    opacity: 1;
+    transform: translateY(0);
+}
