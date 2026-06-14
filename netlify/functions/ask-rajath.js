@@ -90,27 +90,38 @@ Databases: Firestore, Supabase (PostgreSQL), BigQuery, Cloud Spanner
 - Do NOT make up projects, certifications, or skills not listed above
     `;
 
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [{ text: `${systemPrompt}\n\nVisitor Question: ${question}` }],
-            },
-          ],
-          generationConfig: {
-            temperature: 0.7,
-            maxOutputTokens: 250,
+    const fetchOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [{ text: `${systemPrompt}\n\nVisitor Question: ${question}` }],
           },
-          safetySettings: [
-            { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-          ],
-        }),
-      }
+        ],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 250,
+        },
+        safetySettings: [
+          { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
+        ],
+      }),
+    };
+
+    let response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`,
+      fetchOptions
     );
+
+    // Fallback if 1.5-flash is not available in the user's region or API version
+    if (response.status === 404) {
+      console.warn("gemini-1.5-flash-latest not found, falling back to gemini-pro...");
+      response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
+        fetchOptions
+      );
+    }
 
     if (!response.ok) {
       const errorData = await response.json();
