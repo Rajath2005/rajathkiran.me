@@ -102,7 +102,19 @@ export function initAIChat() {
   function appendMessage(text, sender) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `ai-message ${sender}`;
-    messageDiv.textContent = text;
+    
+    // Parse basic markdown if it's a bot message
+    if (sender === 'bot') {
+      let parsedText = text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" style="color: var(--neon-blue); text-decoration: underline;">$1</a>')
+        .replace(/\n/g, '<br>');
+      messageDiv.innerHTML = parsedText;
+    } else {
+      messageDiv.textContent = text;
+    }
+    
     chatMessages.appendChild(messageDiv);
     chatMessages.scrollTo({ top: chatMessages.scrollHeight, behavior: 'smooth' });
   }
