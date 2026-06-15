@@ -109,15 +109,42 @@ Databases: Firestore, Supabase (PostgreSQL), BigQuery, Cloud Spanner
       }),
     };
 
+    // Debugging step: fetch available models to see what this API key actually has access to
+    let availableModelsList = [];
+    try {
+      const modelsReq = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${API_KEY}`);
+      if (modelsReq.ok) {
+        const modelsData = await modelsReq.json();
+        // Log the actual model names available
+        availableModelsList = modelsData.models
+          .filter(m => m.supportedGenerationMethods && m.supportedGenerationMethods.includes('generateContent'))
+          .map(m => m.name.replace('models/', ''));
+        console.log("AVAILABLE MODELS FOR THIS KEY:", availableModelsList);
+      }
+    } catch (e) {
+      console.warn("Failed to fetch available models list:", e);
+    }
+
     const modelsToTry = [
       'gemini-1.5-flash',
       'gemini-1.5-flash-8b',
+      'gemini-1.5-pro',
       'gemini-1.0-pro',
       'gemini-1.0-pro-latest'
     ];
 
+    // If we successfully fetched available models, prioritize them
+    const actualModelsToTry = availableModelsList.length > 0 
+      ? availableModelsList.filter(m => modelsToTry.includes(m) || m.includes('flash') || m.includes('pro'))
+      : modelsToTry;
+
+    // Fallback just in case none match
+    if (actualModelsToTry.length === 0 && availableModelsList.length > 0) {
+      actualModelsToTry.push(availableModelsList[0]);
+    }
+
     let response;
-    for (const model of modelsToTry) {
+    for (const model of (actualModelsToTry.length > 0 ? actualModelsToTry : modelsToTry)) {
       response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`,
         fetchOptions
@@ -137,10 +164,16 @@ Databases: Firestore, Supabase (PostgreSQL), BigQuery, Cloud Spanner
     }
 
     if (!response || !response.ok) {
-      const errorData = await response.json();
+      const errorData = await response ? await response.json() : { error: { message: 'All models failed' } };
       console.error('Gemini API Error:', JSON.stringify(errorData));
+      
+      let errorMessage = errorData.error?.message || 'The AI service returned an error.';
+      if (availableModelsList.length > 0) {
+        errorMessage += `\nModels actually available to your key: ${availableModelsList.join(', ')}`;
+      }
+
       return {
-        statusCode: response.status,
+        statusCode: response ? response.status : 500,
         body: JSON.stringify({
           error: 'Gemini API Error',
           message: errorData.error?.message || 'The AI service returned an error.',
