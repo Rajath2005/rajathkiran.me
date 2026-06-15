@@ -110,15 +110,15 @@ Databases: Firestore, Supabase (PostgreSQL), BigQuery, Cloud Spanner
     };
 
     let response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,
       fetchOptions
     );
 
-    // Fallback if 1.5-flash is not available in the user's region or API version
+    // Fallback if gemini-1.5-flash is not available, try gemini-1.5-flash-8b
     if (response.status === 404) {
-      console.warn("gemini-1.5-flash-latest not found, falling back to gemini-pro...");
+      console.warn("gemini-1.5-flash not found, falling back to gemini-1.5-flash-8b...");
       response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=${API_KEY}`,
         fetchOptions
       );
     }
