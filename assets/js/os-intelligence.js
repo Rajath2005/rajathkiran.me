@@ -267,7 +267,8 @@ const attachKeyboardShortcuts = () => {
     document.addEventListener('keydown', (e) => {
         // Don't fire if user is typing in an input
         if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
-        // Don't fire with modifier keys (except Shift)
+        // Require Shift key for these shortcuts to avoid conflict with normal typing (like the easter egg)
+        if (!e.shiftKey) return;
         if (e.ctrlKey || e.altKey || e.metaKey) return;
 
         switch (e.key.toLowerCase()) {
