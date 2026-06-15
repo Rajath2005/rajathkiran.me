@@ -109,21 +109,34 @@ Databases: Firestore, Supabase (PostgreSQL), BigQuery, Cloud Spanner
       }),
     };
 
-    let response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`,
-      fetchOptions
-    );
+    const modelsToTry = [
+      'gemini-1.5-flash',
+      'gemini-1.5-flash-8b',
+      'gemini-1.0-pro',
+      'gemini-1.0-pro-latest'
+    ];
 
-    // Fallback if gemini-1.5-flash is not available, try gemini-1.5-flash-8b
-    if (response.status === 404) {
-      console.warn("gemini-1.5-flash not found, falling back to gemini-1.5-flash-8b...");
+    let response;
+    for (const model of modelsToTry) {
       response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=${API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${API_KEY}`,
         fetchOptions
       );
+      
+      if (response.ok) {
+        break; // Successfully got a response
+      }
+      
+      if (response.status === 404) {
+        console.warn(`${model} not found for this API version or region. Trying next...`);
+        continue;
+      } else {
+        // If it's a 400, 403 or 500 error, we shouldn't keep trying models
+        break;
+      }
     }
 
-    if (!response.ok) {
+    if (!response || !response.ok) {
       const errorData = await response.json();
       console.error('Gemini API Error:', JSON.stringify(errorData));
       return {
