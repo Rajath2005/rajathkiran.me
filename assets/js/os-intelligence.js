@@ -86,11 +86,11 @@ const ENVIRONMENTS = {
 };
 
 const PROJECT_METADATA = {
-    'https://github.com/Rajath2005/COPD-Detection':          { recruiterPriority: 1, environments: ['neural-nexus'], featured: true, featuredType: 'ai' },
-    'https://mediq-health.netlify.app/':                     { recruiterPriority: 2, environments: ['project-foundry', 'aurora-studio'], featured: true, featuredType: 'web' },
+    'https://github.com/Rajath2005/COPD-Detection': { recruiterPriority: 1, environments: ['neural-nexus'], featured: true, featuredType: 'ai' },
+    'https://mediq-health.netlify.app/': { recruiterPriority: 2, environments: ['project-foundry', 'aurora-studio'], featured: true, featuredType: 'web' },
     'https://www.skills.google/public_profiles/09886862-52b8-44a4-86a5-9559a3952dd0': { recruiterPriority: 3, environments: ['mission-control', 'project-foundry'] },
-    'https://github.com/Rajath2005':                         { recruiterPriority: 4, environments: ['project-foundry', 'innovation-garage'] },
-    'https://ayudost-chatbot.onrender.com/':                 { recruiterPriority: 5, environments: ['neural-nexus', 'innovation-garage'], featured: true, featuredType: 'ai' },
+    'https://github.com/Rajath2005': { recruiterPriority: 4, environments: ['project-foundry', 'innovation-garage'] },
+    'https://ayudost-chatbot.onrender.com/': { recruiterPriority: 5, environments: ['neural-nexus', 'innovation-garage'], featured: true, featuredType: 'ai' },
     'https://www.figma.com/community/file/1632301825171230889': { recruiterPriority: 6, environments: ['research-lab', 'aurora-studio'] },
     'https://huggingface.co/spaces/BugHunter28/code-review-env': { recruiterPriority: 7, environments: ['neural-nexus', 'project-foundry'], featured: true, featuredType: 'tools' }
 };
@@ -122,8 +122,8 @@ export const initOS = () => {
     const referrer = document.referrer.toLowerCase();
     let initialEnv = 'project-foundry';
 
-    if (referrer.includes('linkedin.com'))       initialEnv = 'mission-control';
-    else if (referrer.includes('github.com'))    initialEnv = 'project-foundry';
+    if (referrer.includes('linkedin.com')) initialEnv = 'mission-control';
+    else if (referrer.includes('github.com')) initialEnv = 'project-foundry';
     else if (referrer.includes('twitter.com') || referrer.includes('x.com')) initialEnv = 'innovation-garage';
     else {
         let maxTime = -1;
@@ -147,13 +147,13 @@ export const initOS = () => {
             localStorage.setItem('os_analytics', JSON.stringify(osAnalytics));
 
             const totalTime = Object.values(osAnalytics.timeSpent).reduce((a, b) => a + b, 0);
-            
+
             // Trigger Smart Easter Egg Hint
-            if (!osAnalytics.easterEggHintShown && 
-                totalTime >= 60 && 
-                osAnalytics.envSwitches >= 1 && 
+            if (!osAnalytics.easterEggHintShown &&
+                totalTime >= 60 &&
+                osAnalytics.envSwitches >= 1 &&
                 osAnalytics.sectionsVisited.length >= 2) {
-                
+
                 // Desktop only
                 if (window.innerWidth > 768) {
                     showEasterEggHint();
@@ -176,7 +176,7 @@ const attachEventListeners = () => {
         const btn = document.getElementById('toggle-recruiter-mode');
         if (btn) btn.setAttribute('aria-pressed', isRecruiterMode);
         hybridSortProjects(isRecruiterMode);
-        
+
         // Animate score ring
         const ringFill = document.querySelector('.score-ring-fill');
         if (ringFill) {
@@ -198,7 +198,7 @@ const attachEventListeners = () => {
         document.body.setAttribute('data-recruiter-mode', 'false');
         document.getElementById('toggle-recruiter-mode')?.setAttribute('aria-pressed', 'false');
         hybridSortProjects(false);
-        
+
         const ringFill = document.querySelector('.score-ring-fill');
         if (ringFill) ringFill.style.strokeDasharray = '0, 100';
     });
@@ -487,7 +487,7 @@ const injectProjectTags = () => {
         'https://ayudost-chatbot.onrender.com/': ['Python', 'NLP', 'Flask', 'Google Cloud'],
         'https://github.com/Rajath2005': ['Open Source', 'Full Stack', 'Cloud'],
         'https://www.figma.com/community/file/1632301825171230889': ['Figma', 'Prototyping', 'IEEE'],
-        'https://www.skills.google/public_profiles/09886862-52b8-44a4-86a5-9559a3952dd0': ['GCP', 'Cloud Architect', 'DevOps'],
+        'https://cloud.rajathkiran.me/': ['GCP', 'Cloud Architect', 'DevOps'],
         'https://huggingface.co/spaces/BugHunter28/code-review-env': ['Python', 'HuggingFace', 'RL Benchmark', 'LLMs']
     };
 
@@ -498,11 +498,11 @@ const injectProjectTags = () => {
         const url = item.querySelector('a')?.getAttribute('data-project-url') || '';
         const category = item.getAttribute('data-category')?.toLowerCase() || '';
         const tags = specificTags[url] || defaultTags[category] || ['Software Engineering'];
-        
+
         const tagsContainer = document.createElement('div');
         tagsContainer.className = 'project-tech-tags';
         tagsContainer.innerHTML = tags.map(tag => `<span class="tech-tag">${tag}</span>`).join('');
-        
+
         const contentBox = item.querySelector('.project-content');
         if (contentBox) contentBox.appendChild(tagsContainer);
 
@@ -511,12 +511,12 @@ const injectProjectTags = () => {
         if (meta && meta.featured && !item.querySelector('.featured-badge')) {
             const badge = document.createElement('div');
             badge.className = `featured-badge ${meta.featuredType ? 'featured-' + meta.featuredType : ''}`;
-            
+
             let icon = 'star';
             if (meta.featuredType === 'ai') icon = 'sparkles';
             if (meta.featuredType === 'web') icon = 'globe';
             if (meta.featuredType === 'tools') icon = 'construct';
-            
+
             badge.innerHTML = `<ion-icon name="${icon}"></ion-icon> Featured`;
             const imgWrapper = item.querySelector('.project-img-wrapper');
             if (imgWrapper) imgWrapper.appendChild(badge);
@@ -586,20 +586,20 @@ const hybridSortProjects = (forceRecruiter) => {
 =================================================== */
 const ALL_CERTIFICATES = [
     // --- PREMIUM CERTIFICATES ---
-    { id: 1,  title: 'IEEE I2 Connect Competition Winning Cert', src: 'assets/images/certificate-1.webp', thumb: 'assets/images/certificate-1.webp', isPremium: true },
+    { id: 1, title: 'IEEE I2 Connect Competition Winning Cert', src: 'assets/images/certificate-1.webp', thumb: 'assets/images/certificate-1.webp', isPremium: true },
     { id: 16, title: 'Node JS Certification', src: 'assets/images/certificate-16.png', thumb: 'assets/images/certificate-16.png', isPremium: true },
-    { id: 8,  title: 'Responsive Web Design', src: 'assets/images/certificate-8.webp', thumb: 'assets/images/certificate-8.webp', isPremium: true },
+    { id: 8, title: 'Responsive Web Design', src: 'assets/images/certificate-8.webp', thumb: 'assets/images/certificate-8.webp', isPremium: true },
     { id: 26, title: 'Professional Certification', src: 'assets/images/certificate-26.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: true },
-    { id: 6,  title: 'Infosys SpringBoard', src: 'assets/images/certificate-6.webp', thumb: 'assets/images/certificate-6.webp', isPremium: true },
-    { id: 2,  title: 'Aura 2K24 Competition Winner', src: 'assets/images/certificate-2.webp', thumb: 'assets/images/certificate-2.webp', isPremium: true },
+    { id: 6, title: 'Infosys SpringBoard', src: 'assets/images/certificate-6.webp', thumb: 'assets/images/certificate-6.webp', isPremium: true },
+    { id: 2, title: 'Aura 2K24 Competition Winner', src: 'assets/images/certificate-2.webp', thumb: 'assets/images/certificate-2.webp', isPremium: true },
     { id: 19, title: 'Technical Certification', src: 'assets/images/certificate-19.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: true },
     { id: 24, title: 'Advanced Certification', src: 'assets/images/certificate-24.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: true },
     { id: 25, title: 'Specialized Training', src: 'assets/images/certificate-25.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: true },
-    { id: 5,  title: 'Linux for Beginners Certifications', src: 'assets/images/certificate-5.webp', thumb: 'assets/images/certificate-5.webp', isPremium: true },
+    { id: 5, title: 'Linux for Beginners Certifications', src: 'assets/images/certificate-5.webp', thumb: 'assets/images/certificate-5.webp', isPremium: true },
 
     // --- FOUNDATIONAL SKILLS ---
-    { id: 7,  title: 'Fundamental of CSS', src: 'assets/images/certificate-7.webp', thumb: 'assets/images/certificate-7.webp', isPremium: false },
-    { id: 9,  title: 'Basic CSS', src: 'assets/images/certificate-9.webp', thumb: 'assets/images/certificate-9.webp', isPremium: false },
+    { id: 7, title: 'Fundamental of CSS', src: 'assets/images/certificate-7.webp', thumb: 'assets/images/certificate-7.webp', isPremium: false },
+    { id: 9, title: 'Basic CSS', src: 'assets/images/certificate-9.webp', thumb: 'assets/images/certificate-9.webp', isPremium: false },
     { id: 10, title: 'Intro to Cybersecurity', src: 'assets/images/certificate-10.webp', thumb: 'assets/images/certificate-10.webp', isPremium: false },
     { id: 11, title: 'Git Sheet', src: 'assets/images/certificate-11.webp', thumb: 'assets/images/certificate-11.webp', isPremium: false },
     { id: 12, title: 'Open Source', src: 'assets/images/certificate-12.webp', thumb: 'assets/images/certificate-12.webp', isPremium: false },
@@ -710,12 +710,12 @@ window.openCertModal = (src, title, isPdf) => {
     const modalIframe = document.getElementById('modal-iframe');
     const modalLoader = document.getElementById('cert-modal-loader');
     const captionText = document.getElementById('caption');
-    
+
     if (!modal) return;
 
     modal.style.display = "block";
     if (captionText) captionText.innerHTML = title;
-    
+
     if (modalLoader) modalLoader.style.display = "block";
     if (modalImage) modalImage.style.display = "none";
     if (modalIframe) modalIframe.style.display = "none";
@@ -745,13 +745,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.getElementById('cert-modal-close');
     const modal = document.getElementById('modal');
     const modalIframe = document.getElementById('modal-iframe');
-    
+
     if (closeBtn && modal) {
-        closeBtn.onclick = function() { 
+        closeBtn.onclick = function () {
             modal.style.display = "none";
-            if (modalIframe) modalIframe.src = ''; 
+            if (modalIframe) modalIframe.src = '';
         }
-        modal.onclick = function(e) {
+        modal.onclick = function (e) {
             if (e.target === modal) {
                 modal.style.display = "none";
                 if (modalIframe) modalIframe.src = '';
@@ -768,11 +768,11 @@ document.addEventListener('DOMContentLoaded', initOS);
 =================================================== */
 document.addEventListener('DOMContentLoaded', () => {
     const faqToggles = document.querySelectorAll('.faq-toggle');
-    
+
     faqToggles.forEach(toggle => {
         toggle.addEventListener('click', () => {
             const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-            
+
             // Close all other accordions
             faqToggles.forEach(otherToggle => {
                 otherToggle.setAttribute('aria-expanded', 'false');
