@@ -4,6 +4,47 @@
  * v2.0: Command Dock, Keyboard Shortcuts, Professional Environment Systems
  */
 
+const RESUME_MAP = {
+    'mission-control': { label: 'Cloud Engineer', file: 'Rajath Kiran A - Resume.pdf', default: false },
+    'neural-nexus': { label: 'AI/ML Engineer', file: 'Rajath_Kiran_ML_Intern_Resume.pdf', default: false },
+    'aurora-studio': { label: 'Full Stack Developer', file: 'Rajath_Kiran_FullStack_ATS_Resume.pdf', default: false },
+    'research-lab': { label: 'AI/ML Researcher', file: 'Rajath_Kiran_ML_Intern_Resume.pdf', default: false },
+    'project-foundry': { label: 'Full Stack Developer', file: 'Rajath_Kiran_FullStack_ATS_Resume.pdf', default: true },
+    'innovation-garage': { label: 'Prototyper & Hacker', file: 'Rajath_Kiran_OpenSource_Hackathon_Resume.pdf', default: false }
+};
+
+const SKILL_PROFILES = {
+    'mission-control': {
+        name: 'Cloud Engineer',
+        keywords: ['gcp', 'google cloud', 'kubernetes', 'docker', 'gke', 'terraform', 'ci/cd', 'load balancing', 'pub/sub', 'compute engine', 'cloud storage', 'devops', 'infrastructure', 'helm', 'istio', 'cloud sql', 'spanner', 'monitoring', 'iac', 'microservices']
+    },
+    'neural-nexus': {
+        name: 'AI/ML Engineer',
+        keywords: ['tensorflow', 'pytorch', 'cnn', 'lstm', 'nlp', 'machine learning', 'deep learning', 'neural network', 'computer vision', 'rag', 'llm', 'natural language processing', 'classification', 'regression', 'scikit-learn', 'pandas', 'numpy', 'huggingface', 'transformer', 'embedding', 'model deployment', 'mlops']
+    },
+    'project-foundry': {
+        name: 'Full Stack Developer',
+        keywords: ['react', 'next.js', 'node.js', 'javascript', 'typescript', 'html', 'css', 'supabase', 'postgresql', 'api', 'rest', 'frontend', 'backend', 'full stack', 'express', 'flask', 'tailwind', 'bootstrap', 'responsive', 'webpack', 'vite']
+    },
+    'aurora-studio': {
+        name: 'Full Stack Developer',
+        keywords: ['react', 'next.js', 'node.js', 'javascript', 'typescript', 'html', 'css', 'supabase', 'postgresql', 'api', 'rest', 'frontend', 'backend', 'full stack', 'express', 'flask', 'tailwind', 'bootstrap', 'responsive', 'webpack', 'vite']
+    },
+    'research-lab': {
+        name: 'AI/ML Researcher',
+        keywords: ['tensorflow', 'pytorch', 'machine learning', 'deep learning', 'nlp', 'computer vision', 'research', 'ieee', 'paper', 'algorithm', 'statistics', 'data analysis', 'python', 'jupyter', 'experiment']
+    },
+    'innovation-garage': {
+        name: 'Full Stack Developer',
+        keywords: ['react', 'node.js', 'javascript', 'python', 'flask', 'prototype', 'mvp', 'api', 'full stack', 'frontend', 'backend', 'rapid development', 'firebase', 'vercel', 'netlify']
+    }
+};
+
+const getActiveResume = () => RESUME_MAP[currentEnvironment || 'project-foundry'];
+const getActiveSkillProfile = () => SKILL_PROFILES[currentEnvironment || 'project-foundry'];
+const getResumeUrl = () => `./assets/resumes/${getActiveResume().file}`;
+const getResumeViewerUrl = () => `resume.html?role=${currentEnvironment || 'project-foundry'}`;
+
 const ENVIRONMENTS = {
     'mission-control': {
         name: 'Mission Control',
@@ -85,6 +126,64 @@ const ENVIRONMENTS = {
     }
 };
 
+// Comprehensive knowledge base for JD matching
+const PROJECT_SKILLS = {
+    'https://github.com/Rajath2005/COPD-Detection': {
+        name: 'COPD Detection & Severity Classification',
+        keywords: ['python', 'tensorflow', 'pytorch', 'cnn', 'lstm', 'deep learning', 'audio processing', 'signal processing', 'classification', 'healthcare ai', 'medical imaging', 'respiratory', 'machine learning', 'neural networks', 'research'],
+        domain: ['healthcare', 'ai/ml', 'research'],
+        highlight: 'Deep learning for respiratory sound classification'
+    },
+    'https://ayudost-chatbot.onrender.com/': {
+        name: 'AyuDost AI',
+        keywords: ['python', 'nlp', 'flask', 'react', 'node.js', 'rag', 'llm', 'tensorflow', 'google cloud', 'chatbot', 'natural language processing', 'transformer', 'embedding', 'api', 'healthcare', 'ayurvedic'],
+        domain: ['healthcare', 'ai/ml', 'full stack'],
+        highlight: 'AI healthcare chatbot with RAG architecture'
+    },
+    'https://mediq-health.netlify.app/': {
+        name: 'MediQ Health Platform',
+        keywords: ['react', 'supabase', 'node.js', 'postgresql', 'tailwind', 'healthcare', 'full stack', 'api', 'authentication', 'database', 'responsive'],
+        domain: ['healthcare', 'full stack', 'web development'],
+        highlight: 'Ayurvedic healthcare platform with AI integration'
+    },
+    'http://cloud.rajathkiran.me/': {
+        name: 'Cloud Infrastructure (GCP)',
+        keywords: ['gcp', 'google cloud', 'compute engine', 'load balancing', 'networking', 'high availability', 'vm', 'health checks', 'auto scaling', 'cloud architecture', 'infrastructure', 'devops'],
+        domain: ['cloud', 'devops', 'infrastructure'],
+        highlight: 'Highly available multi-VM architecture on GCP'
+    },
+    'https://github.com/Rajath2005': {
+        name: 'GitHub Profile',
+        keywords: ['open source', 'git', 'version control', 'collaboration', 'code review', 'ci/cd', 'github actions', 'documentation', 'api', 'full stack', 'python', 'javascript', 'java', 'c++'],
+        domain: ['development', 'open source', 'devops'],
+        highlight: '70+ repositories across AI, cloud, and web'
+    },
+    'https://huggingface.co/spaces/BugHunter28/code-review-env': {
+        name: 'Code Review Env',
+        keywords: ['python', 'reinforcement learning', 'openai gym', 'code review', 'ai agent', 'benchmark', 'mlops', 'huggingface', 'testing', 'automation'],
+        domain: ['ai/ml', 'devtools', 'research'],
+        highlight: 'RL benchmark for training AI code reviewers'
+    },
+    'https://www.figma.com/community/file/1632301825171230889': {
+        name: 'IEEE Web Design (Figma)',
+        keywords: ['figma', 'ui/ux', 'prototyping', 'wireframing', 'design systems', 'responsive design', 'user research', 'accessibility', 'frontend'],
+        domain: ['design', 'frontend', 'ui/ux'],
+        highlight: 'UI/UX concept for IEEE web presence'
+    },
+    'https://sitexar.netlify.app/': {
+        name: 'Sitexar',
+        keywords: ['react', 'javascript', 'html', 'css', 'netlify', 'frontend', 'responsive', 'team collaboration', 'web development', 'startup'],
+        domain: ['full stack', 'web development', 'startup'],
+        highlight: 'Freelance startup website built by 6-member team'
+    },
+    'https://reactlabexp.netlify.app/': {
+        name: 'React Lab',
+        keywords: ['react', 'javascript', 'frontend', 'hooks', 'state management', 'components', 'spa', 'routing'],
+        domain: ['frontend', 'web development'],
+        highlight: 'React experiments and UI practice projects'
+    }
+};
+
 const PROJECT_METADATA = {
     'https://github.com/Rajath2005/COPD-Detection': { recruiterPriority: 1, environments: ['neural-nexus'], featured: true, featuredType: 'ai' },
     'https://mediq-health.netlify.app/': { recruiterPriority: 2, environments: ['project-foundry', 'aurora-studio'], featured: true, featuredType: 'web' },
@@ -102,11 +201,17 @@ let osAnalytics = JSON.parse(localStorage.getItem('os_analytics')) || {
     visited: [],
     sectionsVisited: [],
     envSwitches: 0,
-    easterEggHintShown: false
+    easterEggHintShown: false,
+    onboarding: {
+        welcomeShown: false,
+        pulseShown: false,
+        sectionHintShown: false
+    }
 };
 // Backwards compatibility
 if (!osAnalytics.sectionsVisited) osAnalytics.sectionsVisited = [];
 if (typeof osAnalytics.envSwitches === 'undefined') osAnalytics.envSwitches = 0;
+if (!osAnalytics.onboarding) osAnalytics.onboarding = { welcomeShown: false, pulseShown: false, sectionHintShown: false };
 let recommendationTimer = null;
 
 /* ===================================================
@@ -118,11 +223,17 @@ export const initOS = () => {
     attachKeyboardShortcuts();
     renderCertificates();
 
+    // URL parameter routing (for personalized hire/ links)
+    const urlParams = new URLSearchParams(location.search);
+    const urlEnv = urlParams.get('env');
+    const urlRecruiter = urlParams.get('recruiter');
+
     // Origin-based routing
     const referrer = document.referrer.toLowerCase();
     let initialEnv = 'project-foundry';
 
-    if (referrer.includes('linkedin.com')) initialEnv = 'mission-control';
+    if (urlEnv && ENVIRONMENTS[urlEnv]) initialEnv = urlEnv;
+    else if (referrer.includes('linkedin.com')) initialEnv = 'mission-control';
     else if (referrer.includes('github.com')) initialEnv = 'project-foundry';
     else if (referrer.includes('twitter.com') || referrer.includes('x.com')) initialEnv = 'innovation-garage';
     else {
@@ -139,6 +250,16 @@ export const initOS = () => {
 
     switchEnvironment(initialEnv, true);
     injectProjectTags();
+
+    // Activate recruiter mode if URL param says so
+    if (urlRecruiter === 'true') {
+        setTimeout(() => {
+            document.getElementById('toggle-recruiter-mode')?.click();
+        }, 500);
+    }
+
+    // Start onboarding discovery (only if never switched)
+    startOnboarding();
 
     // Analytics timer & Easter Egg Hint
     setInterval(() => {
@@ -225,6 +346,22 @@ const attachEventListeners = () => {
                 osAnalytics.sectionsVisited.push(section);
                 localStorage.setItem('os_analytics', JSON.stringify(osAnalytics));
             }
+            // Trigger contextual onboarding hint based on section
+            if (osAnalytics.envSwitches === 0 && !osAnalytics.onboarding.sectionHintShown) {
+                const hints = {
+                    'Projects': `Viewing projects? Switch to <strong>Neural Nexus</strong> to see AI projects first, or <strong>Mission Control</strong> for cloud infrastructure.`,
+                    'Resume': `Your resume auto-adapts! Switch profiles to see a <strong>role-tailored resume</strong> for Cloud, AI/ML, or Full Stack.`,
+                    'Contact': `Tell recruiters about the environment switcher — it shows your adaptability!`
+                };
+                const hint = hints[section];
+                if (hint) {
+                    setTimeout(() => {
+                        showOnboardingToast('Pro Tip', hint, 'bulb-outline', 7000);
+                        osAnalytics.onboarding.sectionHintShown = true;
+                        localStorage.setItem('os_analytics', JSON.stringify(osAnalytics));
+                    }, 2000);
+                }
+            }
         });
     });
 
@@ -258,6 +395,256 @@ const attachEventListeners = () => {
             selector?.setAttribute('aria-expanded', 'false');
         }
     });
+
+    // Quick Apply
+    const qaModal = document.getElementById('quick-apply-modal');
+    const qaBtn = document.getElementById('quick-apply-btn');
+    const qaClose = document.getElementById('quick-apply-close');
+    const qaOverlay = document.querySelector('[data-quick-apply-overlay]');
+
+    // Hire Me → opens Quick Apply
+    const hireBtn = document.getElementById('hire-me-btn');
+    if (hireBtn && qaModal) {
+        hireBtn.addEventListener('click', () => qaModal.classList.add('active'));
+    }
+
+    if (qaBtn && qaModal) {
+        qaBtn.addEventListener('click', () => qaModal.classList.add('active'));
+    }
+    if (qaClose && qaModal) {
+        qaClose.addEventListener('click', () => qaModal.classList.remove('active'));
+    }
+    if (qaOverlay && qaModal) {
+        qaOverlay.addEventListener('click', () => qaModal.classList.remove('active'));
+    }
+
+    document.querySelectorAll('.qa-role-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const role = btn.getAttribute('data-role');
+            const resume = RESUME_MAP[role] || RESUME_MAP['project-foundry'];
+            const profile = SKILL_PROFILES[role] || SKILL_PROFILES['project-foundry'];
+            const subject = encodeURIComponent(`Internship Application — Rajath Kiran A — ${resume.label}`);
+            const body = encodeURIComponent(
+`Hi,
+
+I'm Rajath Kiran A, a Computer Science student at VCET graduating in 2027. I'm writing to express my interest in a ${resume.label} internship opportunity.
+
+My resume (tailored for ${resume.label}) is attached for your review.
+
+Here's a quick snapshot of my relevant skills:
+${profile.keywords.slice(0, 8).map(k => `- ${k}`).join('\n')}
+
+I've built and deployed production AI/cloud projects including AyuDost AI and COPD Detection. I'm open to relocation and available for an immediate start.
+
+Portfolio: https://rajathkiran.me
+Resume: https://rajathkiran.me/resume.html?role=${role}
+GitHub: https://github.com/Rajath2005 (70+ repos)
+LinkedIn: https://www.linkedin.com/in/rajath-kiran/
+
+I'd welcome the opportunity to discuss how I can contribute to your team.
+
+Best,
+Rajath Kiran A
+rajathajeru@gmail.com
++91 9113275894`
+            );
+            document.location.href = `mailto:rajathajeru@gmail.com?subject=${subject}&body=${body}`;
+            qaModal.classList.remove('active');
+        });
+    });
+
+    // JD Match
+    const jdModal = document.getElementById('jd-match-modal');
+    const jdBtn = document.getElementById('jd-match-btn');
+    const jdClose = document.getElementById('jd-match-close');
+    const jdOverlay = document.querySelector('[data-jd-overlay]');
+    const jdInput = document.getElementById('jd-input');
+    const jdAnalyze = document.getElementById('jd-analyze-btn');
+    const jdResults = document.getElementById('jd-results');
+
+    if (jdBtn && jdModal) {
+        jdBtn.addEventListener('click', () => {
+            jdModal.classList.add('active');
+            jdResults.style.display = 'none';
+            jdInput.value = '';
+        });
+    }
+
+    // JD sample query buttons
+    document.querySelectorAll('.jd-sample-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            jdInput.value = btn.getAttribute('data-sample');
+            jdResults.style.display = 'none';
+            jdAnalyze.click();
+        });
+    });
+    if (jdClose && jdModal) {
+        jdClose.addEventListener('click', () => jdModal.classList.remove('active'));
+    }
+    if (jdOverlay && jdModal) {
+        jdOverlay.addEventListener('click', () => jdModal.classList.remove('active'));
+    }
+
+    if (jdAnalyze && jdInput && jdResults) {
+        jdAnalyze.addEventListener('click', () => {
+            const jd = jdInput.value.toLowerCase();
+            if (!jd.trim()) { jdResults.innerHTML = '<p style="color: var(--orange-yellow-crayola);">Please paste a job description first.</p>'; jdResults.style.display = 'block'; return; }
+
+            const words = jd.split(/[^a-zA-Z0-9+#.]+/).filter(w => w.length > 2);
+            const wordSet = new Set(words);
+
+            // ---- 1. Role Match (weighted 60%) ----
+            let roleScores = [];
+            for (const [key, profile] of Object.entries(SKILL_PROFILES)) {
+                const matched = profile.keywords.filter(kw => words.some(w => w.includes(kw) || kw.includes(w)));
+                const score = Math.round((matched.length / Math.max(profile.keywords.length, 1)) * 100);
+                roleScores.push({ key, name: profile.name, score, matched, total: profile.keywords.length });
+            }
+            roleScores.sort((a, b) => b.score - a.score);
+            const bestRole = roleScores[0];
+
+            // ---- 2. Project Match (weighted 25%) ----
+            let projectMatches = [];
+            for (const [url, proj] of Object.entries(PROJECT_SKILLS)) {
+                const matched = proj.keywords.filter(kw => words.some(w => w.includes(kw) || kw.includes(w)));
+                const score = Math.round((matched.length / Math.max(proj.keywords.length, 1)) * 100);
+                if (score > 0) {
+                    projectMatches.push({ url, name: proj.name, score, matched, highlight: proj.highlight, domain: proj.domain });
+                }
+            }
+            projectMatches.sort((a, b) => b.score - a.score);
+            const topProjects = projectMatches.slice(0, 4);
+
+            // ---- 3. Domain Detection ----
+            const domainKeywords = {
+                'Cloud': ['gcp', 'cloud', 'kubernetes', 'docker', 'devops', 'infrastructure', 'aws', 'azure', 'deployment', 'ci/cd', 'terraform'],
+                'AI/ML': ['machine learning', 'deep learning', 'nlp', 'computer vision', 'tensorflow', 'pytorch', 'neural', 'classification', 'rag', 'llm', 'data science'],
+                'Full Stack': ['react', 'frontend', 'backend', 'full stack', 'api', 'database', 'web', 'javascript', 'node.js', 'supabase'],
+                'Research': ['research', 'paper', 'experiment', 'algorithm', 'analysis', 'statistics', 'ieee', 'publication']
+            };
+            let domainScores = {};
+            for (const [domain, kws] of Object.entries(domainKeywords)) {
+                const hits = kws.filter(kw => words.some(w => w.includes(kw) || kw.includes(w)));
+                domainScores[domain] = hits.length;
+            }
+            const topDomain = Object.entries(domainScores).sort((a, b) => b[1] - a[1])[0];
+
+            // ---- 4. GitHub/Open Source Match (weighted 15%) ----
+            const gitKeywords = ['open source', 'git', 'github', 'version control', 'collaboration', 'ci/cd', 'documentation', 'agile', 'scrum', 'jira', 'code review', 'testing'];
+            const gitHits = gitKeywords.filter(kw => words.some(w => w.includes(kw) || kw.includes(w)));
+
+            // ---- Composite Score ----
+            const roleWeight = 0.60;
+            const projectWeight = 0.25;
+            const gitWeight = 0.15;
+            const avgProjectScore = topProjects.length > 0 ? topProjects.reduce((s, p) => s + p.score, 0) / topProjects.length : 0;
+            const gitScore = Math.round((gitHits.length / gitKeywords.length) * 100);
+            const composite = Math.round(
+                (bestRole.score * roleWeight) +
+                (avgProjectScore * projectWeight) +
+                (gitScore * gitWeight)
+            );
+
+            // ---- Build Results ----
+            const pctColor = composite >= 70 ? '#00ff88' : composite >= 45 ? '#ffaa00' : '#ff6666';
+            const envLabel = ENVIRONMENTS[bestRole.key]?.shortLabel || bestRole.name;
+
+            // Matched skills (from best role + projects)
+            const allMatched = new Set([
+                ...bestRole.matched,
+                ...topProjects.flatMap(p => p.matched)
+            ]);
+            const matchedList = [...allMatched].slice(0, 18);
+
+            // Missing from best role
+            const missingList = SKILL_PROFILES[bestRole.key]?.keywords
+                .filter(kw => !words.some(w => w.includes(kw) || kw.includes(w)))
+                .filter(kw => kw.length > 3)
+                .slice(0, 10) || [];
+
+            const matchedHtml = matchedList.map(t => `<span class="jd-skill-tag matched">${t}</span>`).join('');
+            const missingHtml = missingList.map(t => `<span class="jd-skill-tag missing">${t}</span>`).join('');
+            const projectHtml = topProjects.map(p =>
+                `<div class="jd-project-match"><ion-icon name="folder-outline"></ion-icon><span>${p.name}</span><span class="jd-project-pct">${p.score}%</span></div>`
+            ).join('');
+
+            const domainHint = topDomain && topDomain[1] > 0
+                ? `<div style="margin-bottom: 12px; padding: 10px 14px; border-radius: 8px; background: hsla(195, 100%, 68%, 0.06); border: 1px solid hsla(195, 100%, 68%, 0.15);">
+                    <div style="font-size: 13px; color: var(--light-gray);">This JD leans toward <strong style="color: var(--neon-blue);">${topDomain[0]}</strong></div>
+                   </div>` : '';
+
+            jdResults.innerHTML = `
+                <div class="jd-match-score">
+                    <div class="jd-match-pct" style="color: ${pctColor};">${composite}%</div>
+                    <div>
+                        <div class="jd-match-label" style="font-weight: 600; color: var(--white-1);">Best Role: ${bestRole.name}</div>
+                        <div class="jd-match-label" style="font-size: 12px; color: var(--light-gray-70);">Skills matched in JD · ${bestRole.score}% role fit</div>
+                    </div>
+                </div>
+
+                ${domainHint}
+
+                ${matchedList.length > 0 ? `
+                <div style="margin-bottom: 12px;">
+                    <div style="font-size: 13px; color: var(--light-gray); margin-bottom: 6px;">
+                        <ion-icon name="checkmark-circle" style="color: #00ff88; vertical-align: middle;"></ion-icon> Matched Skills
+                    </div>
+                    <div class="jd-skill-match">${matchedHtml}</div>
+                </div>` : ''}
+
+                ${missingList.length > 0 ? `
+                <div style="margin-bottom: 12px;">
+                    <div style="font-size: 13px; color: var(--light-gray); margin-bottom: 6px;">
+                        <ion-icon name="alert-circle" style="color: #ffaa00; vertical-align: middle;"></ion-icon> Skills to Highlight
+                    </div>
+                    <div class="jd-skill-match">${missingHtml}</div>
+                </div>` : ''}
+
+                ${topProjects.length > 0 ? `
+                <div style="margin-bottom: 12px;">
+                    <div style="font-size: 13px; color: var(--light-gray); margin-bottom: 6px;">
+                        <ion-icon name="folder-open" style="color: var(--neon-blue); vertical-align: middle;"></ion-icon> Relevant Projects
+                    </div>
+                    <div class="jd-project-list">${projectHtml}</div>
+                </div>` : ''}
+
+                <div style="margin-top: 14px; padding: 14px; border-radius: 10px; background: hsla(195, 100%, 68%, 0.06); border: 1px solid hsla(195, 100%, 68%, 0.2);">
+                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        <span style="font-size: 13px; color: var(--light-gray);">
+                            <strong style="color: var(--neon-blue);">Next step:</strong>
+                            <strong id="jd-auto-apply" style="color: var(--orange-yellow-crayola); cursor: pointer;">Quick Apply</strong>
+                            with ${bestRole.name} resume
+                        </span>
+                        <span style="font-size: 12px; color: var(--light-gray-70);">·</span>
+                        <span style="font-size: 13px; color: var(--light-gray);">
+                            Switch to <strong id="jd-switch-env" style="color: var(--neon-blue); cursor: pointer;">${envLabel}</strong>
+                        </span>
+                    </div>
+                </div>
+            `;
+            jdResults.style.display = 'block';
+
+            // Quick Apply from JD results
+            const autoApply = document.getElementById('jd-auto-apply');
+            if (autoApply) {
+                autoApply.addEventListener('click', () => {
+                    jdModal.classList.remove('active');
+                    document.getElementById('quick-apply-btn')?.click();
+                });
+            }
+
+            // Switch environment from JD results
+            const switchEnv = document.getElementById('jd-switch-env');
+            if (switchEnv) {
+                switchEnv.addEventListener('click', () => {
+                    jdModal.classList.remove('active');
+                    if (currentEnvironment !== bestRole.key) {
+                        switchEnvironment(bestRole.key);
+                    }
+                });
+            }
+        });
+    }
 };
 
 /* ===================================================
@@ -288,6 +675,10 @@ const attachKeyboardShortcuts = () => {
                 document.getElementById('environment-orbit')?.classList.remove('active');
                 document.getElementById('toggle-environment-selector')?.setAttribute('aria-expanded', 'false');
                 document.getElementById('ai-chat-panel')?.classList.remove('active');
+                document.getElementById('modal')?.classList.remove('active');
+                document.getElementById('quick-apply-modal')?.classList.remove('active');
+                document.getElementById('jd-match-modal')?.classList.remove('active');
+                document.querySelectorAll('.modal-container.active, .project-modal-container.active').forEach(el => el.classList.remove('active'));
                 break;
         }
     });
@@ -323,6 +714,17 @@ const buildEnvironmentSelector = () => {
 /* ===================================================
    SWITCH ENVIRONMENT
 =================================================== */
+const updateResumeLinks = () => {
+    document.querySelectorAll('[data-resume-download]').forEach(el => {
+        el.href = getResumeUrl();
+    });
+    document.querySelectorAll('[data-resume-view]').forEach(el => {
+        el.href = getResumeViewerUrl();
+    });
+    const badge = document.getElementById('resume-role-badge');
+    if (badge) badge.textContent = getActiveResume().label;
+};
+
 export const switchEnvironment = (envId, isInitial = false) => {
     if (currentEnvironment === envId) return;
 
@@ -336,6 +738,7 @@ export const switchEnvironment = (envId, isInitial = false) => {
         }
         if (!isInitial) {
             osAnalytics.envSwitches++;
+            clearOnboarding();
         }
         localStorage.setItem('os_analytics', JSON.stringify(osAnalytics));
 
@@ -346,6 +749,7 @@ export const switchEnvironment = (envId, isInitial = false) => {
         triggerSmartRecommendation(envId);
         updateNavbarIndicator(envId);
         markActiveOrbitBtn(envId);
+        updateResumeLinks();
     };
 
     if (isInitial) {
@@ -550,6 +954,83 @@ const showEasterEggHint = () => {
 };
 
 /* ===================================================
+   ONBOARDING — Feature Discovery System
+=================================================== */
+let onboardingTimers = [];
+
+const showOnboardingToast = (title, msg, icon = 'bulb-outline', duration = 8000) => {
+    clearTimeout(recommendationTimer);
+    const toast = document.getElementById('smart-recommendation-toast');
+    if (!toast) return;
+    toast.classList.remove('active');
+    setTimeout(() => {
+        const t = toast.querySelector('.toast-title');
+        const m = document.getElementById('toast-message');
+        const i = toast.querySelector('.toast-icon ion-icon');
+        if (t) t.textContent = title;
+        if (m) m.innerHTML = msg;
+        if (i) i.setAttribute('name', icon);
+        toast.classList.add('active', 'onboarding-toast');
+        setTimeout(() => {
+            toast.classList.remove('active', 'onboarding-toast');
+            setTimeout(() => {
+                if (t) t.textContent = 'Recommendation';
+                if (i) i.setAttribute('name', 'bulb-outline');
+            }, 300);
+        }, duration);
+    }, 100);
+};
+
+const pulseEnvButton = () => {
+    const btn = document.getElementById('toggle-environment-selector');
+    if (btn) btn.classList.add('env-unexplored');
+    const tooltip = document.getElementById('onboarding-tooltip');
+    if (tooltip) setTimeout(() => tooltip.classList.add('active'), 300);
+};
+
+const clearOnboarding = () => {
+    onboardingTimers.forEach(t => clearTimeout(t));
+    onboardingTimers = [];
+    const btn = document.getElementById('toggle-environment-selector');
+    if (btn) btn.classList.remove('env-unexplored');
+    const tooltip = document.getElementById('onboarding-tooltip');
+    if (tooltip) tooltip.classList.remove('active');
+};
+
+const startOnboarding = () => {
+    if (osAnalytics.envSwitches > 0) return;
+    const obs = osAnalytics.onboarding;
+
+    // Stage 1: Welcome toast after 15s
+    if (!obs.welcomeShown) {
+        const t1 = setTimeout(() => {
+            if (osAnalytics.envSwitches > 0) return;
+            const envMsg = `You're currently in <strong>${ENVIRONMENTS[currentEnvironment]?.name || 'Project Foundry'}</strong>.
+                Try switching between profiles — each environment tailors projects, skills, and even your resume!`;
+            showOnboardingToast('Discover Profiles', envMsg, 'planet-outline', 10000);
+            osAnalytics.onboarding.welcomeShown = true;
+            localStorage.setItem('os_analytics', JSON.stringify(osAnalytics));
+        }, 15000);
+        onboardingTimers.push(t1);
+    }
+
+    // Stage 2: Pulse + tooltip after 35s if still no switch
+    if (!obs.pulseShown) {
+        const t2 = setTimeout(() => {
+            if (osAnalytics.envSwitches > 0) return;
+            pulseEnvButton();
+            showOnboardingToast('Try It Now',
+                'Click the <strong>planet icon</strong> on the right dock to switch between Cloud Engineer, AI/ML, and Full Stack profiles.',
+                'planet-outline', 10000);
+            osAnalytics.onboarding.pulseShown = true;
+            localStorage.setItem('os_analytics', JSON.stringify(osAnalytics));
+        }, 35000);
+        onboardingTimers.push(t2);
+    }
+
+};
+
+/* ===================================================
    HYBRID PROJECT SORTING
 =================================================== */
 const hybridSortProjects = (forceRecruiter) => {
@@ -588,7 +1069,7 @@ const hybridSortProjects = (forceRecruiter) => {
 const ALL_CERTIFICATES = [
     // --- PREMIUM CERTIFICATES ---
     { id: 1, title: 'IEEE I2 Connect Competition Winning Cert', src: 'assets/images/certificate-1.webp', thumb: 'assets/images/certificate-1.webp', isPremium: true },
-    { id: 16, title: 'Node JS Certification', src: 'assets/images/certificate-16.png', thumb: 'assets/images/certificate-16.png', isPremium: true },
+    { id: 16, title: 'Node JS Certification', src: 'assets/images/certificate-16.webp', thumb: 'assets/images/certificate-16.webp', isPremium: true },
     { id: 8, title: 'Responsive Web Design', src: 'assets/images/certificate-8.webp', thumb: 'assets/images/certificate-8.webp', isPremium: true },
     { id: 26, title: 'Professional Certification', src: 'assets/images/certificate-26.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: true },
     { id: 6, title: 'Infosys SpringBoard', src: 'assets/images/certificate-6.webp', thumb: 'assets/images/certificate-6.webp', isPremium: true },
@@ -608,7 +1089,7 @@ const ALL_CERTIFICATES = [
     { id: 14, title: 'CHATGPT', src: 'assets/images/certificate-14.webp', thumb: 'assets/images/certificate-14.webp', isPremium: false },
     { id: 15, title: 'Code360 Masterclass', src: 'assets/images/certificate-15.webp', thumb: 'assets/images/certificate-15.webp', isPremium: false },
     { id: 17, title: 'Certificate 17', src: 'assets/images/certificate-17.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: false },
-    { id: 18, title: 'Certificate 18', src: 'assets/images/certificate-18.png', thumb: 'assets/images/certificate-18.png', isPremium: false },
+    { id: 18, title: 'Certificate 18', src: 'assets/images/certificate-18.webp', thumb: 'assets/images/certificate-18.webp', isPremium: false },
     { id: 20, title: 'Certificate 20', src: 'assets/images/certificate-20.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: false },
     { id: 21, title: 'Certificate 21', src: 'assets/images/certificate-21.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: false },
     { id: 22, title: 'Certificate 22', src: 'assets/images/certificate-22.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: false },
@@ -714,7 +1195,7 @@ window.openCertModal = (src, title, isPdf) => {
 
     if (!modal) return;
 
-    modal.style.display = "block";
+    modal.classList.add('active');
     if (captionText) captionText.innerHTML = title;
 
     if (modalLoader) modalLoader.style.display = "block";
@@ -749,12 +1230,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (closeBtn && modal) {
         closeBtn.onclick = function () {
-            modal.style.display = "none";
+            modal.classList.remove('active');
             if (modalIframe) modalIframe.src = '';
         }
         modal.onclick = function (e) {
             if (e.target === modal) {
-                modal.style.display = "none";
+                modal.classList.remove('active');
                 if (modalIframe) modalIframe.src = '';
             }
         }

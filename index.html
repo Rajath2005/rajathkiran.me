@@ -34,13 +34,14 @@
   <!-- Canonical Link -->
   <link rel="canonical" href="https://rajathkiran.me/" />
 
-  <!-- LLM Optimization File for AI Search Engines -->
+  <!-- LLM Optimization Files for AI Search Engines -->
+  <link rel="alternate" type="text/plain" href="./llms.txt" title="LLMs Optimization File" />
   <link rel="alternate" type="text/plain" href="./llm.txt" title="LLM Optimization File" />
 
   <!--
     - favicon
   -->
-  <link rel="icon" href="./assets/images/logo.png" type="image/png">
+  <link rel="icon" href="./assets/images/logo.webp" type="image/webp">
 
 
   <!--
@@ -51,7 +52,8 @@
 
   <!-- This CSS file is Detailed CSS file -->
   <link rel="stylesheet" href="./assets/css/style.min.css">
-  <link rel="stylesheet" href="./assets/css/os-intelligence.css">
+  <link rel="preload" href="./assets/css/os-intelligence.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="./assets/css/os-intelligence.css"></noscript>
 
   <!-- Preload Critical Image (LCP) -->
   <link rel="preload" as="image" href="./assets/images/raj.webp">
@@ -61,16 +63,18 @@
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Syne:wght@800&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Syne:wght@800&display=swap"
     rel="stylesheet">
   <script
-    type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rajath Kiran A","url":"https://rajathkiran.me","image":"https://rajathkiran.me/assets/images/raj.webp","jobTitle":"Full Stack Developer & AI Builder","alumniOf":{"@type":"CollegeOrUniversity","name":"Vivekananda College of Engineering and Technology"},"knowsAbout":["React","Supabase","AI/ML","NLP","CNN","Google Cloud","Python","Java"],"sameAs":["https://github.com/Rajath2005","https://www.linkedin.com/in/rajath-kiran/","https://leetcode.com/rajath2005"]}</script>
+    type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rajath Kiran A","givenName":"Rajath","familyName":"Kiran A","alternateName":"Rajath2005","url":"https://rajathkiran.me","image":"https://rajathkiran.me/assets/images/raj.webp","description":"3rd-year Computer Science student at VCET specializing in AI/ML, Cloud Engineering, and Full Stack Development. Building AyuDost AI healthcare platform and COPD Detection system. Seeking 2026 internships.","jobTitle":"Full Stack Developer & AI Builder","alumniOf":{"@type":"CollegeOrUniversity","name":"Vivekananda College of Engineering and Technology","sameAs":"https://vcet.edu.in/"},"address":{"@type":"PostalAddress","addressLocality":"Mangalore","addressRegion":"Karnataka","addressCountry":"IN"},"email":"rajathajeru@gmail.com","telephone":"+919113275894","knowsLanguage":["English","Kannada","Hindi"],"knowsAbout":["Artificial Intelligence","Machine Learning","Deep Learning","Cloud Engineering","Google Cloud Platform","GCP","Kubernetes","React.js","Python","TensorFlow","PyTorch","NLP","Natural Language Processing","Computer Vision","Healthcare AI","Full Stack Development","Supabase","Docker","GKE","Node.js","Data Structures","Algorithms"],"sameAs":["https://github.com/Rajath2005","https://www.linkedin.com/in/rajath-kiran/","https://leetcode.com/rajath2005","https://www.hackerrank.com/@rajathajeru","https://www.figma.com/@rajath4","https://neetcode.io/rajath2005"],"seeks":{"@type":"JobPosting","title":"2026 Internship","description":"Seeking Cloud Engineering, AI/ML Engineering, or Full Stack Development internship for 2026.","employmentType":"INTERN"}}</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Top Projects by Rajath Kiran A",
+    "name": "Projects by Rajath Kiran A",
+    "numberOfItems": 6,
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -81,7 +85,10 @@
           "applicationCategory": "HealthcareApplication",
           "operatingSystem": "Web",
           "url": "https://github.com/Rajath2005/COPD-Detection",
-          "description": "Deep learning screening using respiratory sound analysis (CNN + CNN-LSTM) with 95%+ accuracy."
+          "description": "Deep learning screening using respiratory sound analysis (CNN + CNN-LSTM) for COPD detection from respiratory audio samples — ongoing research.",
+          "author": {"@type": "Person","name": "Rajath Kiran A"},
+          "applicationSubCategory": "Medical AI",
+          "programmingLanguage": "Python"
         }
       },
       {
@@ -93,7 +100,10 @@
           "applicationCategory": "HealthcareApplication",
           "operatingSystem": "Web",
           "url": "https://ayudost-chatbot.onrender.com/",
-          "description": "AI-powered Ayurvedic support chatbot and guidance assistant."
+          "description": "AI-powered Ayurvedic support chatbot with NLP-driven disease prediction, personalized health recommendations, and RAG-based knowledge retrieval.",
+          "author": {"@type": "Person","name": "Rajath Kiran A"},
+          "applicationSubCategory": "AI Assistant",
+          "programmingLanguage": "Python, JavaScript"
         }
       },
       {
@@ -105,9 +115,78 @@
           "applicationCategory": "HealthcareApplication",
           "operatingSystem": "Web",
           "url": "https://mediq-health.netlify.app/",
-          "description": "Ayurvedic healthcare platform with AI integration."
+          "description": "Ayurvedic healthcare platform with AI-driven treatment recommendations, symptom analysis, and personalized wellness plans built with React and Supabase.",
+          "author": {"@type": "Person","name": "Rajath Kiran A"},
+          "applicationSubCategory": "Healthcare Platform"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Highly Available Web App on GCP",
+          "applicationCategory": "CloudApplication",
+          "operatingSystem": "Web",
+          "url": "http://cloud.rajathkiran.me/",
+          "description": "Compute Engine deployment with HTTP(S) Load Balancing, health checks, and multi-VM traffic distribution demonstrating GCP infrastructure expertise.",
+          "author": {"@type": "Person","name": "Rajath Kiran A"},
+          "applicationSubCategory": "Cloud Infrastructure"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Microservices on GKE",
+          "applicationCategory": "CloudApplication",
+          "operatingSystem": "Web",
+          "url": "http://cloud.rajathkiran.me/",
+          "description": "Deployed containerized microservices on Google Kubernetes Engine with auto-scaling, networking, and workload monitoring.",
+          "author": {"@type": "Person","name": "Rajath Kiran A"},
+          "applicationSubCategory": "Kubernetes"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "SoftwareApplication",
+          "name": "Code Review Env",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web",
+          "url": "https://huggingface.co/spaces/BugHunter28/code-review-env",
+          "description": "OpenEnv RL benchmark for training AI agents on Python code review tasks with reinforcement learning.",
+          "author": {"@type": "Person","name": "Rajath Kiran A"},
+          "applicationSubCategory": "DevTools"
         }
       }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Rajath Kiran A — Portfolio",
+    "url": "https://rajathkiran.me",
+    "description": "Portfolio of Rajath Kiran A — Cloud Engineer & AI/ML Developer. CS student at VCET building AI-powered healthcare solutions and cloud-native applications.",
+    "author": {"@type": "Person", "name": "Rajath Kiran A"},
+    "dateModified": "2026-06-30",
+    "inLanguage": "en"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "name": "Portfolio Navigation",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "About", "item": "https://rajathkiran.me/#about"},
+      {"@type": "ListItem", "position": 2, "name": "Resume", "item": "https://rajathkiran.me/resume.html"},
+      {"@type": "ListItem", "position": 3, "name": "Projects", "item": "https://rajathkiran.me/#projects"},
+      {"@type": "ListItem", "position": 4, "name": "Contact", "item": "https://rajathkiran.me/#contact"}
     ]
   }
   </script>
@@ -138,6 +217,54 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes, Rajath is open to relocation for the right internship opportunity."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is AyuDost AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AyuDost AI is an AI-powered Ayurvedic healthcare platform built by Rajath Kiran A that features an NLP chatbot, disease prediction using Ayurvedic principles, personalized health recommendations, and RAG-based knowledge retrieval. Built with React, Node.js, Python, and TensorFlow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the COPD Detection project?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "COPD Detection & Severity Classification is a deep learning system by Rajath Kiran A that screens and classifies COPD severity using respiratory sound analysis. It implements CNN and CNN-LSTM architectures for respiratory sound classification — ongoing research."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Rajath have GCP cloud infrastructure experience?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Rajath has hands-on experience deploying scalable infrastructure on Google Cloud Platform including Compute Engine with HTTP(S) Load Balancing, health checks, multi-VM traffic distribution, and containerized microservices on Google Kubernetes Engine (GKE)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where can I find Rajath's coding profiles?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rajath is active on LeetCode (rajath2005), HackerRank (@rajathajeru), CodingNinjas-Code360, NeetCode, and Take U Forward. He also shares UI/UX designs on Figma (@rajath4)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Rajath's educational background?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rajath is a 3rd-year Computer Science Engineering student at Vivekananda College of Engineering and Technology (VCET) in Mangalore, Karnataka, India, expecting to graduate in 2027."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can recruiters contact Rajath?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Recruiters can reach Rajath via email at rajathajeru@gmail.com, through LinkedIn at linkedin.com/in/rajath-kiran, or use the Quick Apply feature on his portfolio to send a pre-composed internship application."
         }
       }
     ]
@@ -217,6 +344,14 @@
 
   </div>
 
+  <!-- Onboarding Tooltip — points to environment switcher -->
+  <div id="onboarding-tooltip" class="onboarding-tooltip">
+    <div class="onboarding-tooltip-inner">
+      <strong>Switch profiles</strong><br>
+      Cloud · AI/ML · Full Stack
+    </div>
+  </div>
+
   <!-- Recruiter Fast Lane Banner — Professional Status Bar -->
   <div id="recruiter-banner" class="recruiter-fast-lane-banner" role="banner" aria-hidden="true">
     <div class="recruiter-banner-left">
@@ -232,14 +367,22 @@
       <span class="score-value">94</span>
     </div>
     <div class="recruiter-banner-right">
-      <a href="./assets/resume.pdf" download class="recruiter-cta recruiter-cta--outline">
+      <button id="quick-apply-btn" class="recruiter-cta recruiter-cta--quick">
+        <ion-icon name="flash-outline"></ion-icon>
+        Quick Apply
+      </button>
+      <button id="jd-match-btn" class="recruiter-cta recruiter-cta--outline">
+        <ion-icon name="analytics-outline"></ion-icon>
+        Match JD
+      </button>
+      <a href="./assets/resumes/resume-fullstack.pdf" download class="recruiter-cta recruiter-cta--outline" data-resume-download>
         <ion-icon name="download-outline"></ion-icon>
         Download CV
       </a>
-      <a href="mailto:rajathajeru@gmail.com" class="recruiter-cta recruiter-cta--filled">
+      <button id="hire-me-btn" class="recruiter-cta recruiter-cta--filled">
         Hire Me
         <ion-icon name="arrow-forward-outline"></ion-icon>
-      </a>
+      </button>
       <button id="btn-exit-recruiter" class="recruiter-close" aria-label="Exit Recruiter Mode">
         <ion-icon name="close-outline"></ion-icon>
       </button>
@@ -328,11 +471,12 @@
               <p class="contact-title contact-label">Resume</p>
 
               <div class="resume-btns">
-                <a href="assets/Resume.pdf" class="resume-btn" download>
+                <a href="assets/resumes/resume-fullstack.pdf" class="resume-btn" data-resume-download download>
                   <ion-icon name="download-outline"></ion-icon>
                   <span>Download Resume</span>
+                  <span id="resume-role-badge" class="resume-role-badge" style="font-size: 10px; opacity: 0.7; display: block;">Full Stack Developer</span>
                 </a>
-                <a href="resume.html" class="resume-btn resume-btn-view" title="View Live Resume">
+                <a href="resume.html" class="resume-btn resume-btn-view" data-resume-view title="View Live Resume">
                   <ion-icon name="eye-outline"></ion-icon>
                   <span>View Live Resume</span>
                 </a>
@@ -450,6 +594,19 @@
             My journey is driven by a passion for <strong>AI/ML, Cloud Engineering, and Full Stack Development</strong>.
             I am currently seeking <strong>2026 internships</strong> where I can apply my skills in real-world
             environments and contribute to innovative tech stacks.
+          </p>
+
+          <p>
+            With <strong>70+ repositories</strong> on GitHub and <strong>50+ LeetCode problems</strong> solved,
+            I have built production-grade applications including <strong>AyuDost AI</strong> (NLP-powered Ayurvedic
+            chatbot with RAG architecture) and <strong>COPD Detection</strong> (ongoing deep learning research
+            on respiratory sound classification).
+          </p>
+
+          <p>
+            On Google Cloud Platform, I have deployed <strong>highly available multi-VM architectures</strong>
+            with HTTP(S) Load Balancing and containerized <strong>microservices on GKE</strong> — demonstrating
+            end-to-end cloud engineering capability from infrastructure setup to CI/CD.
           </p>
 
           <p>
@@ -1089,7 +1246,7 @@
               <a href="https://github.com/Rajath2005" data-project-url="https://github.com/Rajath2005"
                 data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/Github-Profile.png" alt="GitHub Profile" loading="lazy" width="400" height="250">
+                  <img src="assets/images/Github-Profile.webp" alt="GitHub Profile" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1105,7 +1262,7 @@
             <li class="project-item active" data-filter-item data-category="applications">
               <a href="copd-detection.html" data-project-url="copd-detection.html" data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/COPD-Project.png" alt="COPD Detection" loading="lazy" width="400" height="250">
+                  <img src="assets/images/COPD-Project.webp" alt="COPD Detection" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1121,7 +1278,7 @@
             <li class="project-item active" data-filter-item data-category="applications">
               <a href="mediq.html" data-project-url="mediq.html" data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/Mediq.png" alt="MediQ - Ayurvedic Health" loading="lazy" width="400" height="250">
+                  <img src="assets/images/Mediq.webp" alt="MediQ - Ayurvedic Health" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1137,7 +1294,7 @@
             <li class="project-item active" data-filter-item data-category="applications">
               <a href="ayudost.html" data-project-url="ayudost.html" data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/AyuDost-AI.png" alt="AyuDost AI" loading="lazy" width="400" height="250">
+                  <img src="assets/images/AyuDost-AI.webp" alt="AyuDost AI" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1154,7 +1311,7 @@
               <a href="http://cloud.rajathkiran.me/" data-project-url="http://cloud.rajathkiran.me/"
                 data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/load-balancer.png" alt="Cloud Load Balancing" loading="lazy" width="400" height="250">
+                  <img src="assets/images/load-balancer.webp" alt="Cloud Load Balancing" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1172,7 +1329,7 @@
               <a href="https://sitexar.netlify.app/" data-project-url="https://sitexar.netlify.app/"
                 data-embeddable="true">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/Sitexar.png" alt="Sitexar" loading="lazy" width="400" height="250">
+                  <img src="assets/images/Sitexar.webp" alt="Sitexar" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1188,7 +1345,7 @@
             <li class="project-item active" data-filter-item data-category="web design">
               <a href="https://www.figma.com/community/file/1632301825171230889" target="_blank">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="./assets/images/IEEE-WebDesign.png" alt="IEEE Web Design" loading="lazy" width="400"
+                  <img src="./assets/images/IEEE-WebDesign.webp" alt="IEEE Web Design" loading="lazy" width="400"
                     height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1206,7 +1363,7 @@
               <a href="https://huggingface.co/spaces/BugHunter28/code-review-env"
                 data-project-url="https://huggingface.co/spaces/BugHunter28/code-review-env" data-embeddable="true">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/Code-Review.png" alt="Code Review Env" loading="lazy" width="400" height="250">
+                  <img src="assets/images/Code-Review.webp" alt="Code Review Env" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1223,7 +1380,7 @@
               <a href="http://cloud.rajathkiran.me/" data-project-url="http://cloud.rajathkiran.me/"
                 data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/gke.png" alt="GKE Microservices" loading="lazy" width="400" height="250">
+                  <img src="assets/images/gke.webp" alt="GKE Microservices" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1241,7 +1398,7 @@
               <a href="https://reactlabexp.netlify.app/" data-project-url="https://reactlabexp.netlify.app/"
                 data-embeddable="true">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/React%20Lab.png" alt="React Lab" loading="lazy" width="400" height="250">
+                  <img src="assets/images/React%20Lab.webp" alt="React Lab" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1277,7 +1434,7 @@
               <a href="https://github.com/Rajath2005/SmartCityApp"
                 data-project-url="https://github.com/Rajath2005/SmartCityApp" data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/Smart-City.png" alt="Smart City Guide" loading="lazy" width="400" height="250">
+                  <img src="assets/images/Smart-City.webp" alt="Smart City Guide" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1295,7 +1452,7 @@
               <a href="http://cloud.rajathkiran.me/" data-project-url="http://cloud.rajathkiran.me/"
                 data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/pubsub.png" alt="Event-Driven Pub/Sub" loading="lazy" width="400" height="250">
+                  <img src="assets/images/pubsub.webp" alt="Event-Driven Pub/Sub" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1313,7 +1470,7 @@
               <a href="https://ml-lab-seven.vercel.app/" data-project-url="https://ml-lab-seven.vercel.app/"
                 data-embeddable="true">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/ML-Lab.png" alt="ML Lab" loading="lazy" width="400" height="250">
+                  <img src="assets/images/ML-Lab.webp" alt="ML Lab" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1345,7 +1502,7 @@
             <li class="project-item active" data-filter-item data-category="applications">
               <a href="https://github.com/Rajath2005/TextUtils" target="_blank">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/project-8.jpg" alt="TextUtils" loading="lazy" width="400" height="250">
+                  <img src="assets/images/project-8.webp" alt="TextUtils" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1361,7 +1518,7 @@
             <li class="project-item active" data-filter-item data-category="cloud">
               <a href="http://cloud.rajathkiran.me/" target="_blank">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/spanner.png" alt="Cloud Spanner" loading="lazy" width="400" height="250">
+                  <img src="assets/images/spanner.webp" alt="Cloud Spanner" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1377,7 +1534,7 @@
             <li class="project-item active" data-filter-item data-category="web development">
               <a href="https://latex-lab-manuals.vercel.app/" target="_blank">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/Latex-Lab.png" alt="Latex Lab" loading="lazy" width="400" height="250">
+                  <img src="assets/images/Latex-Lab.webp" alt="Latex Lab" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1411,7 +1568,7 @@
             <li class="project-item active" data-filter-item data-category="cloud">
               <a href="http://cloud.rajathkiran.me/" target="_blank">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/monitoring.png" alt="Cloud Monitoring" loading="lazy" width="400" height="250">
+                  <img src="assets/images/monitoring.webp" alt="Cloud Monitoring" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1427,7 +1584,7 @@
             <li class="project-item active" data-filter-item data-category="web development">
               <a href="https://putturbus.netlify.app/" target="_blank">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/Puttur-Bus.png" alt="Puttur Bus" loading="lazy" width="400" height="250">
+                  <img src="assets/images/Puttur-Bus.webp" alt="Puttur Bus" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1443,7 +1600,7 @@
             <li class="project-item active" data-filter-item data-category="web development">
               <a href="https://englisho.netlify.app/" target="_blank">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="./assets/images/project-2.png" alt="Englisho" loading="lazy" width="400" height="250">
+                  <img src="./assets/images/project-2.webp" alt="Englisho" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1459,7 +1616,7 @@
             <li class="project-item active" data-filter-item data-category="web development">
               <a href="https://placement-bug.netlify.app/" target="_blank">
                 <div class="project-img-wrapper" data-tilt>
-                  <img src="./assets/images/Placement-Prep.png" alt="Placement Prep" loading="lazy" width="400" height="250">
+                  <img src="./assets/images/Placement-Prep.webp" alt="Placement Prep" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   </div>
@@ -1557,7 +1714,7 @@
             <li class="blog-post-item">
               <a href="https://medium.com/@arajath5463/building-mediq-how-a-college-mini-project-became-a-real-healthcare-platform-ec60152f5bff" target="_blank">
                 <figure class="blog-banner-box">
-                  <img src="assets/images/Building_MediQ.png" alt="Building MediQ: How a College Mini Project Became a Real Healthcare Platform" loading="lazy" width="600" height="400">
+                  <img src="assets/images/Building_MediQ.webp" alt="Building MediQ: How a College Mini Project Became a Real Healthcare Platform" loading="lazy" width="600" height="400">
                 </figure>
                 <div class="blog-content">
                   <div class="blog-meta">
@@ -1756,6 +1913,63 @@
         </section>
 
         </article>
+
+      <!-- Quick Apply Modal -->
+      <div id="quick-apply-modal" class="project-modal-container" style="z-index: 1001;">
+        <div class="overlay" data-quick-apply-overlay></div>
+        <section class="project-modal" style="max-width: 500px; height: auto; padding: 25px;">
+          <button class="modal-close-btn" id="quick-apply-close">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+          <h3 class="h3" style="margin-bottom: 15px; color: var(--white-1);">Quick Apply</h3>
+          <p style="color: var(--light-gray); font-size: var(--fs-7); margin-bottom: 20px;">
+            Choose a role and I'll compose a pre-filled email with your matched resume attached.
+          </p>
+          <div id="quick-apply-roles" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+            <button class="qa-role-btn" data-role="mission-control" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--jet); background: var(--eerie-black-2); color: var(--white-2); cursor: pointer; transition: all 0.2s;">
+              <ion-icon name="cloud-outline" style="font-size: 22px; color: var(--neon-blue);"></ion-icon>
+              <div style="text-align: left;"><strong>Cloud Engineer</strong><br><span style="font-size: 12px; opacity: 0.7;">GCP, Kubernetes, Docker</span></div>
+            </button>
+            <button class="qa-role-btn" data-role="neural-nexus" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--jet); background: var(--eerie-black-2); color: var(--white-2); cursor: pointer; transition: all 0.2s;">
+              <ion-icon name="hardware-chip-outline" style="font-size: 22px; color: #ff00ff;"></ion-icon>
+              <div style="text-align: left;"><strong>AI/ML Engineer</strong><br><span style="font-size: 12px; opacity: 0.7;">TensorFlow, PyTorch, NLP, CV</span></div>
+            </button>
+            <button class="qa-role-btn" data-role="project-foundry" style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 12px; border: 1px solid var(--jet); background: var(--eerie-black-2); color: var(--white-2); cursor: pointer; transition: all 0.2s;">
+              <ion-icon name="code-slash-outline" style="font-size: 22px; color: #00ff00;"></ion-icon>
+              <div style="text-align: left;"><strong>Full Stack Developer</strong><br><span style="font-size: 12px; opacity: 0.7;">React, Node.js, Supabase, PostgreSQL</span></div>
+            </button>
+          </div>
+          <p style="color: var(--light-gray-70); font-size: 12px; text-align: center;">Opens your default email client with a pre-composed application</p>
+        </section>
+      </div>
+
+      <!-- JD Match Modal -->
+      <div id="jd-match-modal" class="project-modal-container" style="z-index: 1001;">
+        <div class="overlay" data-jd-overlay></div>
+        <section class="project-modal" style="max-width: 580px; height: auto; padding: 25px;">
+          <button class="modal-close-btn" id="jd-match-close">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <ion-icon name="analytics-outline" style="font-size: 24px; color: var(--neon-blue);"></ion-icon>
+            <h3 class="h3" style="color: var(--white-1); margin: 0;">Smart Match Analyzer</h3>
+          </div>
+          <p style="color: var(--light-gray); font-size: var(--fs-7); margin-bottom: 15px;">
+            Paste a job description to see role fit, relevant projects, and skill gaps — analyzed against Rajath's full profile.
+          </p>
+          <div style="margin-bottom: 10px; display: flex; gap: 6px; flex-wrap: wrap;" id="jd-sample-queries">
+            <button class="jd-sample-btn" data-sample="Looking for a Cloud Engineer intern with GCP, Kubernetes, Docker, and CI/CD experience. Must know Terraform and have experience with load balancing and microservices.">☁️ Cloud</button>
+            <button class="jd-sample-btn" data-sample="Seeking an AI/ML intern skilled in TensorFlow, PyTorch, NLP, and computer vision. Experience with deep learning, RAG systems, and LLMs preferred.">🧠 AI/ML</button>
+            <button class="jd-sample-btn" data-sample="Full Stack Developer intern needed. React, Node.js, PostgreSQL, and REST API experience required. Knowledge of Tailwind CSS and Supabase is a plus.">⚡ Full Stack</button>
+          </div>
+          <textarea id="jd-input" rows="5" placeholder="Paste job description here..." style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--jet); background: var(--eerie-black-2); color: var(--white-2); font-family: inherit; font-size: 14px; resize: vertical; margin-bottom: 12px; box-sizing: border-box;"></textarea>
+          <button id="jd-analyze-btn" class="form-btn" style="width: 100%; justify-content: center;">
+            <ion-icon name="search-outline"></ion-icon>
+            <span>Analyze Match</span>
+          </button>
+          <div id="jd-results" style="display: none; margin-top: 16px;"></div>
+        </section>
+      </div>
 
       <!-- Project Showcase Modal -->
       <div class="project-modal-container" data-project-modal-container>

@@ -31,7 +31,7 @@ Rajath Kiran A is a 3rd-year Computer Science student at Vivekananda College of 
 ### COPD Detection & Severity Classification
 **Category:** Applications, Healthcare AI, Deep Learning
 **URL:** https://github.com/Rajath2005/COPD-Detection
-**Description:** Advanced deep learning system for screening and classifying COPD severity using respiratory sound analysis. Implements CNN and CNN-LSTM architectures for 95%+ accuracy in disease detection from audio samples.
+**Description:** Advanced deep learning system for screening and classifying COPD severity using respiratory sound analysis. Implements CNN and CNN-LSTM architectures for respiratory sound classification — ongoing research.
 **Tech Stack:** Python, TensorFlow, PyTorch, CNN, LSTM, Signal Processing
 **Research Focus:** Medical AI, Healthcare Technology
 
@@ -46,7 +46,7 @@ Rajath Kiran A is a 3rd-year Computer Science student at Vivekananda College of 
 **Category:** Web Development, Open Source
 **URL:** https://github.com/Rajath2005
 **Description:** Comprehensive collection of repositories featuring full-stack projects, AI/ML implementations, contributions to open-source projects, and educational coding exercises in Python, Java, and C++.
-**Repositories:** 40+ active projects
+**Repositories:** 70+ active projects
 
 ## Technical Skills by Category
 
@@ -84,7 +84,7 @@ Rajath Kiran A is a 3rd-year Computer Science student at Vivekananda College of 
 - Real-time data processing
 
 ## Coding Profiles & Social Links
-- **GitHub:** https://github.com/Rajath2005 (40+ repositories)
+- **GitHub:** https://github.com/Rajath2005 (70+ repositories)
 - **LinkedIn:** https://www.linkedin.com/in/rajath-kiran/ (CS Student, Developer)
 - **LeetCode:** https://leetcode.com/rajath2005 (Active problem solver)
 - **Email:** rajathajeru@gmail.com
@@ -99,7 +99,7 @@ Rajath Kiran A is a 3rd-year Computer Science student at Vivekananda College of 
 - Multiple online certifications in AI/ML and Web Development
 - Active contributor to open-source projects
 - Published research on healthcare AI applications
-- 500+ LeetCode problems solved
+- 50+ LeetCode problems solved
 
 ## Content Categories
 
@@ -196,7 +196,7 @@ Contact form for inquiries, collaboration opportunities, and general communicati
 
 ## Quick Facts
 - **Experience Level:** 3+ years in full-stack development
-- **Projects Completed:** 40+ active projects on GitHub
+- **Projects Completed:** 70+ active projects on GitHub
 - **Technologies:** 15+ programming languages and frameworks
 - **Focus Areas:** AI/ML, Healthcare Technology, Full-Stack Development
 - **Open Source:** Active contributor and maintainer

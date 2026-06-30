@@ -268,6 +268,36 @@ article.active {
   animation: fade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
 }
 
+/* View Transitions API */
+@keyframes vt-fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-8px); }
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+::view-transition-old(root) {
+  animation: 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both vt-fade-out;
+  pointer-events: none;
+}
+
+::view-transition-new(root) {
+  animation: 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both vt-fade-in;
+  animation-delay: 0.05s;
+  pointer-events: none;
+}
+
+.sidebar,
+#command-dock,
+#back-to-top,
+#scroll-progress-container,
+.scroll-down {
+  view-transition-name: none;
+}
+
 @keyframes fade {
   0% {
     opacity: 0;
@@ -1463,7 +1493,6 @@ main {
 
 /* Modal Styles */
 .modal {
-  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -1472,6 +1501,14 @@ main {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal-content {
@@ -1480,6 +1517,12 @@ main {
   width: 80%;
   max-width: 700px;
   margin-top: 60px;
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.modal.active .modal-content {
+  transform: scale(1);
 }
 
 .close {

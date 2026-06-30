@@ -1104,3 +1104,259 @@ body[data-recruiter-mode="true"] .timeline-text { font-size: 13px; line-height: 
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Quick Apply Styles */
+.recruiter-cta--quick {
+    background: linear-gradient(135deg, var(--neon-blue), #8800ff) !important;
+    color: #fff !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+}
+.recruiter-cta--quick::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1));
+    animation: quick-pulse 2s ease-in-out infinite;
+}
+@keyframes quick-pulse {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+.qa-role-btn:hover {
+    border-color: var(--neon-blue) !important;
+    background: hsla(195, 100%, 68%, 0.08) !important;
+    transform: translateX(4px);
+}
+
+/* JD Match Results */
+.jd-match-score {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 12px;
+    background: hsla(0, 0%, 100%, 0.03);
+    border: 1px solid var(--jet);
+    margin-bottom: 12px;
+}
+.jd-match-pct {
+    font-size: 32px;
+    font-weight: 800;
+    min-width: 60px;
+    text-align: center;
+}
+.jd-match-label {
+    font-size: 13px;
+    color: var(--light-gray);
+}
+.jd-skill-match {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0;
+}
+.jd-skill-tag {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+}
+.jd-skill-tag.matched {
+    background: hsla(120, 100%, 50%, 0.15);
+    color: #00ff88;
+    border: 1px solid hsla(120, 100%, 50%, 0.3);
+}
+.jd-skill-tag.missing {
+    background: hsla(0, 100%, 50%, 0.1);
+    color: #ff6666;
+    border: 1px solid hsla(0, 100%, 50%, 0.2);
+}
+
+/* JD Sample Query Buttons */
+.jd-sample-btn {
+    padding: 5px 12px;
+    border-radius: 16px;
+    border: 1px solid hsla(195, 100%, 68%, 0.2);
+    background: hsla(195, 100%, 68%, 0.06);
+    color: var(--neon-blue);
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    white-space: nowrap;
+}
+.jd-sample-btn:hover {
+    background: hsla(195, 100%, 68%, 0.15);
+    border-color: hsla(195, 100%, 68%, 0.4);
+}
+
+/* JD Project Match List */
+.jd-project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 8px 0;
+}
+.jd-project-match {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: hsla(0, 0%, 100%, 0.03);
+    border: 1px solid hsla(0, 0%, 100%, 0.06);
+    font-size: 13px;
+    color: var(--light-gray);
+    transition: background 0.2s;
+}
+.jd-project-match:hover {
+    background: hsla(195, 100%, 68%, 0.06);
+}
+.jd-project-match ion-icon {
+    font-size: 16px;
+    color: var(--neon-blue);
+    flex-shrink: 0;
+}
+.jd-project-match span {
+    flex: 1;
+}
+.jd-project-pct {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--neon-blue);
+    background: hsla(195, 100%, 68%, 0.1);
+    padding: 2px 8px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+/* Resume Role Badge */
+.resume-role-badge {
+    font-size: 10px;
+    opacity: 0.7;
+    display: block;
+    margin-top: 2px;
+}
+
+/* =========================================
+   ONBOARDING — Feature Discovery
+========================================= */
+@keyframes env-pulse {
+    0% { box-shadow: 0 0 0 0 hsla(197, 100%, 60%, 0.5); }
+    70% { box-shadow: 0 0 0 10px hsla(197, 100%, 60%, 0); }
+    100% { box-shadow: 0 0 0 0 hsla(197, 100%, 60%, 0); }
+}
+
+@keyframes env-glow-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.dock-btn.env-unexplored .dock-btn-icon {
+    animation: env-glow-pulse 2s ease-in-out infinite;
+    color: var(--neon-blue, hsl(197, 100%, 60%));
+}
+
+.dock-btn.env-unexplored::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neon-blue, hsl(197, 100%, 60%));
+    animation: env-pulse 2s infinite;
+    pointer-events: none;
+}
+
+.dock-btn.env-unexplored:hover::after {
+    display: none;
+}
+
+.env-unexplored-ring {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    border-radius: 14px 0 0 14px;
+    border: 2px solid hsla(197, 100%, 60%, 0.3);
+    animation: env-pulse 2s infinite;
+    pointer-events: none;
+}
+
+/* Onboarding toast override — more prominent */
+.onboarding-toast .toast-title {
+    color: var(--neon-blue, hsl(197, 100%, 60%)) !important;
+}
+
+.onboarding-toast {
+    border-left-color: var(--neon-blue, hsl(197, 100%, 60%)) !important;
+    border-left-width: 4px !important;
+}
+
+.onboarding-toast .toast-message {
+    font-size: var(--fs-7, 13px) !important;
+    line-height: 1.5 !important;
+}
+
+.onboarding-toast .toast-message code {
+    background: hsla(197, 100%, 60%, 0.15);
+    color: var(--neon-blue);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* Onboarding tooltip below dock */
+.onboarding-tooltip {
+    position: fixed;
+    right: 56px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1099;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.onboarding-tooltip.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.onboarding-tooltip-inner {
+    background: hsla(225, 40%, 12%, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsla(197, 100%, 60%, 0.3);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--light-gray);
+    line-height: 1.5;
+    max-width: 200px;
+    position: relative;
+    box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.4);
+}
+.onboarding-tooltip-inner::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: hsla(225, 40%, 12%, 0.95);
+    border-right: 1px solid hsla(197, 100%, 60%, 0.3);
+    border-top: 1px solid hsla(197, 100%, 60%, 0.3);
+}
+.onboarding-tooltip strong {
+    color: var(--neon-blue, hsl(197, 100%, 60%));
+}
+
+@media (max-width: 768px) {
+    .onboarding-tooltip { display: none; }
+    .dock-btn.env-unexplored::after { display: none; }
+}

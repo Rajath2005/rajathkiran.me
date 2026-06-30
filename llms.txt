@@ -1,0 +1,99 @@
+# Rajath Kiran A — Portfolio & AI/Cloud Engineer
+
+> Full Stack Developer & AI Builder | CS @ VCET | 2026 Internships
+
+## About
+Rajath Kiran A is a 3rd-year Computer Science student at Vivekananda College of Engineering and Technology (VCET), Mangalore, specializing in AI/ML, Cloud Engineering (GCP), and Full Stack Development. He builds AI-powered healthcare solutions and cloud-native applications.
+
+- **Location:** Mangalore, Karnataka, India
+- **Email:** rajathajeru@gmail.com
+- **Phone:** +91 9113275894
+- **Open to:** 2026 Internships (Cloud, AI/ML, Full Stack)
+- **Relocation:** Open to relocation
+
+## Core Expertise
+- **Cloud Engineering:** Google Cloud Platform (GCP), Kubernetes (GKE), Docker, HTTP(S) Load Balancing, Compute Engine, Pub/Sub, Terraform
+- **AI & Machine Learning:** TensorFlow, PyTorch, CNN, LSTM, NLP, RAG architectures, Scikit-learn
+- **Frontend:** React.js, Next.js, HTML5, CSS3, Three.js, JavaScript
+- **Backend:** Node.js, Python Flask, Express.js, REST APIs
+- **Databases:** Supabase, PostgreSQL, Firebase, MongoDB
+- **Languages:** Python, JavaScript, Java, C++, C
+
+## Key Projects
+
+### COPD Detection & Severity Classification
+- **URL:** https://github.com/Rajath2005/COPD-Detection
+- **Category:** Healthcare AI, Deep Learning
+- **Description:** Deep learning system for COPD screening using respiratory sound analysis (CNN + CNN-LSTM architectures) — ongoing research.
+- **Tech:** Python, TensorFlow, PyTorch, CNN, LSTM, Signal Processing
+
+### AyuDost AI
+- **URL:** https://ayudost-chatbot.onrender.com/
+- **Category:** Healthcare AI, NLP
+- **Description:** AI-powered Ayurvedic healthcare platform with NLP chatbot, disease prediction using Ayurvedic principles, and personalized health recommendations.
+- **Tech:** React, Node.js, Python, NLP, TensorFlow, Supabase, RAG
+
+### MediQ Health Platform
+- **URL:** https://mediq-health.netlify.app/
+- **Category:** Healthcare, Web Platform
+- **Description:** Ayurvedic health consultation platform with AI-driven treatment recommendations, symptom analysis, and personalized wellness plans.
+- **Tech:** React, Node.js, Supabase, TailwindCSS
+
+### Highly Available Web App on GCP
+- **URL:** http://cloud.rajathkiran.me/
+- **Category:** Cloud Infrastructure
+- **Description:** Compute Engine deployment with HTTP(S) Load Balancing, health checks, and multi-VM traffic distribution on Google Cloud Platform.
+- **Tech:** GCP, Compute Engine, Load Balancing, Cloud Networking
+
+### Microservices on GKE
+- **URL:** http://cloud.rajathkiran.me/
+- **Category:** Kubernetes, DevOps
+- **Description:** Containerized microservices deployed on Google Kubernetes Engine with auto-scaling, networking, and workload monitoring.
+- **Tech:** GKE, Docker, Kubernetes, GCP
+
+### Code Review Env
+- **URL:** https://huggingface.co/spaces/BugHunter28/code-review-env
+- **Category:** DevTools, RL
+- **Description:** OpenEnv RL benchmark for training AI agents on Python code review tasks.
+- **Tech:** Python, Reinforcement Learning, OpenAI Gym
+
+## Quick Facts
+- **Experience:** 3+ years in full-stack development, 2+ years in AI/ML
+- **Projects:** 70+ active repositories on GitHub
+- **LeetCode:** 50+ problems solved
+- **Resumes:** Role-based PDFs for Full Stack, ML, Cloud, and Open Source
+- **Portfolio Evolution:** OS-themed environment switcher with 6 identities
+- **Hackathons:** Active participant and project builder
+- **Open Source:** Active contributor
+
+## Key Pages
+- **Portfolio:** https://rajathkiran.me — Main portfolio with OS-themed environment system
+- **Resume:** https://rajathkiran.me/resume.html — Live resume viewer with role-based PDFs
+- **Internship Landing:** https://rajathkiran.me/internship-2026.html — Dedicated recruiter page for 2026 internships
+- **AyuDost AI:** https://rajathkiran.me/ayudost.html — AI healthcare platform details
+- **COPD Detection:** https://rajathkiran.me/copd-detection.html — Deep learning healthcare project
+- **MediQ Health:** https://rajathkiran.me/mediq.html — Healthcare platform details
+- **Cloud:** http://cloud.rajathkiran.me/ — Cloud infrastructure projects on GCP
+
+## Hire Links (Direct Environment Access)
+- Cloud Engineer: https://rajathkiran.me/hire/cloud
+- AI/ML Engineer: https://rajathkiran.me/hire/ml
+- Full Stack Developer: https://rajathkiran.me/hire/fullstack
+- AI Research: https://rajathkiran.me/hire/ai
+- Research Intern: https://rajathkiran.me/hire/research
+
+## Professional Profiles
+- **GitHub:** https://github.com/Rajath2005 (40+ repos)
+- **LinkedIn:** https://www.linkedin.com/in/rajath-kiran/
+- **LeetCode:** https://leetcode.com/rajath2005
+- **HackerRank:** https://www.hackerrank.com/@rajathajeru
+- **Figma:** https://www.figma.com/@rajath4
+- **Code360:** https://www.naukri.com/code360/profile/rajathajeru
+
+## Education
+- **College:** Vivekananda College of Engineering and Technology (VCET), Mangalore
+- **Degree:** B.E. in Computer Science (3rd Year, graduating 2027)
+- **Pre-University:** Narendra Pre University College (PCMC)
+
+## Last Updated
+June 2026

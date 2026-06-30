@@ -3,72 +3,108 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Rajath Kiran A — Cloud Engineer &amp; AI/ML Developer Resume</title>
-  <!-- Primary Meta Tags -->
+  <title id="page-title">Rajath Kiran A — Resume</title>
   <meta name="title" content="Rajath Kiran A — Cloud Engineer &amp; AI/ML Developer Resume" />
   <meta name="description" content="Resume of Rajath Kiran A — Cloud Engineer & AI/ML Developer. View skills, experience, and projects in AI Healthcare and Cloud infrastructure. Open to 2026 internships." />
   <meta name="keywords" content="Rajath Kiran A Resume, Cloud Engineer Resume, AI Developer Resume, React Developer Resume, GCP, NLP" />
   <meta name="author" content="Rajath Kiran A" />
   <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rajathkiran.me/resume.html" />
   <meta property="og:title" content="Rajath Kiran A — Resume" />
   <meta property="og:description" content="Resume of Rajath Kiran A — Cloud Engineer & AI/ML Developer. View skills, experience, and projects." />
   <meta property="og:image" content="https://rajathkiran.me/assets/images/preview-image.jpg" />
-
-  <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://rajathkiran.me/resume.html" />
   <meta name="twitter:title" content="Rajath Kiran A — Resume" />
-  <meta name="twitter:description" content="Resume of Rajath Kiran A — Cloud Engineer & AI/ML Developer. View skills, experience, and projects." />
+  <meta name="twitter:description" content="Resume of Rajath Kiran A — Cloud Engineer & AI/ML Developer." />
   <meta name="twitter:image" content="https://rajathkiran.me/assets/images/preview-image.jpg" />
-
-  <!-- Canonical Link -->
   <link rel="canonical" href="https://rajathkiran.me/resume.html" />
-
-  <link rel="icon" href="./assets/images/logo.png" type="image/png">
+  <link rel="icon" href="./assets/images/logo.webp" type="image/webp">
   <link rel="stylesheet" href="./assets/css/style.min.css">
   <link rel="stylesheet" href="./assets/css/resume-viewer.css">
 </head>
 <body class="viewer-root">
 
-  <div class="viewer-toolbar" role="toolbar" aria-hidden="false">
-    <div class="toolbar-left">
-      <a class="btn btn-ghost" href="index.html" id="backBtn" title="Back to portfolio"><span class="btn-icon">←</span><span class="btn-text">Back</span></a>
+  <div id="toolbar" class="viewer-toolbar" role="toolbar">
+    <div class="tb-left">
+      <a class="tb-btn" href="index.html" id="backBtn" title="Back to portfolio">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        <span class="tb-label">Back</span>
+      </a>
+      <span id="role-badge" class="role-badge"></span>
     </div>
 
-    <div class="toolbar-center">
-      <button id="prevPage" class="btn btn-stack" aria-label="Previous page"><span class="btn-icon">◀</span><span class="btn-text">Prev</span></button>
-      <span id="pageInfo">Page 1 / 1</span>
-      <button id="nextPage" class="btn btn-stack" aria-label="Next page"><span class="btn-icon">▶</span><span class="btn-text">Next</span></button>
+    <div class="tb-center">
+      <div class="tb-group">
+        <button id="prevPage" class="tb-btn" aria-label="Previous page" title="Previous page (←)">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+        <div class="tb-page-jump">
+          <input type="number" id="pageInput" class="tb-page-input" value="1" min="1" aria-label="Current page">
+          <span class="tb-page-sep">/</span>
+          <span id="pageTotal" class="tb-page-total">1</span>
+        </div>
+        <button id="nextPage" class="tb-btn" aria-label="Next page" title="Next page (→)">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </div>
 
-      <div class="spacer"></div>
+      <div class="tb-divider"></div>
 
-      <button id="zoomOut" class="btn btn-stack" aria-label="Zoom out"><span class="btn-icon">−</span><span class="btn-text">Zoom-</span></button>
-      <span id="zoomPct">100%</span>
-      <button id="zoomIn" class="btn btn-stack" aria-label="Zoom in"><span class="btn-icon">+</span><span class="btn-text">Zoom+</span></button>
+      <div class="tb-group">
+        <button id="zoomOut" class="tb-btn" aria-label="Zoom out" title="Zoom out (−)">
+          <ion-icon name="remove-outline"></ion-icon>
+        </button>
+        <span id="zoomPct" class="tb-zoom-pct">100%</span>
+        <button id="zoomIn" class="tb-btn" aria-label="Zoom in" title="Zoom in (+)">
+          <ion-icon name="add-outline"></ion-icon>
+        </button>
+        <button id="fitBtn" class="tb-btn" aria-label="Fit to width" title="Fit to width (F)">
+          <ion-icon name="fit-width-outline"></ion-icon>
+        </button>
+        <button id="rotateBtn" class="tb-btn" aria-label="Rotate" title="Rotate (R)">
+          <ion-icon name="refresh-outline"></ion-icon>
+        </button>
+      </div>
 
-      <button id="fitBtn" class="btn btn-stack" aria-label="Fit to width" title="Fit to width"><span class="btn-icon">⤢</span><span class="btn-text">Fit</span></button>
-      <button id="rotateBtn" class="btn btn-stack" aria-label="Rotate" title="Rotate"><span class="btn-icon">⟳</span><span class="btn-text">Rotate</span></button>
+      <div class="tb-divider"></div>
 
-      <button id="downloadBtn" class="btn btn-stack" title="Download PDF"><span class="btn-icon">⬇</span><span class="btn-text">Download</span></button>
-      <button id="shareBtn" class="btn btn-stack" title="Copy link"><span class="btn-icon">🔗</span><span class="btn-text">Share</span></button>
+      <div class="tb-group">
+        <button id="fullscreenBtn" class="tb-btn" aria-label="Toggle fullscreen" title="Fullscreen">
+          <ion-icon name="expand-outline"></ion-icon>
+        </button>
+        <button id="downloadBtn" class="tb-btn" aria-label="Download PDF" title="Download PDF">
+          <ion-icon name="download-outline"></ion-icon>
+        </button>
+        <button id="shareBtn" class="tb-btn" aria-label="Copy link" title="Copy resume link">
+          <ion-icon name="link-outline"></ion-icon>
+        </button>
+      </div>
     </div>
 
+    <div class="tb-right">
+      <button id="tbToggle" class="tb-btn tb-toggle" aria-label="Toggle toolbar" title="Toggle toolbar">
+        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+      </button>
+    </div>
   </div>
-
-  <main class="viewer-main">
-    <div id="canvasContainer" class="canvas-container">
-      <canvas id="pdfCanvas" class="pdf-canvas" role="img" aria-label="Resume PDF canvas"></canvas>
-      <div id="skeleton" class="skeleton" aria-hidden="true"></div>
-    </div>
-  </main>
 
   <div id="progressBar" class="progress-bar" aria-hidden="true"><div class="progress"></div></div>
 
-  <!-- PDF.js from CDN -->
+  <main class="viewer-main">
+    <div id="canvasContainer" class="canvas-container">
+      <canvas id="pdfCanvas" class="pdf-canvas" role="img" aria-label="Resume PDF"></canvas>
+      <div id="skeleton" class="skeleton" aria-hidden="true">
+        <div class="skeleton-shimmer"></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.9.179/pdf.min.js"></script>
   <script src="./assets/js/resume-viewer.js" defer></script>
 </body>

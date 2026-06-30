@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".thumbnail").forEach((img) => {
     img.addEventListener("click", function () {
       if (modal && modalImg) {
-        modal.style.display = "block";
+        modal.classList.add("active");
         modalImg.src = this.getAttribute("data-full");
         if (captionText) captionText.innerText = this.alt;
       }
@@ -255,12 +255,12 @@ document.addEventListener("DOMContentLoaded", function () {
   if (slides.length > 0) showSlide(0);
 
   if (closeBtn && modal) {
-    closeBtn.addEventListener("click", () => modal.style.display = "none");
+    closeBtn.addEventListener("click", () => modal.classList.remove("active"));
   }
 
   if (modal) {
     modal.addEventListener("click", (e) => {
-      if (e.target === modal) modal.style.display = "none";
+      if (e.target === modal) modal.classList.remove("active");
     });
   }
 });
@@ -343,20 +343,26 @@ navigationLinks.forEach(link => {
   link.addEventListener("click", function () {
     const clickedLinkText = this.textContent.trim().toLowerCase();
 
-    pages.forEach((page, index) => {
-      if (clickedLinkText === page.dataset.page) {
-        page.classList.add("active");
-        if (navigationLinks[index]) navigationLinks[index].classList.add("active");
-        window.scrollTo(0, 0);
-        
-        // Use a slight timeout to ensure the browser has processed the 'active' class
-        // which sets display: block, before starting animations and measurements
-        setTimeout(() => animatePageChange(page), 100);
-      } else {
-        page.classList.remove("active");
-        if (navigationLinks[index]) navigationLinks[index].classList.remove("active");
-      }
-    });
+    const doNavigation = () => {
+      pages.forEach((page, index) => {
+        if (clickedLinkText === page.dataset.page) {
+          page.classList.add("active");
+          if (navigationLinks[index]) navigationLinks[index].classList.add("active");
+          setTimeout(() => animatePageChange(page), 100);
+        } else {
+          page.classList.remove("active");
+          if (navigationLinks[index]) navigationLinks[index].classList.remove("active");
+        }
+      });
+    };
+
+    window.scrollTo(0, 0);
+
+    if (document.startViewTransition) {
+      document.startViewTransition(doNavigation);
+    } else {
+      doNavigation();
+    }
   });
 });
 

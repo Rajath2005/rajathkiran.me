@@ -25,4 +25,5 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://rajathkiran.me/sitemap.xml
+Sitemap: https://rajathkiran.me/llms.txt
 Sitemap: https://rajathkiran.me/llm.txt
