@@ -1357,6 +1357,217 @@ body[data-recruiter-mode="true"] .timeline-text { font-size: 13px; line-height: 
 }
 
 @media (max-width: 768px) {
-    .onboarding-tooltip { display: none; }
+    .onboarding-tooltip {
+        display: block;
+        right: auto;
+        top: auto;
+        bottom: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: calc(100vw - 40px);
+    }
+    .onboarding-tooltip.active {
+        transform: translateX(-50%);
+    }
+    .onboarding-tooltip-inner::after {
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: -6px;
+        transform: translateX(-50%) rotate(45deg);
+        border-right: none;
+        border-top: 1px solid hsla(197, 100%, 60%, 0.3);
+        border-left: 1px solid hsla(197, 100%, 60%, 0.3);
+    }
     .dock-btn.env-unexplored::after { display: none; }
+}
+
+/* =========================================
+   TOUCH FEEDBACK — active states
+   ========================================= */
+
+.dock-btn:active {
+    transform: scale(0.92);
+    background: hsla(225, 50%, 25%, 0.8);
+}
+
+.recruiter-cta:active,
+.recruiter-close:active {
+    transform: scale(0.95);
+}
+
+.ai-chat-close:active,
+.modal-close-btn:active,
+.navbar-link:active {
+    transform: scale(0.9);
+}
+
+.ai-chip:active {
+    transform: scale(0.95);
+    background: var(--bg-gradient-blue-2);
+}
+
+/* =========================================
+   COMMAND DOCK — tap-to-expand on touch
+   ========================================= */
+
+@media (max-width: 768px) {
+    .dock-expanded .dock-btn-label {
+        display: inline-block;
+        max-width: 200px;
+        opacity: 1;
+        margin-left: 8px;
+        font-size: 12px;
+    }
+
+    .dock-expanded .dock-btn {
+        padding: 0 16px 0 12px;
+        justify-content: flex-start;
+        width: auto;
+    }
+
+    .dock-expanded {
+        width: auto;
+        min-width: 200px;
+        background: hsla(225, 40%, 10%, 0.95);
+        border-color: hsla(197, 100%, 60%, 0.35);
+    }
+
+    .dock-expanded .dock-divider {
+        display: flex;
+    }
+}
+
+/* =========================================
+   MOBILE — UI POLISH OVERRIDES
+   ========================================= */
+
+@media (max-width: 480px) {
+    body[data-recruiter-mode="true"] {
+        padding-top: 52px;
+    }
+
+    .sidebar {
+        overflow: hidden;
+        max-height: 350px;
+    }
+
+    .sidebar.active {
+        overflow: visible;
+        max-height: none;
+    }
+
+    .modal-container {
+        padding: 10px;
+        align-items: flex-end;
+    }
+
+    .testimonials-modal {
+        margin: 0;
+        border-radius: 16px 16px 0 0;
+        max-height: 85vh;
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    .project-modal {
+        margin: 10px;
+        padding: 15px;
+        border-radius: 16px;
+    }
+
+    .ai-chat-panel {
+        bottom: 145px;
+    }
+
+    .recruiter-fast-lane-banner {
+        padding: 0 8px;
+        height: 44px;
+    }
+
+    .recruiter-banner-left {
+        gap: 4px;
+    }
+
+    .pulse-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .recruiter-banner-subtitle {
+        display: none !important;
+    }
+
+    .recruiter-banner-right {
+        gap: 4px;
+    }
+
+    .recruiter-cta {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+
+    .recruiter-cta span {
+        display: none;
+    }
+
+    .recruiter-title-wrapper {
+        display: none;
+    }
+
+    .onboarding-tooltip {
+        bottom: 145px;
+    }
+
+    .environment-orbit {
+        bottom: 145px;
+    }
+
+    .command-dock {
+        bottom: 80px;
+    }
+}
+
+/* Very small screens — tighter navbar */
+@media (max-width: 400px) {
+    .navbar-link {
+        font-size: 11px;
+        padding: 10px 4px;
+    }
+
+    .navbar-list {
+        gap: 0;
+        justify-content: center;
+    }
+}
+
+/* =========================================
+   SIDEBAR — smooth stagger open animation
+   ========================================= */
+
+.sidebar.active > * {
+    opacity: 0;
+    animation: sidebar-stagger-in 0.35s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+.sidebar.active .sidebar-info { animation-delay: 0.05s; }
+.sidebar.active .separator { animation-delay: 0.1s; }
+.sidebar.active .contacts-list { animation-delay: 0.15s; }
+.sidebar.active .social-list { animation-delay: 0.2s; }
+
+@keyframes sidebar-stagger-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sidebar always shows children when sidebar is collapsed */
+.sidebar:not(.active) > * {
+    opacity: 1;
+    animation: none;
 }

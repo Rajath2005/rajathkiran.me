@@ -402,10 +402,48 @@ const attachEventListeners = () => {
     const qaClose = document.getElementById('quick-apply-close');
     const qaOverlay = document.querySelector('[data-quick-apply-overlay]');
 
-    // Hire Me → opens Quick Apply
+    // Mail helper — creates <a> element for reliable cross-browser mailto
+    const openMailTo = (subject, body) => {
+        const a = document.createElement('a');
+        a.href = `mailto:rajathajeru@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+
+    // Hire Me → opens mail client directly with current env profile
     const hireBtn = document.getElementById('hire-me-btn');
-    if (hireBtn && qaModal) {
-        hireBtn.addEventListener('click', () => qaModal.classList.add('active'));
+    if (hireBtn) {
+        hireBtn.addEventListener('click', () => {
+            const resume = getActiveResume();
+            const profile = getActiveSkillProfile();
+            openMailTo(
+                `Internship Application — Rajath Kiran A — ${resume.label}`,
+                `Hi,
+
+I'm Rajath Kiran A, a Computer Science student at VCET graduating in 2027. I'm writing to express my interest in a ${resume.label} internship opportunity.
+
+My resume (tailored for ${resume.label}) is attached for your review.
+
+Here's a quick snapshot of my relevant skills:
+${profile.keywords.slice(0, 8).map(k => `- ${k}`).join('\n')}
+
+I've built and deployed production AI/cloud projects including AyuDost AI and COPD Detection. I'm open to relocation and available for an immediate start.
+
+Portfolio: https://rajathkiran.me
+Resume: https://rajathkiran.me/resume.html?role=${currentEnvironment || 'project-foundry'}
+GitHub: https://github.com/Rajath2005 (70+ repos)
+LinkedIn: https://www.linkedin.com/in/rajath-kiran/
+
+I'd welcome the opportunity to discuss how I can contribute to your team.
+
+Best,
+Rajath Kiran A
+rajathajeru@gmail.com
++91 9113275894`
+            );
+        });
     }
 
     if (qaBtn && qaModal) {
@@ -423,9 +461,9 @@ const attachEventListeners = () => {
             const role = btn.getAttribute('data-role');
             const resume = RESUME_MAP[role] || RESUME_MAP['project-foundry'];
             const profile = SKILL_PROFILES[role] || SKILL_PROFILES['project-foundry'];
-            const subject = encodeURIComponent(`Internship Application — Rajath Kiran A — ${resume.label}`);
-            const body = encodeURIComponent(
-`Hi,
+            openMailTo(
+                `Internship Application — Rajath Kiran A — ${resume.label}`,
+                `Hi,
 
 I'm Rajath Kiran A, a Computer Science student at VCET graduating in 2027. I'm writing to express my interest in a ${resume.label} internship opportunity.
 
@@ -448,7 +486,6 @@ Rajath Kiran A
 rajathajeru@gmail.com
 +91 9113275894`
             );
-            document.location.href = `mailto:rajathajeru@gmail.com?subject=${subject}&body=${body}`;
             qaModal.classList.remove('active');
         });
     });
@@ -483,6 +520,13 @@ rajathajeru@gmail.com
     }
     if (jdOverlay && jdModal) {
         jdOverlay.addEventListener('click', () => jdModal.classList.remove('active'));
+    }
+    if (jdModal) {
+        jdModal.addEventListener('click', (e) => {
+            if (e.target === jdModal || e.target === jdOverlay) {
+                jdModal.classList.remove('active');
+            }
+        });
     }
 
     if (jdAnalyze && jdInput && jdResults) {
@@ -621,6 +665,10 @@ rajathajeru@gmail.com
                         </span>
                     </div>
                 </div>
+
+                <button id="jd-close-results" style="margin-top: 14px; width: 100%; padding: 10px; border-radius: 10px; border: 1px solid var(--jet); background: var(--onyx); color: var(--white-2); cursor: pointer; font-size: 14px;">
+                    ✕ Close
+                </button>
             `;
             jdResults.style.display = 'block';
 
@@ -631,6 +679,12 @@ rajathajeru@gmail.com
                     jdModal.classList.remove('active');
                     document.getElementById('quick-apply-btn')?.click();
                 });
+            }
+
+            // Close button in JD results
+            const jdCloseResults = document.getElementById('jd-close-results');
+            if (jdCloseResults) {
+                jdCloseResults.addEventListener('click', () => jdModal.classList.remove('active'));
             }
 
             // Switch environment from JD results
@@ -653,8 +707,25 @@ rajathajeru@gmail.com
 const attachKeyboardShortcuts = () => {
     document.addEventListener('keydown', (e) => {
         // Don't fire if user is typing in an input
-        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
-        // Require Shift key for these shortcuts to avoid conflict with normal typing (like the easter egg)
+        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) {
+            if (e.key === 'Escape') {
+                e.target.blur();
+            } else {
+                return;
+            }
+        }
+        // Escape always closes modals regardless of modifiers
+        if (e.key === 'Escape') {
+            document.getElementById('environment-orbit')?.classList.remove('active');
+            document.getElementById('toggle-environment-selector')?.setAttribute('aria-expanded', 'false');
+            document.getElementById('ai-chat-panel')?.classList.remove('active');
+            document.getElementById('modal')?.classList.remove('active');
+            document.getElementById('quick-apply-modal')?.classList.remove('active');
+            document.getElementById('jd-match-modal')?.classList.remove('active');
+            document.querySelectorAll('.modal-container.active, .project-modal-container.active').forEach(el => el.classList.remove('active'));
+            return;
+        }
+        // Require Shift key for the shortcuts below to avoid conflict with normal typing
         if (!e.shiftKey) return;
         if (e.ctrlKey || e.altKey || e.metaKey) return;
 
@@ -671,15 +742,7 @@ const attachKeyboardShortcuts = () => {
                 e.preventDefault();
                 document.getElementById('ai-chat-btn')?.click();
                 break;
-            case 'escape':
-                document.getElementById('environment-orbit')?.classList.remove('active');
-                document.getElementById('toggle-environment-selector')?.setAttribute('aria-expanded', 'false');
-                document.getElementById('ai-chat-panel')?.classList.remove('active');
-                document.getElementById('modal')?.classList.remove('active');
-                document.getElementById('quick-apply-modal')?.classList.remove('active');
-                document.getElementById('jd-match-modal')?.classList.remove('active');
-                document.querySelectorAll('.modal-container.active, .project-modal-container.active').forEach(el => el.classList.remove('active'));
-                break;
+
         }
     });
 };
@@ -1270,4 +1333,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Command Dock — tap-to-expand on touch devices
+    const dock = document.getElementById('command-dock');
+    if (dock && 'ontouchstart' in window) {
+        dock.addEventListener('click', (e) => {
+            if (window.innerWidth > 768) return;
+            if (e.target.closest('.dock-btn') || e.target.closest('.dock-divider')) {
+                dock.classList.toggle('dock-expanded');
+            }
+        });
+        document.addEventListener('click', (e) => {
+            if (!dock.contains(e.target)) {
+                dock.classList.remove('dock-expanded');
+            }
+        });
+    }
 });
