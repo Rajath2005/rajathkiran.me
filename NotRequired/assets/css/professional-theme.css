@@ -1,0 +1,476 @@
+/**
+ * TOP-1% UI/UX DESIGN SYSTEM (professional-theme.css)
+ * Fixes all layout, inline-link, AI button, Light-mode navbar, and typography issues.
+ * Aesthetic: Linear / Vercel / Stripe / Raycast
+ */
+
+:root,
+body[data-pro-theme="executive-dark"] {
+  --bg-page: #06080f;
+  --bg-surface: rgba(15, 19, 30, 0.82);
+  --bg-surface-elevated: rgba(22, 27, 42, 0.9);
+  --bg-card: rgba(20, 25, 38, 0.75);
+  --bg-card-hover: rgba(28, 35, 54, 0.92);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-highlight: rgba(56, 189, 248, 0.4);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --accent-primary: #38bdf8;
+  --accent-secondary: #6366f1;
+  --accent-emerald: #10b981;
+
+  /* Map to existing portfolio variables */
+  --smoky-black: var(--bg-page);
+  --eerie-black-1: #0b0f19;
+  --eerie-black-2: #0f1422;
+  --onyx: #161c2e;
+  --jet: rgba(255, 255, 255, 0.09);
+  --white-1: var(--text-primary);
+  --white-2: var(--text-secondary);
+  --light-gray: var(--text-secondary);
+  --light-gray-70: var(--text-muted);
+  --neon-blue: var(--accent-primary);
+  --cyber-cyan: #38bdf8;
+  --orange-yellow-crayola: #38bdf8;
+
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  --shadow-elevated: 0 20px 50px -12px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================================================
+   EXECUTIVE LIGHT MODE (Clean Daylight / Stripe / Apple Standard)
+============================================================================ */
+body[data-pro-theme="executive-light"] {
+  --bg-page: #f8fafc;
+  --bg-surface: rgba(255, 255, 255, 0.92);
+  --bg-surface-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --border-subtle: #e2e8f0;
+  --border-highlight: #2563eb;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --accent-primary: #2563eb;
+  --accent-secondary: #4f46e5;
+  --accent-emerald: #059669;
+
+  --smoky-black: #f1f5f9;
+  --eerie-black-1: #ffffff;
+  --eerie-black-2: #ffffff;
+  --onyx: #f1f5f9;
+  --jet: #e2e8f0;
+  --white-1: #0f172a;
+  --white-2: #1e293b;
+  --light-gray: #334155;
+  --light-gray-70: #64748b;
+  --neon-blue: #2563eb;
+  --cyber-cyan: #2563eb;
+  --orange-yellow-crayola: #2563eb;
+
+  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+  --shadow-elevated: 0 16px 40px -8px rgba(15, 23, 42, 0.1);
+}
+
+/* ============================================================================
+   CRITICAL BUG FIXES FROM SCREENSHOTS
+============================================================================ */
+
+/* 1. Restore native precision cursor & hide distracting floating circle cursor */
+body {
+  background-color: var(--bg-page) !important;
+  color: var(--text-secondary) !important;
+  cursor: auto !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+#custom-cursor {
+  display: none !important;
+}
+
+/* 2. Fix inline links inside paragraphs (Fixes LinkedIn / GitHub breaking onto new lines) */
+.about-text a,
+.timeline-text a,
+.faq-content a,
+.project-desc a,
+p a {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent-primary) !important;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 1px 8px;
+  margin: 0 2px;
+  border-radius: 6px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  transition: all 0.2s ease;
+}
+
+body[data-pro-theme="executive-light"] .about-text a,
+body[data-pro-theme="executive-light"] p a {
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.25);
+  color: #2563eb !important;
+}
+
+.about-text a:hover,
+p a:hover {
+  background: var(--accent-primary) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+/* 3. Fix unstyled #ai-chat-btn stuck in Top-Left corner (Screenshot 5) */
+#ai-chat-btn.ai-chat-fab {
+  position: fixed !important;
+  bottom: 28px !important;
+  left: 28px !important;
+  top: auto !important;
+  right: auto !important;
+  z-index: 9995 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  height: 44px !important;
+  padding: 0 16px !important;
+  border-radius: 999px !important;
+  background: var(--bg-surface-elevated) !important;
+  border: 1px solid var(--border-highlight) !important;
+  color: var(--text-primary) !important;
+  box-shadow: var(--shadow-elevated) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+#ai-chat-btn.ai-chat-fab:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.28) !important;
+}
+
+#ai-chat-btn.ai-chat-fab ion-icon {
+  font-size: 18px !important;
+  color: var(--accent-primary) !important;
+}
+
+#ai-chat-btn .ai-fab-badge {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.4px !important;
+  color: var(--text-primary) !important;
+}
+
+#ai-chat-btn .ai-fab-badge::before {
+  content: "Ask ";
+}
+
+/* 4. Fix Sidebar Typewriter Role Title & Remove Awkward Floating Underline */
+.sidebar .info-content .article-title {
+  min-height: 28px !important;
+  margin-bottom: 8px !important;
+  padding-bottom: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.sidebar .info-content .article-title::after {
+  display: none !important; /* Removes the stray blue line under the typewriter */
+}
+
+#changing-text {
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--accent-primary) !important;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-left: 0 !important;
+  border-right: none !important;
+  animation: none !important;
+  min-height: 26px;
+  display: inline-flex !important;
+  align-items: center;
+}
+
+/* ============================================================================
+   MAIN CONTAINERS, SIDEBAR & NAVBAR REFINEMENT
+============================================================================ */
+.sidebar,
+article {
+  background: var(--bg-surface) !important;
+  backdrop-filter: blur(24px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+/* Fix Light Mode Navbar Contrast (Screenshot 5) */
+.navbar {
+  background: var(--bg-surface-elevated) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-top: none !important;
+  border-right: none !important;
+  backdrop-filter: blur(20px) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.navbar-link {
+  color: var(--text-muted) !important;
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  padding: 16px 12px !important;
+}
+
+.navbar-link:hover {
+  color: var(--text-primary) !important;
+}
+
+.navbar-link.active {
+  color: var(--accent-primary) !important;
+  font-weight: 600 !important;
+}
+
+.navbar-link::after {
+  bottom: 8px !important;
+  height: 2px !important;
+  background: var(--accent-primary) !important;
+}
+
+/* Headings & Section Titles */
+.h2,
+article > header .article-title {
+  color: var(--text-primary) !important;
+  font-size: 26px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  text-align: left !important;
+}
+
+article > header .article-title::after {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)) !important;
+  width: 38px !important;
+  height: 3px !important;
+  border-radius: 3px !important;
+}
+
+.h3,
+.service-title,
+.skills-title,
+.testimonials-title,
+.certificates h3 {
+  color: var(--text-primary) !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.015em !important;
+  text-align: left !important;
+}
+
+/* ============================================================================
+   CARDS: SERVICE, EXPERIENCE, PROJECTS, CERTIFICATES
+============================================================================ */
+.about-text {
+  color: var(--text-secondary) !important;
+  font-size: 14.5px !important;
+  line-height: 1.75 !important;
+  text-align: left !important; /* Left-aligned is much cleaner than stretched justify */
+}
+
+.about-text strong {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.service-item,
+.content-card,
+.coding-profile-item,
+.certificate-item,
+.timeline-content {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--shadow-card) !important;
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease !important;
+}
+
+.service-item::before,
+.content-card::before {
+  display: none !important;
+}
+
+.service-item:hover,
+.content-card:hover,
+.coding-profile-item:hover,
+.certificate-item:hover,
+.timeline-item.premium-card:hover .timeline-content {
+  background: var(--bg-card-hover) !important;
+  border-color: var(--border-highlight) !important;
+  transform: translateY(-3px) !important;
+}
+
+.service-item-title,
+.testimonials-item-title,
+.timeline-item-title,
+.project-title,
+.blog-item-title {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.service-item-text,
+.testimonials-text,
+.timeline-text,
+.project-desc {
+  color: var(--text-muted) !important;
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+}
+
+/* Coding Profile Links */
+.coding-profile-link {
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+}
+
+.coding-profile-link:hover {
+  color: var(--accent-primary) !important;
+}
+
+/* Project Cards */
+.project-item > a {
+  display: flex !important;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 12px;
+  transition: all 0.25s ease !important;
+}
+
+.project-item > a:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-highlight);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.project-img-wrapper {
+  height: 195px !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--border-subtle) !important;
+  background: var(--eerie-black-1) !important;
+}
+
+.project-content {
+  padding: 14px 6px 6px !important;
+}
+
+/* Hide redundant scroll mouse icon in bottom-right when back-to-top is there */
+.scroll-down {
+  opacity: 0.45 !important;
+  transform: scale(0.82);
+}
+
+/* ============================================================================
+   UNIFIED TOP-RIGHT EXECUTIVE BAR
+============================================================================ */
+.env-matrix-switcher,
+.cmd-k-trigger-pill,
+.awwwards-top-bar {
+  display: none !important;
+}
+
+.executive-top-bar {
+  position: fixed;
+  top: 14px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 6px;
+  border-radius: 12px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.exec-bar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.exec-bar-btn:hover {
+  color: var(--text-primary);
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.exec-bar-btn.active {
+  color: var(--text-primary);
+  background: rgba(56, 189, 248, 0.14);
+  border-color: rgba(56, 189, 248, 0.35);
+  font-weight: 600;
+}
+
+.exec-bar-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--border-subtle);
+  margin: 0 3px;
+}
+
+.exec-kbd {
+  font-family: monospace;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.14);
+  color: var(--text-secondary);
+}
+
+/* Hide playful Chaos Bar & FPS bar in clean professional view */
+.chaos-sim-bar,
+.sidebar-telemetry-bar {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .executive-top-bar {
+    top: 8px;
+    right: 8px;
+    left: 8px;
+    justify-content: space-between;
+    overflow-x: auto;
+  }
+  #ai-chat-btn.ai-chat-fab {
+    bottom: 78px !important;
+    left: 16px !important;
+  }
+}

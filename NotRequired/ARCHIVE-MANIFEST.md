@@ -1,0 +1,94 @@
+﻿# Archived Portfolio Files
+
+Generated: 2026-10-22
+
+These files were confirmed unreferenced by the active HTML, CSS, JavaScript, deployment, SEO, and documentation reference scan, then moved here for later review. They are archived, not deleted. The active redesigned portfolio source was not rewritten.
+
+## Archived paths
+
+- `assets/certificates/Ai as creative expert.pdf`
+- `assets/certificates/AI Fluency for students.pdf`
+- `assets/certificates/AI Fluency_Framework & Foundations.pdf`
+- `assets/certificates/AI-tools-goolgle.pdf`
+- `assets/certificates/certificate-claude-code-in-action.pdf`
+- `assets/certificates/code360_html.pdf`
+- `assets/certificates/css certificate.pdf`
+- `assets/certificates/css_by_code-360.pdf`
+- `assets/certificates/free_code_camp_git_cheat_sheet_certificate.pdf`
+- `assets/certificates/Git_sheet.jpg`
+- `assets/certificates/IBM_Open_source.pdf`
+- `assets/certificates/Open_Source.jpg`
+- `assets/certificates/Vikasit-Bharat.png`
+- `assets/certificates/Wilco-prompt-quest.pdf`
+- `assets/certificates/wilco-prompt-Quest.png`
+- `assets/css/professional-theme.css`
+- `assets/images/blog-1.jpg`
+- `assets/images/blog-1.png`
+- `assets/images/blog-2.jpg`
+- `assets/images/blog-3.jpg`
+- `assets/images/blog-4.jpg`
+- `assets/images/Building_MediQ.png`
+- `assets/images/cerificate-3.jpg`
+- `assets/images/cerificate-3.webp`
+- `assets/images/cerificate-4.jpg`
+- `assets/images/cerificate-4.webp`
+- `assets/images/certificate-1.jpg`
+- `assets/images/certificate-10.png`
+- `assets/images/certificate-11.jpg`
+- `assets/images/certificate-12.png`
+- `assets/images/certificate-13.png`
+- `assets/images/certificate-14.png`
+- `assets/images/certificate-15.jpg`
+- `assets/images/certificate-16.png`
+- `assets/images/certificate-18.png`
+- `assets/images/certificate-2.jpg`
+- `assets/images/certificate-5.jpg`
+- `assets/images/certificate-6.jpg`
+- `assets/images/certificate-7.png`
+- `assets/images/certificate-8.jpg`
+- `assets/images/certificate-9.png`
+- `assets/images/Code-Review.png`
+- `assets/images/Github-Profile.png`
+- `assets/images/gke.png`
+- `assets/images/icon-quote.svg`
+- `assets/images/IEEE-WebDesign.png`
+- `assets/images/Latex-Lab.png`
+- `assets/images/load-balancer.png`
+- `assets/images/ML-Lab.png`
+- `assets/images/monitoring.png`
+- `assets/images/Placement-Prep.png`
+- `assets/images/project-1.jpg`
+- `assets/images/project-1.png`
+- `assets/images/project-2.jpg`
+- `assets/images/project-2.png`
+- `assets/images/project-3.jpg`
+- `assets/images/project-4.jpg`
+- `assets/images/project-5.jpg`
+- `assets/images/project-6.jpg`
+- `assets/images/project-7.jpg`
+- `assets/images/project-8.jpg`
+- `assets/images/pubsub.png`
+- `assets/images/Puttur-Bus.png`
+- `assets/images/raj.jpg`
+- `assets/images/Rajath.jpg`
+- `assets/images/Rajath_Resume.pdf`
+- `assets/images/Rajath-2.jpg`
+- `assets/images/Rajath-2.webp`
+- `assets/images/Rajath-4.jpg`
+- `assets/images/React Lab.png`
+- `assets/images/Sitexar.png`
+- `assets/images/Smart-City.png`
+- `assets/images/spanner.png`
+- `assets/images/Top_5_Extension.png`
+- `assets/js/architecture-blueprints-3d.js`
+- `assets/js/awwwards-spatial-os.js`
+- `assets/js/command-os-3d.js`
+- `assets/js/executive-mode.js`
+- `assets/js/skill-graph-3d.js`
+- `assets/js/spatial-showcase-3d.js`
+- `assets/Loading 40 _ Paperplane.json`
+- `assets/resumes/Rajath Kiran A - Resume Modern-two column.pdf`
+- `assets/resumes/Rajath_Kiran_Cisco_CodeAThon_Resume.pdf`
+- `assets/resumes/Rajath_Kiran_OpenSource_Hackathon_Resume.pdf`
+- `Desktop.jpg`
+- `preview.html`
