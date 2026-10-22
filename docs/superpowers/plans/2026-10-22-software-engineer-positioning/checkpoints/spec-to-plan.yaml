@@ -1,0 +1,91 @@
+# Spec-to-Plan Traceability Checkpoint
+metadata:
+  generated: "2026-10-22"
+  source_spec: "docs/superpowers/specs/2026-10-22-software-engineer-positioning-design.md"
+  target_plan: "docs/superpowers/plans/2026-10-22-software-engineer-positioning/plan.md"
+
+summary:
+  total_requirements: 7
+  covered_requirements: 7
+  missing_requirements: 0
+  coverage_percentage: 100.0
+
+requirements:
+  - req_id: "REQ-001"
+    req_description: "Make Software Engineer the primary professional identity"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1"
+      phase_name: "Homepage positioning"
+      items:
+        - item_id: "1.1"
+          description: "Update homepage identity and recruiter-facing copy"
+        - item_id: "1.2"
+          description: "Update hero role rotation and editorial marquee"
+  - req_id: "REQ-002"
+    req_description: "Represent all approved specialties"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1"
+      phase_name: "Homepage positioning"
+      items:
+        - item_id: "1.2"
+          description: "Update hero role rotation and editorial marquee"
+  - req_id: "REQ-003"
+    req_description: "Replace the cloud-only sidebar tagline"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1"
+      phase_name: "Homepage positioning"
+      items:
+        - item_id: "1.1"
+          description: "Update homepage identity and recruiter-facing copy"
+  - req_id: "REQ-004"
+    req_description: "Expand About Me with recruiter-friendly breadth"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1"
+      phase_name: "Homepage positioning"
+      items:
+        - item_id: "1.1"
+          description: "Update homepage identity and recruiter-facing copy"
+  - req_id: "REQ-005"
+    req_description: "Align specified discovery and metadata surfaces"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1/Phase-2"
+      phase_name: "Homepage positioning and supporting discovery surfaces"
+      items:
+        - item_id: "1.1"
+          description: "Update homepage identity and recruiter-facing copy"
+        - item_id: "1.2"
+          description: "Update hero role rotation and editorial marquee"
+        - item_id: "2.1"
+          description: "Align resume page, AI-search text, and README"
+  - req_id: "REQ-006"
+    req_description: "Preserve the redesigned visual and behavioral experience"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "Validation and review"
+      items:
+        - item_id: "3.2"
+          description: "Run syntax, diff, and browser smoke validation"
+  - req_id: "REQ-007"
+    req_description: "Validate copy consistency and browser behavior"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "Validation and review"
+      items:
+        - item_id: "3.1"
+          description: "Validate copy coverage and stale references"
+        - item_id: "3.2"
+          description: "Run syntax, diff, and browser smoke validation"
+
+missing_requirements: []
+orphan_plan_items: []
+validation:
+  passed: true
+  errors: []
+  warnings: []

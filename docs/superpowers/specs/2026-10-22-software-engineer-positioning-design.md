@@ -14,13 +14,13 @@ The existing redesigned visual experience must remain unchanged.
 
 ## Content Direction
 
-### Primary identity
+### REQ-001: Primary identity
 
 Use **Software Engineer** as the primary professional identity in the hero,
 page metadata, structured data, resume page metadata, and supporting
 descriptions.
 
-### Rotating specialties
+### REQ-002: Rotating specialties
 
 The hero role rotation will use:
 
@@ -34,14 +34,14 @@ The hero role rotation will use:
 Cloud Engineer remains represented as a genuine specialization but is no
 longer the default or dominant identity.
 
-### Sidebar tagline
+### REQ-003: Sidebar tagline
 
 Replace the cloud-focused tagline with:
 
 > Building thoughtful software across full-stack development, AI/ML, cloud
 > engineering, and user experience.
 
-### About section
+### REQ-004: About section
 
 The About section will introduce Rajath as a Software Engineer and Computer
 Science Engineering student at Vivekananda College of Engineering &
@@ -58,7 +58,7 @@ Technology (VCET). It will describe practical work across:
 The copy will remain recruiter-friendly and factual, using the technologies
 and projects already represented in the portfolio and active resume.
 
-## Consistency Surfaces
+## REQ-005: Consistency Surfaces
 
 Only identity and related copy surfaces will be updated:
 
@@ -83,7 +83,7 @@ Only identity and related copy surfaces will be updated:
 The active downloadable resume remains:
 `assets/resumes/Rajath_Kiran_A_Resume.pdf`.
 
-## Explicit Non-Goals
+## REQ-006: Preserve redesigned experience
 
 The implementation will not modify:
 
@@ -95,7 +95,7 @@ The implementation will not modify:
 - Archived resume variants in `NotRequired`
 - Existing working-tree changes unrelated to this request
 
-## Validation
+## REQ-007: Validation
 
 The implementation plan will require:
 

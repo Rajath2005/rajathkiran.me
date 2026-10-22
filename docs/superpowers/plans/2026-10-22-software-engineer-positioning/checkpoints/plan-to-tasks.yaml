@@ -1,0 +1,86 @@
+# Plan-to-Tasks Traceability Checkpoint
+metadata:
+  generated: "2026-10-22"
+  source_plan: "docs/superpowers/plans/2026-10-22-software-engineer-positioning/plan.md"
+  target_tasks: "docs/superpowers/plans/2026-10-22-software-engineer-positioning/plan.md"
+
+summary:
+  total_plan_items: 5
+  covered_plan_items: 5
+  missing_plan_items: 0
+  coverage_percentage: 100.0
+  total_tasks_generated: 9
+  orphan_tasks: 0
+
+phases:
+  - phase_id: "Phase-1"
+    phase_name: "Homepage positioning"
+    items:
+      - item_id: "1.1"
+        description: "Update homepage identity and recruiter-facing copy"
+        tasks:
+          - task_id: "T001"
+            description: "Update homepage positioning and metadata"
+      - item_id: "1.2"
+        description: "Update hero role rotation and editorial marquee"
+        tasks:
+          - task_id: "T002"
+            description: "Update rotating hero roles"
+          - task_id: "T003"
+            description: "Update editorial identity marquee"
+  - phase_id: "Phase-2"
+    phase_name: "Supporting discovery surfaces"
+    items:
+      - item_id: "2.1"
+        description: "Align resume page, AI-search text, and README"
+        tasks:
+          - task_id: "T004"
+            description: "Update resume page metadata"
+          - task_id: "T005"
+            description: "Update AI-search descriptions"
+          - task_id: "T006"
+            description: "Update README headline"
+  - phase_id: "Phase-3"
+    phase_name: "Validation and review"
+    items:
+      - item_id: "3.1"
+        description: "Validate copy coverage and stale references"
+        tasks:
+          - task_id: "T007"
+            description: "Search and verify positioning coverage"
+      - item_id: "3.2"
+        description: "Run syntax, diff, and browser smoke validation"
+        tasks:
+          - task_id: "T008"
+            description: "Run syntax and diff checks"
+          - task_id: "T009"
+            description: "Run desktop and mobile browser smoke checks"
+
+missing_plan_items: []
+orphan_tasks: []
+upstream_trace:
+  - plan_item: "1.1"
+    source_requirements: ["REQ-001", "REQ-003", "REQ-004", "REQ-005"]
+    tasks: ["T001"]
+    full_trace: "REQ-001,REQ-003,REQ-004,REQ-005 → Phase-1.1 → T001"
+  - plan_item: "1.2"
+    source_requirements: ["REQ-001", "REQ-002", "REQ-005"]
+    tasks: ["T002", "T003"]
+    full_trace: "REQ-001,REQ-002,REQ-005 → Phase-1.2 → T002,T003"
+  - plan_item: "2.1"
+    source_requirements: ["REQ-005"]
+    tasks: ["T004", "T005", "T006"]
+    full_trace: "REQ-005 → Phase-2.1 → T004,T005,T006"
+  - plan_item: "3.1"
+    source_requirements: ["REQ-002", "REQ-005", "REQ-007"]
+    tasks: ["T007"]
+    full_trace: "REQ-002,REQ-005,REQ-007 → Phase-3.1 → T007"
+  - plan_item: "3.2"
+    source_requirements: ["REQ-006", "REQ-007"]
+    tasks: ["T008", "T009"]
+    full_trace: "REQ-006,REQ-007 → Phase-3.2 → T008,T009"
+
+validation:
+  passed: true
+  errors: []
+  warnings: []
