@@ -1,0 +1,24 @@
+batch: portfolio-file-organization
+generated: "2026-10-22"
+status: completed
+required_endpoints: []
+summary:
+  tasks_total: 17
+  tasks_completed: 17
+  tasks_blocked: 0
+  tasks_failed: 0
+  archived_files: 86
+  active_paths_verified: 22
+validation:
+  required_active_paths: pass
+  local_asset_references: pass
+  archived_reference_scan: pass
+  git_diff_check: pass
+  visual_behavior_source_changes: none
+archive:
+  directory: "NotRequired"
+  manifest: "NotRequired/ARCHIVE-MANIFEST.md"
+  policy: "Archive only confirmed unreferenced legacy or redundant files; never delete active files."
+warnings:
+  - severity: INFO
+    message: "Pre-existing working-tree modifications were preserved and not reverted."

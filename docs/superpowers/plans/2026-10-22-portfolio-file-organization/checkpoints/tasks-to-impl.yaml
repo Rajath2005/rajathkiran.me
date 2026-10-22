@@ -1,0 +1,69 @@
+# Tasks-to-Implementation Checkpoint
+metadata:
+  generated: "2026-10-22"
+  source_plan: "docs/superpowers/plans/2026-10-22-portfolio-file-organization/plan.md"
+  source_spec: "docs/superpowers/specs/2026-10-22-portfolio-file-organization-design.md"
+  batch: "portfolio-file-organization"
+summary:
+  total_tasks: 17
+  completed_tasks: 17
+  blocked_tasks: 0
+  failed_tasks: 0
+  completion_percentage: 100.0
+tasks:
+  - task_id: T001
+    status: completed
+    evidence: "Active entry points and deployment files inspected."
+  - task_id: T002
+    status: completed
+    evidence: "HTML references and URL-encoded assets scanned."
+  - task_id: T003
+    status: completed
+    evidence: "JavaScript imports, dynamic URLs, and CSS references inspected."
+  - task_id: T004
+    status: completed
+    evidence: "Pre-existing working-tree changes preserved and reviewed."
+  - task_id: T005
+    status: completed
+    evidence: "Unused and legacy candidate list classified."
+  - task_id: T006
+    status: completed
+    evidence: "Candidate images and documents checked against references."
+  - task_id: T007
+    status: completed
+    evidence: "Candidate CSS and JavaScript files checked against active imports."
+  - task_id: T008
+    status: completed
+    evidence: "Uncertain and redesign-contributing files excluded."
+  - task_id: T009
+    status: completed
+    evidence: "Mirrored NotRequired archive directories created."
+  - task_id: T010
+    status: completed
+    evidence: "86 confirmed unused or legacy files archived without deletion."
+  - task_id: T011
+    status: completed
+    evidence: "NotRequired/ARCHIVE-MANIFEST.md records archived paths."
+  - task_id: T012
+    status: completed
+    evidence: "Retained local asset reference scan passed."
+  - task_id: T013
+    status: completed
+    evidence: "22 required active entry and deployment paths verified."
+  - task_id: T014
+    status: completed
+    evidence: "No active source files were rewritten by the archive operation."
+  - task_id: T015
+    status: completed
+    evidence: "Archived reference scan and git diff --check passed."
+  - task_id: T016
+    status: completed
+    evidence: "Active asset candidates were reviewed; no speculative active moves made."
+  - task_id: T017
+    status: completed
+    evidence: "Final Git status reviewed; unrelated changes preserved."
+validation:
+  passed: true
+  errors: []
+  warnings:
+    - "Pre-existing working-tree modifications remain present and were not reverted."
