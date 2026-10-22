@@ -38,10 +38,13 @@
   <link rel="alternate" type="text/plain" href="./llms.txt" title="LLMs Optimization File" />
   <link rel="alternate" type="text/plain" href="./llm.txt" title="LLM Optimization File" />
 
-  <!--
-    - favicon
-  -->
-  <link rel="icon" href="./assets/images/logo.webp" type="image/webp">
+  <!-- Favicons -->
+  <link rel="icon" href="./assets/images/favicons/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/images/favicons/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./assets/images/favicons/android-chrome-512x512.png">
 
 
   <!--
@@ -50,7 +53,7 @@
   <link rel="stylesheet" href="./assets/css/style.min.css?v=1.2">
   <link rel="preload" href="./assets/css/os-intelligence.css?v=1.2" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./assets/css/os-intelligence.css?v=1.2"></noscript>
-
+  <link rel="stylesheet" href="./assets/css/editorial-craft.css?v=2.0">
   <!-- Preload Critical Image (LCP) -->
   <link rel="preload" as="image" href="./assets/images/raj.webp">
 
@@ -63,6 +66,33 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Syne:wght@800&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Syne:wght@800&display=swap"
     rel="stylesheet">
+  <style>
+    @media (max-width: 768px) {
+      .sidebar {
+        margin-bottom: 96px !important;
+      }
+
+      .sidebar.active {
+        padding-bottom: 110px !important;
+      }
+
+      .sidebar.active ~ .main-content .navbar {
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+
+      .info_more-btn {
+        position: static !important;
+        display: flex !important;
+        width: fit-content !important;
+        margin: 18px auto 0 !important;
+      }
+
+      main {
+        padding-bottom: 96px !important;
+      }
+    }
+  </style>
   <script
     type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rajath Kiran A","givenName":"Rajath","familyName":"Kiran A","alternateName":"Rajath2005","url":"https://rajathkiran.me","image":"https://rajathkiran.me/assets/images/raj.webp","description":"3rd-year Computer Science student at VCET specializing in AI/ML, Cloud Engineering, and Full Stack Development. Building AyuDost AI healthcare platform and COPD Detection system. Seeking 2026 internships.","jobTitle":"Full Stack Developer & AI Builder","alumniOf":{"@type":"CollegeOrUniversity","name":"Vivekananda College of Engineering and Technology","sameAs":"https://vcet.edu.in/"},"address":{"@type":"PostalAddress","addressLocality":"Mangalore","addressRegion":"Karnataka","addressCountry":"IN"},"email":"rajathajeru@gmail.com","telephone":"+919113275894","knowsLanguage":["English","Kannada","Hindi"],"knowsAbout":["Artificial Intelligence","Machine Learning","Deep Learning","Cloud Engineering","Google Cloud Platform","GCP","Kubernetes","React.js","Python","TensorFlow","PyTorch","NLP","Natural Language Processing","Computer Vision","Healthcare AI","Full Stack Development","Supabase","Docker","GKE","Node.js","Data Structures","Algorithms"],"sameAs":["https://github.com/Rajath2005","https://www.linkedin.com/in/rajath-kiran/","https://leetcode.com/rajath2005","https://www.hackerrank.com/@rajathajeru","https://www.figma.com/@rajath4","https://neetcode.io/rajath2005"],"seeks":{"@type":"JobPosting","title":"2026 Internship","description":"Seeking Cloud Engineering, AI/ML Engineering, or Full Stack Development internship for 2026.","employmentType":"INTERN"}}</script>
   <script type="application/ld+json">
@@ -266,9 +296,20 @@
     ]
   }
   </script>
-  <!-- Immersive Preloader CSS -->
+  <!-- Editorial Studio Craft Preloader CSS -->
   <style id="preloader-styles">
     #premium-preloader {
+      --pl-bg: #faf8f5;
+      --pl-grid: rgba(20, 20, 22, 0.045);
+      --pl-card: #ffffff;
+      --pl-tint: #fef7ea;
+      --pl-ink: #111827;
+      --pl-muted: #6b7280;
+      --pl-border: #18181b;
+      --pl-accent: #6c5ce7;
+      --pl-pill: #dcd6ff;
+      --pl-tape: rgba(243, 234, 216, 0.9);
+
       position: fixed;
       inset: 0;
       z-index: 999999;
@@ -276,153 +317,230 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: radial-gradient(circle at center, hsl(230, 45%, 12%) 0%, hsl(230, 50%, 6%) 50%, hsl(230, 50%, 2%) 100%);
+      padding: 20px;
+      background-color: var(--pl-bg);
+      background-image:
+        linear-gradient(to right, var(--pl-grid) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--pl-grid) 1px, transparent 1px);
+      background-size: 38px 38px;
+      font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
       overflow: hidden;
-      transition: opacity 0.8s ease, visibility 0.8s ease;
+      transition: transform 0.75s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.55s ease;
     }
 
-    .preloader-center-stage {
+    #premium-preloader[data-pl-theme="dark"] {
+      --pl-bg: #0b0c10;
+      --pl-grid: rgba(255, 255, 255, 0.04);
+      --pl-card: #151822;
+      --pl-tint: #1e1b18;
+      --pl-ink: #f8fafc;
+      --pl-muted: #94a3b8;
+      --pl-border: rgba(255, 255, 255, 0.24);
+      --pl-accent: #818cf8;
+      --pl-pill: #6c5ce7;
+      --pl-tape: rgba(255, 255, 255, 0.14);
+    }
+
+    .pl-studio-card {
       position: relative;
-      width: 280px;
-      height: 280px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-
-    .orbital-ring {
-      position: absolute;
       width: 100%;
-      height: 100%;
-      z-index: 1;
-      filter: drop-shadow(0 0 12px hsla(220, 100%, 68%, 0.4));
-      transform: rotate(-90deg);
+      max-width: 420px;
+      background: var(--pl-card);
+      border: 2px solid var(--pl-border);
+      border-radius: 26px;
+      padding: 36px 30px 28px;
+      box-shadow: 0 8px 0 var(--pl-border), 0 24px 60px rgba(0, 0, 0, 0.12);
+      transform: rotate(-1.2deg);
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .ring-track {
-      fill: none;
-      stroke: hsla(230, 50%, 22%, 0.3);
-      stroke-width: 2px;
+    .pl-studio-card::before {
+      content: "";
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%) rotate(1.8deg);
+      width: 96px;
+      height: 26px;
+      background: var(--pl-tape);
+      border: 1px solid rgba(24, 24, 27, 0.15);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     }
 
-    .ring-progress {
-      fill: none;
-      stroke: url(#orbit-gradient);
-      stroke-width: 2px;
-      stroke-linecap: round;
-      stroke-dasharray: 565.48; /* 2 * pi * 90 */
-      stroke-dashoffset: 565.48;
-      transition: stroke-dashoffset 0.1s ease-out;
-    }
-
-    .hero-lottie {
-      position: relative;
-      z-index: 2;
-      width: 180px;
-      height: 180px;
-      filter: drop-shadow(0 0 25px hsla(220, 100%, 68%, 0.3));
-      transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-    }
-
-    .preloader-typography {
-      text-align: center;
-      z-index: 2;
+    .pl-top-row {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: space-between;
+      margin-bottom: 18px;
     }
 
-    .brand-name {
-      font-family: 'Poppins', sans-serif;
-      font-size: 20px;
-      font-weight: 300;
-      letter-spacing: 12px;
+    .pl-edition-tag {
+      font-family: monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      margin: 0;
-      margin-left: 12px; /* Offset for letter-spacing visual centering */
-      background: linear-gradient(to right, hsl(195, 100%, 80%), hsl(220, 100%, 75%));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      opacity: 0;
-      transform: translateY(10px);
-      animation: cinematicTextIn 1.2s cubic-bezier(0.2, 1, 0.2, 1) forwards 0.3s;
+      color: var(--pl-muted);
     }
 
-    .brand-tagline {
-      font-family: 'Poppins', sans-serif;
+    .pl-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: var(--pl-ink);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .pl-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      animation: plPulse 1.4s infinite ease-in-out;
+    }
+
+    @keyframes plPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.5; }
+    }
+
+    .pl-handwritten-name {
+      font-family: 'Caveat', cursive, sans-serif;
+      font-size: 54px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--pl-ink);
+      margin: 0 0 12px 0;
+    }
+
+    .pl-role-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+    }
+
+    .pl-role-chip {
       font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 3px;
-      color: hsla(0, 0%, 88%, 0.6);
-      margin: 0;
-      margin-left: 3px;
-      opacity: 0;
-      transform: translateY(10px);
-      animation: cinematicTextIn 1.2s cubic-bezier(0.2, 1, 0.2, 1) forwards 0.6s;
-    }
-    
-    .brand-tagline .dot {
-      color: var(--neon-blue, hsl(220, 100%, 68%));
-      font-weight: bold;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1.5px solid var(--pl-border);
+      background: var(--pl-tint);
+      color: var(--pl-ink);
     }
 
-    @keyframes cinematicTextIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-        letter-spacing: 14px;
-      }
+    .pl-role-chip.accent {
+      background: var(--pl-pill);
+      color: #141416;
     }
 
-    /* Warp Exit Animations */
-    #premium-preloader.warp-exit .orbital-ring {
-      transform: rotate(-90deg) scale(4);
-      opacity: 0;
-      transition: transform 1s cubic-bezier(0.6, 0, 0.1, 1), opacity 0.8s ease-out;
+    #premium-preloader[data-pl-theme="dark"] .pl-role-chip.accent {
+      color: #ffffff;
     }
 
-    #premium-preloader.warp-exit .hero-lottie {
-      transform: scale(3) translateY(-20px);
-      opacity: 0;
-      transition: transform 0.8s cubic-bezier(0.6, 0, 0.1, 1), opacity 0.5s ease-out 0.1s;
+    .pl-counter-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 10px;
     }
 
-    #premium-preloader.warp-exit .preloader-typography {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.5s cubic-bezier(0.6, 0, 0.1, 1);
+    .pl-loading-label {
+      font-family: monospace;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--pl-muted);
     }
-    
+
+    .pl-pct-number {
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--pl-ink);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pl-bar-track {
+      width: 100%;
+      height: 14px;
+      background: var(--pl-tint);
+      border: 1.5px solid var(--pl-border);
+      border-radius: 999px;
+      overflow: hidden;
+      padding: 2px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+
+    .pl-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--pl-accent);
+      border-radius: 999px;
+      transition: width 0.08s linear;
+    }
+
+    #premium-preloader.warp-exit .pl-studio-card {
+      transform: rotate(0deg) scale(0.96) translateY(-15px);
+    }
+
     #premium-preloader.fade-out {
-      opacity: 0;
-      visibility: hidden;
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+
+    @media (max-width: 480px) {
+      .pl-studio-card {
+        padding: 28px 22px 22px;
+        border-radius: 22px;
+      }
+      .pl-handwritten-name {
+        font-size: 44px;
+      }
+      .pl-pct-number {
+        font-size: 28px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Immersive Preloader -->
+  <!-- Editorial Studio Craft Preloader -->
   <div id="premium-preloader">
-    <div class="preloader-center-stage">
-      <svg class="orbital-ring" viewBox="0 0 200 200">
-        <defs>
-          <linearGradient id="orbit-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="hsl(220, 100%, 68%)" />
-            <stop offset="50%" stop-color="hsl(195, 100%, 72%)" />
-            <stop offset="100%" stop-color="hsl(285, 100%, 78%)" />
-          </linearGradient>
-        </defs>
-        <circle class="ring-track" cx="100" cy="100" r="90"></circle>
-        <circle class="ring-progress" id="orbit-progress" cx="100" cy="100" r="90"></circle>
-      </svg>
-      <div id="lottie-loader" class="hero-lottie"></div>
-    </div>
-    <div class="preloader-typography">
-      <h1 class="brand-name">Rajath Kiran A</h1>
-      <p class="brand-tagline">Cloud Engineer <span class="dot">·</span> AI/ML Developer</p>
+    <script>
+      (function() {
+        var saved = localStorage.getItem('rk_theme_mode') || 'light';
+        document.getElementById('premium-preloader').setAttribute('data-pl-theme', saved);
+        document.body.setAttribute('data-theme', saved);
+      })();
+    </script>
+    <div class="pl-studio-card">
+      <div class="pl-top-row">
+        <span class="pl-edition-tag">PORTFOLIO // 2026</span>
+        <span class="pl-status-pill">
+          <span class="pl-status-dot"></span>
+          <span>Systems Ready</span>
+        </span>
+      </div>
+      <h1 class="pl-handwritten-name">Rajath Kiran A.</h1>
+      <div class="pl-role-chips">
+        <span class="pl-role-chip accent">Cloud Engineer (GCP)</span>
+        <span class="pl-role-chip">AI / ML Builder</span>
+        <span class="pl-role-chip">Full-Stack</span>
+      </div>
+      <div class="pl-counter-row">
+        <span class="pl-loading-label" id="pl-step-text">Assembling curated work...</span>
+        <span class="pl-pct-number" id="pl-pct-num">0%</span>
+      </div>
+      <div class="pl-bar-track">
+        <div class="pl-bar-fill" id="orbit-progress"></div>
+      </div>
     </div>
   </div>
 
@@ -632,7 +750,7 @@
           </p>
 
           <p>
-            With <strong>70+ repositories</strong> on GitHub and <strong>50+ LeetCode problems</strong> solved,
+            With <strong>80+ repositories</strong> on GitHub and <strong>170+ LeetCode problems</strong> solved,
             I have built production-grade applications including <strong>AyuDost AI</strong> (NLP-powered Ayurvedic
             chatbot with RAG architecture) and <strong>COPD Detection</strong> (ongoing deep learning research
             on respiratory sound classification).
@@ -1232,15 +1350,15 @@
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Web design</button>
+              <button data-filter-btn>Web Design</button>
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Applications</button>
+              <button data-filter-btn>Application</button>
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Web development</button>
+              <button data-filter-btn>Web Development</button>
             </li>
 
             <li class="filter-item">
@@ -1268,15 +1386,15 @@
               </li>
 
               <li class="select-item">
-                <button data-select-item>Web design</button>
+                <button data-select-item>Web Design</button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Applications</button>
+                <button data-select-item>Application</button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Web development</button>
+                <button data-select-item>Web Development</button>
               </li>
 
               <li class="select-item">
@@ -1306,7 +1424,7 @@
               </a>
             </li>
             <!-- COPD DETECTION -->
-            <li class="project-item active" data-filter-item data-category="applications">
+            <li class="project-item active" data-filter-item data-category="application">
               <a href="copd-detection.html" data-project-url="copd-detection.html" data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
                   <img src="assets/images/COPD-Project.webp" alt="COPD Detection" loading="lazy" width="400" height="250">
@@ -1316,13 +1434,13 @@
                 </div>
                 <div class="project-content">
                   <h3 class="project-title">COPD Detection & Severity Classification</h3>
-                  <p class="project-category">Applications • Healthcare AI</p>
+                  <p class="project-category">Application • Healthcare AI</p>
                   <p class="project-desc">Deep learning screening using respiratory sound analysis (CNN + CNN-LSTM).</p>
                 </div>
               </a>
             </li>
             <!-- MediQ -->
-            <li class="project-item active" data-filter-item data-category="applications">
+            <li class="project-item active" data-filter-item data-category="application">
               <a href="mediq.html" data-project-url="mediq.html" data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
                   <img src="assets/images/Mediq.webp" alt="MediQ - Ayurvedic Health" loading="lazy" width="400" height="250">
@@ -1332,13 +1450,13 @@
                 </div>
                 <div class="project-content">
                   <h3 class="project-title">MediQ Health Platform</h3>
-                  <p class="project-category">Applications • Healthcare</p>
+                  <p class="project-category">Application • Healthcare</p>
                   <p class="project-desc">Ayurvedic healthcare platform with AI integration.</p>
                 </div>
               </a>
             </li>
             <!-- AyuDost AI -->
-            <li class="project-item active" data-filter-item data-category="applications">
+            <li class="project-item active" data-filter-item data-category="application">
               <a href="ayudost.html" data-project-url="ayudost.html" data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
                   <img src="assets/images/AyuDost-AI.webp" alt="AyuDost AI" loading="lazy" width="400" height="250">
@@ -1348,7 +1466,7 @@
                 </div>
                 <div class="project-content">
                   <h3 class="project-title">AyuDost AI</h3>
-                  <p class="project-category">Applications • AI Assistant</p>
+                  <p class="project-category">Application • AI Assistant</p>
                   <p class="project-desc">AI-powered Ayurvedic support chatbot and guidance assistant.</p>
                 </div>
               </a>
@@ -1400,13 +1518,13 @@
                 </div>
                 <div class="project-content">
                   <h3 class="project-title">IEEE Web Design</h3>
-                  <p class="project-category">UI/UX Design • Figma</p>
+                  <p class="project-category">Web Design • Figma</p>
                   <p class="project-desc">Figma UI/UX concept for IEEE web presence.</p>
                 </div>
               </a>
             </li>
             <!-- Code Review Env -->
-            <li class="project-item active" data-filter-item data-category="applications">
+            <li class="project-item active" data-filter-item data-category="web development">
               <a href="https://huggingface.co/spaces/BugHunter28/code-review-env"
                 data-project-url="https://huggingface.co/spaces/BugHunter28/code-review-env" data-embeddable="true">
                 <div class="project-img-wrapper" data-tilt>
@@ -1417,7 +1535,7 @@
                 </div>
                 <div class="project-content">
                   <h3 class="project-title">Code Review Env</h3>
-                  <p class="project-category">Applications • DevTools</p>
+                  <p class="project-category">Web Development • DevTools</p>
                   <p class="project-desc">OpenEnv RL benchmark for training AI agents on Python code review.</p>
                 </div>
               </a>
@@ -1477,7 +1595,7 @@
               </a>
             </li>
             <!-- Smart City Guide -->
-            <li class="project-item active" data-filter-item data-category="applications">
+            <li class="project-item active" data-filter-item data-category="web development">
               <a href="https://github.com/Rajath2005/SmartCityApp"
                 data-project-url="https://github.com/Rajath2005/SmartCityApp" data-embeddable="false">
                 <div class="project-img-wrapper" data-tilt>
@@ -1488,7 +1606,7 @@
                 </div>
                 <div class="project-content">
                   <h3 class="project-title">Smart City Guide</h3>
-                  <p class="project-category">Applications • Java CLI</p>
+                  <p class="project-category">Web Development • Java CLI</p>
                   <p class="project-desc">Console app to discover, search, and manage city attractions with user/admin
                     roles.</p>
                 </div>
@@ -1546,7 +1664,7 @@
               </a>
             </li>
             <!-- TextUtils -->
-            <li class="project-item active" data-filter-item data-category="applications">
+            <li class="project-item active" data-filter-item data-category="web development">
               <a href="https://github.com/Rajath2005/TextUtils" target="_blank">
                 <div class="project-img-wrapper" data-tilt>
                   <img src="assets/images/project-8.webp" alt="TextUtils" loading="lazy" width="400" height="250">
@@ -1556,7 +1674,7 @@
                 </div>
                 <div class="project-content">
                   <h3 class="project-title">TextUtils</h3>
-                  <p class="project-category">Applications • Utility</p>
+                  <p class="project-category">Web Development • Utility</p>
                   <p class="project-desc">Efficient text manipulation and analysis tool.</p>
                 </div>
               </a>
@@ -1677,7 +1795,7 @@
             </li>
 
             <!-- Minimalist Portfolio -->
-            <li class="project-item active" data-filter-item data-category="web development">
+            <li class="project-item active" data-filter-item data-category="web design">
               <a href="https://rajath2005.github.io/Raj_res.github.io/" target="_blank">
                 <div class="project-img-wrapper" data-tilt>
                   <img src="./assets/images/project-1.webp" alt="Minimalist Portfolio" loading="lazy" width="400"
@@ -1688,7 +1806,7 @@
                 </div>
                 <div class="project-content">
                   <h3 class="project-title">Minimalist Portfolio</h3>
-                  <p class="project-category">Web Development • Personal</p>
+                  <p class="project-category">Web Design • Personal Portfolio</p>
                   <p class="project-desc">Clean, simple portfolio design.</p>
                 </div>
               </a>
@@ -2084,6 +2202,7 @@
   <script src="./assets/js/three-background.js" type="module"></script>
   <script src="./assets/js/animations.js?v=1.1" type="module"></script>
   <script src="./assets/js/os-intelligence.js" type="module"></script>
+  <script src="./assets/js/editorial-craft.js?v=2.0" type="module"></script>
 
   <!--
     - ionicon link
@@ -2092,45 +2211,43 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
-  <!-- Immersive Loader Script -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <!-- Editorial Studio Preloader Script -->
   <script>
     (() => {
-      // ── Lottie Init ──
-      const loaderContainer = document.getElementById('lottie-loader');
-      if (loaderContainer && typeof lottie !== 'undefined') {
-        lottie.loadAnimation({
-          container: loaderContainer,
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          path: 'assets/Loading%2040%20_%20Paperplane.json'
-        });
-      }
-
-      // ── Orbital Progress Tracker ──
-      const orbit = document.getElementById('orbit-progress');
-      const maxOffset = 565.48; // Circumference of r=90
+      const fillBar = document.getElementById('orbit-progress');
+      const pctNum = document.getElementById('pl-pct-num');
+      const stepText = document.getElementById('pl-step-text');
       let progress = 0;
       let loaded = false;
 
-      function updateOrbit(targetPct, duration) {
+      const steps = [
+        { at: 15, text: 'Mounting GCP & GKE topology...' },
+        { at: 45, text: 'Loading AI healthcare case studies...' },
+        { at: 75, text: 'Preparing studio workspace...' },
+        { at: 95, text: 'Welcome.' }
+      ];
+
+      function updateProgress(targetPct, duration) {
         const start = progress;
         const startTime = performance.now();
-        
+
         function step(now) {
           const elapsed = now - startTime;
           const t = Math.min(elapsed / duration, 1);
-          // Easing function (cubic out)
           const easeT = 1 - Math.pow(1 - t, 3);
-          
-          progress = start + (targetPct - start) * easeT;
-          
-          if (orbit) {
-            const currentOffset = maxOffset - (maxOffset * (progress / 100));
-            orbit.style.strokeDashoffset = currentOffset;
+
+          progress = Math.round(start + (targetPct - start) * easeT);
+
+          if (fillBar) fillBar.style.width = `${progress}%`;
+          if (pctNum) pctNum.textContent = `${progress}%`;
+
+          for (let i = steps.length - 1; i >= 0; i--) {
+            if (progress >= steps[i].at && stepText) {
+              stepText.textContent = steps[i].text;
+              break;
+            }
           }
-          
+
           if (t < 1 && !loaded) {
             requestAnimationFrame(step);
           }
@@ -2138,43 +2255,31 @@
         requestAnimationFrame(step);
       }
 
-      // Simulated loading sequence
-      // Jump to 30% quickly
-      updateOrbit(30, 800);
-      // Smooth creep to 75%
-      setTimeout(() => { if (!loaded) updateOrbit(75, 4000); }, 900);
+      updateProgress(40, 500);
+      setTimeout(() => { if (!loaded) updateProgress(85, 1800); }, 550);
 
-      // ── Cinematic Warp Exit ──
       function triggerWarpExit() {
         loaded = true;
         const preloader = document.getElementById('premium-preloader');
         if (!preloader) return;
 
-        // Force complete orbit rapidly
-        if (orbit) {
-          orbit.style.transition = 'stroke-dashoffset 0.4s cubic-bezier(0.2, 1, 0.3, 1)';
-          orbit.style.strokeDashoffset = 0;
-        }
+        if (fillBar) fillBar.style.width = '100%';
+        if (pctNum) pctNum.textContent = '100%';
+        if (stepText) stepText.textContent = 'Welcome.';
 
-        // Wait for orbit completion, then WARP
         setTimeout(() => {
           preloader.classList.add('warp-exit');
-          
-          // Fade entirely and remove from DOM
           setTimeout(() => {
             preloader.classList.add('fade-out');
             setTimeout(() => {
               preloader.style.display = 'none';
-              const styleTag = document.getElementById('preloader-styles');
-              if (styleTag) styleTag.remove();
-            }, 800); // Wait for fade
-          }, 800); // Wait for warp animations
-        }, 500); 
+            }, 750);
+          }, 250);
+        }, 250);
       }
 
       window.addEventListener('load', () => {
-        // Minimum time to appreciate the initial animation
-        setTimeout(triggerWarpExit, 1200);
+        setTimeout(triggerWarpExit, 700);
       });
     })();
   </script>

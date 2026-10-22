@@ -59,8 +59,8 @@ Rajath Kiran A is a 3rd-year Computer Science student at Vivekananda College of 
 
 ## Quick Facts
 - **Experience:** 3+ years in full-stack development, 2+ years in AI/ML
-- **Projects:** 70+ active repositories on GitHub
-- **LeetCode:** 50+ problems solved
+- **Projects:** 80+ active repositories on GitHub
+- **LeetCode:** 170+ problems solved
 - **Resumes:** Role-based PDFs for Full Stack, ML, Cloud, and Open Source
 - **Portfolio Evolution:** OS-themed environment switcher with 6 identities
 - **Hackathons:** Active participant and project builder

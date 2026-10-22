@@ -214,9 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectItems = document.querySelectorAll('.project-item');
     projectItems.forEach(item => {
         item.classList.add('is-visible');
-        item.style.display = 'block';
-        item.style.opacity = '1';
-        item.style.visibility = 'visible';
     });
 
     // Sidebar entrance
@@ -248,9 +245,6 @@ export const animatePageChange = (activePage) => {
             const projectItems = activePage.querySelectorAll('.project-item');
             projectItems.forEach(item => {
                 item.classList.add('is-visible');
-                item.style.display = 'block';
-                item.style.opacity = '1';
-                item.style.visibility = 'visible';
             });
             
             const projectList = activePage.querySelector('.project-list');
