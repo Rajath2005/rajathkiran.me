@@ -2,7 +2,7 @@
 
 ## Goal
 
-Organize the repository conservatively after the portfolio redesign by keeping all files required by the deployed site and archiving only files proven to be unused or redundant in `NotRequired`.
+Organize the repository conservatively after the portfolio redesign by keeping all files required by the deployed site and archiving all files proven to be unused or redundant in `NotRequired`. The purpose is to reduce unnecessary repository and deployment weight so optimization work is not undermined by legacy files.
 
 ## Scope
 
@@ -10,7 +10,7 @@ The organization work covers the static portfolio pages, their directly and indi
 
 ## Preservation constraint
 
-The current redesigned portfolio is the baseline and must remain visually and behaviorally unchanged. This work must not remove, replace, simplify, or rewrite the redesigned layout, typography, colors, responsive behavior, animations, 3D effects, interactions, content, or active assets. Any file that contributes to the current appearance or behavior is active, even if it is loaded indirectly or appears to be an older-format fallback. File organization is the only intended change.
+The current redesigned portfolio is the baseline and must remain visually and behaviorally unchanged. This work must not remove, replace, simplify, or rewrite the redesigned layout, typography, colors, responsive behavior, animations, 3D effects, interactions, content, or active assets. Any file that contributes to the current appearance or behavior is active, even if it is loaded indirectly or appears to be an older-format fallback. File organization is the only intended change. Archiving unused files must not be confused with removing resources from the active site.
 
 ## Active portfolio surface
 
@@ -39,12 +39,14 @@ Existing documentation and repository configuration remain unless separately pro
 
 ## Archive policy
 
-Files may be moved into `NotRequired` only when repository-wide inspection confirms that they are:
+Files may be moved into `NotRequired` when repository-wide inspection confirms that they are:
 
 1. Not referenced by any retained HTML, CSS, JavaScript, configuration, sitemap, or documentation path that is part of the active repository workflow; and
-2. A duplicate, obsolete artifact, or non-deployed local preview/source file.
+2. A legacy file from the previous design, an unused duplicate format, an obsolete artifact, or a non-deployed local preview/source file.
 
 Moving is preferred over deletion so archived files remain recoverable. The archive should preserve enough of the original relative grouping to make restoration understandable.
+
+The archive is intentionally a holding area for the user's later review. It may contain files that are not needed by the current redesign but were valid parts of the previous version. No archived file is considered permanently deleted.
 
 ## Reference analysis
 
@@ -69,5 +71,7 @@ After organization:
 5. Review the complete Git status and diff to ensure only intended moves and related path updates occurred.
 6. Do not overwrite or revert unrelated pre-existing working-tree changes.
 7. Compare the retained redesign files and their references against the current baseline; no visual or behavioral source changes are permitted.
+8. Confirm that archived files are absent from the active deployment graph, while retained files preserve the same page behavior and appearance.
+9. Check the retained tree for unnecessarily duplicated active payloads and report any remaining large active assets separately rather than moving them speculatively.
 
 No file will be deleted as part of this work, and no visual or behavioral changes are permitted.
