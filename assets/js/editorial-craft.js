@@ -209,7 +209,6 @@ function initCursorGlowCanvas() {
     }
     rafId = requestAnimationFrame(render);
   }
-  }
 }
 
 // ============================================================================
