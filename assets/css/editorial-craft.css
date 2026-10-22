@@ -1940,22 +1940,28 @@ section.projects .project-item:nth-child(4n+4)>a {
   flex-direction: column;
   gap: 8px;
   margin-bottom: 14px;
+  counter-reset: ledger-bullet;
 }
 
 .ledger-bullets li {
   position: relative;
-  padding-left: 18px;
+  padding-left: 34px;
   font-size: 14px;
   color: var(--ink-secondary);
   line-height: 1.6;
+  counter-increment: ledger-bullet;
 }
 
 .ledger-bullets li::before {
-  content: "→";
+  content: counter(ledger-bullet, decimal-leading-zero);
   position: absolute;
   left: 0;
+  top: 0.15em;
   color: var(--accent-purple);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
   font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .ledger-tags {
