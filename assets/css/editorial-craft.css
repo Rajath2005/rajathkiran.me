@@ -1407,6 +1407,12 @@ section.projects .project-item:nth-child(4n+4)>a {
     max-height: none !important;
   }
 
+  .sidebar.active {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
   .sidebar:not(.active) .sidebar-info_more {
     display: none !important;
   }
@@ -2969,4 +2975,4 @@ article.contact>header .article-title {
   font-weight: 700;
   color: var(--ink-primary);
   text-align: right;
-}
+}
