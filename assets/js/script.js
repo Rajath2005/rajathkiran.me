@@ -275,6 +275,12 @@ const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
+filterItems.forEach(item => {
+  const link = item.querySelector('a');
+  link?.addEventListener('focus', () => item.classList.add('is-active-module'));
+  link?.addEventListener('blur', () => item.classList.remove('is-active-module'));
+});
+
 if (select) {
   select.addEventListener("click", function () { elementToggleFunc(this); });
 }
@@ -290,11 +296,11 @@ selectItems.forEach(item => {
 
 const filterFunc = function (selectedValue) {
   filterItems.forEach(item => {
-    if (selectedValue === "all" || selectedValue === item.dataset.category.toLowerCase().trim()) {
-      item.classList.add("active");
-    } else {
-      item.classList.remove("active");
-    }
+    const matches = selectedValue === "all" || selectedValue === item.dataset.category.toLowerCase().trim();
+    item.classList.toggle("active", matches);
+    item.classList.toggle("is-filtered-out", !matches);
+    item.classList.toggle("is-filter-match", matches);
+    if (matches) window.setTimeout(() => item.classList.remove("is-filter-match"), 600);
   });
 }
 
@@ -321,6 +327,11 @@ filterBtn.forEach(btn => {
 const form = document.querySelector("[data-form]");
 const formInputs = document.querySelectorAll("[data-form-input]");
 const formBtn = document.querySelector("[data-form-btn]");
+const formStatus = document.createElement('span');
+if (formBtn) { formStatus.className = 'form-transmission-status'; formStatus.setAttribute('aria-live', 'polite'); formBtn.parentElement?.appendChild(formStatus); }
+form?.addEventListener('submit', () => {
+  if (formStatus) { formStatus.textContent = 'TRANSMISSION SENT'; formStatus.classList.add('transmission-state'); }
+});
 
 formInputs.forEach(input => {
   input.addEventListener("input", function () {
@@ -344,8 +355,9 @@ navigationLinks.forEach(link => {
   link.addEventListener("click", function () {
     const clickedLinkText = this.textContent.trim().toLowerCase();
 
-    const doNavigation = () => {
-      pages.forEach((page, index) => {
+  const doNavigation = () => {
+  document.body.dataset.activeModule = clickedLinkText;
+  pages.forEach((page, index) => {
         if (clickedLinkText === page.dataset.page) {
           page.classList.add("active");
           if (navigationLinks[index]) navigationLinks[index].classList.add("active");

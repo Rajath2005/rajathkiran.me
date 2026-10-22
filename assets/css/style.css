@@ -3999,3 +3999,68 @@ article.has-journey,
     font-size: 25vw;
   }
 }
+
+/* Module Motion Language */
+:root {
+  --motion-ease: cubic-bezier(.22, 1, .36, 1);
+}
+[data-page] {
+  transition: opacity .34s var(--motion-ease), transform .34s var(--motion-ease), filter .34s var(--motion-ease);
+}
+[data-page]:not(.active) {
+  opacity: 0;
+  transform: translateY(10px);
+  filter: blur(3px);
+  pointer-events: none;
+}
+[data-page].active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+.project-item {
+  position: relative;
+  transition: opacity .3s var(--motion-ease), transform .3s var(--motion-ease), filter .3s ease;
+}
+.project-item::after {
+  content: 'STANDBY';
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 4px 7px;
+  border: 1px solid var(--onyx);
+  color: var(--light-gray-70);
+  background: rgba(10, 12, 18, .82);
+  font: 500 9px/1 monospace;
+  letter-spacing: .12em;
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: .3s var(--motion-ease);
+  pointer-events: none;
+}
+.project-item:hover { transform: translateY(-5px); }
+.project-item:hover::after,
+.project-item.is-active-module::after {
+  content: 'ACTIVE';
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--cyber-cyan);
+  border-color: var(--cyber-cyan);
+  box-shadow: 0 0 16px rgba(75, 211, 255, .18);
+}
+.project-item.is-filtered-out { opacity: .22; transform: scale(.97); filter: saturate(.35); }
+.project-item.is-filter-match { animation: modulePulse .55s var(--motion-ease); }
+[data-filter-btn].active { color: var(--cyber-cyan); text-shadow: 0 0 12px rgba(75, 211, 255, .45); }
+.contact-row { transition: transform .3s var(--motion-ease), background-color .3s ease; }
+.contact-row:hover { transform: translateX(7px); }
+.contact-row::after { content: 'SIGNAL'; margin-left: auto; color: transparent; font: 500 9px monospace; letter-spacing: .12em; transition: color .25s ease; }
+.contact-row:hover::after { content: 'CHANNEL OPEN'; color: var(--cyber-cyan); }
+.transmission-state { color: var(--cyber-cyan) !important; }
+@keyframes modulePulse {
+  0% { box-shadow: 0 0 0 rgba(75, 211, 255, 0); }
+  50% { box-shadow: 0 0 24px rgba(75, 211, 255, .24); }
+  100% { box-shadow: 0 0 0 rgba(75, 211, 255, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-page], .project-item, .contact-row { transition: none; animation: none !important; }
+}

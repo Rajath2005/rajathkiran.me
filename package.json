@@ -1,0 +1,12 @@
+{
+  "name": "rajathkiran-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node scripts/preview-server.js",
+    "start": "node scripts/preview-server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
