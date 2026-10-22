@@ -8,6 +8,10 @@ Organize the repository conservatively after the portfolio redesign by keeping a
 
 The organization work covers the static portfolio pages, their directly and indirectly referenced assets, deployment/SEO files, serverless functions, and clearly obsolete or duplicate files. It does not redesign the site, alter page content, or rewrite the asset structure unnecessarily.
 
+## Preservation constraint
+
+The current redesigned portfolio is the baseline and must remain visually and behaviorally unchanged. This work must not remove, replace, simplify, or rewrite the redesigned layout, typography, colors, responsive behavior, animations, 3D effects, interactions, content, or active assets. Any file that contributes to the current appearance or behavior is active, even if it is loaded indirectly or appears to be an older-format fallback. File organization is the only intended change.
+
 ## Active portfolio surface
 
 The following public pages remain at their current paths:
@@ -31,7 +35,7 @@ The following operational and discovery files remain active:
 - `llms.txt`
 - `netlify/functions/ask-rajath.js`
 
-Existing documentation and repository configuration remain unless separately proven unrelated to the deployed portfolio.
+Existing documentation and repository configuration remain unless separately proven unrelated to the deployed portfolio. The redesign-related CSS and JavaScript files remain in place unless a reference-preserving move is explicitly verified without changing runtime behavior.
 
 ## Archive policy
 
@@ -64,5 +68,6 @@ After organization:
 4. Run `git diff --check`.
 5. Review the complete Git status and diff to ensure only intended moves and related path updates occurred.
 6. Do not overwrite or revert unrelated pre-existing working-tree changes.
+7. Compare the retained redesign files and their references against the current baseline; no visual or behavioral source changes are permitted.
 
-No file will be deleted as part of this work, and no visual or behavioral changes are intended.
+No file will be deleted as part of this work, and no visual or behavioral changes are permitted.
