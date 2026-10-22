@@ -17,14 +17,18 @@ Welcome to the open-source repository for my personal portfolio! This highly opt
 
 ---
 
-## 📸 Visual Showcase
+<!-- PORTFOLIO-SHOWCASE:START -->
+## Portfolio Preview
 
-| Desktop View | Mobile View |
-| :---: | :---: |
-| ![Desktop Homepage Placeholder](docs/images/homepage-desktop.png) | ![Mobile Homepage Placeholder](docs/images/homepage-mobile.png) |
-| *Clean, dark-mode aesthetic with glassmorphism* | *Fully responsive, buttery smooth mobile experience* |
+![Portfolio showcase](docs/images/portfolio-showcase.png)
 
-> 📌 **View the full visual breakdown in [SHOWCASE.md](docs/SHOWCASE.md)**
+Responsive screenshots:  
+[Desktop](docs/screenshots/portfolio-desktop-1440x1000.png) ·
+[Laptop](docs/screenshots/portfolio-laptop-1280x800.png) ·
+[Tablet](docs/screenshots/portfolio-tablet-768x1024.png) ·
+[Mobile](docs/screenshots/portfolio-mobile-390x844.png) ·
+[Narrow mobile](docs/screenshots/portfolio-narrow-mobile-360x800.png)
+<!-- PORTFOLIO-SHOWCASE:END -->
 
 ---
 
