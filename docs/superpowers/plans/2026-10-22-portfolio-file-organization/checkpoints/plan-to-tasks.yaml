@@ -1,0 +1,60 @@
+# Plan-to-Tasks Traceability Checkpoint
+metadata:
+  generated: "2026-10-22"
+  source_plan: "docs/superpowers/plans/2026-10-22-portfolio-file-organization/plan.md"
+  target_tasks: "docs/superpowers/plans/2026-10-22-portfolio-file-organization/plan.md"
+summary:
+  total_plan_items: 4
+  covered_plan_items: 4
+  missing_plan_items: 0
+  coverage_percentage: 100.0
+  total_tasks_generated: 17
+  orphan_tasks: 0
+phases:
+  - phase_id: "Phase-1"
+    phase_name: "Establish the active reference baseline"
+    items:
+      - item_id: "1.1"
+        description: "Inventory active entry points and references"
+        tasks: [T001, T002, T003, T004]
+  - phase_id: "Phase-2"
+    phase_name: "Classify legacy and unused files"
+    items:
+      - item_id: "2.1"
+        description: "Classify archive candidates"
+        tasks: [T005, T006, T007, T008]
+  - phase_id: "Phase-3"
+    phase_name: "Archive confirmed unused files"
+    items:
+      - item_id: "3.1"
+        description: "Move candidates into NotRequired"
+        tasks: [T009, T010, T011]
+  - phase_id: "Phase-4"
+    phase_name: "Validate preservation and performance scope"
+    items:
+      - item_id: "4.1"
+        description: "Run post-organization validation"
+        tasks: [T012, T013, T014, T015, T016, T017]
+missing_plan_items: []
+orphan_tasks: []
+upstream_trace:
+  - plan_item: "1.1"
+    source_requirements: [REQ-001, REQ-002]
+    tasks: [T001, T002, T003, T004]
+    full_trace: "REQ-001,REQ-002 -> Phase-1.1 -> T001,T002,T003,T004"
+  - plan_item: "2.1"
+    source_requirements: [REQ-001, REQ-003]
+    tasks: [T005, T006, T007, T008]
+    full_trace: "REQ-001,REQ-003 -> Phase-2.1 -> T005,T006,T007,T008"
+  - plan_item: "3.1"
+    source_requirements: [REQ-003, REQ-004]
+    tasks: [T009, T010, T011]
+    full_trace: "REQ-003,REQ-004 -> Phase-3.1 -> T009,T010,T011"
+  - plan_item: "4.1"
+    source_requirements: [REQ-002, REQ-004, REQ-005]
+    tasks: [T012, T013, T014, T015, T016, T017]
+    full_trace: "REQ-002,REQ-004,REQ-005 -> Phase-4.1 -> T012,T013,T014,T015,T016,T017"
+validation:
+  passed: true
+  errors: []
+  warnings: []

@@ -1,0 +1,64 @@
+# Spec-to-Plan Traceability Checkpoint
+metadata:
+  generated: "2026-10-22"
+  source_spec: "docs/superpowers/specs/2026-10-22-portfolio-file-organization-design.md"
+  target_plan: "docs/superpowers/plans/2026-10-22-portfolio-file-organization/plan.md"
+summary:
+  total_requirements: 5
+  covered_requirements: 5
+  missing_requirements: 0
+  coverage_percentage: 100.0
+requirements:
+  - req_id: "REQ-001"
+    req_description: "Discover the complete active file/reference graph"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1"
+      phase_name: "Establish the active reference baseline"
+      items:
+        - item_id: "1.1"
+          description: "Inventory all active entry points and references"
+  - req_id: "REQ-002"
+    req_description: "Preserve the redesigned portfolio appearance and behavior"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-1/Phase-4"
+      phase_name: "Baseline and preservation validation"
+      items:
+        - item_id: "1.1"
+          description: "Capture the active baseline"
+        - item_id: "4.1"
+          description: "Compare retained source and validate routes"
+  - req_id: "REQ-003"
+    req_description: "Identify previous-design and unused files safely"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-2"
+      phase_name: "Classify legacy and unused files"
+      items:
+        - item_id: "2.1"
+          description: "Classify archive candidates"
+  - req_id: "REQ-004"
+    req_description: "Archive confirmed unused files recoverably"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-3"
+      phase_name: "Archive confirmed unused files"
+      items:
+        - item_id: "3.1"
+          description: "Move candidates into NotRequired"
+  - req_id: "REQ-005"
+    req_description: "Validate references and optimization scope"
+    priority: "P1"
+    plan_mapping:
+      phase: "Phase-4"
+      phase_name: "Validate preservation and performance scope"
+      items:
+        - item_id: "4.1"
+          description: "Run post-organization validation"
+missing_requirements: []
+orphan_plan_items: []
+validation:
+  passed: true
+  errors: []
+  warnings: []
