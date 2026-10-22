@@ -386,9 +386,12 @@ function enhanceHeroAndProofBento() {
     const marquee = document.createElement('div');
     marquee.className = 'craft-marquee-strip';
     const items = [
-      'Cloud Engineer (GCP & GKE)',
-      'AI / ML Healthcare Builder',
+      'Software Engineer',
       'Full-Stack Developer',
+      'React.js Developer',
+      'AI / ML Healthcare Builder',
+      'Cloud Engineer (GCP & GKE)',
+      'UI/UX Designer',
       '2× VTU Rank #1 (Code360)',
       '80+ Open-Source Repos',
       'Systems Thinker',

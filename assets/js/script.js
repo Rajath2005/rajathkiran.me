@@ -20,10 +20,11 @@ const elementToggleFunc = (elem) => {
  * TYPING EFFECT
  */
 const roles = [
-  "Cloud Engineer",
-  "AI/ML Developer",
   "Full Stack Developer",
-  "Cybersecurity Enthusiast",
+  "React.js Developer",
+  "AI/ML Developer",
+  "Cloud Engineer",
+  "UI/UX Developer",
   "Open Source Builder"
 ];
 let roleIndex = 0;

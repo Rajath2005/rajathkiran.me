@@ -3,7 +3,7 @@
   
   # Rajath Kiran A — Personal Portfolio
 
-  <p><strong>Cloud Engineer | AI/ML Developer | Full Stack Engineer</strong></p>
+  <p><strong>Software Engineer | Full-Stack, React.js, AI/ML, Cloud &amp; UI/UX</strong></p>
 
   [![Netlify Status](https://api.netlify.com/api/v1/badges/rajathkiran/deploy-status)](https://app.netlify.com/sites/rajathkiran/deploys)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

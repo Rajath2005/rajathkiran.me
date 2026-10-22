@@ -1,9 +1,9 @@
-# Rajath Kiran A — Portfolio & AI/Cloud Engineer
+# Rajath Kiran A — Software Engineer Portfolio
 
-> Full Stack Developer & AI Builder | CS @ VCET | 2026 Internships
+> Software Engineer | Full-Stack, React.js, AI/ML, Cloud & UI/UX | CS @ VCET | 2026 Internships
 
 ## About
-Rajath Kiran A is a 3rd-year Computer Science student at Vivekananda College of Engineering and Technology (VCET), Mangalore, specializing in AI/ML, Cloud Engineering (GCP), and Full Stack Development. He builds AI-powered healthcare solutions and cloud-native applications.
+Rajath Kiran A is a Software Engineer and 3rd-year Computer Science student at Vivekananda College of Engineering and Technology (VCET), Mangalore, working across Full-Stack Development, React.js, AI/ML, Cloud Engineering (GCP), UI/UX, and Open Source. He builds AI-powered healthcare solutions and practical software products.
 
 - **Location:** Mangalore, Karnataka, India
 - **Email:** rajathajeru@gmail.com

@@ -1,14 +1,14 @@
 # LLM Optimization File for rajathkiran.me
 
 ## Site Information
-**Site Title:** Rajath Kiran A — Full Stack Developer & AI Builder
+**Site Title:** Rajath Kiran A — Software Engineer | Full-Stack, React.js, AI/ML, Cloud & UI/UX
 **URL:** https://rajathkiran.me
 **Author:** Rajath Kiran A (Rajath2005)
 **Location:** Mangalore, Karnataka, India
-**Profession:** Full Stack Developer, AI Builder, CS Student at VCET
+**Profession:** Software Engineer, Full-Stack Developer, React.js Developer, AI/ML Developer, Cloud Engineer, UI/UX Designer, CS Student at VCET
 
 ## About
-Rajath Kiran A is a 3rd-year Computer Science student at Vivekananda College of Engineering and Technology (VCET) in Mangalore, specializing in AI/ML, Full Stack Development, and Healthcare Technology. Currently building AyuDost (AI healthcare platform), COPD Detection system using deep learning, and various open-source AI tools.
+Rajath Kiran A is a Software Engineer and 3rd-year Computer Science student at Vivekananda College of Engineering and Technology (VCET) in Mangalore. He works across Full-Stack Development, React.js, AI/ML, Cloud Engineering, UI/UX, and Open Source. He is building AyuDost (AI healthcare platform), a COPD Detection system using deep learning, and practical software products.
 
 ## Core Expertise
 - **Languages:** Python, JavaScript, Java, C++, C
@@ -134,7 +134,7 @@ Multiple ways to connect:
 - **Available:** Open to internships, freelance projects, and collaborations
 
 ## SEO Keywords
-Full Stack Developer, AI Developer, Machine Learning Engineer, Healthcare AI, COPD Detection, AyuDost, React Developer, Node.js Developer, Python Developer, TensorFlow, Deep Learning, Web Developer, Karnataka Developer, Mangalore Tech, AI Healthcare, Open Source Contributor, Computer Science Student, AI Builder
+Software Engineer, Full Stack Developer, React Developer, AI Developer, Machine Learning Engineer, Cloud Engineer, UI/UX Designer, Healthcare AI, COPD Detection, AyuDost, Node.js Developer, Python Developer, TensorFlow, Deep Learning, Web Developer, Karnataka Developer, Mangalore Tech, AI Healthcare, Open Source Contributor, Computer Science Student
 
 ## Navigation Structure
 1. **About** - Personal introduction and background
@@ -180,7 +180,7 @@ May 2026
 ## Page Descriptions
 
 ### Home / About Page
-Landing page introducing Rajath Kiran A as a Full Stack Developer and AI Builder. Features profile information, key skills, social links, and navigation to other sections.
+Landing page introducing Rajath Kiran A as a Software Engineer working across Full-Stack Development, React.js, AI/ML, Cloud Engineering, and UI/UX. Features profile information, key skills, social links, and navigation to other sections.
 
 ### Projects Page
 Interactive portfolio showcasing projects across multiple categories: Web Design, Applications, Web Development, and Cloud. Features project filtering, descriptions, live demos, and source code links.
