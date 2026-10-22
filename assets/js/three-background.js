@@ -36,7 +36,7 @@ const renderer = new THREE.WebGLRenderer({
   powerPreference: 'high-performance'
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
+renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 1.5));
 
 const networkGroup = new THREE.Group();
 scene.add(networkGroup);

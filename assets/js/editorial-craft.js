@@ -143,25 +143,28 @@ function initCursorGlowCanvas() {
     if (!isActive) {
       isActive = true;
       canvas.classList.add('active');
+      if (!rafId) rafId = requestAnimationFrame(render);
     }
   });
 
   document.addEventListener('mouseleave', () => {
     isActive = false;
     canvas.classList.remove('active');
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
   });
 
   function render() {
+    rafId = null;
+    if (!isActive) return;
+
     // Smooth lerp follow
     animX += (mouseX - animX) * 0.12;
     animY += (mouseY - animY) * 0.12;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    if (!isActive) {
-      rafId = requestAnimationFrame(render);
-      return;
-    }
 
     const isDark = document.body.getAttribute('data-theme') === 'dark';
     const radius = 180;
@@ -204,10 +207,9 @@ function initCursorGlowCanvas() {
         }
       }
     }
-
     rafId = requestAnimationFrame(render);
   }
-  rafId = requestAnimationFrame(render);
+  }
 }
 
 // ============================================================================
