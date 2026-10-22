@@ -1380,6 +1380,27 @@ section.projects .project-item:nth-child(4n+4)>a {
     margin: 56px 12px 96px 12px !important;
   }
 
+  /* Keep mobile social links aligned with the existing dark resume controls. */
+  .social-item .social-link {
+    color: var(--bg-canvas) !important;
+    background: var(--ink-primary) !important;
+    border: 1.5px solid var(--border-strong) !important;
+    border-radius: 999px !important;
+    box-shadow: none !important;
+  }
+
+  .social-item .social-link ion-icon {
+    color: var(--bg-canvas) !important;
+  }
+
+  .social-item .social-link:hover,
+  .social-item .social-link:focus-visible {
+    color: #ffffff !important;
+    background: var(--accent-purple) !important;
+    border-color: var(--border-strong) !important;
+    box-shadow: none !important;
+  }
+
   .sidebar {
     padding: 24px 18px !important;
     border-radius: 22px !important;
