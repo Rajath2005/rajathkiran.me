@@ -1186,6 +1186,32 @@ section.projects .project-item:nth-child(4n+4)>a {
   color: var(--ink-secondary) !important;
 }
 
+.project-secondary-image {
+  display: block !important;
+  width: 100% !important;
+  height: 92px !important;
+  margin-top: 16px !important;
+  border: 1px solid var(--border-strong) !important;
+  border-radius: 10px !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+.project-source-link {
+  display: inline-block !important;
+  margin-top: 12px !important;
+  color: var(--accent-purple) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+}
+
+.project-source-link:hover,
+.project-source-link:focus-visible {
+  color: var(--ink-primary) !important;
+}
+
 .tech-tag {
   background: var(--surface-card) !important;
   color: var(--ink-primary) !important;
@@ -1701,6 +1727,7 @@ section.projects .project-item:nth-child(4n+4)>a {
 
 .cs-sheet-banner {
   width: 100%;
+  height: 280px;
   max-height: 280px;
   border-radius: 16px;
   border: 1.5px solid var(--border-strong);
@@ -1709,10 +1736,11 @@ section.projects .project-item:nth-child(4n+4)>a {
 }
 
 .cs-sheet-banner img {
+  display: block;
   width: 100%;
   height: 100%;
-  max-height: 280px;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 }
 
 .cs-sheet-grid {

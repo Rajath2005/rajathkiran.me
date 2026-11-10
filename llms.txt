@@ -21,6 +21,13 @@ Rajath Kiran A is a Software Engineer and 3rd-year Computer Science student at V
 
 ## Key Projects
 
+### Shramik-Nyay
+- **Live Demo:** https://shramik.rajathkiran.me/
+- **Source:** https://github.com/Rajath2005/Shramik-Nyay
+- **Category:** Civic Tech, Voice AI
+- **Description:** Voice-first wage-claim assistant for India's unorganized workers, with multilingual intake, wage-rule checks, and generated Form A and JSON drafts.
+- **Tech:** JavaScript, Voice AI, NLP, Rule Validation
+
 ### COPD Detection & Severity Classification
 - **URL:** https://github.com/Rajath2005/COPD-Detection
 - **Category:** Healthcare AI, Deep Learning

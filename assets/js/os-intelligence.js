@@ -157,6 +157,7 @@ const injectProjectTags = () => {
 
     const specificTags = {
         'https://github.com/Rajath2005/COPD-Detection': ['Python', 'TensorFlow', 'CNN', 'LSTM'],
+        'https://shramik.rajathkiran.me/': ['JavaScript', 'Voice AI', 'NLP', 'Rule Validation'],
         'https://mediq-health.netlify.app/': ['React', 'Supabase', 'Node.js', 'Gemini AI'],
         'https://ayudost-chatbot.onrender.com/': ['Python', 'NLP', 'Flask', 'Google Cloud'],
         'https://github.com/Rajath2005': ['Open Source', 'Full Stack', 'Cloud'],
