@@ -3143,3 +3143,160 @@ section.projects .project-source-link {
 section.projects .project-source-link:hover {
   border-color: var(--accent-purple) !important;
 }
+
+/* ============================================================================
+   10. AUDIT UPGRADES — Selected Work preview (landing tab) + uniform 16:10
+   framed thumbnails with a craft browser-chrome bar on every project frame.
+============================================================================ */
+
+/* Selected Work: two flagship cards shown right after the About bio */
+.selected-work {
+  margin-top: 40px;
+}
+
+.selected-work-kicker,
+.selected-work .selected-work-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-purple);
+  margin-bottom: 16px;
+}
+
+.selected-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.selected-work-card {
+  position: relative;
+  display: block;
+  background: var(--surface-card);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 20px;
+  padding: 14px 14px 16px;
+  box-shadow: var(--shadow-offset), var(--shadow-card);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.selected-work-card:hover {
+  transform: translateY(-3px);
+}
+
+.selected-work-card .sw-frame {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  aspect-ratio: 16 / 10;
+  background: var(--surface-subtle);
+}
+
+.selected-work-card .sw-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.selected-work-card .sw-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 6px 0;
+}
+
+.selected-work-card .sw-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--accent-purple);
+}
+
+.selected-work-card .sw-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--ink-primary);
+  line-height: 1.3;
+}
+
+.selected-work-card .sw-outcome {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-muted);
+}
+
+.selected-work-card .sw-arrow {
+  position: absolute;
+  top: 14px;
+  right: 26px;
+  color: var(--ink-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.selected-work-card:hover .sw-arrow {
+  color: var(--accent-purple);
+  transform: translateX(3px);
+}
+
+.selected-work-more {
+  margin-top: 22px;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .selected-work-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Uniform 16:10 project frames with a flat browser-chrome bar (no letterbox) */
+section.projects .project-img-wrapper {
+  height: auto !important;
+  aspect-ratio: 16 / 10 !important;
+  background: var(--surface-subtle) !important;
+  overflow: hidden !important;
+}
+
+section.projects .project-img-wrapper img {
+  margin-top: 24px !important;
+  height: calc(100% - 24px) !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+section.projects .project-img-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background:
+    radial-gradient(circle 3px at 12px 12px, var(--border-strong) 98%, transparent),
+    radial-gradient(circle 3px at 24px 12px, var(--border-strong) 98%, transparent),
+    radial-gradient(circle 3px at 36px 12px, var(--border-strong) 98%, transparent),
+    linear-gradient(var(--surface-pill), var(--surface-pill));
+  background-repeat: no-repeat;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+section.projects .project-img-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 56px;
+  right: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-subtle);
+}
