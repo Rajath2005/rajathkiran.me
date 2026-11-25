@@ -90,7 +90,22 @@
             The platform delivers a highly responsive, app-like experience on both desktop and mobile devices. By integrating secure backend architecture with a modern UI, MediQ successfully reduces the friction of managing holistic treatment regimens and provides a foundation for the scalable integration of AI health models (such as those later expanded in AyuDost).
           </p>
 
-          <div style="margin-top: 40px; display: flex; gap: 15px;">
+          
+          <h3 class="h3" style="margin-top: 30px;">Key Decisions &amp; Impact</h3>
+          <p>
+            <strong>Decision 1 &mdash; Supabase with row-level security for all health records:</strong> a patient can
+            only ever read their own consultations and plans, enforced at the database layer, not the application.
+            <strong>Decision 2 &mdash; model the data around holistic regimens:</strong> the schema tracks Dosha types,
+            daily regimens, diet plans, and herbal prescriptions that allopathic-first platforms simply could not
+            represent.
+            <strong>Decision 3 &mdash; AI-driven wellness nudges on tracked symptoms:</strong> instead of static pages,
+            the dashboard reacts to what the user logs.
+            <strong>Impact:</strong> a responsive, app-like experience on desktop and mobile that reduces the friction
+            of managing holistic treatment regimens &mdash; and became the foundation the AI health models were later
+            expanded into AyuDost on.
+          </p>
+
+<div style="margin-top: 40px; display: flex; gap: 15px;">
             <a href="https://mediq-health.netlify.app/" target="_blank" class="form-btn" style="padding: 15px 30px; text-decoration: none; border-radius: 14px; background: var(--orange-yellow-crayola); color: var(--smoky-black); font-weight: bold;">
               View Live App
             </a>

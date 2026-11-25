@@ -89,7 +89,22 @@
             AyuDost successfully automates initial health consultations with high accuracy in intent recognition. The platform provides sub-second response times for symptom analysis and has been deployed successfully to a live environment, demonstrating full-stack engineering and machine learning deployment capabilities.
           </p>
 
-          <div style="margin-top: 40px; display: flex; gap: 15px;">
+          
+          <h3 class="h3" style="margin-top: 30px;">Key Decisions &amp; Impact</h3>
+          <p>
+            <strong>Decision 1 &mdash; isolate the NLP model as its own Python microservice:</strong> the conversational
+            core scales and retrains independently of the React frontend and Node.js API gateway.
+            <strong>Decision 2 &mdash; map symptoms to Ayurvedic first principles:</strong> the pipeline tokenizes
+            user input and classifies the relevant Dosha imbalance before any remedy is suggested, rather than doing
+            shallow keyword matching.
+            <strong>Decision 3 &mdash; Supabase as the remedy knowledge base:</strong> treatments stay queryable and
+            editable without redeploying a model.
+            <strong>Impact:</strong> an automated first-line consultation with sub-second symptom analysis response
+            times, deployed live on Render + Netlify &mdash; ancient practice turned into a working conversational
+            product.
+          </p>
+
+<div style="margin-top: 40px; display: flex; gap: 15px;">
             <a href="https://ayudost-chatbot.onrender.com/" target="_blank" class="form-btn" style="padding: 15px 30px; text-decoration: none; border-radius: 14px; background: var(--orange-yellow-crayola); color: var(--smoky-black); font-weight: bold;">
               View Live Demo
             </a>

@@ -179,7 +179,10 @@ projectItems.forEach(item => {
   if (projectUrl) {
     item.addEventListener("click", function (e) {
       e.preventDefault();
-      
+
+      const openDossier = window.__rkStudioDossierOpenFor;
+      if (typeof openDossier === "function" && openDossier(item)) return;
+
       if (isEmbeddable) {
         if (demoLoader) {
           demoLoader.style.display = "flex";
@@ -285,10 +288,17 @@ if (select) {
   select.addEventListener("click", function () { elementToggleFunc(this); });
 }
 
+const resolveFilterValue = (el) => {
+  const attr = el.getAttribute && el.getAttribute("data-filter-value");
+  return (attr || el.innerText || "all").toLowerCase().trim();
+};
+const resolveFilterLabel = (el) =>
+  (el.getAttribute && el.getAttribute("data-filter-label")) || el.innerText.trim();
+
 selectItems.forEach(item => {
   item.addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase().trim();
-    if (selectValue) selectValue.innerText = this.innerText.trim();
+    let selectedValue = resolveFilterValue(this);
+    if (selectValue) selectValue.innerText = resolveFilterLabel(this);
     elementToggleFunc(select);
     filterFunc(selectedValue);
   });
@@ -311,8 +321,8 @@ let lastClickedBtn = filterBtn.length > 0 ? filterBtn[0] : null;
 
 filterBtn.forEach(btn => {
   btn.addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase().trim();
-    if (selectValue) selectValue.innerText = this.innerText.trim();
+    let selectedValue = resolveFilterValue(this);
+    if (selectValue) selectValue.innerText = resolveFilterLabel(this);
     filterFunc(selectedValue);
 
     if (lastClickedBtn) lastClickedBtn.classList.remove("active");
@@ -356,6 +366,7 @@ navigationLinks.forEach(link => {
     const clickedLinkText = this.textContent.trim().toLowerCase();
 
   const doNavigation = () => {
+  window.scrollTo(0, 0);
   document.body.dataset.activeModule = clickedLinkText;
   pages.forEach((page, index) => {
         if (clickedLinkText === page.dataset.page) {
@@ -860,12 +871,15 @@ const initScrollFeatures = () => {
     }
   }, { passive: true });
 
-  // Back to Top Click
+  // Back to Top Click — scrolls the active scroll container (window or active article)
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      const scroller = document.scrollingElement || document.documentElement;
+      scroller.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelectorAll('article[data-page]').forEach((art) => {
+        if (getComputedStyle(art).display !== 'none' && art.scrollTop > 0) {
+          art.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       });
     });
   }

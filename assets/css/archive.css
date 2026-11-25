@@ -1,0 +1,491 @@
+/**
+ * RK STUDIO ARCHIVE — The Contact Sheet (archive.css)
+ * Print-photography index of every studio build.
+ * Built entirely on Editorial Studio Craft v4.0 tokens — no hard-coded colors,
+ * no glassmorphism, no blur, no gradients. Solid paper + 1.5px ink only.
+ */
+
+body {
+  background: var(--bg-canvas);
+  cursor: auto;
+  min-height: 100vh;
+}
+
+/* ------------------------------------------------------------------
+   Nav pill (reuses .navbar craft styles; <a> resets)
+------------------------------------------------------------------ */
+.navbar--archive {
+  margin-top: 24px !important;
+  width: calc(100% - 48px) !important;
+  max-width: 560px;
+}
+
+.navbar--archive .navbar-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* ------------------------------------------------------------------
+   Header
+------------------------------------------------------------------ */
+.archive-header {
+  max-width: 1100px;
+  margin: 44px auto 34px;
+  padding: 0 24px;
+  text-align: left;
+}
+
+.archive-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-purple);
+  margin-bottom: 14px;
+}
+
+.archive-kicker::before {
+  content: '';
+  display: inline-block;
+  width: 26px;
+  height: 2px;
+  background: var(--accent-purple);
+  margin-right: 12px;
+  vertical-align: 3px;
+}
+
+.archive-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--ink-primary);
+  margin-bottom: 16px;
+}
+
+.archive-note {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+  max-width: 560px;
+}
+
+.archive-note-hw {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: var(--ink-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 2px 10px;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------
+   Shell: sheet left, light table right
+------------------------------------------------------------------ */
+.sheet-shell {
+  max-width: 1100px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-sheet {
+  border-top: 1.5px solid var(--border-strong);
+}
+
+.sheet-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 26px 4px 10px;
+  border-bottom: 1.5px solid var(--border-subtle);
+}
+
+.sheet-heading span:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-purple);
+}
+
+.sheet-heading span:nth-child(2) {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.sheet-heading span:last-child {
+  margin-left: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: var(--ink-muted);
+}
+
+/* ------------------------------------------------------------------
+   Rows
+------------------------------------------------------------------ */
+.sheet-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 6px;
+  border-bottom: 1.5px solid var(--border-subtle);
+  text-decoration: none;
+  transition: transform 0.22s ease, background-color 0.22s ease, padding-left 0.22s ease;
+  outline: none;
+}
+
+.sheet-row .row-thumb {
+  display: none;
+}
+
+.sheet-row .row-no {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  min-width: 26px;
+}
+
+.sheet-row .row-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink-primary);
+  line-height: 1.35;
+}
+
+.sheet-row .row-kind {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-purple);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.sheet-row .row-meta {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+.sheet-row .row-flag {
+  color: var(--accent-purple);
+  font-size: 15px;
+  min-width: 16px;
+  text-align: center;
+}
+
+.sheet-row .row-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  background: var(--surface-pill);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 2px 8px;
+  min-width: 16px;
+  text-align: center;
+}
+
+.sheet-row .row-arrow {
+  color: var(--ink-muted);
+  font-size: 14px;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.22s ease, transform 0.22s ease, color 0.22s ease;
+}
+
+.sheet-row--archive .row-name {
+  color: var(--ink-muted);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.sheet-row:hover,
+.sheet-row.is-active {
+  background: var(--surface-card);
+  padding-left: 16px;
+  box-shadow: inset 3px 0 0 var(--accent-purple);
+}
+
+.sheet-row:hover .row-arrow,
+.sheet-row.is-active .row-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--accent-purple);
+}
+
+.sheet-row:hover .row-no,
+.sheet-row.is-active .row-no {
+  color: var(--ink-primary);
+}
+
+.sheet-row:hover .row-name,
+.sheet-row.is-active .row-name {
+  color: var(--ink-primary);
+}
+
+.sheet-row--archive:hover .row-name,
+.sheet-row--archive.is-active .row-name {
+  color: var(--ink-secondary);
+}
+
+/* Reveal on scroll */
+.sheet-row {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.sheet-row.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------------------------
+   Light table (sticky polaroid)
+------------------------------------------------------------------ */
+.light-table {
+  position: sticky;
+  top: 96px;
+}
+
+.light-table .polaroid {
+  position: relative;
+  background: var(--surface-card);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 14px;
+  padding: 14px 14px 16px;
+  box-shadow: var(--shadow-offset), var(--shadow-card);
+  transform: rotate(-1.2deg);
+}
+
+.light-table .lt-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-subtle);
+  aspect-ratio: 4 / 3;
+}
+
+.light-table .lt-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease, opacity 0.2s ease;
+}
+
+.light-table .lt-frame img.is-swapping {
+  opacity: 0;
+}
+
+.light-table .lt-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+  background-size: 5px 5px;
+  opacity: 0.18;
+}
+
+.light-table .lt-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 14px 4px 12px;
+}
+
+.light-table .lt-no {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--accent-purple);
+}
+
+.light-table .lt-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink-primary);
+}
+
+.light-table .lt-kind {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.light-table .lt-open {
+  display: inline-block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-primary);
+  background: var(--surface-pill);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 8px 18px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.light-table .lt-open:hover {
+  background: var(--accent-pill-bg);
+  color: var(--accent-pill-text);
+  transform: translateX(2px);
+}
+
+.light-table .lt-count {
+  display: block;
+  margin-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.lt-hint {
+  margin-top: 18px;
+  font-family: 'Caveat', cursive;
+  font-size: 16.5px;
+  color: var(--ink-muted);
+  transform: rotate(-1deg);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------
+   Footer
+------------------------------------------------------------------ */
+.archive-footer {
+  max-width: 1100px;
+  margin: 0 auto 48px;
+  padding: 18px 24px 0;
+  border-top: 1.5px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.archive-footer a {
+  color: var(--ink-secondary);
+  text-decoration: none;
+}
+
+.archive-footer a:hover {
+  color: var(--accent-purple);
+}
+
+/* ------------------------------------------------------------------
+   Responsive
+------------------------------------------------------------------ */
+@media (max-width: 960px) {
+  .sheet-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .light-table {
+    display: none;
+  }
+
+  .sheet-row .row-thumb {
+    display: block;
+    flex: 0 0 84px;
+  }
+
+  .sheet-row .row-thumb img {
+    width: 84px;
+    height: 63px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border-subtle);
+    display: block;
+  }
+
+  .sheet-row .row-meta {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .archive-header {
+    margin-top: 28px;
+  }
+
+  .sheet-row {
+    gap: 10px;
+    padding: 12px 4px;
+  }
+
+  .sheet-row .row-no {
+    display: none;
+  }
+
+  .sheet-row .row-arrow {
+    display: none;
+  }
+
+  .sheet-row .row-name {
+    font-size: 14.5px;
+  }
+
+  .sheet-row .row-kind {
+    font-size: 9.5px;
+    padding: 2px 8px;
+  }
+
+  .sheet-row:hover,
+  .sheet-row.is-active {
+    padding-left: 6px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Reduced motion
+------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  .sheet-row {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .light-table .lt-frame img {
+    transition: none;
+  }
+
+  .sheet-row:hover,
+  .sheet-row.is-active {
+    background: var(--surface-card);
+  }
+}
