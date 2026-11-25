@@ -124,6 +124,49 @@
   let desk = null;
   let lastFocus = null;
 
+  /* ---------- Desk Light / Dark pill toggle (synced with the theme dock) ---------- */
+
+  function currentTheme() {
+    return document.body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  function buildLights() {
+    const wrap = frag(
+      '<div class="desk-lights" id="deskLights" role="group" aria-label="Desk lighting">' +
+      '  <button type="button" class="desk-lights-btn" data-mode="light" aria-pressed="false">' +
+      '    <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="10.5" r="3.5"></circle><path d="M8 3.5v-2M3.6 4.1 2.2 2.7M12.4 4.1l1.4-1.4"></path></svg>' +
+      '    Light</button>' +
+      '  <button type="button" class="desk-lights-btn" data-mode="dark" aria-pressed="false">' +
+      '    <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M12.8 9.8A5.5 5.5 0 0 1 6.2 3.2 5.5 5.5 0 1 0 12.8 9.8z"></path></svg>' +
+      '    Dark</button>' +
+      '</div>'
+    );
+    wrap.querySelectorAll('.desk-lights-btn').forEach((btn) => {
+      btn.addEventListener('click', () => setDeskTheme(btn.dataset.mode === 'dark' ? 'dark' : 'light'));
+    });
+    syncLights(wrap);
+    return wrap;
+  }
+
+  function syncLights(wrap) {
+    const target = wrap || document.getElementById('deskLights');
+    if (!target) return;
+    const mode = currentTheme();
+    target.querySelectorAll('.desk-lights-btn').forEach((btn) => {
+      btn.setAttribute('aria-pressed', btn.dataset.mode === mode ? 'true' : 'false');
+    });
+  }
+
+  function setDeskTheme(mode) {
+    document.body.classList.add('theme-switching');
+    document.body.setAttribute('data-theme', mode);
+    try { localStorage.setItem('rk_theme_mode', mode); } catch (e) { /* storage unavailable */ }
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => document.body.classList.remove('theme-switching'));
+    });
+    syncLights();
+  }
+
   function buildCorner() {
     trigger = frag(
       '<button type="button" class="studio-peel-corner" id="studioPeelCorner"' +
@@ -189,7 +232,7 @@
       '  </div>' +
       '  <div class="desk-actions">' +
       '    <button type="button" class="desk-btn" id="deskReset">Reset Layout</button>' +
-      '    <button type="button" class="desk-btn desk-btn--primary" id="deskClose">\u2715 Fold Sheet Back</button>' +
+      '    <button type="button" class="desk-btn desk-btn--primary" id="deskClose" aria-label="Fold sheet back and close the Studio Desk"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8"/></svg>Fold Sheet Back</button>' +
       '  </div>' +
       '</header>'
     );
@@ -205,6 +248,7 @@
     grid.appendChild(buildStickers());
     grid.appendChild(buildDock());
 
+    topbar.appendChild(buildLights());
     desk.appendChild(topbar);
     desk.appendChild(canvas);
     document.body.appendChild(desk);
@@ -569,6 +613,7 @@
     lastFocus = document.activeElement;
     desk.hidden = false;
     document.body.classList.add('studio-desk-open');
+    syncLights();
     const prevOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = 'hidden';
     desk.dataset.prevOverflow = prevOverflow || '';

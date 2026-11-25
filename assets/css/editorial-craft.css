@@ -885,42 +885,6 @@ p a {
   text-underline-offset: 3px;
 }
 
-.craft-marquee-strip {
-  overflow: hidden;
-  white-space: nowrap;
-  background: var(--tint-1);
-  border: 1.5px solid var(--border-strong);
-  border-radius: 999px;
-  padding: 10px 0;
-  margin: 26px 0 34px;
-  box-shadow: var(--shadow-offset);
-}
-
-.craft-marquee-track {
-  display: inline-flex;
-  align-items: center;
-  gap: 24px;
-  animation: craftMarquee 24s linear infinite;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--ink-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-}
-
-.craft-marquee-dot {
-  color: var(--accent-purple);
-}
-
-@keyframes craftMarquee {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}
 
 .service-item,
 .content-card,
@@ -1326,7 +1290,7 @@ section.projects .project-item:nth-child(4n+4)>a {
 
 .craft-footer-cta {
   margin-top: 48px;
-  padding: 40px 32px;
+  padding: 40px 96px 40px 32px;
   border-radius: 24px;
   background: var(--tint-1);
   border: 1.5px solid var(--border-strong);
@@ -1362,23 +1326,9 @@ section.projects .project-item:nth-child(4n+4)>a {
   margin-top: 8px;
 }
 
-.craft-black-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
 
-.craft-black-pill {
-  display: inline-flex !important;
-  align-items: center;
-  gap: 8px;
-  background: var(--ink-primary) !important;
-  color: var(--bg-canvas) !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  padding: 10px 18px !important;
-  border-radius: 999px !important;
-}
+
+
 
 /* ============================================================================
    13. FULL MOBILE-TO-LAPTOP PARITY (<= 1024px & <= 768px)
@@ -1526,13 +1476,7 @@ section.projects .project-item:nth-child(4n+4)>a {
     font-size: 14.5px !important;
     line-height: 1.68 !important;
   }
-
-  .craft-marquee-strip {
-    margin: 20px 0 26px !important;
-    padding: 8px 0 !important;
-  }
-
-  .filter-select-box {
+.filter-select-box {
     display: none !important;
   }
 
@@ -2573,17 +2517,8 @@ section.projects .project-item.active>a {
   animation: heroFadeUp 0.6s ease-out 0.2s both;
 }
 
-.craft-marquee-strip {
-  animation: heroFadeUp 0.6s ease-out 0.35s both;
-}
-
 .craft-proof-bento {
   animation: heroFadeUp 0.6s ease-out 0.45s both;
-}
-
-/* Marquee pause on hover */
-.craft-marquee-strip:hover .craft-marquee-track {
-  animation-play-state: paused;
 }
 
 /* Service card hover micro-animation */
@@ -2727,11 +2662,7 @@ article {
 }
 
 /* Social pill hover effect */
-.craft-black-pill:hover {
-  background: var(--accent-purple) !important;
-  transform: translate(-2px, -2px) !important;
-  box-shadow: 4px 4px var(--border-strong) !important;
-}
+
 
 /* ============================================================================
    17. NEXT-LEVEL UI/UX POLISH: HERO DECK, ★ BADGES & NAVBAR CLEARANCE

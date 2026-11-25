@@ -292,7 +292,7 @@ function initGurjotCursor() {
     // Contact
     { selector: '.contact-link[href^="mailto:"]', label: 'Copy email 📋' },
     { selector: '.craft-footer-cta', label: "Let's talk 👋" },
-    { selector: '.social-link, .craft-black-pill', label: 'Visit ↗' },
+    { selector: '.social-link', label: 'Visit ↗' },
     { selector: '.contact-form, .form-btn', label: 'Send message' },
 
     // Services
@@ -372,41 +372,8 @@ function enhanceHeroAndProofBento() {
   }
 
   const aboutText = document.querySelector('article.about .about-text');
-  if (aboutText && !document.getElementById('craft-hero-cta')) {
-    const ctaBtn = document.createElement('button');
-    ctaBtn.id = 'craft-hero-cta';
-    ctaBtn.type = 'button';
-    ctaBtn.className = 'craft-cta-pill';
-    ctaBtn.innerHTML = `<span>Explore Curated Work</span> <span>→</span>`;
-    ctaBtn.addEventListener('click', () => {
-      document.querySelectorAll('[data-nav-link]').forEach((nav) => {
-        if (nav.textContent.trim().toLowerCase() === 'projects') nav.click();
-      });
-    });
-    aboutText.appendChild(ctaBtn);
-
-    // Infinite Identity Marquee Strip
-    const marquee = document.createElement('div');
-    marquee.className = 'craft-marquee-strip';
-    const items = [
-      'Software Engineer',
-      'Full-Stack Developer',
-      'React.js Developer',
-      'AI / ML Healthcare Builder',
-      'Cloud Engineer (GCP & GKE)',
-      'UI/UX Designer',
-      '2× VTU Rank #1 (Code360)',
-      '80+ Open-Source Repos',
-      'Systems Thinker',
-      'Open to 2026 Internships'
-    ];
-    const repeated = [...items, ...items]
-      .map((txt) => `<span>${txt}</span><span class="craft-marquee-dot">✦</span>`)
-      .join('');
-    marquee.innerHTML = `<div class="craft-marquee-track">${repeated}</div>`;
-    aboutText.insertAdjacentElement('afterend', marquee);
-
-    // Proof-of-Work Bento Grid right below Marquee
+  if (aboutText && !document.querySelector('.craft-proof-bento')) {
+    // Proof-of-Work Bento Grid
     const bento = document.createElement('div');
     bento.className = 'craft-proof-bento';
     bento.innerHTML = `
@@ -435,7 +402,7 @@ function enhanceHeroAndProofBento() {
         <div class="craft-proof-sub">SHWASA (COPD), AyuDost RAG & MediQ Platform</div>
       </a>
     `;
-    marquee.insertAdjacentElement('afterend', bento);
+    aboutText.insertAdjacentElement('afterend', bento);
   }
 
   const projectsSection = document.querySelector('article.projects section.projects');
@@ -724,20 +691,6 @@ function injectHandwrittenFooter() {
       <span class="craft-footer-eyebrow">WHAT ARE YOU WAITING FOR? · 2026 INTERNSHIPS</span>
       <h3 class="craft-footer-handwritten">Have something you're<br>trying to build?</h3>
       <div class="craft-footer-row">
-        <div class="craft-black-pills">
-          <a href="https://github.com/Rajath2005" target="_blank" class="craft-black-pill">
-            <ion-icon name="logo-github"></ion-icon>
-            <span>GitHub</span>
-          </a>
-          <a href="https://www.linkedin.com/in/rajath-kiran/" target="_blank" class="craft-black-pill">
-            <ion-icon name="logo-linkedin"></ion-icon>
-            <span>LinkedIn</span>
-          </a>
-          <a href="assets/resumes/Rajath_Kiran_A_Resume.pdf" download class="craft-black-pill">
-            <ion-icon name="download-outline"></ion-icon>
-            <span>Resume</span>
-          </a>
-        </div>
         <a href="mailto:rajathajeru@gmail.com" class="craft-cta-pill">
           <span>Get in touch</span>
           <span>→</span>
@@ -1302,7 +1255,7 @@ function initMagneticButtons() {
   if (window.matchMedia('(max-width: 768px)').matches) return;
 
   const targets = document.querySelectorAll(
-    '.craft-cta-pill, .craft-black-pill, #ai-chat-btn, #back-to-top, .theme-pill-btn'
+    '.craft-cta-pill, #ai-chat-btn, #back-to-top, .theme-pill-btn'
   );
 
   targets.forEach((el) => {

@@ -57,10 +57,10 @@
     const w = polaroid.offsetWidth;
     const h = polaroid.offsetHeight;
     let left = rect.left + rect.width / 2 - w / 2;
-    left = Math.max(12, Math.min(left, window.innerWidth - w - 12));
+    left = Math.max(16, Math.min(left, window.innerWidth - w - 16));
     let top = rect.top - h - 14;
     if (top < 84) top = rect.bottom + 14;
-    top = Math.max(12, Math.min(top, window.innerHeight - h - 12));
+    top = Math.max(16, Math.min(top, window.innerHeight - h - 16));
     polaroid.style.left = `${Math.round(left)}px`;
     polaroid.style.top = `${Math.round(top)}px`;
   }
