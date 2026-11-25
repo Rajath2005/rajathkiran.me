@@ -90,7 +90,7 @@
   const STICKERS = [
     { value: '2× VTU Rank #1', label: 'Code360 Contests' },
     { value: '50+ GCP Skill Badges', label: 'Google Cloud' },
-    { value: 'VCET · 8.9 CGPA', label: 'B.E. Information Science' }
+    { value: 'VCET · 8.9 CGPA', label: 'B.E. Computer Science & Engineering' }
   ];
 
   const frag = (html) => {

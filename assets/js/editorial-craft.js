@@ -271,9 +271,6 @@ function initGurjotCursor() {
     { selector: '.resume-btn-view', label: 'View resume ↗' },
     { selector: '.honour-badge-card', label: 'View honour' },
 
-    // Blog
-    { selector: '.blog-post-item > a', label: 'Read article ↗' },
-
     // Testimonials
     { selector: '[data-testimonials-item]', label: 'Read story' },
 
@@ -573,7 +570,6 @@ function initScrollRevealObserver() {
   const revealSelectors = [
     '.service-item',
     '.content-card',
-    '.blog-post-item > a',
     '.project-item.active',
     '.coding-profile-item',
     '.craft-proof-card',
@@ -667,6 +663,7 @@ function numberProjectCaseStudies() {
 
 function injectHandwrittenFooter() {
   document.querySelectorAll('main article').forEach((article) => {
+    if (article.dataset.page === 'contact') return;
     if (article.querySelector('.craft-footer-cta')) return;
 
     const footer = document.createElement('section');

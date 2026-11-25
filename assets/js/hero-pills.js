@@ -52,17 +52,42 @@
     polaroid.classList.remove('show');
   }
 
-  function positionPolaroid(pill) {
+  const POLAROID_SAFE = 16;
+
+  function placePolaroid(pill) {
     const rect = pill.getBoundingClientRect();
     const w = polaroid.offsetWidth;
     const h = polaroid.offsetHeight;
     let left = rect.left + rect.width / 2 - w / 2;
-    left = Math.max(16, Math.min(left, window.innerWidth - w - 16));
+    left = Math.max(POLAROID_SAFE, Math.min(left, window.innerWidth - w - POLAROID_SAFE));
     let top = rect.top - h - 14;
-    if (top < 84) top = rect.bottom + 14;
-    top = Math.max(16, Math.min(top, window.innerHeight - h - 16));
+    if (top < 96) top = rect.bottom + 14;
+    top = Math.max(POLAROID_SAFE, Math.min(top, window.innerHeight - h - POLAROID_SAFE));
     polaroid.style.left = `${Math.round(left)}px`;
     polaroid.style.top = `${Math.round(top)}px`;
+
+    // Re-clamp against the laid-out rect: rotation, tape offset and the
+    // hard shadow can push a corner past the pre-clamp bounds.
+    const shown = polaroid.getBoundingClientRect();
+    let dx = 0, dy = 0;
+    if (shown.left < POLAROID_SAFE) dx = POLAROID_SAFE - shown.left;
+    else if (shown.right > window.innerWidth - POLAROID_SAFE) {
+      dx = (window.innerWidth - POLAROID_SAFE) - shown.right;
+    }
+    if (shown.top < POLAROID_SAFE) dy = POLAROID_SAFE - shown.top;
+    else if (shown.bottom > window.innerHeight - POLAROID_SAFE) {
+      dy = (window.innerHeight - POLAROID_SAFE) - shown.bottom;
+    }
+    if (dx || dy) {
+      polaroid.style.left = `${Math.round(parseFloat(polaroid.style.left) + dx)}px`;
+      polaroid.style.top = `${Math.round(parseFloat(polaroid.style.top) + dy)}px`;
+    }
+  }
+
+  function positionPolaroid(pill) {
+    placePolaroid(pill);
+    polaroid.classList.add('show');
+    requestAnimationFrame(() => placePolaroid(pill));
   }
 
   function showPolaroid(pill) {
