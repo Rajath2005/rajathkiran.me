@@ -356,6 +356,7 @@ navigationLinks.forEach(link => {
     const clickedLinkText = this.textContent.trim().toLowerCase();
 
   const doNavigation = () => {
+  window.scrollTo(0, 0);
   document.body.dataset.activeModule = clickedLinkText;
   pages.forEach((page, index) => {
         if (clickedLinkText === page.dataset.page) {

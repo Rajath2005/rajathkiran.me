@@ -112,7 +112,11 @@
   dock.querySelectorAll('.theme-pill-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const mode = btn.getAttribute('data-set-theme');
+      document.body.classList.add('theme-switching');
       document.body.setAttribute('data-theme', mode);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => document.body.classList.remove('theme-switching'));
+      });
       try { localStorage.setItem('rk_theme_mode', mode); } catch (e) { /* no storage */ }
       dock.querySelectorAll('.theme-pill-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');

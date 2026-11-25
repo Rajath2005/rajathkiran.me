@@ -3038,3 +3038,108 @@ article.contact>header .article-title {
   color: var(--ink-primary);
   text-align: right;
 }
+/* ============================================================================
+   8. AUDIT FIXES — Experience overlap, typewriter pill, theme-switch sync,
+      blog external marks, Ask AI dock placement (light & dark)
+============================================================================ */
+
+/* Experience cards: avatar is absolutely positioned top-left (15px, 60px tall)
+   but the card only reserved 45px top padding — the title ran under it.
+   Reserve a full avatar column instead. */
+.testimonials-item .content-card {
+  padding-top: 88px !important;
+}
+
+.testimonials-item .testimonials-item-title {
+  margin-top: 0 !important;
+}
+
+/* Kill the 4-line clamp on Experience cards so impact text never truncates */
+.testimonials-item .testimonials-text {
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  overflow: visible !important;
+}
+
+/* Typewriter role pill: never collapse to a blank oval mid-cycle */
+#changing-text {
+  min-width: 20ch !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+/* Theme toggle: freeze all transitions for one frame so every surface,
+   border, and label flips in the SAME instant — no dark-on-dark lag. */
+body.theme-switching,
+body.theme-switching * {
+  transition: none !important;
+}
+
+/* Blog cards: mark external posts */
+.blog-post-item .blog-item-title::after {
+  content: '\2197';
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 8px;
+  display: inline-block;
+  color: var(--ink-muted);
+  transition: color 0.2s ease;
+}
+
+.blog-post-item a:hover .blog-item-title::after {
+  color: var(--accent-purple);
+}
+
+/* Ask AI dock: stack above back-to-top on the right so it can never cover
+   the sidebar's View Live Resume buttons. */
+#ai-chat-btn.ai-chat-fab {
+  left: auto !important;
+  right: 30px !important;
+  bottom: 92px !important;
+}
+
+@media (max-width: 640px) {
+  #ai-chat-btn.ai-chat-fab {
+    left: auto !important;
+    right: 14px !important;
+    bottom: 124px !important;
+  }
+}
+
+/* ============================================================================
+   9. AUDIT FIX — sticky project stack: the "View source on GitHub" link is a
+   sibling of the card anchor, so it spilled below the card and peeked out
+   from under the next stacked card (cards overlap by only 20px). Stack the
+   link into the SAME grid cell as the card as a chip pinned to the card's
+   bottom edge — the li then ends exactly at the card, so the next card
+   always covers it completely.
+============================================================================ */
+
+section.projects .project-item.active {
+  display: grid !important;
+}
+
+section.projects .project-item.active > a {
+  grid-area: 1 / 1;
+  z-index: 1;
+}
+
+section.projects .project-source-link {
+  grid-area: 1 / 1;
+  align-self: end;
+  justify-self: start;
+  z-index: 2;
+  margin: 0 0 14px 40px !important;
+  padding: 5px 12px !important;
+  background: var(--surface-card) !important;
+  border: 1.5px solid var(--border-subtle) !important;
+  border-radius: 999px !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+section.projects .project-source-link:hover {
+  border-color: var(--accent-purple) !important;
+}

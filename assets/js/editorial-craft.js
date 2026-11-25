@@ -88,8 +88,12 @@ function mountLightDarkDock(initialTheme) {
   dock.querySelectorAll('.theme-pill-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const mode = btn.getAttribute('data-set-theme');
+      document.body.classList.add('theme-switching');
       document.body.setAttribute('data-theme', mode);
       localStorage.setItem('rk_theme_mode', mode);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => document.body.classList.remove('theme-switching'));
+      });
       dock.querySelectorAll('.theme-pill-btn').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
     });

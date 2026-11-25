@@ -8,7 +8,7 @@ export const initScrollAnimations = (context = document) => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1
+        threshold: 0.08
     };
 
     const observer = new IntersectionObserver((entries) => {
