@@ -15,7 +15,7 @@ body[data-theme="dark"] #rk-redpen-stage {
 .rk-curtain {
   position: fixed;
   z-index: 99990;
-  background: var(--bg-canvas);
+  background: hsla(230, 45%, 8%, 0.55);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: auto;
@@ -27,7 +27,7 @@ body[data-theme="dark"] #rk-redpen-stage {
 .rk-curtain[data-edge="right"] { right: 0; }
 
 #rk-redpen-stage.revealed .rk-curtain {
-  opacity: 0.62;
+  opacity: 1;
 }
 
 /* ---------- self-drawing red ink ring ---------- */
@@ -102,12 +102,17 @@ body[data-theme="dark"] #rk-redpen-stage {
   position: fixed;
   z-index: 99992;
   font-family: 'Caveat', cursive;
-  font-size: 23px;
+  font-size: 22px;
   font-weight: 700;
   line-height: 1.1;
   color: var(--redpen);
-  max-width: 240px;
+  max-width: 250px;
   text-align: center;
+  background: var(--surface-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 8px 16px;
+  box-shadow: var(--shadow-card);
   opacity: 0;
   pointer-events: none;
 }
@@ -155,10 +160,9 @@ body[data-theme="dark"] .rk-stamp { mix-blend-mode: normal; }
 /* ---------- dock (theme-toggle-dock vocabulary) ---------- */
 .rk-tour-dock {
   position: fixed;
+  right: 24px;
   bottom: 24px;
-  left: 50%;
   z-index: 99994;
-  transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -208,29 +212,50 @@ body[data-theme="dark"] .rk-stamp { mix-blend-mode: normal; }
   text-transform: uppercase;
 }
 
-/* ---------- trigger link (inside open-to-work badge) ---------- */
-.rk-tour-link {
-  display: inline-block;
-  margin-left: 10px;
-  border: 0;
-  background: transparent;
-  padding: 0;
+/* ---------- trigger chip (sits under the open-to-work badge) ---------- */
+.rk-tour-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: var(--surface-pill);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 999px;
+  box-shadow: var(--shadow-offset);
   font-family: 'JetBrains Mono', monospace;
   font-size: 10.5px;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--accent-purple);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-primary);
   cursor: pointer;
-  white-space: nowrap;
-  transition: opacity 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.rk-tour-link:hover { opacity: 0.7; text-decoration: underline; text-underline-offset: 3px; }
+.rk-tour-chip ion-icon { font-size: 12px; color: var(--accent-purple); }
+
+.rk-tour-chip:hover {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--border-strong);
+}
+
+.rk-tour-chip:active { transform: translateY(4px); box-shadow: none; }
 
 /* ---------- stage entrance ---------- */
 #rk-redpen-stage.revealed .rk-curtain { pointer-events: auto; }
 
-/* ---------- tour state: tame competing motion ---------- */
+/* ---------- tour state: suppress competing UI & motion ---------- */
+body.rk-tour-active .gurjot-cursor,
+body.rk-tour-active #cursor-glow-canvas,
+body.rk-tour-active .ai-chat-fab,
+body.rk-tour-active #back-to-top,
+body.rk-tour-active #scroll-indicator,
+body.rk-tour-active .theme-toggle-dock,
+body.rk-tour-active .craft-copy-toast {
+  display: none !important;
+}
+
 body.rk-tour-active .craft-marquee-track {
   animation-play-state: paused;
 }
@@ -251,6 +276,6 @@ body.rk-tour-active .craft-marquee-track {
   .rk-ink-ring .rk-ink-pass2 { opacity: 0.4; stroke-dashoffset: 0; }
   .rk-margin-note { opacity: 1; }
   .rk-stamp { opacity: 0.92; transform: translate(-50%, -100%) rotate(-8deg); }
-  .rk-curtain { opacity: 0.62; }
+  .rk-curtain { opacity: 1; }
   .rk-tour-dock { opacity: 1; }
 }

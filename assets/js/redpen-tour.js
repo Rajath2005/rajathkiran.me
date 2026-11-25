@@ -56,7 +56,6 @@
   let active = false;
   let stepIdx = -1;
   let layers = null;
-  let onResize = null;
   let focusBefore = null;
 
   /* ---------------- helpers ---------------- */
@@ -163,20 +162,10 @@
     goToPage(step.page);
 
     const settle = () => {
-      const scroller = step.scrollTarget ? document.querySelector(step.scrollTarget) : null;
-      const targetSel = scroller || step.target;
-      const target = document.querySelector(targetSel);
+      const target = document.querySelector(step.target);
       if (!target) { idx < STEPS.length - 1 ? showStep(idx + 1) : exitTour(false); return; }
 
-      (scroller || target).scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'center' });
-
-      const measure = () => {
-        const el = document.querySelector(scroller || step.target);
-        if (!el || !active) return;
-        requestAnimationFrame(() => positionStage(el, step.notePos));
-      };
-      measure();
-      setTimeout(measure, reducedMotion() ? 60 : 650);
+      target.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'center' });
 
       layers.note.textContent = step.note;
       layers.note.classList.remove('drawn');
@@ -247,20 +236,23 @@
     stage.querySelector('[data-tour-prev]').addEventListener('click', prevStep);
     stage.querySelector('[data-tour-exit]').addEventListener('click', () => exitTour(false));
 
-    let ticking = false;
-    onResize = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        ticking = false;
-        if (!active) return;
-        const step = STEPS[stepIdx];
-        const el = document.querySelector(step.scrollTarget || step.target);
-        if (el) positionStage(el, step.notePos);
-      });
+    const track = () => {
+      if (!active) return;
+      const step = STEPS[stepIdx];
+      const el = step && document.querySelector(step.target);
+      if (el) {
+        positionStage(el, step.notePos);
+        if (step.stamp && layers.stamp.classList.contains('thunked')) {
+          const r = document.querySelector('.contact-form')?.getBoundingClientRect();
+          if (r) {
+            layers.stamp.style.left = `${r.left + r.width / 2}px`;
+            layers.stamp.style.top = `${r.top - 6}px`;
+          }
+        }
+      }
+      requestAnimationFrame(track);
     };
-    window.addEventListener('resize', onResize);
-    window.addEventListener('scroll', onResize, { passive: true });
+    requestAnimationFrame(track);
 
     document.body.classList.add('rk-tour-active');
     document.addEventListener('keydown', tourKeys);
@@ -278,8 +270,6 @@
   const exitTour = (finished) => {
     if (!active) return;
     active = false;
-    window.removeEventListener('resize', onResize);
-    window.removeEventListener('scroll', onResize);
     document.removeEventListener('keydown', tourKeys);
     document.body.classList.remove('rk-tour-active');
     layers?.stage?.remove();
@@ -301,16 +291,15 @@
     if (window.__rkTourBooted) return;
     window.__rkTourBooted = true;
 
-    const matches = Array.from(document.querySelectorAll('a[href*="internship"], .open-to-work-badge'));
-    matches.forEach((el) => {
-      if (el.querySelector('.rk-tour-link')) return;
-      const link = document.createElement('button');
-      link.className = 'rk-tour-link';
-      link.type = 'button';
-      link.textContent = '▸ take the 60-sec tour';
-      link.addEventListener('click', startTour);
-      el.appendChild(link);
-    });
+    const badge = document.querySelector('.open-to-work-badge');
+    if (badge && !badge.nextElementSibling?.classList.contains('rk-tour-chip')) {
+      const chip = document.createElement('button');
+      chip.className = 'rk-tour-chip';
+      chip.type = 'button';
+      chip.innerHTML = '<ion-icon name="play" aria-hidden="true"></ion-icon><span>the 60-sec tour</span>';
+      chip.addEventListener('click', startTour);
+      badge.after(chip);
+    }
 
     window.addEventListener('rk:redpen-tour', startTour);
     window.__rkStartRedPenTour = startTour;
