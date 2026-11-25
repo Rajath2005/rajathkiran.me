@@ -24,6 +24,7 @@
   const BUILDS = [
     {
       name: 'Shramik-Nyay',
+      slug: 'shramik',
       domain: 'Civic Tech & Voice AI',
       problem: 'Manual, paper-based wage-claim filing leaves workers waiting weeks for their dues.',
       decision: 'Voice-first, multilingual intake turns spoken Form A answers into structured JSON claim drafts.',
@@ -35,6 +36,7 @@
     },
     {
       name: 'MediQ',
+      slug: 'mediq',
       domain: 'Health Platform',
       problem: 'Patient histories are scattered across prescriptions, lab reports and advice slips.',
       decision: 'Supabase with row-level security, so every patient record stays private by default.',
@@ -46,6 +48,7 @@
     },
     {
       name: 'AyuDost AI',
+      slug: 'ayudost',
       domain: 'AI Wellness',
       problem: 'Trustworthy Ayurvedic guidance is hard to reach and harder to verify online.',
       decision: 'A 10-step RAG pipeline — Pinecone retrieval grounded with Gemini before anything is answered.',
@@ -57,6 +60,7 @@
     },
     {
       name: 'COPD Respiratory AI',
+      slug: 'copd',
       domain: 'Respiratory Diagnostics',
       problem: 'Respiratory sounds are subtle and easy for generalists to misread or miss.',
       decision: 'An LSTM classifier tuned across 6,898 augmentation cycles specifically to cut false positives.',
@@ -68,6 +72,7 @@
     },
     {
       name: 'Highly Available Web App',
+      slug: 'gcp',
       domain: 'Cloud Systems · GCP & GKE',
       problem: 'A single VM is a single point of failure — uptime needs architecture, not luck.',
       decision: 'HTTP(S) Load Balancer fronting multi-VM backends, with GKE orchestrating microservices.',
@@ -401,11 +406,17 @@
           `<a class="desk-link" href="${build.live}" target="_blank" rel="noopener noreferrer">${build.liveLabel} \u2197</a>`
         ));
       }
-      if (build.case) {
-        actions.appendChild(frag(
-          `<a class="desk-link" href="${build.case}">Case Study \u2197</a>`
-        ));
-      }
+      const studyBtn = document.createElement('button');
+      studyBtn.type = 'button';
+      studyBtn.className = 'desk-link';
+      studyBtn.textContent = 'Case Study \u2197';
+      studyBtn.setAttribute('aria-haspopup', 'dialog');
+      studyBtn.addEventListener('click', () => {
+        if (typeof window.__rkStudioDossierOpen === 'function') {
+          window.__rkStudioDossierOpen(build.slug, studyBtn);
+        }
+      });
+      actions.appendChild(studyBtn);
       if (build.repo) {
         actions.appendChild(frag(
           `<a class="desk-link" href="${build.repo}" target="_blank" rel="noopener noreferrer">GitHub \u2197</a>`
@@ -605,6 +616,7 @@
 
   function onKeydown(e) {
     if (e.key === 'Escape' && isOpen) {
+      if (typeof window.__rkStudioDossierIsOpen === 'function' && window.__rkStudioDossierIsOpen()) return;
       e.preventDefault();
       closeDesk();
     }

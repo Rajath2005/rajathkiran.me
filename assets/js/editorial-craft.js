@@ -313,7 +313,7 @@ function initGurjotCursor() {
     if (!target || typeof target.closest !== 'function') return;
 
     // Hide inside modals
-    if (target.closest('.modal-container.active, .modal.active, .project-modal-container.active, .ai-chat-panel.open, .cmdk-panel.open, .cmdk-overlay.open, .studio-peel-corner, .studio-desk.open')) {
+    if (target.closest('.modal-container.active, .modal.active, .project-modal-container.active, .ai-chat-panel.open, .cmdk-panel.open, .cmdk-overlay.open, .studio-peel-corner, .studio-desk.open, .studio-dossier.open')) {
       setLabel('');
       cursor.classList.remove('hovering');
       return;

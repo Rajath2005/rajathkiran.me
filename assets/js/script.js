@@ -179,7 +179,10 @@ projectItems.forEach(item => {
   if (projectUrl) {
     item.addEventListener("click", function (e) {
       e.preventDefault();
-      
+
+      const openDossier = window.__rkStudioDossierOpenFor;
+      if (typeof openDossier === "function" && openDossier(item)) return;
+
       if (isEmbeddable) {
         if (demoLoader) {
           demoLoader.style.display = "flex";
