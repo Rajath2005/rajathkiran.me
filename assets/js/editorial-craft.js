@@ -52,7 +52,6 @@ export function initEditorialCraft() {
   upgradeProjectFallbackToCaseStudy();
   initCopyEmailAndLiveClock();
   injectHandwrittenFooter();
-  upgradeResumeToExecutiveDossier();
   initSpringSlidingPills();
   initMagneticButtons();
 }
@@ -270,11 +269,7 @@ function initGurjotCursor() {
     // Resume page
     { selector: '.resume-btn', label: 'Download ↓' },
     { selector: '.resume-btn-view', label: 'View resume ↗' },
-    { selector: '.scrubber-year-btn', label: 'Jump to year' },
-    { selector: '.skill-matrix-chip', label: 'Inspect skill' },
-    { selector: '.ledger-entry', label: 'Read more' },
     { selector: '.honour-badge-card', label: 'View honour' },
-    { selector: '.rj-pill', label: 'Jump ↓' },
 
     // Blog
     { selector: '.blog-post-item > a', label: 'Read article ↗' },
@@ -563,17 +558,15 @@ function initStickyStackDepthEffect() {
 // ============================================================================
 function initScrollRevealObserver() {
   const revealObserver = new IntersectionObserver(
-    (entries) => {
+    (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          // Don't unobserve — keep re-revealing on navigation
-        } else {
-          entry.target.classList.remove('is-visible');
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    { threshold: 0.05, rootMargin: '0px 0px -16px 0px' }
   );
 
   // Tag elements for scroll reveal
@@ -583,15 +576,7 @@ function initScrollRevealObserver() {
     '.blog-post-item > a',
     '.project-item.active',
     '.coding-profile-item',
-    '.certificate-item',
     '.craft-proof-card',
-    '.skill-domain-card',
-    '.honour-badge-card',
-    '.ledger-entry',
-    '.craft-footer-cta',
-    '.timeline-item.premium-card',
-    '.craft-journey-scrubber',
-    '.skill-xray-inspector',
     '.faq-item',
     '.stylized-map-card',
   ];
@@ -698,395 +683,6 @@ function injectHandwrittenFooter() {
     `;
     article.appendChild(footer);
   });
-}
-
-// ============================================================================
-// 8. EXECUTIVE RESUME DOSSIER UPGRADE
-// ============================================================================
-function upgradeResumeToExecutiveDossier() {
-  const resumeArticle = document.querySelector('article.resume');
-  if (!resumeArticle || document.getElementById('resume-dossier-bar')) return;
-
-  const header = resumeArticle.querySelector('header');
-
-  // 1. Executive Dossier Top Summary Bar (Synced with Rajath_Kiran_A_Resume.pdf)
-  const dossierBar = document.createElement('div');
-  dossierBar.id = 'resume-dossier-bar';
-  dossierBar.className = 'resume-dossier-bar';
-  dossierBar.innerHTML = `
-    <div class="dossier-meta-left">
-      <span class="dossier-eyebrow">CURRICULUM VITAE · 2026 EDITION</span>
-      <div class="dossier-headline">Rajath Kiran A — Software, Cloud & AI Engineer</div>
-      <div class="dossier-sub">B.E. CS @ VCET (CGPA 8.9/10) · 2× VTU Code360 Topper · IEEE I2 Connect Winner · 50+ GCP Badges</div>
-    </div>
-    <a href="assets/resumes/Rajath_Kiran_A_Resume.pdf" download class="craft-cta-pill" style="margin-top:0;">
-      <ion-icon name="download-outline"></ion-icon>
-      <span>Download Official PDF</span>
-    </a>
-  `;
-  header.insertAdjacentElement('afterend', dossierBar);
-
-  // 2. Gurjot-Style Experience & Flagship Systems Notebook Ledger
-  const ledgerSection = document.createElement('section');
-  ledgerSection.className = 'craft-ledger-section';
-  ledgerSection.innerHTML = `
-    <div class="title-wrapper" style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
-      <div class="icon-box"><ion-icon name="briefcase-outline"></ion-icon></div>
-      <h3 class="h3">Experience & Flagship Engineering</h3>
-    </div>
-    <div class="craft-ledger-card">
-      <div class="ledger-entry">
-        <div>
-          <div class="ledger-date">Nov 2024 – Dec 2024</div>
-          <div class="ledger-org">Nexara</div>
-          <div class="ledger-loc">Remote · Freelance</div>
-        </div>
-        <div>
-          <div class="ledger-role-title">Web Developer (Freelance)</div>
-          <ul class="ledger-bullets">
-            <li>Delivered <strong>2 production websites</strong> (Plumbing Services & NGO platform) end-to-end within <strong>6 weeks</strong>, handling responsive UI, custom plugin architecture, and performance optimization.</li>
-            <li>Managed full local-to-production deployment, client handoff, and SEO/speed tuning.</li>
-          </ul>
-          <div class="ledger-tags">
-            <span class="ledger-tag">Production Delivery</span>
-            <span class="ledger-tag">Responsive UI/UX</span>
-            <span class="ledger-tag">Performance Optimization</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ledger-entry">
-        <div>
-          <div class="ledger-date">2026 – Present</div>
-          <div class="ledger-org">VTU Major Research</div>
-          <div class="ledger-loc">Deep Learning · Audio AI</div>
-        </div>
-        <div>
-          <div class="ledger-role-title">Lead Researcher — COPD Detection & Severity Grading</div>
-          <ul class="ledger-bullets">
-            <li>Designing a <strong>CNN-LSTM hybrid model</strong> for automated COPD binary detection and 4-class GOLD severity grading on the <strong>ICBHI 2017 dataset (920 recordings, 6,898 annotated respiratory cycles)</strong>, targeting <strong>&gt;90% accuracy</strong>.</li>
-            <li>Built an end-to-end audio preprocessing pipeline: noise reduction, 22,050 Hz resampling, <strong>128-band Mel-spectrograms</strong>, and <strong>40-coefficient MFCCs</strong>.</li>
-          </ul>
-          <div class="ledger-tags">
-            <span class="ledger-tag">Python</span>
-            <span class="ledger-tag">PyTorch / TensorFlow</span>
-            <span class="ledger-tag">Librosa</span>
-            <span class="ledger-tag">CNN-LSTM</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ledger-entry">
-        <div>
-          <div class="ledger-date">2024 – Present</div>
-          <div class="ledger-org">AyuDost & Open Source</div>
-          <div class="ledger-loc">AI Healthcare · Maintainer</div>
-        </div>
-        <div>
-          <div class="ledger-role-title">Project Lead & Open-Source Maintainer (20+ Contributors)</div>
-          <ul class="ledger-bullets">
-            <li>Architected a <strong>10-step RAG pipeline</strong> combining <strong>Pinecone vector search</strong>, <strong>MongoDB keyword search</strong>, and a <strong>Gemini hallucination-check stage</strong> to power AyurChat.</li>
-            <li>Shipped full-stack production app with Node.js/Express REST APIs, PostgreSQL/Supabase, appointment booking, and CI/CD; maintaining an open-source repo with <strong>20+ contributors</strong>.</li>
-          </ul>
-          <div class="ledger-tags">
-            <span class="ledger-tag">React.js</span>
-            <span class="ledger-tag">Node.js & Express</span>
-            <span class="ledger-tag">Pinecone RAG</span>
-            <span class="ledger-tag">Supabase PostgreSQL</span>
-            <span class="ledger-tag">Docker & CI/CD</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-  dossierBar.insertAdjacentElement('afterend', ledgerSection);
-
-  // 3. Upgrade Education Cards with Real CGPA (8.9/10) & Board Scores (93.03%, 98.08%)
-  const eduTimelineList = resumeArticle.querySelector('.timeline-list');
-  if (eduTimelineList) {
-    eduTimelineList.innerHTML = `
-      <li class="timeline-item premium-card">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="edu-header-flex">
-            <span class="timeline-year">2023 — 2027 (Expected)</span>
-            <span class="edu-score-badge">CGPA: 8.9 / 10.0</span>
-          </div>
-          <h4 class="h4 timeline-item-title">Vivekananda College of Engineering & Technology (VCET), Puttur</h4>
-          <p class="timeline-text">
-            <strong>B.E. in Computer Science & Engineering</strong> (VTU, Karnataka)
-          </p>
-          <div class="edu-coursework-row">
-            <span class="ledger-tag">Data Structures & Algorithms</span>
-            <span class="ledger-tag">OOP</span>
-            <span class="ledger-tag">Operating Systems</span>
-            <span class="ledger-tag">DBMS</span>
-            <span class="ledger-tag">Computer Networks</span>
-          </div>
-        </div>
-      </li>
-
-      <li class="timeline-item premium-card">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="edu-header-flex">
-            <span class="timeline-year">2021 — 2023</span>
-            <span class="edu-score-badge">Score: 93.03%</span>
-          </div>
-          <h4 class="h4 timeline-item-title">Narendra Pre University College</h4>
-          <p class="timeline-text">
-            <strong>Pre-University Course (PUC — PCMC)</strong> · Karnataka PU Board
-          </p>
-        </div>
-      </li>
-
-      <li class="timeline-item premium-card">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="edu-header-flex">
-            <span class="timeline-year">2020 — 2021</span>
-            <span class="edu-score-badge">Score: 98.08%</span>
-          </div>
-          <h4 class="h4 timeline-item-title">Morarji Desai Residential School</h4>
-          <p class="timeline-text">
-            <strong>Secondary School Leaving Certificate (SSLC)</strong> · Karnataka Secondary Education Board
-          </p>
-        </div>
-      </li>
-    `;
-  }
-
-  // 4. Replace Clunky 200vh Horizontal Scroll Trap with Interactive Year-Tab Scrubber
-  const journeyWrapper = document.getElementById('journey-wrapper');
-  const skipBtn = resumeArticle.querySelector('.skip-btn');
-  if (skipBtn) skipBtn.style.display = 'none';
-
-  if (journeyWrapper) {
-    const milestones = [
-      { year: '2021 · The Spark', title: 'Foundations in C++ & Relational Databases', desc: 'Wrote my first programs in C++ and explored Oracle SQL & DBMS fundamentals while achieving 98.08% in SSLC.' },
-      { year: '2022 · Core Logic', title: 'Data Structures, OOP & Memory Management', desc: 'Deepened algorithmic problem-solving across C, C++, and Java, scoring 93.03% in Pre-University (PCMC).' },
-      { year: '2023 · CS Engineering', title: 'Started B.E. in Computer Science @ VCET', desc: 'Began formal Computer Science engineering (maintaining an 8.9/10 CGPA) and shipped my first web applications.' },
-      { year: '2024 · Winner & Freelance', title: 'IEEE I2 Connect Winner & Production Freelance', desc: 'Won IEEE I2 CONNECT-2K24 & Aura 2K24, delivered 2 production client websites at Nexara, and launched MediQ.' },
-      { year: '2025 · Cloud & RAG AI', title: '2× VTU Code360 Topper, 50+ GCP Badges & AyuDost', desc: 'Ranked #1 in VTU twice on Code360, earned 50+ Google Cloud Arcade badges, completed NPTEL Python (IIT Madras), and built AyuDost 10-step RAG.' },
-      { year: '2026 · Deep Learning', title: 'COPD Respiratory AI (6,898 Cycles) & ISRO Hackathon', desc: 'Leading CNN-LSTM respiratory sound research on the ICBHI 2017 dataset, ISRO National Hackathon 2K26 participant, and open to 2026 Internships.' }
-    ];
-
-    journeyWrapper.innerHTML = `
-      <div class="craft-journey-scrubber">
-        <div class="scrubber-year-tabs" id="scrubber-year-tabs">
-          ${milestones.map((m, i) => `<button type="button" class="scrubber-year-btn ${i === milestones.length - 1 ? 'active' : ''}" data-ms-idx="${i}">${m.year}</button>`).join('')}
-        </div>
-        <div class="scrubber-stage">
-          <div class="scrubber-stage-title" id="scrubber-title">${milestones[5].title}</div>
-          <p class="scrubber-stage-desc" id="scrubber-desc">${milestones[5].desc}</p>
-        </div>
-      </div>
-    `;
-
-    journeyWrapper.querySelectorAll('.scrubber-year-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const idx = parseInt(btn.getAttribute('data-ms-idx'), 10);
-        journeyWrapper.querySelectorAll('.scrubber-year-btn').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('scrubber-title').textContent = milestones[idx].title;
-        document.getElementById('scrubber-desc').textContent = milestones[idx].desc;
-      });
-    });
-  }
-
-  // 5. Replace Percentage Skill Bars with 6-Domain Engineering Stack Matrix (From PDF)
-  const skillSection = resumeArticle.querySelector('section.skill');
-  if (skillSection) {
-    skillSection.innerHTML = `
-      <div class="title-wrapper" style="display:flex; align-items:center; gap:14px; margin-bottom:16px;">
-        <div class="icon-box"><ion-icon name="layers-outline"></ion-icon></div>
-        <h3 class="h3">Technical Stack & Engineering Domains</h3>
-      </div>
-      <div class="craft-skill-matrix">
-        <div class="skill-domain-card">
-          <div class="skill-domain-header"><span>01 // LANGUAGES & CORE CS</span><span>DSA · OOP</span></div>
-          <div class="skill-domain-title">Programming & Fundamentals</div>
-          <div class="skill-chip-cloud">
-            <span class="skill-matrix-chip">Python</span>
-            <span class="skill-matrix-chip">JavaScript (ES6+)</span>
-            <span class="skill-matrix-chip">TypeScript</span>
-            <span class="skill-matrix-chip">Java</span>
-            <span class="skill-matrix-chip">C / C++</span>
-            <span class="skill-matrix-chip">Data Structures & Algorithms</span>
-            <span class="skill-matrix-chip">OOP & SDLC</span>
-          </div>
-        </div>
-
-        <div class="skill-domain-card">
-          <div class="skill-domain-header"><span>02 // AI, ML & RAG SYSTEMS</span><span>DEEP LEARNING</span></div>
-          <div class="skill-domain-title">Artificial Intelligence & Audio ML</div>
-          <div class="skill-chip-cloud">
-            <span class="skill-matrix-chip">PyTorch</span>
-            <span class="skill-matrix-chip">TensorFlow</span>
-            <span class="skill-matrix-chip">CNN-LSTM Architectures</span>
-            <span class="skill-matrix-chip">Librosa (MFCC / Mel)</span>
-            <span class="skill-matrix-chip">10-Step RAG Pipelines</span>
-            <span class="skill-matrix-chip">Pinecone Vector DB</span>
-            <span class="skill-matrix-chip">Gemini AI</span>
-          </div>
-        </div>
-
-        <div class="skill-domain-card">
-          <div class="skill-domain-header"><span>03 // CLOUD & DEVOPS</span><span>50+ GCP BADGES</span></div>
-          <div class="skill-domain-title">Google Cloud & Infrastructure</div>
-          <div class="skill-chip-cloud">
-            <span class="skill-matrix-chip">Google Cloud Platform (GCP)</span>
-            <span class="skill-matrix-chip">Kubernetes (GKE)</span>
-            <span class="skill-matrix-chip">Docker</span>
-            <span class="skill-matrix-chip">HTTP(S) Load Balancing</span>
-            <span class="skill-matrix-chip">Cloud Spanner & Pub/Sub</span>
-            <span class="skill-matrix-chip">CI/CD Pipelines</span>
-            <span class="skill-matrix-chip">Git & GitHub</span>
-          </div>
-        </div>
-
-        <div class="skill-domain-card">
-          <div class="skill-domain-header"><span>04 // FULL-STACK & DATA</span><span>PRODUCTION WEB</span></div>
-          <div class="skill-domain-title">Frameworks, APIs & Databases</div>
-          <div class="skill-chip-cloud">
-            <span class="skill-matrix-chip">React.js</span>
-            <span class="skill-matrix-chip">Node.js</span>
-            <span class="skill-matrix-chip">Express.js</span>
-            <span class="skill-matrix-chip">REST APIs</span>
-            <span class="skill-matrix-chip">PostgreSQL & Supabase</span>
-            <span class="skill-matrix-chip">MongoDB</span>
-            <span class="skill-matrix-chip">MySQL</span>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  // 6. Prepend Key Honours & National Hackathons Strip inside Certifications
-  const certContainer = document.getElementById('dynamic-certificates-container');
-  if (certContainer && !document.getElementById('craft-honours-grid')) {
-    const honours = document.createElement('div');
-    honours.id = 'craft-honours-grid';
-    honours.className = 'craft-honours-grid';
-    honours.innerHTML = `
-      <div class="honour-badge-card">
-        <span class="honour-icon">🏆</span>
-        <div>
-          <div class="honour-title">IEEE I2 CONNECT-2K24 & Aura 2K24 Winner</div>
-          <div class="honour-sub">First-place national/inter-collegiate technical competition winner.</div>
-        </div>
-      </div>
-      <div class="honour-badge-card">
-        <span class="honour-icon">🥇</span>
-        <div>
-          <div class="honour-title">2× VTU University Topper (Code360)</div>
-          <div class="honour-sub">Ranked #1 across VTU leaderboard in Data Structures & Algorithms.</div>
-        </div>
-      </div>
-      <div class="honour-badge-card">
-        <span class="honour-icon">🚀</span>
-        <div>
-          <div class="honour-title">ISRO National Hackathon 2K26 & MLH</div>
-          <div class="honour-sub">National-level hackathon builder + Google 5-Day AI Agents Intensive.</div>
-        </div>
-      </div>
-      <div class="honour-badge-card">
-        <span class="honour-icon">🎓</span>
-        <div>
-          <div class="honour-title">NPTEL IIT Madras — Python (78% Score)</div>
-          <div class="honour-sub">12-Week Certified Course + QSpiders C, Data Structures & Java.</div>
-        </div>
-      </div>
-    `;
-    certContainer.prepend(honours);
-  }
-
-  // 7. Append Quick-Jump Sub-Nav inside dossierBar
-  const quickJump = document.createElement('div');
-  quickJump.className = 'resume-quickjump-bar';
-  quickJump.innerHTML = `
-    <span style="font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:var(--ink-muted);">JUMP TO →</span>
-    <button type="button" class="rj-pill" data-jump=".craft-ledger-section">01 · Experience</button>
-    <button type="button" class="rj-pill" data-jump=".timeline">02 · Education (8.9 CGPA)</button>
-    <button type="button" class="rj-pill" data-jump="#journey-wrapper">03 · 2021–2026 Scrubber</button>
-    <button type="button" class="rj-pill" data-jump="section.skill">04 · Interactive Stack</button>
-    <button type="button" class="rj-pill" data-jump="section.certificates">05 · Honours & Certs</button>
-  `;
-  dossierBar.appendChild(quickJump);
-
-  quickJump.querySelectorAll('.rj-pill').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const target = resumeArticle.querySelector(btn.getAttribute('data-jump'));
-      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  });
-
-  // 8. Interactive Skill X-Ray Inspector below .craft-skill-matrix
-  const SKILL_PROOF_MAP = {
-    'Python': 'Used in: SHWASA COPD CNN-LSTM (6,898 respiratory cycles), AyuDost 10-Step RAG Backend & NPTEL IIT Madras (78%).',
-    'JavaScript (ES6+)': 'Used in: MediQ Health Platform, AyuDost Frontend, Cloud Intelligence Center (D3.js + Three.js) & 50+ LeetCode.',
-    'TypeScript': 'Used in: Type-safe full-stack web modules and scalable component libraries.',
-    'Java': 'Used in: Smart City Guide CLI Application, OOP Architecture & QSpiders Java Certification.',
-    'C / C++': 'Used in: 2× VTU Rank #1 on Code360 Leaderboard & QSpiders Data Structures Certification.',
-    'Data Structures & Algorithms': 'Proof: 2× VTU University Topper on Code360, 50+ LeetCode solved, IEEE I2 Connect Winner.',
-    'PyTorch': 'Used in: COPD Detection & 4-Class GOLD Severity Grading model on the ICBHI 2017 dataset (>90% target accuracy).',
-    'TensorFlow': 'Used in: Deep learning acoustic spectrogram classification & ML Lab.',
-    'CNN-LSTM Architectures': 'Used in: VTU Major Research — Hybrid spatial-temporal respiratory auscultation classifier.',
-    'Librosa (MFCC / Mel)': 'Used in: Automated 22,050 Hz audio resampling, 128-band Mel-spectrograms & 40-coeff MFCC pipeline.',
-    '10-Step RAG Pipelines': 'Used in: AyuDost AyurChat — combining Pinecone vector search, MongoDB keyword search & Gemini hallucination check.',
-    'Pinecone Vector DB': 'Used in: AyuDost semantic knowledge retrieval over classical Ayurvedic texts.',
-    'Gemini AI': 'Used in: AyuDost hallucination-verification stage, MediQ wellness assistant & Portfolio AI.',
-    'Google Cloud Platform (GCP)': 'Proof: Google Cloud Arcade Silver League (50+ badges) + Cloud Intelligence Center (cloud.rajathkiran.me).',
-    'Kubernetes (GKE)': 'Used in: Deployed auto-scaling containerized microservices with workload & health monitoring on GKE.',
-    'Docker': 'Used in: Containerized AyuDost, GKE Microservices & HuggingFace OpenEnv RL Code Review benchmark.',
-    'HTTP(S) Load Balancing': 'Used in: Multi-VM Compute Engine high-availability deployment with automated health checks.',
-    'Cloud Spanner & Pub/Sub': 'Used in: Globally distributed SQL database & event-driven asynchronous messaging on GCP.',
-    'React.js': 'Used in: AyuDost & MediQ production healthcare platforms (serving 20+ active users) & React Lab.',
-    'Node.js': 'Used in: AyuDost & MediQ REST APIs, authentication & Google Maps appointment booking.',
-    'PostgreSQL & Supabase': 'Used in: Production relational schema, Row-Level Security & auth for MediQ and AyuDost.'
-  };
-
-  if (skillSection) {
-    const matrixEl = skillSection.querySelector('.craft-skill-matrix');
-    if (matrixEl) {
-      const xrayBar = document.createElement('div');
-      xrayBar.className = 'skill-xray-inspector';
-      xrayBar.innerHTML = `
-        <div>
-          <span class="xray-skill-badge" id="xray-skill-name">💡 Interactive Stack</span>
-          <span id="xray-skill-proof" style="margin-left:8px;">Hover or click any skill chip above to inspect how I use it in production projects.</span>
-        </div>
-      `;
-      matrixEl.insertAdjacentElement('afterend', xrayBar);
-
-      const nameEl = document.getElementById('xray-skill-name');
-      const proofEl = document.getElementById('xray-skill-proof');
-
-      skillSection.querySelectorAll('.skill-matrix-chip').forEach((chip) => {
-        const activateChip = () => {
-          skillSection.querySelectorAll('.skill-matrix-chip').forEach((c) => c.classList.remove('active-xray'));
-          chip.classList.add('active-xray');
-          const skillName = chip.textContent.trim();
-          nameEl.textContent = skillName;
-          proofEl.textContent = SKILL_PROOF_MAP[skillName] || `Core engineering technology applied across my GitHub repositories and coursework.`;
-        };
-        chip.addEventListener('mouseenter', activateChip);
-        chip.addEventListener('click', activateChip);
-      });
-    }
-  }
-
-  // 9. Scroll-Reactive Focus on Education Timeline Items
-  const eduItems = resumeArticle.querySelectorAll('.timeline-item.premium-card');
-  const eduObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        entry.target.classList.toggle('scroll-focused', entry.isIntersecting);
-      });
-    },
-    { threshold: 0.6 }
-  );
-  eduItems.forEach((item) => eduObserver.observe(item));
 }
 
 // ============================================================================

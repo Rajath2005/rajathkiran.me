@@ -53,8 +53,9 @@
   <link rel="stylesheet" href="./assets/css/style.min.css?v=1.2">
   <link rel="preload" href="./assets/css/os-intelligence.css?v=1.2" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./assets/css/os-intelligence.css?v=1.2"></noscript>
-  <link rel="stylesheet" href="./assets/css/editorial-craft.css?v=2.6">
+  <link rel="stylesheet" href="./assets/css/editorial-craft.css?v=2.7">
   <link rel="stylesheet" href="./assets/css/studio-shelf.css?v=1.0">
+  <link rel="stylesheet" href="./assets/css/studio-ledger.css?v=1.0">
   <link rel="stylesheet" href="./assets/css/command-palette.css?v=1.0">
   <link rel="stylesheet" href="./assets/css/studio-peel.css?v=1.1">
   <link rel="stylesheet" href="./assets/css/studio-dossier.css?v=1.0">
@@ -1105,305 +1106,255 @@
 
       <article class="resume" data-page="resume">
 
-        <header>
-          <h2 class="h2 article-title"><b>Resume</b></h2>
+        <header class="sled-header">
+          <div class="sled-header-main">
+            <h2 class="h2 article-title">Resume</h2>
+            <p class="sled-positioning">Software, Cloud &amp; AI Engineer &middot; B.E. CSE (8.9 CGPA)</p>
+          </div>
+          <a class="sled-pdf-btn" href="assets/resumes/Rajath_Kiran_A_Resume.pdf" download>
+            <span>Download Official PDF</span>
+            <span aria-hidden="true">&nearr;</span>
+          </a>
         </header>
 
-        <section class="timeline">
+        <nav class="sled-jump" aria-label="Resume sections">
+          <button type="button" class="sled-jump-link is-active" data-ledger-jump="sled-experience">Experience</button>
+          <button type="button" class="sled-jump-link" data-ledger-jump="sled-education">Education</button>
+          <button type="button" class="sled-jump-link" data-ledger-jump="sled-stack">Interactive Stack</button>
+          <button type="button" class="sled-jump-link" data-ledger-jump="sled-certifications">Certifications</button>
+        </nav>
 
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3"><b>Education <ion-icon name="library-outline"></ion-icon> </b></h3>
+        <section class="sled-section" id="sled-experience">
+          <div class="sled-section-head">
+            <div class="icon-box"><ion-icon name="briefcase-outline"></ion-icon></div>
+            <h3 class="h3">Experience</h3>
+            <span class="sled-head-note">REVERSE CHRONOLOGY &middot; 3 ROLES</span>
           </div>
 
-          <div class="timeline-container">
-            <!-- Center Line -->
-            <div class="timeline-line">
-              <div class="timeline-line-fill"></div>
-            </div>
-
-            <ol class="timeline-list">
-              <li class="timeline-item premium-card">
-                <div class="timeline-dot" data-magnetic></div>
-                <div class="timeline-content">
-                  <span class="timeline-year">2020 — 2021</span>
-                  <h4 class="h4 timeline-item-title">Morarji Desai Residential School</h4>
-                  <p class="timeline-text">
-                    <b>Level:</b> SSLC (Secondary School Leaving Certificate)<br>
-                    Foundation for academic excellence.
-                  </p>
-                </div>
-              </li>
-
-              <li class="timeline-item premium-card">
-                <div class="timeline-dot" data-magnetic></div>
-                <div class="timeline-content">
-                  <span class="timeline-year">2021 — 2023</span>
-                  <h4 class="h4 timeline-item-title">Narendra Pre University College</h4>
-                  <p class="timeline-text">
-                    <b>Program:</b> Pre-University Course (PUC)<br>
-                    <b>Focus:</b> Physics, Chemistry, Mathematics, Computer Science (PCMC)
-                  </p>
-                </div>
-              </li>
-
-              <li class="timeline-item premium-card">
-                <div class="timeline-dot" data-magnetic></div>
-                <div class="timeline-content">
-                  <span class="timeline-year">2023 — Present</span>
-                  <h4 class="h4 timeline-item-title">Vivekananda College of Engineering</h4>
-                  <p class="timeline-text">
-                    <b>Degree:</b> B.E. in Computer Science<br>
-                    <b>Expected Graduation:</b> 2027<br>
-                    Deepening core CS knowledge and engineering principles.
-                  </p>
-                </div>
-              </li>
-            </ol>
-          </div>
-
-        </section>
-        <section class="timeline journey-horizontal-section">
-          <div class="journey-header-flex"
-            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
-            <div class="title-wrapper" style="margin-bottom: 0;">
-              <div class="icon-box">
-                <ion-icon name="rocket-outline"></ion-icon>
+          <ol class="sled-exp-list">
+            <li class="sled-exp-row">
+              <div class="sled-exp-meta">
+                <span class="sled-exp-date">2026 &mdash; Present</span>
+                <span class="sled-exp-monogram" aria-hidden="true">VR</span>
+                <span class="sled-exp-loc">Deep Learning &middot; Audio AI</span>
               </div>
-              <h3 class="h3">My Coding Journey <ion-icon name="rocket-outline"></ion-icon></h3>
-            </div>
-            <button class="skip-btn" onclick="document.querySelector('.navbar-list li:nth-child(3) button').click();"
-              style="display: flex; align-items: center; gap: 8px; background: hsla(0, 0%, 100%, 0.05); color: var(--light-gray); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; transition: background 0.3s ease, color 0.3s ease; border: 1px solid hsla(0,0%,100%,0.1); cursor: pointer;"
-              onmouseover="this.style.background='var(--neon-blue)'; this.style.color='#fff';"
-              onmouseout="this.style.background='hsla(0, 0%, 100%, 0.05)'; this.style.color='var(--light-gray)';">
-              Skip to Projects <ion-icon name="arrow-forward-outline"></ion-icon>
-            </button>
-          </div>
-
-          <div class="journey-wrapper" id="journey-wrapper">
-            <div class="journey-sticky">
-              <div class="journey-track" id="journey-track">
-
-                <!-- 2021-2022 Panel -->
-                <div class="journey-panel" style="--panel-bg: hsl(240, 2%, 12%);">
-                  <div class="panel-year">2021</div>
-                  <div class="panel-content">
-                    <h4 class="h2">The Spark Begins</h4>
-                    <p class="panel-text">My first dive into <b>C++</b> helped me understand the fundamentals of
-                      programming. I also explored <b>Oracle DBMS</b>, introducing me to the world of databases.</p>
-                  </div>
+              <div class="sled-exp-body">
+                <div class="sled-exp-topline">
+                  <h4 class="sled-exp-role">Lead Researcher &mdash; COPD Detection &amp; Severity Grading</h4>
+                  <span class="sled-metric-badge sled-metric-violet">6,898 Audio Cycles</span>
                 </div>
-
-                <!-- 2022-2023 Panel -->
-                <div class="journey-panel" style="--panel-bg: hsl(240, 2%, 10%);">
-                  <div class="panel-year">2022</div>
-                  <div class="panel-content">
-                    <h4 class="h2">Leveling Up</h4>
-                    <p class="panel-text">Mastering the Logic Game. Deeper focus on <b>Data Structures, OOP, and Memory
-                        Management</b>. Sharpened algorithmic skills in C, C++, and Java.</p>
-                  </div>
-                </div>
-
-                <!-- 2023 Panel -->
-                <div class="journey-panel" style="--panel-bg: hsl(240, 2%, 8%);">
-                  <div class="panel-year">2023</div>
-                  <div class="panel-content">
-                    <h4 class="h2">First Year Base</h4>
-                    <p class="panel-text">College Life Begins! Started working with <b>C, Python, and Java</b>. Learned
-                      <b>HTML, CSS, and JS</b>. Built my first portfolio.</p>
-                  </div>
-                </div>
-
-                <!-- 2024 Panel -->
-                <div class="journey-panel" style="--panel-bg: hsl(240, 2%, 6%);">
-                  <div class="panel-year">2024</div>
-                  <div class="panel-content">
-                    <h4 class="h2">Second Year Explorer</h4>
-                    <p class="panel-text">Serious about development. Learned <b>React.js & Node.js</b>. Participated in
-                      <b>hackathons</b> and contributed to <b>UI/UX design</b> for IEEE.</p>
-                  </div>
-                </div>
-
-                <!-- 2025 Panel -->
-                <div class="journey-panel" style="--panel-bg: hsl(240, 2%, 4%);">
-                  <div class="panel-year">2025</div>
-                  <div class="panel-content">
-                    <h4 class="h2">Innovating & Growing</h4>
-                    <p class="panel-text">Third Year. Leading <b>AyuDost</b> (formerly MediQ). Expertise in <b>AI/ML,
-                        RAG models, and NLP chatbots</b>. Advancing in UI/UX.</p>
-                  </div>
-                </div>
-
+                <p class="sled-exp-org">VTU Major Research</p>
+                <ul class="sled-exp-bullets">
+                  <li>Designing a <strong>CNN-LSTM hybrid model</strong> for COPD binary detection and 4-class GOLD severity grading on the <strong>ICBHI 2017 dataset</strong>.</li>
+                  <li>Built the end-to-end audio pipeline: noise reduction, 22,050&nbsp;Hz resampling, 128-band Mel-spectrograms and 40-coefficient MFCCs.</li>
+                </ul>
+                <button type="button" class="sled-case-link" data-dossier-open="copd">Inspect Case Study <span class="sled-arrow" aria-hidden="true">&rarr;</span></button>
               </div>
-            </div>
-          </div>
+            </li>
+
+            <li class="sled-exp-row">
+              <div class="sled-exp-meta">
+                <span class="sled-exp-date">2024 &mdash; Present</span>
+                <span class="sled-exp-monogram" aria-hidden="true">AD</span>
+                <span class="sled-exp-loc">AI Healthcare &middot; Maintainer</span>
+              </div>
+              <div class="sled-exp-body">
+                <div class="sled-exp-topline">
+                  <h4 class="sled-exp-role">Project Lead &amp; Open-Source Maintainer</h4>
+                  <span class="sled-metric-badge sled-metric-mint">20+ Contributors</span>
+                </div>
+                <p class="sled-exp-org">AyuDost &amp; Open Source</p>
+                <ul class="sled-exp-bullets">
+                  <li>Architected a <strong>10-step RAG pipeline</strong> combining Pinecone vector search, MongoDB keyword search and a Gemini hallucination-check stage.</li>
+                  <li>Shipped the production full-stack app (Node.js/Express, PostgreSQL/Supabase, CI/CD) and maintains the open-source repo.</li>
+                </ul>
+                <button type="button" class="sled-case-link" data-dossier-open="ayudost">Inspect Case Study <span class="sled-arrow" aria-hidden="true">&rarr;</span></button>
+              </div>
+            </li>
+
+            <li class="sled-exp-row">
+              <div class="sled-exp-meta">
+                <span class="sled-exp-date">Nov 2024 &mdash; Dec 2024</span>
+                <span class="sled-exp-monogram" aria-hidden="true">NX</span>
+                <span class="sled-exp-loc">Remote &middot; Freelance</span>
+              </div>
+              <div class="sled-exp-body">
+                <div class="sled-exp-topline">
+                  <h4 class="sled-exp-role">Web Developer (Freelance)</h4>
+                  <span class="sled-metric-badge sled-metric-mint">2 Live Production Sites</span>
+                </div>
+                <p class="sled-exp-org">Nexara</p>
+                <ul class="sled-exp-bullets">
+                  <li>Delivered <strong>2 production websites</strong> (Plumbing Services &amp; NGO platform) end-to-end within 6 weeks.</li>
+                  <li>Managed local-to-production deployment, client handoff, responsive UI and performance tuning.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
         </section>
 
-        <section class="skill">
+        <section class="sled-section" id="sled-education">
+          <div class="sled-section-head">
+            <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+            <h3 class="h3">Education</h3>
+          </div>
 
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5"><ion-icon name="checkmark-circle-outline"></ion-icon> Frontend Development</h5>
-                <data value="75">75% (Advanced)</data>
+          <ol class="sled-edu-list">
+            <li class="sled-edu-row">
+              <div class="sled-edu-info">
+                <span class="sled-exp-date">2023 &mdash; 2027 (Expected)</span>
+                <h4 class="sled-edu-title">Vivekananda College of Engineering &amp; Technology (VCET), Puttur</h4>
+                <p class="sled-edu-sub">B.E. in Computer Science &amp; Engineering &middot; VTU, Karnataka</p>
+                <div class="sled-chip-cloud">
+                  <span class="sled-chip">Data Structures &amp; Algorithms</span>
+                  <span class="sled-chip">OOP</span>
+                  <span class="sled-chip">Operating Systems</span>
+                  <span class="sled-chip">DBMS</span>
+                  <span class="sled-chip">Computer Networks</span>
+                </div>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
-
+              <span class="sled-edu-score">8.9 <em>/ 10.0</em><span class="sled-edu-score-label">CGPA</span></span>
             </li>
 
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5"><ion-icon name="checkmark-circle-outline"></ion-icon> AI & Machine Learning</h5>
-                <data value="70">70% (Advanced)</data>
+            <li class="sled-edu-row">
+              <div class="sled-edu-info">
+                <span class="sled-exp-date">2021 &mdash; 2023</span>
+                <h4 class="sled-edu-title">Narendra Pre University College</h4>
+                <p class="sled-edu-sub">Pre-University Course (PUC &mdash; PCMC) &middot; Karnataka PU Board</p>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
+              <span class="sled-edu-score">93.03<em>%</em><span class="sled-edu-score-label">Score</span></span>
             </li>
 
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5"><ion-icon name="checkmark-circle-outline"></ion-icon> Cloud Engineering</h5>
-                <data value="65">65% (Advanced)</data>
+            <li class="sled-edu-row">
+              <div class="sled-edu-info">
+                <span class="sled-exp-date">2020 &mdash; 2021</span>
+                <h4 class="sled-edu-title">Morarji Desai Residential School</h4>
+                <p class="sled-edu-sub">SSLC &middot; Karnataka Secondary Education Board</p>
               </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 65%;"></div>
-              </div>
-
+              <span class="sled-edu-score">98.08<em>%</em><span class="sled-edu-score-label">Score</span></span>
             </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5"><ion-icon name="checkmark-circle-outline"></ion-icon> UI/UX Design</h5>
-                <data value="75">75% (Advanced)</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5"><ion-icon name="checkmark-circle-outline"></ion-icon> Backend Development</h5>
-                <data value="55">55% (Intermediate)</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 55%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5"><ion-icon name="checkmark-circle-outline"></ion-icon> Python</h5>
-                <data value="60">60% (Intermediate)</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 60%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5"><ion-icon name="checkmark-circle-outline"></ion-icon> Java</h5>
-                <data value="60">60% (Intermediate)</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 60%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5"><ion-icon name="checkmark-circle-outline"></ion-icon> DevOps</h5>
-                <data value="50">50% (Intermediate)</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5"><ion-icon name="checkmark-circle-outline"></ion-icon> Cybersecurity</h5>
-                <data value="45">45% (Intermediate)</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 45%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5"><ion-icon name="checkmark-circle-outline"></ion-icon> Operating Systems</h5>
-                <data value="50">50% (Intermediate)</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5"><ion-icon name="checkmark-circle-outline"></ion-icon> C, C++</h5>
-                <data value="50">50% (Intermediate)</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
+          </ol>
         </section>
-        <!--
-          - Achievements
 
-        -->
-        <section class="certificates">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="ribbon-outline"></ion-icon>
+        <section class="sled-section" id="sled-stack">
+          <div class="sled-section-head">
+            <div class="icon-box"><ion-icon name="layers-outline"></ion-icon></div>
+            <h3 class="h3">Technical Stack &amp; Engineering Domains</h3>
+          </div>
+
+          <div class="sled-stack-tabs" role="tablist" aria-label="Skill domains">
+            <button type="button" role="tab" class="sled-tab is-active" data-domain="ai-ml" aria-selected="true" aria-controls="sled-panel-ai-ml">AI &amp; ML</button>
+            <button type="button" role="tab" class="sled-tab" data-domain="full-stack" aria-selected="false" aria-controls="sled-panel-full-stack">Full-Stack</button>
+            <button type="button" role="tab" class="sled-tab" data-domain="cloud" aria-selected="false" aria-controls="sled-panel-cloud">Cloud &amp; GCP</button>
+            <button type="button" role="tab" class="sled-tab" data-domain="core" aria-selected="false" aria-controls="sled-panel-core">Languages &amp; Core CS</button>
+          </div>
+
+          <div class="sled-stack-panel" id="sled-panel-ai-ml" role="tabpanel" data-panel="ai-ml">
+            <div class="sled-chip-cloud">
+              <span class="sled-chip">PyTorch</span>
+              <span class="sled-chip">TensorFlow</span>
+              <span class="sled-chip">CNN-LSTM Architectures</span>
+              <span class="sled-chip">Librosa (MFCC / Mel)</span>
+              <span class="sled-chip">10-Step RAG Pipelines</span>
+              <span class="sled-chip">Pinecone Vector DB</span>
+              <span class="sled-chip">Gemini AI</span>
             </div>
-            <h3 class="h3">My Certifications</h3>
+            <div class="sled-proven-row">
+              <span class="sled-proven-label">Proven In &rarr;</span>
+              <button type="button" class="sled-proven-link" data-dossier-open="copd">COPD Respiratory AI</button>
+              <button type="button" class="sled-proven-link" data-dossier-open="ayudost">AyuDost AI</button>
+              <button type="button" class="sled-proven-link" data-dossier-open="shramik">Shramik-Nyay</button>
+            </div>
+          </div>
+
+          <div class="sled-stack-panel" id="sled-panel-full-stack" role="tabpanel" data-panel="full-stack" hidden>
+            <div class="sled-chip-cloud">
+              <span class="sled-chip">React.js</span>
+              <span class="sled-chip">Node.js</span>
+              <span class="sled-chip">Express.js</span>
+              <span class="sled-chip">REST APIs</span>
+              <span class="sled-chip">PostgreSQL &amp; Supabase</span>
+              <span class="sled-chip">MongoDB</span>
+              <span class="sled-chip">MySQL</span>
+            </div>
+            <div class="sled-proven-row">
+              <span class="sled-proven-label">Proven In &rarr;</span>
+              <button type="button" class="sled-proven-link" data-dossier-open="mediq">MediQ Health Platform</button>
+              <button type="button" class="sled-proven-link" data-dossier-open="ayudost">AyuDost AI</button>
+            </div>
+          </div>
+
+          <div class="sled-stack-panel" id="sled-panel-cloud" role="tabpanel" data-panel="cloud" hidden>
+            <div class="sled-chip-cloud">
+              <span class="sled-chip">Google Cloud Platform (GCP)</span>
+              <span class="sled-chip">Kubernetes (GKE)</span>
+              <span class="sled-chip">Docker</span>
+              <span class="sled-chip">HTTP(S) Load Balancing</span>
+              <span class="sled-chip">Cloud Spanner &amp; Pub/Sub</span>
+              <span class="sled-chip">Cloud Monitoring</span>
+              <span class="sled-chip">CI/CD Pipelines</span>
+              <span class="sled-chip">Git &amp; GitHub</span>
+            </div>
+            <div class="sled-proven-row">
+              <span class="sled-proven-label">Proven In &rarr;</span>
+              <a class="sled-proven-link sled-proven-ext" href="https://www.skills.google/public_profiles/09886862-52b8-44a4-86a5-9559a3952dd0" target="_blank" rel="noopener noreferrer">50+ GCP Skill Badges</a>
+              <button type="button" class="sled-proven-link" data-dossier-open="gcp">Highly Available Web App (GKE)</button>
+            </div>
+          </div>
+
+          <div class="sled-stack-panel" id="sled-panel-core" role="tabpanel" data-panel="core" hidden>
+            <div class="sled-chip-cloud">
+              <span class="sled-chip">Python</span>
+              <span class="sled-chip">JavaScript (ES6+)</span>
+              <span class="sled-chip">TypeScript</span>
+              <span class="sled-chip">Java</span>
+              <span class="sled-chip">C / C++</span>
+              <span class="sled-chip">Data Structures &amp; Algorithms</span>
+              <span class="sled-chip">OOP &amp; SDLC</span>
+            </div>
+            <div class="sled-proven-row">
+              <span class="sled-proven-label">Proven In &rarr;</span>
+              <a class="sled-proven-link sled-proven-ext" href="https://www.naukri.com/code360/profile/rajathajeru" target="_blank" rel="noopener noreferrer">2&times; VTU Code360 Rank #1</a>
+              <a class="sled-proven-link sled-proven-ext" href="https://leetcode.com/rajath2005" target="_blank" rel="noopener noreferrer">LeetCode</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="sled-section" id="sled-certifications">
+          <div class="sled-section-head">
+            <div class="icon-box"><ion-icon name="ribbon-outline"></ion-icon></div>
+            <h3 class="h3">Certifications &amp; Honours</h3>
+          </div>
+
+          <div class="craft-honours-grid">
+            <div class="honour-badge-card">
+              <span class="honour-icon">🏆</span>
+              <div>
+                <div class="honour-title">IEEE I2 CONNECT-2K24 &amp; Aura 2K24 Winner</div>
+                <div class="honour-sub">First-place national/inter-collegiate technical competition winner.</div>
+              </div>
+            </div>
+            <div class="honour-badge-card">
+              <span class="honour-icon">🥇</span>
+              <div>
+                <div class="honour-title">2&times; VTU University Topper (Code360)</div>
+                <div class="honour-sub">Ranked #1 across the VTU leaderboard in Data Structures &amp; Algorithms.</div>
+              </div>
+            </div>
+            <div class="honour-badge-card">
+              <span class="honour-icon">🚀</span>
+              <div>
+                <div class="honour-title">ISRO National Hackathon 2K26 &amp; MLH</div>
+                <div class="honour-sub">National-level hackathon builder + Google 5-Day AI Agents Intensive.</div>
+              </div>
+            </div>
+            <div class="honour-badge-card">
+              <span class="honour-icon">🎓</span>
+              <div>
+                <div class="honour-title">NPTEL IIT Madras &mdash; Python (78% Score)</div>
+                <div class="honour-sub">12-week certified course + QSpiders C, Data Structures &amp; Java.</div>
+              </div>
+            </div>
           </div>
 
           <div id="dynamic-certificates-container">
@@ -1795,7 +1746,7 @@
           <p class="archive-cta"><a class="archive-cta-link" href="./archive.html">Open the full studio archive &mdash; all 28 frames, on the contact sheet &rarr;</a></p>
         </section>
       </article>
-      -->
+
       <article class="blog" data-page="blog">
         <header>
           <h2 class="h2 article-title">Blog</h2>
@@ -2122,16 +2073,17 @@
   <!--
     - custom js link
   -->
-  <script src="./assets/js/script.js?v=1.4" type="module"></script>
+  <script src="./assets/js/script.js?v=1.5" type="module"></script>
   <script src="./assets/js/three-background.js" type="module"></script>
   <script src="./assets/js/animations.js?v=1.2" type="module"></script>
-  <script src="./assets/js/os-intelligence.js" type="module"></script>
-  <script src="./assets/js/editorial-craft.js?v=2.6" type="module"></script>
+  <script src="./assets/js/os-intelligence.js?v=1.1" type="module"></script>
+  <script src="./assets/js/editorial-craft.js?v=2.7" type="module"></script>
   <script src="./assets/js/command-palette.js?v=1.2" type="module"></script>
   <script src="./assets/js/studio-peel.js?v=1.2" defer></script>
   <script src="./assets/js/studio-dossier.js?v=1.0" defer></script>
   <script src="./assets/js/hero-pills.js?v=1.1" defer></script>
   <script src="./assets/js/studio-shelf.js?v=1.0" defer></script>
+  <script src="./assets/js/studio-ledger.js?v=1.0" defer></script>
 
   <!--
     - ionicon link

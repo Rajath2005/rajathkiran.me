@@ -871,12 +871,15 @@ const initScrollFeatures = () => {
     }
   }, { passive: true });
 
-  // Back to Top Click
+  // Back to Top Click — scrolls the active scroll container (window or active article)
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      const scroller = document.scrollingElement || document.documentElement;
+      scroller.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelectorAll('article[data-page]').forEach((art) => {
+        if (getComputedStyle(art).display !== 'none' && art.scrollTop > 0) {
+          art.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       });
     });
   }

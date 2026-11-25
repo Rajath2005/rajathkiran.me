@@ -221,8 +221,7 @@ const renderCertificates = () => {
         </div>
         <div class="cert-category" style="margin-top: 40px;">
             <h4 class="cert-category-title" style="margin-bottom: 20px; font-size: 18px; color: var(--light-gray); display: flex; align-items: center; gap: 8px;"><ion-icon name="medal"></ion-icon> Foundational Skills</h4>
-            <div style="position: relative;">
-                <ul class="certificate-list" id="foundational-certs-list" style="max-height: 380px; overflow: hidden; position: relative; transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);">
+            <ul class="certificate-list">
     `;
 
     ALL_CERTIFICATES.filter(c => !c.isPremium).forEach(cert => {
@@ -230,49 +229,16 @@ const renderCertificates = () => {
     });
 
     html += `
-                </ul>
-                <div class="cert-fade-overlay" id="cert-fade-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background: linear-gradient(to top, var(--eerie-black-2), transparent); pointer-events: none;"></div>
-            </div>
-            <button class="form-btn" id="view-more-certs-btn" style="margin: 20px auto 0; max-width: max-content; display: flex; align-items: center; gap: 8px; padding: 12px 24px;">
-                <ion-icon name="chevron-down"></ion-icon> <span>View More</span>
-            </button>
+            </ul>
         </div>
     `;
 
     container.innerHTML = html;
-
-    // Hover effects
-    document.querySelectorAll('.cert-img-wrapper').forEach(wrapper => {
-        wrapper.addEventListener('mouseenter', () => wrapper.querySelector('.cert-overlay').style.opacity = '1');
-        wrapper.addEventListener('mouseleave', () => wrapper.querySelector('.cert-overlay').style.opacity = '0');
-    });
-
-    // View more toggle
-    const viewMoreBtn = document.getElementById('view-more-certs-btn');
-    const foundationalList = document.getElementById('foundational-certs-list');
-    const fadeOverlay = document.getElementById('cert-fade-overlay');
-
-    if (viewMoreBtn) {
-        viewMoreBtn.addEventListener('click', () => {
-            if (foundationalList.style.maxHeight === '380px' || foundationalList.style.maxHeight === '') {
-                foundationalList.style.maxHeight = '3000px';
-                fadeOverlay.style.opacity = '0';
-                viewMoreBtn.querySelector('ion-icon').setAttribute('name', 'chevron-up');
-                viewMoreBtn.querySelector('span').textContent = 'View Less';
-            } else {
-                foundationalList.style.maxHeight = '380px';
-                fadeOverlay.style.opacity = '1';
-                viewMoreBtn.querySelector('ion-icon').setAttribute('name', 'chevron-down');
-                viewMoreBtn.querySelector('span').textContent = 'View More';
-                setTimeout(() => foundationalList.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
-            }
-        });
-    }
 };
 
 const buildCertItem = (cert, isPremium) => `
     <li class="certificate-item ${isPremium ? 'premium-cert-item' : ''}">
-        <div class="cert-img-wrapper" onclick="openCertModal('${cert.src}', '${cert.title}', ${cert.isPdf || false})" style="cursor: pointer; position: relative; background: var(--eerie-black-2); display: flex; align-items: center; justify-content: center; min-height: 160px; border-radius: 12px; overflow: hidden; border: 1px solid var(--jet);">
+        <div class="cert-img-wrapper" onclick="openCertModal('${cert.src}', '${cert.title}', ${cert.isPdf || false})" style="cursor: pointer; position: relative; background: var(--eerie-black-2); display: flex; align-items: stretch; border-radius: 12px; overflow: hidden; border: 1px solid var(--jet);">
             ${cert.isPdf ? `<ion-icon name="document-text" style="font-size: 48px; color: var(--light-gray);"></ion-icon>` : `<img src="${cert.thumb}" alt="${cert.title}" class="thumbnail" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'">`}
             <div class="cert-overlay" style="position: absolute; inset: 0; background: hsla(0,0%,0%,0.5); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;">
                 <ion-icon name="${cert.isPdf ? 'document-text' : 'expand'}" style="color: white; font-size: 32px;"></ion-icon>
