@@ -97,7 +97,21 @@
             </ul>
           </p>
 
-          <div style="margin-top: 40px; display: flex; gap: 15px;">
+          
+          <h3 class="h3" style="margin-top: 30px;">Key Decisions &amp; Impact</h3>
+          <p>
+            <strong>Decision 1 &mdash; audio over imaging:</strong> screening from recordings of lung auscultations
+            keeps the hardware cost near zero; the screening target is a phone microphone, not spirometry equipment.
+            <strong>Decision 2 &mdash; CNN-LSTM hybrid over a CNN-only baseline:</strong> breath-cycle sequencing is the
+            signal, so the LSTM stage meaningfully reduced false positives against the standalone CNN.
+            <strong>Decision 3 &mdash; MFCC / Mel-spectrogram front-end:</strong> converting raw audio into spectrogram
+            representations let mature vision architectures learn from sound reliably.
+            <strong>Impact:</strong> the CNN-LSTM hybrid reached <strong>95%+ binary accuracy</strong> (Healthy vs. COPD)
+            on the ICBHI Respiratory Sound Database &mdash; evidence that low-cost, non-invasive COPD screening works in
+            resource-constrained settings.
+          </p>
+
+<div style="margin-top: 40px; display: flex; gap: 15px;">
             <a href="https://github.com/Rajath2005/COPD-Detection" target="_blank" class="form-btn" style="padding: 15px 30px; text-decoration: none; border-radius: 14px; background: var(--orange-yellow-crayola); color: var(--smoky-black); font-weight: bold;">
               View Repository
             </a>

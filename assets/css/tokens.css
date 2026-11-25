@@ -1,0 +1,114 @@
+:root,
+body[data-theme="light"] {
+  --bg-canvas: #faf8f5;
+  --grid-line: rgba(20, 20, 22, 0.045);
+  --surface-main: rgba(255, 255, 255, 0.92);
+  --surface-card: #ffffff;
+  --surface-subtle: #f4f1ea;
+  --surface-pill: #ffffff;
+
+  /* Tactile Pastel Case-Study Tints */
+  --tint-1: #faf6ee;
+  /* Warm Editorial Paper */
+  --tint-2: #eef4ff;
+  /* Crisp Architectural Sky (Replaces Pink) */
+  --tint-3: #f1effe;
+  /* Soft Studio Indigo */
+  --tint-4: #eafaf2;
+  /* Crisp Mint Emerald */
+  --soft-purple: var(--ink-primary) !important;
+  /* Kills legacy pink span text */
+
+  --ink-primary: #111827;
+  --ink-secondary: #374151;
+  --ink-muted: #6b7280;
+
+  --border-strong: #18181b;
+  --border-subtle: rgba(24, 24, 27, 0.14);
+  --shadow-offset: 0 4px 0 #18181b;
+  --shadow-card: 0 12px 32px rgba(20, 20, 22, 0.06);
+
+  --accent-purple: #6c5ce7;
+  --accent-pill-bg: #dcd6ff;
+  --accent-pill-text: #141416;
+  --tape-bg: rgba(243, 234, 216, 0.88);
+  --badge-bg: #eef2ff;
+  --badge-text: #4338ca;
+
+  /* CRITICAL: Override ALL legacy dark variables from style.min.css & inline HTML! */
+  --smoky-black: #faf8f5 !important;
+  --eerie-black-1: #ffffff !important;
+  --eerie-black-2: #f8f6f0 !important;
+  --eerie-black-3: #ffffff !important;
+  --onyx: #f1efe9 !important;
+  --jet: #d4d4d8 !important;
+  --white: #111827 !important;
+  --white-1: #111827 !important;
+  --white-2: #1f2937 !important;
+  --light-gray: #374151 !important;
+  --light-gray-70: #6b7280 !important;
+  --neon-blue: #6c5ce7 !important;
+  --cyber-cyan: #4f46e5 !important;
+  --orange-yellow-crayola: #6c5ce7 !important;
+  --bg-gradient-onyx: #ffffff !important;
+  --bg-gradient-jet: #ffffff !important;
+  --border-gradient-onyx: #ffffff !important;
+  --border-gradient-neon: #18181b !important;
+}
+
+
+body[data-theme="dark"] {
+  --bg-canvas: #0b0c10;
+  --grid-line: rgba(255, 255, 255, 0.04);
+  --surface-main: rgba(18, 20, 28, 0.92);
+  --surface-card: #151822;
+  --surface-subtle: #10131c;
+  --surface-pill: #181b26;
+
+  /* Tactile Rich Dark Editorial Tints */
+  --tint-1: #181920;
+  /* Matte Obsidian Slate */
+  --tint-2: #131b2e;
+  /* Deep Blueprint Navy (Replaces Pink) */
+  --tint-3: #191829;
+  /* Deep Studio Indigo */
+  --tint-4: #11221d;
+  /* Deep Emerald Slate */
+  --soft-purple: var(--ink-primary) !important;
+
+  --ink-primary: #f8fafc;
+  --ink-secondary: #cbd5e1;
+  --ink-muted: #94a3b8;
+
+  --border-strong: rgba(255, 255, 255, 0.24);
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --shadow-offset: 0 4px 0 #000000;
+  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.5);
+
+  --accent-purple: #818cf8;
+  --accent-pill-bg: #6c5ce7;
+  --accent-pill-text: #ffffff;
+  --tape-bg: rgba(255, 255, 255, 0.14);
+  --badge-bg: rgba(129, 140, 248, 0.15);
+  --badge-text: #c7d2fe;
+
+  /* CRITICAL: Override ALL legacy variables cleanly for Dark Mode */
+  --smoky-black: #0b0c10 !important;
+  --eerie-black-1: #151822 !important;
+  --eerie-black-2: #10131c !important;
+  --eerie-black-3: #151822 !important;
+  --onyx: #1c202e !important;
+  --jet: rgba(255, 255, 255, 0.16) !important;
+  --white: #f8fafc !important;
+  --white-1: #f8fafc !important;
+  --white-2: #e2e8f0 !important;
+  --light-gray: #cbd5e1 !important;
+  --light-gray-70: #94a3b8 !important;
+  --neon-blue: #818cf8 !important;
+  --cyber-cyan: #a5b4fc !important;
+  --orange-yellow-crayola: #818cf8 !important;
+  --bg-gradient-onyx: #151822 !important;
+  --bg-gradient-jet: #151822 !important;
+  --border-gradient-onyx: #151822 !important;
+  --border-gradient-neon: rgba(255, 255, 255, 0.24) !important;
+}

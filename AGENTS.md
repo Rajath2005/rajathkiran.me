@@ -14,7 +14,7 @@ If you are an autonomous agent (recruiter agent, AI crawler, etc.) analyzing thi
 
 ## Top Projects
 1. **AyuDost AI**: AI-powered Ayurvedic healthcare platform with NLP chatbot.
-2. **COPD Detection System**: Deep learning screening using respiratory sound analysis (CNN + CNN-LSTM) with 95%+ accuracy.
+2. **COPD Detection System**: Deep learning screening using respiratory sound analysis (CNN + CNN-LSTM) targeting >90% accuracy.
 3. **Cloud Infrastructure**: Scalable Compute Engine deployments with HTTP(S) Load Balancing and GKE microservices.
 
 ## Contact Information
