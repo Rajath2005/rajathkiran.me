@@ -3300,3 +3300,276 @@ section.projects .project-img-wrapper::after {
   background: var(--surface-subtle);
   border: 1px solid var(--border-subtle);
 }
+
+/* ======================================='  */
+/* 11. HERO BIO PILLS + SPLIT CTA + POLAROID  */
+/* ======================================='  */
+
+:root {
+  --rk-mint: #05df60;
+}
+
+.bio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 10px;
+  margin: 0 3px;
+  vertical-align: middle;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink-primary);
+  background: var(--surface-pill);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--border-subtle);
+  cursor: pointer;
+  transition: background 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+
+.bio-pill:hover {
+  background: var(--accent-pill-bg);
+  box-shadow: 2px 2px 0 var(--border-strong);
+  transform: translateY(-1px);
+}
+
+.bio-pill:active {
+  transform: translateY(0);
+}
+
+.bio-pill:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: 2px;
+}
+
+.bio-pill svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--accent-purple);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.bio-pill:hover svg { stroke: var(--accent-pill-text); }
+
+[data-theme="dark"] .bio-pill:hover svg { stroke: var(--ink-primary); }
+
+/* --- Hero CTA row (primary + split pill) --- */
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.hero-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 12px 22px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--bg-canvas);
+  background: var(--ink-primary);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 999px;
+  box-shadow: var(--shadow-offset);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.hero-cta-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 0 6px 0 var(--border-strong);
+}
+
+.hero-cta-primary:active {
+  transform: translate(0, 0);
+  box-shadow: var(--shadow-offset);
+}
+
+.hero-cta-primary:focus-visible,
+.hero-pill-left:focus-visible,
+.hero-pill-copy:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: 3px;
+}
+
+.hero-split-pill {
+  display: inline-flex;
+  align-items: stretch;
+  background: var(--surface-card);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 999px;
+  box-shadow: var(--shadow-offset);
+  overflow: hidden;
+}
+
+.hero-pill-left {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 10px 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--ink-primary);
+  border: none;
+  border-right: 1.5px solid var(--border-strong);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.16s ease;
+  border-radius: 999px 0 0 999px;
+}
+
+.hero-pill-left:hover { background: var(--surface-subtle); }
+
+.hero-pill-copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  min-height: 46px;
+  border: none;
+  background: transparent;
+  color: var(--ink-primary);
+  cursor: pointer;
+  transition: background 0.16s ease;
+}
+
+.hero-pill-copy:hover { background: var(--surface-subtle); }
+
+.hero-pill-copy svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-pill-copy .icon-check {
+  display: none;
+  stroke: var(--rk-mint);
+}
+
+.hero-pill-copy.copied .icon-copy { display: none; }
+.hero-pill-copy.copied .icon-check { display: block; }
+.hero-pill-copy.copied { background: var(--tint-4); }
+
+/* --- Studio Polaroid preview (fixed, zero layout shift) --- */
+.bio-polaroid {
+  position: fixed;
+  width: 260px;
+  z-index: 9960;
+  background: var(--surface-card);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 14px;
+  box-shadow: var(--shadow-offset);
+  padding: 10px 10px 12px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) rotate(-2deg);
+  transition:
+    opacity 0.3s ease,
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.32s;
+  pointer-events: none;
+}
+
+.bio-polaroid.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) rotate(-2deg);
+  transition: opacity 0.24s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.polaroid-tape {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 92px;
+  height: 22px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: var(--tape-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+}
+
+.polaroid-photo {
+  display: block;
+  aspect-ratio: 16 / 10;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--tint-3);
+}
+
+.polaroid-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.polaroid-metric {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink-secondary);
+}
+
+.polaroid-metric::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-purple);
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .bio-polaroid { display: none; }
+
+  .bio-pill {
+    font-size: 12.5px;
+    padding: 3px 10px;
+  }
+
+  .hero-cta-row { flex-direction: column; align-items: stretch; }
+  .hero-split-pill { justify-content: stretch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bio-pill,
+  .hero-cta-primary,
+  .hero-pill-left,
+  .hero-pill-copy {
+    transition: none;
+  }
+
+  .bio-polaroid {
+    transform: rotate(-2deg);
+    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+  }
+
+  .bio-polaroid.show {
+    transform: rotate(-2deg);
+    transition: opacity 0.2s ease;
+  }
+
+  .hero-cta-primary:hover {
+    transform: none;
+  }
+}

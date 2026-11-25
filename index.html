@@ -53,7 +53,7 @@
   <link rel="stylesheet" href="./assets/css/style.min.css?v=1.2">
   <link rel="preload" href="./assets/css/os-intelligence.css?v=1.2" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./assets/css/os-intelligence.css?v=1.2"></noscript>
-  <link rel="stylesheet" href="./assets/css/editorial-craft.css?v=2.3">
+  <link rel="stylesheet" href="./assets/css/editorial-craft.css?v=2.4">
   <link rel="stylesheet" href="./assets/css/command-palette.css?v=1.0">
   <link rel="stylesheet" href="./assets/css/studio-peel.css?v=1.0">
   <link rel="stylesheet" href="./assets/css/studio-dossier.css?v=1.0">
@@ -757,23 +757,63 @@
 
         <section class="about-text">
           <p>
-            Hello! I am <strong>Rajath Kiran A</strong>, a <strong>Software Engineer</strong> and Computer Science
-            Engineering student at <strong>Vivekananda College of Engineering & Technology (VCET)</strong>. I build
-            full-stack applications with <strong>React.js, Node.js, Python, and Supabase</strong>, explore AI/ML with
-            <strong>TensorFlow, PyTorch, CNN/LSTM, and RAG systems</strong>, and run dependable cloud infrastructure on
-            <strong>GCP, GKE, and Docker</strong> — always with a designer's care for clear, accessible UI/UX.
+            Hello! I am <strong>Rajath Kiran A</strong> — a software engineer and CS student at
+            <strong>VCET</strong> building full-stack products on
+            <strong>React, Node.js, Python, and Supabase</strong>, AI/ML with
+            <strong>TensorFlow, PyTorch, and RAG systems</strong>, and dependable cloud infrastructure on
+            <strong>GCP and GKE</strong> — always with a designer's care for clear, accessible UI/UX.
           </p>
 
           <p>
-            That shows up in shipped work: <strong>AyuDost AI</strong>, an NLP-powered Ayurvedic assistant with RAG
-            architecture, and <strong>COPD Detection</strong>, an ongoing deep-learning system for respiratory sound
-            classification — alongside <strong>highly available multi-VM architectures</strong> on GCP with
-            HTTP(S) Load Balancing and <strong>microservices on GKE</strong>. <strong>80+ repositories</strong> on
-            GitHub and <strong>170+ LeetCode problems</strong> keep the range wide and the fundamentals sharp.
-            Connect with me on <a href="https://www.linkedin.com/in/rajath-kiran/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            or view my code on <a href="https://github.com/Rajath2005" target="_blank" rel="noopener noreferrer">GitHub</a>.
+            Shipped and running:
+            <button type="button" class="bio-pill" data-dossier-slug="shramik"
+              data-polaroid-img="assets/images/Shramik-Nyay-app.png" data-polaroid-metric="Real-time Civic Voice AI">
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="6" y="1.5" width="4" height="8" rx="2"></rect><path d="M3.5 7.5a4.5 4.5 0 0 0 9 0M8 11.5v3"></path></svg>
+              Shramik-Nyay</button>
+            voice-first civic AI ·
+            <button type="button" class="bio-pill" data-dossier-slug="ayudost"
+              data-polaroid-img="assets/images/AyuDost-AI.png" data-polaroid-metric="Sub-second RAG consultations">
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 13C3 7 7 3 13 3c0 6-4 10-10 10zM3 13l6-6"></path></svg>
+              AyuDost AI</button>,
+            <button type="button" class="bio-pill" data-dossier-slug="mediq"
+              data-polaroid-img="assets/images/Mediq.png" data-polaroid-metric="RLS-secured health records">
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M1.5 8.5h2.5L6 3.5l4 9 2-5.5h2.5"></path></svg>
+              MediQ</button> and
+            <button type="button" class="bio-pill" data-dossier-slug="copd"
+              data-polaroid-img="assets/images/COPD-Project.png" data-polaroid-metric="6,898 respiratory cycles">
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2 8h2M5 5v6M8 3v10M11 5v6h2M14 8h-2"></path></svg>
+              COPD Detection</button>
+            — with <strong>80+ repositories</strong> on
+            <a href="https://github.com/Rajath2005" target="_blank" rel="noopener noreferrer">GitHub</a> and
+            <strong>170+ LeetCode problems</strong> keeping the range wide.
+            Say hello on <a href="https://www.linkedin.com/in/rajath-kiran/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
           </p>
         </section>
+
+        <!--
+          - hero CTA row (primary + split pill quick contact)
+        -->
+
+        <div class="hero-cta-row">
+          <button type="button" class="hero-cta-primary" data-hero-cta-projects>Explore Curated Work →</button>
+          <div class="hero-split-pill" role="group" aria-label="Quick contact">
+            <button type="button" class="hero-pill-left" data-hero-contact>Get in touch</button>
+            <button type="button" class="hero-pill-copy" aria-label="Copy rajathajeru@gmail.com" title="Copy rajathajeru@gmail.com">
+              <svg class="icon-copy" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"></rect><path d="M10.5 5.5v-2a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2"></path></svg>
+              <svg class="icon-check" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8.5l3.5 3.5 7.5-8"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <!--
+          - studio polaroid preview (hover card for bio pills)
+        -->
+
+        <div class="bio-polaroid" id="bioPolaroid" aria-hidden="true">
+          <span class="polaroid-tape"></span>
+          <span class="polaroid-photo"><img src="" alt="" width="480" height="300"></span>
+          <span class="polaroid-metric"><span class="polaroid-metric-text"></span></span>
+        </div>
 
         <!--
           - selected work (flagship preview, above the fold)
@@ -2113,6 +2153,7 @@
   <script src="./assets/js/command-palette.js?v=1.2" type="module"></script>
   <script src="./assets/js/studio-peel.js?v=1.1" defer></script>
   <script src="./assets/js/studio-dossier.js?v=1.0" defer></script>
+  <script src="./assets/js/hero-pills.js?v=1.0" defer></script>
 
   <!--
     - ionicon link
