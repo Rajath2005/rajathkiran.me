@@ -1,0 +1,256 @@
+/* ============================================================
+   RK RED-PEN TOUR — editorial proofing-mark styling
+   Red pen ink · Caveat margin notes · rubber stamp finish
+============================================================ */
+
+#rk-redpen-stage {
+  --redpen: #d0342c;
+}
+
+body[data-theme="dark"] #rk-redpen-stage {
+  --redpen: #ef5350;
+}
+
+/* ---------- 4-piece curtain (dim around the spotlight) ---------- */
+.rk-curtain {
+  position: fixed;
+  z-index: 99990;
+  background: var(--bg-canvas);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;
+}
+
+.rk-curtain[data-edge="top"] { top: 0; left: 0; right: 0; }
+.rk-curtain[data-edge="bottom"] { bottom: 0; left: 0; right: 0; }
+.rk-curtain[data-edge="left"] { left: 0; }
+.rk-curtain[data-edge="right"] { right: 0; }
+
+#rk-redpen-stage.revealed .rk-curtain {
+  opacity: 0.62;
+}
+
+/* ---------- self-drawing red ink ring ---------- */
+.rk-ink-ring {
+  position: fixed;
+  z-index: 99991;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.rk-ink-ellipse {
+  fill: none;
+  stroke: var(--redpen);
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  opacity: 0;
+}
+
+.rk-ink-pass1 { stroke-width: 3.2; }
+.rk-ink-pass2 { stroke-width: 2; opacity: 0; }
+
+.rk-ink-ring.drawn .rk-ink-pass1 {
+  opacity: 0.9;
+  animation: rk-draw 0.7s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.rk-ink-ring.drawn .rk-ink-pass2 {
+  animation: rk-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.25s forwards;
+}
+
+@keyframes rk-draw {
+  0% { stroke-dashoffset: 100; opacity: 0; }
+  10% { opacity: 0.85; }
+  100% { stroke-dashoffset: 0; opacity: 0.85; }
+}
+
+.rk-ink-ring.drawn .rk-ink-pass2 { animation-name: rk-draw-second; }
+
+@keyframes rk-draw-second {
+  0% { stroke-dashoffset: 100; opacity: 0; }
+  100% { stroke-dashoffset: 0; opacity: 0.45; }
+}
+
+/* ---------- squiggly arrow ---------- */
+.rk-ink-arrow {
+  position: fixed;
+  z-index: 99991;
+  overflow: visible;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.rk-ink-arrow.drawn { opacity: 1; }
+
+.rk-ink-path {
+  fill: none;
+  stroke: var(--redpen);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+
+.rk-ink-arrow.drawn .rk-ink-path {
+  animation: rk-draw 0.45s ease-out 0.55s forwards;
+}
+
+/* ---------- Caveat margin note ---------- */
+.rk-margin-note {
+  position: fixed;
+  z-index: 99992;
+  font-family: 'Caveat', cursive;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--redpen);
+  max-width: 240px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rk-margin-note.drawn {
+  animation: rk-note-in 0.4s ease-out 0.75s forwards;
+}
+
+@keyframes rk-note-in {
+  from { opacity: 0; transform: translate(-50%, -50%) rotate(-2.5deg) translateY(6px) scale(0.96); }
+  to { opacity: 1; transform: translate(-50%, -50%) rotate(-2.5deg) translateY(0) scale(1); }
+}
+
+/* ---------- final rubber stamp ---------- */
+.rk-stamp {
+  position: fixed;
+  z-index: 99993;
+  transform: translate(-50%, -100%) rotate(-8deg) scale(1.7);
+  opacity: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--redpen);
+  border: 3px double var(--redpen);
+  border-radius: 8px;
+  padding: 10px 18px;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+body[data-theme="dark"] .rk-stamp { mix-blend-mode: normal; }
+
+.rk-stamp.thunked {
+  animation: rk-stamp-thunk 0.4s cubic-bezier(0.22, 1.6, 0.36, 1) forwards;
+}
+
+@keyframes rk-stamp-thunk {
+  0% { opacity: 0; transform: translate(-50%, -100%) rotate(-18deg) scale(1.7); }
+  70% { opacity: 0.92; transform: translate(-50%, -100%) rotate(-7deg) scale(0.97); }
+  100% { opacity: 0.92; transform: translate(-50%, -100%) rotate(-8deg) scale(1); }
+}
+
+/* ---------- dock (theme-toggle-dock vocabulary) ---------- */
+.rk-tour-dock {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  z-index: 99994;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-pill);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 4px 6px;
+  box-shadow: var(--shadow-offset);
+  opacity: 0;
+  transition: opacity 0.3s ease 0.2s;
+}
+
+#rk-redpen-stage.revealed .rk-tour-dock { opacity: 1; }
+
+.rk-dock-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 999px;
+  background: var(--surface-card);
+  color: var(--ink-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.rk-dock-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-subtle);
+}
+
+.rk-dock-next { background: var(--accent-pill-bg); color: var(--accent-pill-text); border-color: var(--border-strong); }
+.rk-dock-next:hover { background: var(--accent-pill-bg); filter: brightness(1.06); }
+
+.rk-dock-progress {
+  padding: 0 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+/* ---------- trigger link (inside open-to-work badge) ---------- */
+.rk-tour-link {
+  display: inline-block;
+  margin-left: 10px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent-purple);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+}
+
+.rk-tour-link:hover { opacity: 0.7; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- stage entrance ---------- */
+#rk-redpen-stage.revealed .rk-curtain { pointer-events: auto; }
+
+/* ---------- tour state: tame competing motion ---------- */
+body.rk-tour-active .craft-marquee-track {
+  animation-play-state: paused;
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .rk-ink-ellipse,
+  .rk-ink-path,
+  .rk-margin-note,
+  .rk-stamp,
+  .rk-curtain,
+  .rk-tour-dock {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .rk-ink-ring .rk-ink-pass1 { opacity: 0.85; stroke-dashoffset: 0; }
+  .rk-ink-ring .rk-ink-pass2 { opacity: 0.4; stroke-dashoffset: 0; }
+  .rk-margin-note { opacity: 1; }
+  .rk-stamp { opacity: 0.92; transform: translate(-50%, -100%) rotate(-8deg); }
+  .rk-curtain { opacity: 0.62; }
+  .rk-tour-dock { opacity: 1; }
+}

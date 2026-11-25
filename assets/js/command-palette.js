@@ -100,6 +100,11 @@
       }
     },
     {
+      group: 'Actions', icon: 'navigate', label: 'Take the 60-second tour', hint: 'red pen',
+      keywords: 'tour walkthrough guide red pen recruiter start intro Hutch',
+      run: () => window.dispatchEvent(new CustomEvent('rk:redpen-tour'))
+    },
+    {
       group: 'Actions', icon: 'share-social', label: 'Share this portfolio', hint: 'link',
       keywords: 'share link copy url invite',
       run: async () => {
