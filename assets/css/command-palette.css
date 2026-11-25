@@ -1,0 +1,259 @@
+/* ============================================================
+   RK COMMAND PALETTE — "⌘K"
+   Matches the editorial-craft / OS-intelligence theme
+============================================================ */
+
+.cmdk-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: hsla(230, 50%, 6%, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.cmdk-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cmdk-panel {
+  position: fixed;
+  top: 14vh;
+  left: 50%;
+  z-index: 9999;
+  width: min(620px, 92vw);
+  transform: translateX(-50%) translateY(-8px) scale(0.985);
+  background: linear-gradient(to bottom right,
+      hsl(230, 40%, 13%) 0%,
+      hsl(230, 45%, 9%) 100%);
+  border: 1px solid var(--jet, hsl(230, 50%, 22%));
+  border-radius: 16px;
+  box-shadow: 0 32px 80px hsla(230, 80%, 4%, 0.75),
+    inset 0 0 0 1px hsla(0, 0%, 100%, 0.04);
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.cmdk-panel.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* ---------- input row ---------- */
+.cmdk-input-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid hsla(0, 0%, 88%, 0.08);
+}
+
+.cmdk-prompt-char {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  color: var(--orange-yellow-crayola, #818cf8);
+  text-shadow: 0 0 12px hsla(245, 80%, 70%, 0.5);
+}
+
+.cmdk-input-row input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14.5px;
+  color: hsl(0, 0%, 96%);
+  caret-color: var(--orange-yellow-crayola, #818cf8);
+}
+
+.cmdk-input-row input::placeholder {
+  color: hsla(0, 0%, 88%, 0.35);
+}
+
+.cmdk-kbd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: hsla(0, 0%, 88%, 0.6);
+  border: 1px solid hsla(0, 0%, 88%, 0.16);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  padding: 3px 7px;
+}
+
+/* ---------- results ---------- */
+.cmdk-list {
+  max-height: 52vh;
+  overflow-y: auto;
+  padding: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--jet, hsl(230, 50%, 22%)) transparent;
+}
+
+.cmdk-group-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsla(0, 0%, 88%, 0.4);
+  padding: 10px 10px 6px;
+}
+
+.cmdk-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: hsl(0, 0%, 92%);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.cmdk-item ion-icon {
+  flex-shrink: 0;
+  font-size: 17px;
+  color: hsla(0, 0%, 88%, 0.55);
+}
+
+.cmdk-item .cmdk-item-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cmdk-item .cmdk-item-hint {
+  flex-shrink: 0;
+  max-width: 45%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: hsla(0, 0%, 88%, 0.38);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cmdk-item.active {
+  background: linear-gradient(to right,
+      hsla(245, 70%, 60%, 0.16),
+      hsla(230, 70%, 30%, 0.06));
+}
+
+.cmdk-item.active ion-icon {
+  color: var(--orange-yellow-crayola, #818cf8);
+}
+
+.cmdk-empty {
+  padding: 28px 16px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: hsla(0, 0%, 88%, 0.45);
+}
+
+/* ---------- footer ---------- */
+.cmdk-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  border-top: 1px solid hsla(0, 0%, 88%, 0.08);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: hsla(0, 0%, 88%, 0.45);
+}
+
+.cmdk-footer kbd {
+  font-family: inherit;
+  border: 1px solid hsla(0, 0%, 88%, 0.16);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  padding: 2px 6px;
+  margin-right: 4px;
+}
+
+.cmdk-footer-right {
+  margin-left: auto;
+  letter-spacing: 0.1em;
+  opacity: 0.6;
+}
+
+/* ---------- toast / flash ---------- */
+.cmdk-flash {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 10000;
+  border: 1px solid var(--jet, hsl(230, 50%, 22%));
+  border-radius: 12px;
+  background: linear-gradient(to bottom right,
+      hsl(230, 40%, 14%) 0%,
+      hsl(230, 45%, 10%) 100%);
+  color: hsl(0, 0%, 94%);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  padding: 12px 18px;
+  box-shadow: 0 16px 40px hsla(230, 80%, 4%, 0.6);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.cmdk-flash.hint {
+  pointer-events: auto;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+
+.cmdk-flash.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- mobile: bottom sheet ---------- */
+@media (max-width: 640px) {
+  .cmdk-panel {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    transform: translateY(12px);
+  }
+
+  .cmdk-panel.open {
+    transform: translateY(0);
+  }
+
+  .cmdk-list {
+    max-height: 46vh;
+  }
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .cmdk-overlay,
+  .cmdk-panel,
+  .cmdk-flash,
+  .cmdk-item {
+    transition: none;
+  }
+}

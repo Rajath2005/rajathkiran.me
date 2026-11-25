@@ -163,7 +163,9 @@ const injectProjectTags = () => {
         'https://github.com/Rajath2005': ['Open Source', 'Full Stack', 'Cloud'],
         'https://www.figma.com/community/file/1632301825171230889': ['Figma', 'Prototyping', 'IEEE'],
         'https://cloud.rajathkiran.me/': ['GCP', 'Cloud Architect', 'DevOps'],
-        'https://huggingface.co/spaces/BugHunter28/code-review-env': ['Python', 'HuggingFace', 'RL Benchmark', 'LLMs']
+        'https://huggingface.co/spaces/BugHunter28/code-review-env': ['Python', 'HuggingFace', 'RL Benchmark', 'LLMs'],
+        'https://github.com/Rajath2005/SmartCityApp': ['Java', 'OOP', 'Console App'],
+        'https://github.com/Rajath2005/TextUtils': ['React', 'JavaScript', 'Utility App']
     };
 
     document.querySelectorAll('.project-item').forEach(item => {
@@ -189,27 +191,15 @@ const ALL_CERTIFICATES = [
     { id: 1, title: 'IEEE I2 Connect Competition Winning Cert', src: 'assets/images/certificate-1.webp', thumb: 'assets/images/certificate-1.webp', isPremium: true },
     { id: 16, title: 'Node JS Certification', src: 'assets/images/certificate-16.webp', thumb: 'assets/images/certificate-16.webp', isPremium: true },
     { id: 8, title: 'Responsive Web Design', src: 'assets/images/certificate-8.webp', thumb: 'assets/images/certificate-8.webp', isPremium: true },
-    { id: 26, title: 'Professional Certification', src: 'assets/images/certificate-26.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: true },
     { id: 6, title: 'Infosys SpringBoard', src: 'assets/images/certificate-6.webp', thumb: 'assets/images/certificate-6.webp', isPremium: true },
     { id: 2, title: 'Aura 2K24 Competition Winner', src: 'assets/images/certificate-2.webp', thumb: 'assets/images/certificate-2.webp', isPremium: true },
-    { id: 19, title: 'Technical Certification', src: 'assets/images/certificate-19.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: true },
-    { id: 24, title: 'Advanced Certification', src: 'assets/images/certificate-24.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: true },
-    { id: 25, title: 'Specialized Training', src: 'assets/images/certificate-25.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: true },
     { id: 5, title: 'Linux for Beginners Certifications', src: 'assets/images/certificate-5.webp', thumb: 'assets/images/certificate-5.webp', isPremium: true },
     { id: 7, title: 'Fundamental of CSS', src: 'assets/images/certificate-7.webp', thumb: 'assets/images/certificate-7.webp', isPremium: false },
-    { id: 9, title: 'Basic CSS', src: 'assets/images/certificate-9.webp', thumb: 'assets/images/certificate-9.webp', isPremium: false },
     { id: 10, title: 'Intro to Cybersecurity', src: 'assets/images/certificate-10.webp', thumb: 'assets/images/certificate-10.webp', isPremium: false },
     { id: 11, title: 'Git Sheet', src: 'assets/images/certificate-11.webp', thumb: 'assets/images/certificate-11.webp', isPremium: false },
     { id: 12, title: 'Open Source', src: 'assets/images/certificate-12.webp', thumb: 'assets/images/certificate-12.webp', isPremium: false },
     { id: 13, title: 'Fundamentals of HTML', src: 'assets/images/certificate-13.webp', thumb: 'assets/images/certificate-13.webp', isPremium: false },
-    { id: 14, title: 'CHATGPT', src: 'assets/images/certificate-14.webp', thumb: 'assets/images/certificate-14.webp', isPremium: false },
     { id: 15, title: 'Code360 Masterclass', src: 'assets/images/certificate-15.webp', thumb: 'assets/images/certificate-15.webp', isPremium: false },
-    { id: 17, title: 'Certificate 17', src: 'assets/images/certificate-17.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: false },
-    { id: 18, title: 'Certificate 18', src: 'assets/images/certificate-18.webp', thumb: 'assets/images/certificate-18.webp', isPremium: false },
-    { id: 20, title: 'Certificate 20', src: 'assets/images/certificate-20.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: false },
-    { id: 21, title: 'Certificate 21', src: 'assets/images/certificate-21.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: false },
-    { id: 22, title: 'Certificate 22', src: 'assets/images/certificate-22.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: false },
-    { id: 23, title: 'Certificate 23', src: 'assets/images/certificate-23.pdf', thumb: 'assets/images/icon-pdf-placeholder.png', isPdf: true, isPremium: false },
 ];
 
 const renderCertificates = () => {
