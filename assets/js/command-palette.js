@@ -233,13 +233,19 @@
   };
 
   /* ---------------- open / close ---------------- */
-  const flash = (msg) => {
+  const flash = (msg, clickable = false) => {
+    document.getElementById('craft-copy-toast')?.remove();
     const toast = document.createElement('div');
-    toast.className = 'cmdk-flash';
-    toast.textContent = `✓ ${msg}`;
+    toast.className = 'craft-copy-toast' + (clickable ? ' cmdk-clickable' : '');
+    toast.textContent = msg;
     document.body.appendChild(toast);
     requestAnimationFrame(() => toast.classList.add('show'));
-    setTimeout(() => toast.remove(), 2400);
+    if (clickable) {
+      toast.addEventListener('click', () => { toast.remove(); openPalette(); });
+      setTimeout(() => toast.remove(), 9000);
+    } else {
+      setTimeout(() => toast.remove(), 2400);
+    }
   };
 
   const openPalette = () => {
@@ -335,14 +341,7 @@
     if (!localStorage.getItem(PKL_KEY)) {
       setTimeout(() => {
         if (isOpen) return;
-        const toast = document.createElement('button');
-        toast.className = 'cmdk-flash hint';
-        toast.type = 'button';
-        toast.textContent = '⌘K · Try the command palette';
-        toast.addEventListener('click', () => { toast.remove(); openPalette(); });
-        document.body.appendChild(toast);
-        requestAnimationFrame(() => toast.classList.add('show'));
-        setTimeout(() => toast.remove(), 9000);
+        flash('⌘K · Try the command palette', true);
         localStorage.setItem(PKL_KEY, '1');
       }, 7000);
     }
