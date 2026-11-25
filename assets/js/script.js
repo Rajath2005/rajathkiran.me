@@ -288,10 +288,17 @@ if (select) {
   select.addEventListener("click", function () { elementToggleFunc(this); });
 }
 
+const resolveFilterValue = (el) => {
+  const attr = el.getAttribute && el.getAttribute("data-filter-value");
+  return (attr || el.innerText || "all").toLowerCase().trim();
+};
+const resolveFilterLabel = (el) =>
+  (el.getAttribute && el.getAttribute("data-filter-label")) || el.innerText.trim();
+
 selectItems.forEach(item => {
   item.addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase().trim();
-    if (selectValue) selectValue.innerText = this.innerText.trim();
+    let selectedValue = resolveFilterValue(this);
+    if (selectValue) selectValue.innerText = resolveFilterLabel(this);
     elementToggleFunc(select);
     filterFunc(selectedValue);
   });
@@ -314,8 +321,8 @@ let lastClickedBtn = filterBtn.length > 0 ? filterBtn[0] : null;
 
 filterBtn.forEach(btn => {
   btn.addEventListener("click", function () {
-    let selectedValue = this.innerText.toLowerCase().trim();
-    if (selectValue) selectValue.innerText = this.innerText.trim();
+    let selectedValue = resolveFilterValue(this);
+    if (selectValue) selectValue.innerText = resolveFilterLabel(this);
     filterFunc(selectedValue);
 
     if (lastClickedBtn) lastClickedBtn.classList.remove("active");

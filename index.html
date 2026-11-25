@@ -53,7 +53,8 @@
   <link rel="stylesheet" href="./assets/css/style.min.css?v=1.2">
   <link rel="preload" href="./assets/css/os-intelligence.css?v=1.2" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="./assets/css/os-intelligence.css?v=1.2"></noscript>
-  <link rel="stylesheet" href="./assets/css/editorial-craft.css?v=2.5">
+  <link rel="stylesheet" href="./assets/css/editorial-craft.css?v=2.6">
+  <link rel="stylesheet" href="./assets/css/studio-shelf.css?v=1.0">
   <link rel="stylesheet" href="./assets/css/command-palette.css?v=1.0">
   <link rel="stylesheet" href="./assets/css/studio-peel.css?v=1.1">
   <link rel="stylesheet" href="./assets/css/studio-dossier.css?v=1.0">
@@ -1427,23 +1428,23 @@
           <ul class="filter-list">
 
             <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
+              <button class="active" data-filter-btn data-filter-value="all" data-filter-label="All">All</button>
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Web Design</button>
+              <button data-filter-btn data-filter-value="ai-ml" data-filter-label="AI &amp; ML">AI &amp; ML</button>
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Application</button>
+              <button data-filter-btn data-filter-value="full-stack" data-filter-label="Full-Stack">Full-Stack</button>
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Web Development</button>
+              <button data-filter-btn data-filter-value="cloud" data-filter-label="Cloud">Cloud</button>
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Cloud</button>
+              <button data-filter-btn data-filter-value="web-design" data-filter-label="Web Design">Web Design</button>
             </li>
 
           </ul>
@@ -1463,23 +1464,23 @@
             <ul class="select-list">
 
               <li class="select-item">
-                <button data-select-item>All</button>
+                <button data-select-item data-filter-value="all">All</button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Web Design</button>
+                <button data-select-item data-filter-value="ai-ml" data-filter-label="AI &amp; ML">AI &amp; ML</button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Application</button>
+                <button data-select-item data-filter-value="full-stack" data-filter-label="Full-Stack">Full-Stack</button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Web Development</button>
+                <button data-select-item data-filter-value="cloud" data-filter-label="Cloud">Cloud</button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Cloud</button>
+                <button data-select-item data-filter-value="web-design" data-filter-label="Web Design">Web Design</button>
               </li>
 
             </ul>
@@ -1488,10 +1489,10 @@
 
           <ul class="project-list">
             <!-- Shramik-Nyay -->
-            <li class="project-item active" data-filter-item data-category="application">
+            <li class="project-item active" data-filter-item data-category="ai-ml" data-flagship="shramik">
               <a href="https://shramik.rajathkiran.me/" data-project-url="https://shramik.rajathkiran.me/"
                 data-embeddable="false">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/Shramik-Nyay-demo.png"
                     alt="Shramik-Nyay voice AI wage claim assistant demo" loading="lazy" width="622" height="728">
                   <div class="project-overlay">
@@ -1502,34 +1503,13 @@
                   <h3 class="project-title">Shramik-Nyay</h3>
                   <p class="project-category">Application • Civic Tech &amp; Voice AI</p>
                   <p class="project-desc">Voice-first wage-claim assistant for India's unorganized workers, with multilingual intake, wage-rule checks, and generated Form A and JSON drafts.</p>
-                  <img class="project-secondary-image" src="assets/images/Shramik-Nyay-app.png"
-                    alt="Shramik-Nyay worker voice intake interface" loading="lazy" width="1622" height="768">
-                </div>
-              </a>
-              <a class="project-source-link" href="https://github.com/Rajath2005/Shramik-Nyay"
-                target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a>
-            </li>
-            <!-- GitHub Profile -->
-            <li class="project-item active" data-filter-item data-category="web development">
-              <a href="https://github.com/Rajath2005" data-project-url="https://github.com/Rajath2005"
-                data-embeddable="false">
-                <div class="project-img-wrapper" data-tilt>
-                  <img src="assets/images/Github-Profile.webp" alt="GitHub Profile" loading="lazy" width="400" height="250">
-                  <div class="project-overlay">
-                    <ion-icon name="arrow-forward-circle-outline"></ion-icon>
-                  </div>
-                </div>
-                <div class="project-content">
-                  <h3 class="project-title">GitHub Profile</h3>
-                  <p class="project-category">Profile • Open Source</p>
-                  <p class="project-desc">Explore my repositories, contributions, and open-source work.</p>
                 </div>
               </a>
             </li>
             <!-- COPD DETECTION -->
-            <li class="project-item active" data-filter-item data-category="application">
+            <li class="project-item active" data-filter-item data-category="ai-ml">
               <a href="copd-detection.html" data-project-url="copd-detection.html" data-embeddable="false">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/COPD-Project.webp" alt="COPD Detection" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1543,9 +1523,9 @@
               </a>
             </li>
             <!-- MediQ -->
-            <li class="project-item active" data-filter-item data-category="application">
+            <li class="project-item active" data-filter-item data-category="full-stack">
               <a href="mediq.html" data-project-url="mediq.html" data-embeddable="false">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/Mediq.webp" alt="MediQ - Ayurvedic Health" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1559,9 +1539,9 @@
               </a>
             </li>
             <!-- AyuDost AI -->
-            <li class="project-item active" data-filter-item data-category="application">
+            <li class="project-item active" data-filter-item data-category="ai-ml">
               <a href="ayudost.html" data-project-url="ayudost.html" data-embeddable="false">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/AyuDost-AI.webp" alt="AyuDost AI" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1578,7 +1558,7 @@
             <li class="project-item active" data-filter-item data-category="cloud">
               <a href="http://cloud.rajathkiran.me/" data-project-url="http://cloud.rajathkiran.me/"
                 data-embeddable="false">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/load-balancer.webp" alt="Cloud Load Balancing" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1593,10 +1573,10 @@
               </a>
             </li>
             <!-- Sitexar -->
-            <li class="project-item active" data-filter-item data-category="web development">
+            <li class="project-item active" data-filter-item data-category="full-stack">
               <a href="https://sitexar.netlify.app/" data-project-url="https://sitexar.netlify.app/"
                 data-embeddable="true">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/Sitexar.webp" alt="Sitexar" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1610,9 +1590,9 @@
               </a>
             </li>
             <!-- IEEE Web Design -->
-            <li class="project-item active" data-filter-item data-category="web design">
+            <li class="project-item active" data-filter-item data-category="web-design">
               <a href="https://www.figma.com/community/file/1632301825171230889" target="_blank" rel="noopener noreferrer">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="./assets/images/IEEE-WebDesign.webp" alt="IEEE Web Design" loading="lazy" width="400"
                     height="250">
                   <div class="project-overlay">
@@ -1627,10 +1607,10 @@
               </a>
             </li>
             <!-- Code Review Env -->
-            <li class="project-item active" data-filter-item data-category="web development">
+            <li class="project-item active" data-filter-item data-category="ai-ml">
               <a href="https://huggingface.co/spaces/BugHunter28/code-review-env"
                 data-project-url="https://huggingface.co/spaces/BugHunter28/code-review-env" data-embeddable="true">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/Code-Review.webp" alt="Code Review Env" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1647,7 +1627,7 @@
             <li class="project-item active" data-filter-item data-category="cloud">
               <a href="http://cloud.rajathkiran.me/" data-project-url="http://cloud.rajathkiran.me/"
                 data-embeddable="false">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/gke.webp" alt="GKE Microservices" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1662,10 +1642,10 @@
               </a>
             </li>
             <!-- Smart City Guide -->
-            <li class="project-item active" data-filter-item data-category="web development">
+            <li class="project-item active" data-filter-item data-category="full-stack">
               <a href="https://github.com/Rajath2005/SmartCityApp"
                 data-project-url="https://github.com/Rajath2005/SmartCityApp" data-embeddable="false">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/Smart-City.webp" alt="Smart City Guide" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1683,7 +1663,7 @@
             <li class="project-item active" data-filter-item data-category="cloud">
               <a href="http://cloud.rajathkiran.me/" data-project-url="http://cloud.rajathkiran.me/"
                 data-embeddable="false">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/pubsub.webp" alt="Event-Driven Pub/Sub" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1698,9 +1678,9 @@
               </a>
             </li>
             <!-- TextUtils -->
-            <li class="project-item active" data-filter-item data-category="web development">
+            <li class="project-item active" data-filter-item data-category="full-stack">
               <a href="https://github.com/Rajath2005/TextUtils" target="_blank" rel="noopener noreferrer">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/project-8.webp" alt="TextUtils" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1716,7 +1696,7 @@
             <!-- Cloud: Spanner -->
             <li class="project-item active" data-filter-item data-category="cloud">
               <a href="http://cloud.rajathkiran.me/" target="_blank" rel="noopener noreferrer">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/spanner.webp" alt="Cloud Spanner" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1732,7 +1712,7 @@
             <!-- Cloud: Monitoring -->
             <li class="project-item active" data-filter-item data-category="cloud">
               <a href="http://cloud.rajathkiran.me/" target="_blank" rel="noopener noreferrer">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/monitoring.webp" alt="Cloud Monitoring" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1746,9 +1726,9 @@
               </a>
             </li>
             <!-- Puttur Bus -->
-            <li class="project-item active" data-filter-item data-category="web development">
+            <li class="project-item active" data-filter-item data-category="full-stack">
               <a href="https://putturbus.netlify.app/" target="_blank" rel="noopener noreferrer">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="assets/images/Puttur-Bus.webp" alt="Puttur Bus" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1762,9 +1742,9 @@
               </a>
             </li>
             <!-- Englisho -->
-            <li class="project-item active" data-filter-item data-category="web development">
+            <li class="project-item active" data-filter-item data-category="full-stack">
               <a href="https://englisho.netlify.app/" target="_blank" rel="noopener noreferrer">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="./assets/images/project-2.webp" alt="Englisho" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1778,9 +1758,9 @@
               </a>
             </li>
             <!-- Placement Prep -->
-            <li class="project-item active" data-filter-item data-category="web development">
+            <li class="project-item active" data-filter-item data-category="full-stack">
               <a href="https://placement-bug.netlify.app/" target="_blank" rel="noopener noreferrer">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="./assets/images/Placement-Prep.webp" alt="Placement Prep" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
                     <ion-icon name="arrow-forward-circle-outline"></ion-icon>
@@ -1795,9 +1775,9 @@
             </li>
 
             <!-- Digital Menu -->
-            <li class="project-item active" data-filter-item data-category="web development">
+            <li class="project-item active" data-filter-item data-category="full-stack">
               <a href="https://rajath2005.github.io/hotel-menu.io/" target="_blank" rel="noopener noreferrer">
-                <div class="project-img-wrapper" data-tilt>
+                <div class="project-img-wrapper">
                   <img src="https://res.cloudinary.com/dacpbywfp/image/upload/v1760495142/Preview_xvsefs.png"
                     alt="Digital Menu" loading="lazy" width="400" height="250">
                   <div class="project-overlay">
@@ -2142,15 +2122,16 @@
   <!--
     - custom js link
   -->
-  <script src="./assets/js/script.js?v=1.3" type="module"></script>
+  <script src="./assets/js/script.js?v=1.4" type="module"></script>
   <script src="./assets/js/three-background.js" type="module"></script>
   <script src="./assets/js/animations.js?v=1.2" type="module"></script>
   <script src="./assets/js/os-intelligence.js" type="module"></script>
-  <script src="./assets/js/editorial-craft.js?v=2.5" type="module"></script>
+  <script src="./assets/js/editorial-craft.js?v=2.6" type="module"></script>
   <script src="./assets/js/command-palette.js?v=1.2" type="module"></script>
   <script src="./assets/js/studio-peel.js?v=1.2" defer></script>
   <script src="./assets/js/studio-dossier.js?v=1.0" defer></script>
   <script src="./assets/js/hero-pills.js?v=1.1" defer></script>
+  <script src="./assets/js/studio-shelf.js?v=1.0" defer></script>
 
   <!--
     - ionicon link

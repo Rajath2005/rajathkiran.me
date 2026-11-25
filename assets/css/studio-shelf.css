@@ -1,0 +1,212 @@
+/**
+ * STUDIO SHELF v1.0 (studio-shelf.css)
+ * 2-Column Tactile "Studio Shelf" for the Curated Projects tab.
+ * Uniform neo-brutalist sheets over the existing 16:10 browser-chrome frames.
+ * All color/spacing driven by the shared editorial tokens (light & dark).
+ */
+
+/* --- Filter pills: label + live count (spring glider keeps its motion) --- */
+section.projects .filter-list {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+.filter-select-box {
+  display: none !important;
+}
+
+.filter-item button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  min-height: 38px;
+}
+
+.filter-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 21px;
+  padding: 1px 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+}
+
+.filter-item button.active .filter-count {
+  color: var(--accent-pill-text);
+  background: var(--surface-card);
+  border-color: var(--border-strong);
+}
+
+/* --- Frame category badge: replaces the chrome address pill --- */
+section.projects .project-img-wrapper:not([data-frame-badge])::after {
+  display: none;
+}
+
+section.projects .project-img-wrapper[data-frame-badge]::after {
+  content: attr(data-frame-badge);
+  position: absolute;
+  top: 4px;
+  left: auto;
+  right: 10px;
+  width: auto;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+}
+
+/* --- Reserve the card: no template arrow overlay, no source-link chip --- */
+section.projects .project-overlay {
+  display: none !important;
+}
+
+section.projects .project-source-link {
+  display: none !important;
+}
+
+/* --- Pinned card footer: Case Study + external action, one hairline above --- */
+section.projects .project-foot {
+  display: flex !important;
+  align-items: stretch !important;
+  margin-top: auto !important;
+  border-top: 1px solid var(--border-subtle);
+  border-radius: 0 0 21px 21px;
+  overflow: hidden;
+  background: var(--surface-card);
+}
+
+.shelf-cs-btn {
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 16px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: var(--ink-primary);
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.shelf-cs-btn:hover,
+.shelf-cs-btn:focus-visible {
+  background: var(--accent-pill-bg);
+  color: var(--accent-pill-text);
+}
+
+.shelf-cs-btn:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: -2px;
+}
+
+.shelf-cs-btn .shelf-arrow {
+  font-family: 'JetBrains Mono', monospace;
+  transition: transform 0.18s ease;
+}
+
+.shelf-cs-btn:hover .shelf-arrow {
+  transform: translateX(3px);
+}
+
+.shelf-ext-link {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-purple);
+  background: transparent;
+  border: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+.shelf-ext-link:hover,
+.shelf-ext-link:focus-visible {
+  color: var(--ink-primary);
+  background: var(--surface-subtle);
+}
+
+.shelf-ext-link:focus-visible {
+  outline: 2px solid var(--accent-purple);
+  outline-offset: -2px;
+}
+
+/* --- Masking tape: #1 flagship only --- */
+section.projects .project-item[data-flagship]::before {
+  content: '';
+  position: absolute;
+  z-index: 6;
+  top: -10px;
+  left: 50%;
+  width: 132px;
+  height: 25px;
+  transform: translateX(-50%) rotate(-3.5deg);
+  background: var(--tape-bg);
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  box-shadow: 0 2px 5px rgba(20, 20, 22, 0.14);
+  pointer-events: none;
+}
+
+/* --- Responsive: 1-column below 760px, calmer chrome --- */
+@media (max-width: 760px) {
+  section.projects .project-foot {
+    border-radius: 0 0 19px 19px;
+  }
+
+  .shelf-cs-btn {
+    padding: 0 12px;
+  }
+
+  .shelf-ext-link {
+    padding: 0 12px;
+  }
+}
+
+/* --- Reduced motion: no lift, no zoom --- */
+@media (prefers-reduced-motion: reduce) {
+
+  section.projects .project-item,
+  section.projects .project-item:hover,
+  section.projects .project-item:focus-within {
+    transition: none;
+    transform: none !important;
+  }
+
+  section.projects .project-img-wrapper img {
+    transition: none;
+    transform: none !important;
+  }
+
+  .shelf-cs-btn .shelf-arrow {
+    transition: none;
+    transform: none;
+  }
+}

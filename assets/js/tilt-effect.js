@@ -53,7 +53,7 @@ export const initTiltEffect = () => {
   }
 
   const cards = document.querySelectorAll(
-    '.service-item, .content-card, .coding-profile-item, .project-item, .timeline-content, .certificate-item'
+    '.service-item, .content-card, .coding-profile-item, .timeline-content, .certificate-item'
   );
 
   cards.forEach((card) => {

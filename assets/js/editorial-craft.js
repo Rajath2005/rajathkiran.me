@@ -49,15 +49,12 @@ export function initEditorialCraft() {
   enhanceHeroAndProofBento();
   mountHeroBuilderDeck();
   decorateHeroProjectBadges();
-  numberProjectCaseStudies();
   upgradeProjectFallbackToCaseStudy();
-  initStickyStackDepthEffect();
   initCopyEmailAndLiveClock();
   injectHandwrittenFooter();
   upgradeResumeToExecutiveDossier();
   initSpringSlidingPills();
   initMagneticButtons();
-  initProjectCardSpecFlip();
 }
 
 // ============================================================================
@@ -266,6 +263,8 @@ function initGurjotCursor() {
 
     // Projects page
     { selector: '.project-item > a', label: 'View case study ↗' },
+    { selector: '.shelf-cs-btn', label: 'Open case study' },
+    { selector: '.shelf-ext-link', label: 'Open ↗' },
     { selector: '.filter-item button', label: 'Filter' },
 
     // Resume page
