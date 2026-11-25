@@ -432,6 +432,34 @@ body[data-theme="dark"] #bg-canvas {
   color: var(--accent-pill-text) !important;
   font-weight: 700 !important;
 }
+/* ----------------------------------------------------------------------------
+   Archive CTA (studio archive contact-sheet link)
+---------------------------------------------------------------------------- */
+.archive-cta {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.archive-cta-link {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  text-decoration: none;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 999px;
+  padding: 10px 20px;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.archive-cta-link:hover {
+  color: var(--accent-purple);
+  border-color: var(--accent-purple);
+  transform: translateX(2px);
+}
 
 /* ============================================================================
    5. SIDEBAR & CONTACT LABELS FIX (Fixes Washed-Out EMAIL / LOCATION / RESUME Labels!)

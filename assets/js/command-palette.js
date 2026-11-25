@@ -76,6 +76,11 @@
       run: () => window.open('https://github.com/Rajath2005', '_blank')
     },
     {
+      group: 'Actions', icon: 'albums', label: 'Open the Studio Archive', hint: '28 frames',
+      keywords: 'archive contact sheet all projects every build full list studio frames',
+      run: () => window.location.assign('archive.html')
+    },
+    {
       group: 'Actions', icon: 'logo-linkedin', label: 'Open LinkedIn', hint: '@rajath-kiran',
       keywords: 'linkedin network connect profile',
       run: () => window.open('https://www.linkedin.com/in/rajath-kiran/', '_blank')
@@ -98,11 +103,6 @@
           setTimeout(() => document.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true })), i * 40);
         });
       }
-    },
-    {
-      group: 'Actions', icon: 'navigate', label: 'Take the 60-second tour', hint: 'red pen',
-      keywords: 'tour walkthrough guide red pen recruiter start intro Hutch',
-      run: () => window.dispatchEvent(new CustomEvent('rk:redpen-tour'))
     },
     {
       group: 'Actions', icon: 'share-social', label: 'Share this portfolio', hint: 'link',
