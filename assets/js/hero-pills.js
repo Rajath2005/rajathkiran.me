@@ -159,14 +159,32 @@
     }
   }
 
+  const TAB_ANCHORS = {
+    projects: 'work',
+    work: 'work',
+    contact: 'contact',
+    blog: 'writing',
+    writing: 'writing',
+    resume: 'experience',
+    experience: 'experience'
+  };
+
   function goToTab(label) {
-    window.scrollTo(0, 0);
     const links = Array.from(document.querySelectorAll('[data-nav-link]'));
     const target = links.find(
       (el) => (el.textContent || '').trim().toLowerCase() === label.toLowerCase()
     );
-    if (target) target.click();
-    window.scrollTo(0, 0);
+    if (target) {
+      target.click();
+      window.scrollTo(0, 0);
+      return;
+    }
+    const anchorId = TAB_ANCHORS[label.toLowerCase()];
+    const section = anchorId ? document.getElementById(anchorId) : null;
+    if (section) {
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      section.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+    }
   }
 
   /* ---------- Boot ---------- */
@@ -178,7 +196,9 @@
     const touch = document.querySelector('[data-hero-contact]');
     if (touch) touch.addEventListener('click', () => goToTab('Contact'));
     const copyBtn = document.querySelector('.hero-pill-copy');
-    if (copyBtn) copyBtn.addEventListener('click', () => copyEmail(copyBtn));
+    if (copyBtn && !copyBtn.hasAttribute('data-v3-copy-email')) {
+      copyBtn.addEventListener('click', () => copyEmail(copyBtn));
+    }
   }
 
   if (document.readyState === 'loading') {

@@ -529,7 +529,12 @@
       const links = Array.from(document.querySelectorAll('[data-nav-link]'));
       const contact = links.find((el) => (el.textContent || '').trim().toLowerCase() === 'contact')
         || links[links.length - 1];
-      if (contact) contact.click();
+      if (contact) {
+        contact.click();
+        return;
+      }
+      const section = document.getElementById('contact');
+      if (section) section.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
     }, reduced ? 260 : 540);
   }
 
@@ -675,6 +680,9 @@
     buildDesk();
     desk.querySelectorAll('.desk-artifact').forEach(makeDraggable);
     document.addEventListener('keydown', onKeydown);
+    window.__rkStudioDeskOpen = openDesk;
+    window.__rkStudioDeskClose = closeDesk;
+    window.__rkStudioDeskIsOpen = () => isOpen;
   }
 
   if (document.readyState === 'loading') {
